@@ -1,12 +1,9 @@
-import { Navigation } from "@/components/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Target, Eye, Users, Globe, Award, BookOpen } from "lucide-react"
-import { Footer } from "@/components/footer"
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
       <main>
         {/* Hero Section */}
         <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -271,7 +268,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }

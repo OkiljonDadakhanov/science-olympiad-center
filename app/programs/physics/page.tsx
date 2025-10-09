@@ -1,5 +1,4 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -8,7 +7,7 @@ import { Atom, Zap, Thermometer, Waves, Telescope, Users, Clock, Trophy, BookOpe
 export default function PhysicsProgramPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-green-50">
-      <Navigation />
+     
 
       <main className="pt-20">
         {/* Hero Section */}
@@ -393,7 +392,7 @@ export default function PhysicsProgramPage() {
         </section>
       </main>
 
-      <Footer />
+     
     </div>
   )
 }

@@ -1,5 +1,4 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -121,7 +120,6 @@ const internationalOlympiads = [
 export default function InternationalOlympiadsPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
       <main>
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-indigo-500/10">
@@ -537,7 +535,6 @@ export default function InternationalOlympiadsPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }

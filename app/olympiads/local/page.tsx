@@ -1,5 +1,4 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -141,7 +140,7 @@ const upcomingEvents = [
 export default function LocalOlympiadsPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
+     
       <main>
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-green-500/10 via-teal-500/5 to-emerald-500/10">
@@ -511,7 +510,7 @@ export default function LocalOlympiadsPage() {
           </div>
         </section>
       </main>
-      <Footer />
+    
     </div>
   )
 }

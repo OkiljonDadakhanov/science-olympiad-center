@@ -1,12 +1,12 @@
-import { Navigation } from "@/components/navigation"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Target, Eye, Lightbulb, Users } from "lucide-react"
-import { Footer } from "@/components/footer"
+
 
 export default function MissionVisionPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
+ 
       <main>
         {/* Hero Section */}
         <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -208,7 +208,7 @@ export default function MissionVisionPage() {
           </div>
         </section>
       </main>
-      <Footer />
+    
     </div>
   )
 }

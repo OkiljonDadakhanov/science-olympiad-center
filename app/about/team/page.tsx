@@ -1,5 +1,4 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -86,7 +85,7 @@ const faculty = [
 export default function TeamPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
+    
       <main>
         {/* Hero Section */}
         <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -257,7 +256,7 @@ export default function TeamPage() {
           </div>
         </section>
       </main>
-      <Footer />
+     
     </div>
   )
 }

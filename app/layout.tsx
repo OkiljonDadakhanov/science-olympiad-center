@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 import { Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { ClientLayout } from "./client-layout"
+import { Navigation } from "@/components/navigation"
+import Footer from "@/components/footer"
 
 
 
@@ -24,7 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${playfair.variable}`}>
-        <ClientLayout>{children}</ClientLayout>
+        <ClientLayout>
+          <Navigation />
+          {children}
+          <Footer />
+          </ClientLayout>
       </body>
     </html>
   )

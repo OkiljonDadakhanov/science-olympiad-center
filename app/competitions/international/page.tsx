@@ -1,5 +1,4 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -8,7 +7,7 @@ import { Globe, Trophy, Users, MapPin, Calendar, Star } from "lucide-react"
 export default function InternationalCompetitionsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      <Navigation />
+     
 
       <main className="pt-20">
         {/* Hero Section */}
@@ -334,7 +333,7 @@ export default function InternationalCompetitionsPage() {
         </section>
       </main>
 
-      <Footer />
+     
     </div>
   )
 }

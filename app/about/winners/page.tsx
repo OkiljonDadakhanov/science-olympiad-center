@@ -1,5 +1,4 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -97,7 +96,7 @@ const getPlaceColor = (place: string) => {
 export default function WinnersPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
+   
       <main>
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -211,7 +210,7 @@ export default function WinnersPage() {
           </div>
         </section>
       </main>
-      <Footer />
+
     </div>
   )
 }

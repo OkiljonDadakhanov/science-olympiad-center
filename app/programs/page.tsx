@@ -1,10 +1,8 @@
-import { Navigation } from "@/components/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Calculator, Atom, Microscope, Code, Zap, ArrowRight, Clock, Users, Award, BookOpen } from "lucide-react"
 import Link from "next/link"
-import Footer from "@/components/footer"
 
 const programs = [
   {
@@ -82,7 +80,6 @@ const programs = [
 export default function ProgramsPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
       <main>
         {/* Hero Section */}
         <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -232,7 +229,6 @@ export default function ProgramsPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }

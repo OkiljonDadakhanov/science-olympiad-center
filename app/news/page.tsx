@@ -1,10 +1,8 @@
-import { Navigation } from "@/components/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Clock, User, ArrowRight, Eye, Share2 } from "lucide-react"
 import Link from "next/link"
-import { Footer } from "@/components/footer"
 
 const newsArticles = [
   {
@@ -104,7 +102,6 @@ const categories = ["All", "Achievement", "Program", "Facility", "Student Story"
 export default function NewsPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
       <main>
         {/* Hero Section */}
         <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -254,7 +251,6 @@ export default function NewsPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   )
 }

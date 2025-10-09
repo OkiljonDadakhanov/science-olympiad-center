@@ -1,5 +1,4 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Calendar, Users, Trophy, Clock, FileText } from "lucide-react"
@@ -7,7 +6,7 @@ import { Calendar, Users, Trophy, Clock, FileText } from "lucide-react"
 export default function NationalOlympiadsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      <Navigation />
+    
 
       <main className="pt-20">
         {/* Hero Section */}
@@ -257,7 +256,7 @@ export default function NationalOlympiadsPage() {
         </section>
       </main>
 
-      <Footer />
+ 
     </div>
   )
 }

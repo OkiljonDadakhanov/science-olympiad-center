@@ -1,10 +1,10 @@
-import { Navigation } from "@/components/navigation"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Clock, MapPin, Users, ArrowRight, Bell, ExternalLink } from "lucide-react"
 import Link from "next/link"
-import { Footer } from "@/components/footer"
+
 
 const upcomingEvents = [
   {
@@ -126,7 +126,7 @@ const eventCategories = ["All", "Registration", "Workshop", "Exhibition", "Train
 export default function EventsPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
+    
       <main>
         {/* Hero Section */}
         <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -343,7 +343,7 @@ export default function EventsPage() {
           </div>
         </section>
       </main>
-      <Footer />
+
     </div>
   )
 }
