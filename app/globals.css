@@ -75,6 +75,7 @@
   --sidebar-ring: oklch(0.55 0.12 240);
 }
 
+
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -123,4 +124,10 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.container{
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 100%;
 }
