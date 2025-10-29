@@ -4,7 +4,7 @@ import { Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { ClientLayout } from "./client-layout"
 // import { Navigation } from "@/components/navigation"
-import Footer from "@/components/footer"
+// import Footer from "@/components/footer"
 
 
 
@@ -29,7 +29,7 @@ export default function RootLayout({
         <ClientLayout>
           {/* <Navigation /> */}
           {children}
-          <Footer />
+          {/* <Footer /> */}
           </ClientLayout>
       </body>
     </html>
