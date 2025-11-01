@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
@@ -7,20 +9,23 @@ export default function OrganizationPage() {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Information about the Educational Organization</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              Information about the Educational Organization
+            </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Comprehensive information about the Science Olympiad Center structure and operations
+              Comprehensive information about the Science Olympiad Center’s structure and operations
             </p>
           </div>
 
           <div className="space-y-8">
+            {/* General Information */}
             <Card className="border-0 shadow-lg">
               <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
                 <CardTitle className="text-2xl">Full Name</CardTitle>
               </CardHeader>
               <CardContent className="p-8">
                 <p className="text-lg text-gray-700">
-                  Science Olympiad Center of Uzbekistan - Educational Foundation "Talent and Success"
+                  Science Olympiad Center under the Agency for Specialized Educational Institutions of the Ministry of Preschool and School Education of the Republic of Uzbekistan
                 </p>
               </CardContent>
             </Card>
@@ -39,68 +44,75 @@ export default function OrganizationPage() {
                 <CardTitle className="text-2xl">Date of Establishment</CardTitle>
               </CardHeader>
               <CardContent className="p-8">
-                <p className="text-lg text-gray-700 mb-4">January 15, 2020</p>
+                <p className="text-lg text-gray-700 mb-4">January 9, 2025</p>
                 <p className="text-gray-600">
-                  The Center was established by the Ministry of Public Education of the Republic of Uzbekistan to
-                  identify and nurture talented students in science olympiads.
+                  The Center was established as a state institution under the Agency for Specialized Educational Institutions of the Ministry of Preschool and School Education in accordance with the Resolution of the Cabinet of Ministers of the Republic of Uzbekistan No. 562 dated September 9, 2021.
                 </p>
               </CardContent>
             </Card>
 
+            {/* Legal Status */}
             <Card className="border-0 shadow-lg">
               <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
                 <CardTitle className="text-2xl">Legal Status</CardTitle>
               </CardHeader>
-              <CardContent className="p-8">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Badge variant="secondary" className="px-3 py-1">
-                      Type
-                    </Badge>
-                    <span className="text-lg text-gray-700">Non-profit Educational Organization</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Badge variant="secondary" className="px-3 py-1">
-                      Status
-                    </Badge>
-                    <span className="text-lg text-gray-700">State Educational Institution</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Badge variant="secondary" className="px-3 py-1">
-                      License
-                    </Badge>
-                    <span className="text-lg text-gray-700">Educational License #ED-2020-001</span>
-                  </div>
+              <CardContent className="p-8 space-y-4">
+                <div className="flex items-center gap-3">
+                  <Badge variant="secondary" className="px-3 py-1">Type</Badge>
+                  <span className="text-lg text-gray-700">State Institution (Non-commercial organization)</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Badge variant="secondary" className="px-3 py-1">System</Badge>
+                  <span className="text-lg text-gray-700">
+                    Operates within the specialized education system under the Agency for Specialized Educational Institutions
+                  </span>
                 </div>
               </CardContent>
             </Card>
 
+            {/* Management and Organizational Structure */}
             <Card className="border-0 shadow-lg">
               <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
-                <CardTitle className="text-2xl">Organizational Structure</CardTitle>
+                <CardTitle className="text-2xl">Management and Organizational Structure</CardTitle>
               </CardHeader>
-              <CardContent className="p-8">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-lg text-gray-800">Governing Bodies</h4>
-                    <ul className="space-y-2 text-gray-600">
-                      <li>• Board of Trustees</li>
-                      <li>• Expert Council</li>
-                      <li>• Academic Council</li>
-                      <li>• Administrative Board</li>
-                    </ul>
-                  </div>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-lg text-gray-800">Departments</h4>
-                    <ul className="space-y-2 text-gray-600">
-                      <li>• Mathematics Department</li>
-                      <li>• Physics Department</li>
-                      <li>• Chemistry Department</li>
-                      <li>• Biology Department</li>
-                      <li>• Computer Science Department</li>
-                    </ul>
-                  </div>
+              <CardContent className="p-8 space-y-6">
+                <div>
+                  <h4 className="font-semibold text-lg text-gray-800">Management</h4>
+                  <ul className="space-y-2 text-gray-600 mt-2">
+                    <li>• <strong>Director:</strong> Shermatov Turaboy Yusupboevich</li>
+                    <li>• <strong>Deputy Director:</strong> Tuxtaev Davron Dilmurot ugli</li>
+                  </ul>
                 </div>
+
+                <div>
+                  <h4 className="font-semibold text-lg text-gray-800">Main Departments and Key Positions</h4>
+                  <ul className="space-y-2 text-gray-600 mt-2">
+                    <li>• Chief Specialist for Human Resources</li>
+                    <li>• Chief Legal Advisor</li>
+                    <li>• Chief Specialist for Organizational Control and Public Inquiries</li>
+                    <li>• Department for Organizing Local Science Olympiads and Competitions</li>
+                    <li>• Department for Preparing, Monitoring, and Organizing Online Olympiad Materials</li>
+                    <li>• Department for Selection and Training of Students for International Olympiads</li>
+                    <li>• Department for Developing Methodological Guidelines, Educational Materials, and Training of Teachers</li>
+                    <li>• Department for Digital Media Resources and Communications</li>
+                    <li>• Accounting Department</li>
+                    <li>• Chief Specialist for Public Procurement and Contract Management</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Contact Information */}
+            <Card className="border-0 shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+                <CardTitle className="text-2xl">Contact Information</CardTitle>
+              </CardHeader>
+              <CardContent className="p-8 space-y-3 text-gray-700">
+                <p><strong>Address:</strong> 52/1 Darvozakent Street, Yunusabad District, Tashkent City, Republic of Uzbekistan</p>
+                <p><strong>Working Hours:</strong> Monday – Friday, from 09:00 to 18:00</p>
+                <p><strong>Telephone:</strong> (+998) __ ___ __ __</p>
+                <p><strong>Official Website:</strong> <a href="https://www.olympiads.uz" className="text-blue-600 hover:underline">www.olympiads.uz</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@olympiads.uz" className="text-blue-600 hover:underline">info@olympiads.uz</a></p>
               </CardContent>
             </Card>
           </div>
