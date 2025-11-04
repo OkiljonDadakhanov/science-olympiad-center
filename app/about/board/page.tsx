@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +11,7 @@ export default function BoardOfTrusteesPage() {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50">
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
+          {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               Board of Trustees
@@ -21,28 +24,28 @@ export default function BoardOfTrusteesPage() {
           </div>
 
           {/* Board Members */}
-          <div className="space-y-6">
+          <div className="space-y-10">
             {boardMembers.map((member, index) => (
-              <Card key={index} className="border-0 shadow-lg">
+              <Card
+                key={index}
+                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden bg-white/90 backdrop-blur-sm"
+              >
                 <CardContent className="p-8">
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="md:w-1/4 flex justify-center md:justify-start">
+                  <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                    <div className="md:w-1/3 flex justify-center">
                       {member.image ? (
-                        <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md bg-gray-100 flex items-center justify-center">
+                        <div className="w-56 h-64 rounded-xl overflow-hidden border-[6px] border-white shadow-2xl bg-gray-100 hover:scale-[1.02] transition-transform duration-300">
                           <Image
                             src={member.image}
                             alt={member.name}
-                            width={128}
-                            height={128}
-                            className="object-cover w-full h-full object-top [transform:rotate(0deg)]"
-                            style={{
-                              objectPosition: "center top",
-                              transform: "rotate(0deg)",
-                            }}
+                            width={224}
+                            height={256}
+                            className="object-cover object-center w-full h-full"
+                            loading="lazy"
                           />
                         </div>
                       ) : (
-                        <div className="w-32 h-32 bg-gradient-to-br from-orange-400 to-blue-500 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+                        <div className="w-56 h-64 bg-gradient-to-br from-orange-400 to-blue-500 rounded-xl flex items-center justify-center text-white text-4xl font-bold shadow-2xl">
                           {member.name
                             .split(" ")
                             .map((n) => n[0])
@@ -51,42 +54,39 @@ export default function BoardOfTrusteesPage() {
                       )}
                     </div>
 
-                    <div className="md:w-3/4">
+                    <div className="md:w-2/3">
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                         <div>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                          <h3 className="text-3xl font-semibold text-gray-900 mb-2">
                             {member.name}
                           </h3>
-                          <Badge variant="secondary" className="mb-3">
+                          <Badge
+                            variant="secondary"
+                            className="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full mb-3"
+                          >
                             {member.position}
                           </Badge>
                         </div>
                       </div>
 
-                      <div className="space-y-3">
+                      <div className="space-y-4 text-gray-700">
                         <div>
-                          <span className="font-semibold text-gray-800">
-                            Background:{" "}
-                          </span>
-                          <span className="text-gray-600">
-                            {member.background}
-                          </span>
+                          <span className="font-semibold text-gray-900">
+                            Background:
+                          </span>{" "}
+                          {member.background}
                         </div>
                         <div>
-                          <span className="font-semibold text-gray-800">
-                            Expertise:{" "}
-                          </span>
-                          <span className="text-gray-600">
-                            {member.expertise}
-                          </span>
+                          <span className="font-semibold text-gray-900">
+                            Expertise:
+                          </span>{" "}
+                          {member.expertise}
                         </div>
                         <div>
-                          <span className="font-semibold text-gray-800">
-                            Experience:{" "}
-                          </span>
-                          <span className="text-gray-600">
-                            {member.experience}
-                          </span>
+                          <span className="font-semibold text-gray-900">
+                            Experience:
+                          </span>{" "}
+                          {member.experience}
                         </div>
                       </div>
                     </div>
@@ -97,32 +97,34 @@ export default function BoardOfTrusteesPage() {
           </div>
 
           {/* Contact Section */}
-          <Card className="border-0 shadow-lg mt-8">
-            <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-              <CardTitle className="text-2xl">Contact the Board</CardTitle>
+          <Card className="border-0 shadow-lg mt-12 rounded-2xl overflow-hidden">
+            <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6">
+              <CardTitle className="text-2xl font-semibold">
+                Contact the Board
+              </CardTitle>
             </CardHeader>
-            <CardContent className="p-8">
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="flex items-center gap-3">
-                  <Mail className="w-6 h-6 text-orange-500" />
+            <CardContent className="p-8 bg-white">
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="flex items-center gap-4">
+                  <Mail className="w-7 h-7 text-orange-500" />
                   <div>
-                    <div className="font-semibold text-gray-800">Email</div>
+                    <div className="font-semibold text-gray-900">Email</div>
                     <div className="text-gray-600">
                       board@scienceolympiad.uz
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-6 h-6 text-orange-500" />
+                <div className="flex items-center gap-4">
+                  <Phone className="w-7 h-7 text-orange-500" />
                   <div>
-                    <div className="font-semibold text-gray-800">Phone</div>
+                    <div className="font-semibold text-gray-900">Phone</div>
                     <div className="text-gray-600">+998 71 123-45-67</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-6 h-6 text-orange-500" />
+                <div className="flex items-center gap-4">
+                  <MapPin className="w-7 h-7 text-orange-500" />
                   <div>
-                    <div className="font-semibold text-gray-800">Address</div>
+                    <div className="font-semibold text-gray-900">Address</div>
                     <div className="text-gray-600">Tashkent, Uzbekistan</div>
                   </div>
                 </div>
