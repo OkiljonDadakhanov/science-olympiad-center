@@ -21,7 +21,7 @@ export const winners = [
     region: "Samarkand",
     school: "School No. 12",
     place: "Silver",
-    image: "/winner-bobur-rahimov.jpg",
+    image: "/team/fayyoz.jpg",
   },
   {
     id: 3,
@@ -33,6 +33,6 @@ export const winners = [
     region: "Namangan",
     school: "School No. 27",
     place: "Gold",
-    image: "/winner-sardor-mirzayev.jpg",
+    image: "/team/fayyoz.jpg",
   },
 ]
