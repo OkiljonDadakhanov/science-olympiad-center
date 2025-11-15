@@ -9,12 +9,12 @@ interface WinnerCardProps {
   winner: {
     id: number
     studentName: string
-    age: number
-    olympiadName: string
-    region: string
-    school: string
-    place: string
-    image: string
+    age?: number
+    olympiadName?: string
+    region?: string
+    school?: string
+    place?: string
+    image?: string
     year?: number
   }
 }
@@ -32,8 +32,8 @@ const placeEmojis: Record<string, string> = {
 }
 
 export default function WinnerCard({ winner }: WinnerCardProps) {
-  const placeStyle = placeStyles[winner.place] || "bg-primary text-white"
-  const medalIcon = placeEmojis[winner.place] || "🏅"
+  const placeStyle = placeStyles[winner.place || ""] || "bg-primary text-white"
+  const medalIcon = placeEmojis[winner.place || ""] || "🏅"
 
   return (
     <Card className="transition-all hover:shadow-lg rounded-xl overflow-hidden">
@@ -55,7 +55,7 @@ export default function WinnerCard({ winner }: WinnerCardProps) {
         {/* Details section */}
         <CardContent className="p-5 flex flex-col justify-center">
           <h3 className="text-xl font-semibold mb-1">{winner.studentName}</h3>
-          <p className="text-sm text-muted-foreground mb-2">Age: {winner.age}</p>
+          <p className="text-sm text-muted-foreground mb-2">Age: {winner.age ?? "—"}</p>
           <p className="text-primary font-medium mb-3">{winner.olympiadName}</p>
 
           <div className="space-y-2 text-sm text-muted-foreground">
@@ -67,11 +67,11 @@ export default function WinnerCard({ winner }: WinnerCardProps) {
             )}
             <div className="flex items-center">
               <School className="h-4 w-4 mr-2 text-primary/80" />
-              {winner.school}
+              {winner.school ?? "—"}
             </div>
             <div className="flex items-center">
               <MapPin className="h-4 w-4 mr-2 text-primary/80" />
-              {winner.region}
+              {winner.region ?? "—"}
             </div>
           </div>
         </CardContent>
