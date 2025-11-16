@@ -55,7 +55,7 @@ export default function WinnerCard({ winner }: WinnerCardProps) {
         {/* Details section */}
         <CardContent className="p-5 flex flex-col justify-center">
           <h3 className="text-xl font-semibold mb-1">{winner.studentName}</h3>
-          <p className="text-sm text-muted-foreground mb-2">Age: {winner.age ?? "—"}</p>
+          <p className="text-sm text-muted-foreground mb-2">Grade: {winner.age ?? "—"}</p>
           <p className="text-primary font-medium mb-3">{winner.olympiadName}</p>
 
           <div className="space-y-2 text-sm text-muted-foreground">

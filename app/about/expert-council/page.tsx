@@ -126,10 +126,22 @@ export default function ExpertCouncilPage() {
 
                         <h3 className="text-xl font-bold text-gray-900">{member.full_name}</h3>
 
-                        <div className="flex gap-2 mt-3">
-                          <Badge variant="secondary">{member.subject}</Badge>
-                          <Badge variant="outline">{member.position}</Badge>
-                        </div>
+                        <div className="flex flex-wrap justify-center gap-2 mt-3">
+  <Badge 
+    variant="secondary"
+    className="max-w-full whitespace-normal break-words px-2 py-1 text-center"
+  >
+    {member.subject}
+  </Badge>
+
+  <Badge 
+    variant="outline"
+    className="max-w-full whitespace-normal break-words px-2 py-1 text-center"
+  >
+    {member.position}
+  </Badge>
+</div>
+
 
                         <div className="mt-4 text-gray-600 text-sm space-y-1">
                           <p>
