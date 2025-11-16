@@ -12,6 +12,13 @@ export function useWinners() {
 
   const [nextUrl, setNextUrl] = useState<string | null>(null)
   const [prevUrl, setPrevUrl] = useState<string | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(0)
+  const [totalCount, setTotalCount] = useState(0)
+
+  // Extract available years from all fetched data
+  const [allYears, setAllYears] = useState<number[]>([])
+  const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
 
   async function fetchData(url?: string) {
     try {
@@ -20,13 +27,15 @@ export function useWinners() {
 
       const data = await getWinners(url)
 
-      // Map API snake_case fields to the UI shape expected by components
+      // Map API snake_case fields to the UI shape
       const mapped = (data.results || []).map((w: ApiWinner) => ({
         id: w.id,
         studentName: w.student_name || w.competition_name || "Unknown",
-        age: w.class_number ?? undefined,
+        // class_number represents the student's grade (class) in school
+        grade: w.class_number ?? undefined,
         olympiadType: w.olympiad_type || undefined,
         olympiadName: w.competition_name || undefined,
+        subject: w.subject || undefined,
         year: w.academic_year ? Number(w.academic_year) : undefined,
         region: w.region || undefined,
         school: w.school || undefined,
@@ -37,8 +46,45 @@ export function useWinners() {
       setWinners(mapped)
       setNextUrl(data.next)
       setPrevUrl(data.previous)
+      setTotalCount(data.count || 0)
+
+      // Calculate current page from URL
+      if (url) {
+        const urlObj = new URL(url)
+        const pageParam = urlObj.searchParams.get("page")
+        setCurrentPage(pageParam ? parseInt(pageParam) : 1)
+      } else {
+        setCurrentPage(1)
+      }
+
+      // Calculate total pages (assuming default page size of 10)
+      const pageSize = 10
+      setTotalPages(Math.ceil((data.count || 0) / pageSize))
+
+      // Collect years for filter
+      const years = mapped
+        .map((w) => w.year)
+        .filter((y): y is number => y !== undefined)
+      
+      setAllYears((prev) => {
+        const combined = [...new Set([...prev, ...years])]
+        return combined.sort((a, b) => b - a)
+      })
+
+      // Collect subjects for filter
+      const subjects = mapped
+        .map((w) => w.subject)
+        .filter((s): s is string => !!s)
+
+      // store unique subjects
+      setAvailableSubjects((prev: string[]) => {
+        const combined = [...new Set([...(prev || []), ...subjects])]
+        return combined.sort()
+      })
+
     } catch (err: any) {
-      setError(err.message)
+      setError(err.message || "Failed to load winners")
+      setWinners([])
     } finally {
       setLoading(false)
     }
@@ -48,10 +94,6 @@ export function useWinners() {
     fetchData()
   }, [])
 
-  const availableYears = Array.from(
-    new Set(winners.map((w) => Number(w.academic_year)))
-  ).sort((a, b) => b - a)
-
   return {
     winners,
     loading,
@@ -59,6 +101,10 @@ export function useWinners() {
     fetchData,
     nextUrl,
     prevUrl,
-    availableYears,
+    currentPage,
+    totalPages,
+    totalCount,
+    availableYears: allYears,
+    availableSubjects,
   }
 }

@@ -1,7 +1,7 @@
 // lib/api-winners.ts
 import { WinnersResponse } from "@/types/winners"
 
-const BASE_URL = "https://api.olympcenter.uz/api/winners/";
+export const BASE_URL = "https://api.olympcenter.uz/api/winners/"
 
 export async function getWinners(url: string = BASE_URL): Promise<WinnersResponse> {
   const res = await fetch(url, { cache: "no-store" });

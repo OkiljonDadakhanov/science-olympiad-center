@@ -4,11 +4,11 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, School } from "lucide-react"
 
-interface WinnerCardProps {
+interface WinnerProps {
   winner: {
     id: number
     studentName: string
-    age?: number
+    grade?: number
     olympiadName?: string
     region?: string
     school?: string
@@ -19,9 +19,9 @@ interface WinnerCardProps {
 }
 
 const placeStyles: Record<string, string> = {
-  Gold: "bg-gradient-to-r from-yellow-400 to-amber-500 text-white shadow-md",
-  Silver: "bg-gradient-to-r from-gray-400 to-slate-500 text-white shadow-md",
-  Bronze: "bg-gradient-to-r from-amber-700 to-orange-600 text-white shadow-md",
+  Gold: "bg-gradient-to-r from-yellow-400 to-amber-500 text-white border-none shadow-md",
+  Silver: "bg-gradient-to-r from-gray-300 to-slate-500 text-white border-none shadow-md",
+  Bronze: "bg-gradient-to-r from-amber-700 to-orange-600 text-white border-none shadow-md",
 }
 
 const placeEmojis: Record<string, string> = {
@@ -30,48 +30,64 @@ const placeEmojis: Record<string, string> = {
   Bronze: "🥉",
 }
 
-export default function WinnerCard({ winner }: WinnerCardProps) {
-  const placeStyle = placeStyles[winner.place || ""] || "bg-primary text-white"
-  const medalIcon = placeEmojis[winner.place || ""] || "🏅"
+export default function WinnerCard({ winner }: WinnerProps) {
+  const normalizePlace = (p?: string) => {
+    if (!p) return ""
+    const map: Record<string, string> = {
+      Oltin: "Gold",
+      Kumush: "Silver",
+      Bronza: "Bronze",
+      Gold: "Gold",
+      Silver: "Silver",
+      Bronze: "Bronze",
+    }
+    return map[p] ?? p
+  }
+
+  const norm = normalizePlace(winner.place)
+  const placeStyle = placeStyles[norm || ""] || "bg-primary text-white"
+  const medalIcon = placeEmojis[norm || ""] || "🏅"
 
   return (
-    <Card className="transition-all hover:shadow-xl rounded-2xl overflow-hidden border border-gray-100">
-      <div className="grid md:grid-cols-[180px_1fr] gap-0">
+    <Card className="transition-all hover:shadow-xl hover:-translate-y-1 rounded-2xl overflow-hidden border border-gray-100">
+      <div className="grid md:grid-cols-[180px_1fr]">
 
-        {/* Image */}
-        <div className="relative">
+        {/* ─── IMAGE ───────────────────────────────────────────── */}
+        <div className="relative aspect-square overflow-hidden">
           <img
             src={winner.image}
             alt={winner.studentName}
-            className="object-cover w-full h-full aspect-square rounded-l-2xl"
+            className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
           />
 
-          {/* Soft bottom gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-
-          {/* Medal moved to bottom-right */}
+          {/* Medal → bottom-left */}
           <Badge
-            className={`absolute bottom-3 right-3 px-3 py-1 text-sm font-semibold rounded-full ${placeStyle}`}
+            className={`absolute bottom-3 left-3 px-3 py-1.5 text-sm font-semibold rounded-full flex items-center gap-2 shadow-lg ${placeStyle}`}
           >
             {medalIcon} {winner.place}
           </Badge>
+
+          {/* Subtle top gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-transparent pointer-events-none" />
         </div>
 
-        {/* Details */}
-        <CardContent className="p-6 flex flex-col justify-center">
-          <h3 className="text-xl font-semibold text-gray-900 mb-1 leading-tight">
+        {/* ─── CONTENT ─────────────────────────────────────────── */}
+        <CardContent className="p-6 flex flex-col justify-center space-y-3">
+          <h3 className="text-xl font-bold text-gray-900 leading-tight">
             {winner.studentName}
           </h3>
 
-          <p className="text-sm text-gray-500 mb-2">
-            Grade: <span className="font-medium text-gray-700">{winner.age ?? "—"}</span>
+          <p className="text-sm text-gray-500">
+            Grade: <span className="font-medium text-gray-700">{winner.grade ?? "—"}</span>
           </p>
 
-          <p className="text-primary font-medium mb-4">
-            {winner.olympiadName}
-          </p>
+          {winner.olympiadName && (
+            <p className="text-primary font-semibold text-sm">
+              {winner.olympiadName}
+            </p>
+          )}
 
-          <div className="space-y-2 text-sm text-gray-600">
+          <div className="space-y-2 pt-2 text-sm text-gray-600">
             {winner.year && (
               <div className="flex items-center">
                 <Calendar className="h-4 w-4 mr-2 text-primary/80" />
