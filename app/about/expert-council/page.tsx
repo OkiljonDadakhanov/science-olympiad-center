@@ -1,45 +1,30 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { BookOpen, Users, Award, Target } from "lucide-react"
 
 export default function ExpertCouncilPage() {
-  const councilMembers = [
-    {
-      name: "Prof. Akmal Tursunov",
-      subject: "Mathematics",
-      role: "Chief Expert",
-      achievements: "IMO Gold Medalist, 15+ years coaching experience",
-      specialization: "Number Theory, Combinatorics",
-    },
-    {
-      name: "Dr. Sevara Nazarova",
-      subject: "Physics",
-      role: "Senior Expert",
-      achievements: "IPhO Silver Medalist, Research Physicist",
-      specialization: "Theoretical Physics, Mechanics",
-    },
-    {
-      name: "Prof. Rustam Kamilov",
-      subject: "Chemistry",
-      role: "Senior Expert",
-      achievements: "IChO Gold Medalist, University Professor",
-      specialization: "Organic Chemistry, Analytical Chemistry",
-    },
-    {
-      name: "Dr. Dilnoza Rahmatova",
-      subject: "Biology",
-      role: "Senior Expert",
-      achievements: "IBO Bronze Medalist, Molecular Biologist",
-      specialization: "Genetics, Molecular Biology",
-    },
-    {
-      name: "Eng. Sardor Abdullayev",
-      subject: "Computer Science",
-      role: "Senior Expert",
-      achievements: "IOI Gold Medalist, Software Architect",
-      specialization: "Algorithms, Data Structures",
-    },
-  ]
+  const [members, setMembers] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState("")
+
+  useEffect(() => {
+    async function fetchMentors() {
+      try {
+        const res = await fetch("https://api.olympcenter.uz/api/mentors/")
+        if (!res.ok) throw new Error("Failed to fetch")
+        const data = await res.json()
+        setMembers(data.results || [])
+      } catch (err) {
+        setError("Failed to load council members")
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchMentors()
+  }, [])
 
   const responsibilities = [
     {
@@ -70,12 +55,13 @@ export default function ExpertCouncilPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Expert Council</h1>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Our Expert Council consists of distinguished scientists, educators, and former olympiad champions who
-              provide academic leadership and ensure the highest quality of education
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Our Expert Council consists of distinguished educators and subject experts who
+              contribute to high-quality olympiad preparation and academic excellence.
             </p>
           </div>
 
+          {/* Responsibilities */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {responsibilities.map((item, index) => (
               <Card key={index} className="border-0 shadow-lg text-center">
@@ -88,7 +74,8 @@ export default function ExpertCouncilPage() {
             ))}
           </div>
 
-          <Card className="border-0 shadow-lg mb-8">
+          {/* Council structure */}
+          <Card className="border-0 shadow-lg mb-12">
             <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
               <CardTitle className="text-2xl">Council Structure & Functions</CardTitle>
             </CardHeader>
@@ -118,68 +105,81 @@ export default function ExpertCouncilPage() {
             </CardContent>
           </Card>
 
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Council Members</h2>
-            {councilMembers.map((member, index) => (
-              <Card key={index} className="border-0 shadow-lg">
-                <CardContent className="p-8">
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="md:w-1/4">
-                      <div className="w-32 h-32 bg-gradient-to-br from-blue-400 to-orange-500 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto md:mx-0">
-                        {member.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </div>
-                    </div>
-                    <div className="md:w-3/4">
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                        <div>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                          <div className="flex gap-2 mb-3">
-                            <Badge variant="secondary">{member.subject}</Badge>
-                            <Badge variant="outline">{member.role}</Badge>
-                          </div>
+          {/* Council members */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">Council Members</h2>
+
+            {loading && <p className="text-center text-gray-600">Loading...</p>}
+            {error && <p className="text-center text-red-500">{error}</p>}
+
+            {!loading && !error && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {members.map((member: any) => (
+                  <Card key={member.id} className="border-0 shadow-lg hover:shadow-xl transition">
+                    <CardContent className="p-6">
+                      <div className="flex flex-col items-center text-center">
+                        <img
+                          src={member.photo_url}
+                          alt={member.full_name}
+                          className="w-32 h-32 rounded-full object-cover shadow mb-4"
+                        />
+
+                        <h3 className="text-xl font-bold text-gray-900">{member.full_name}</h3>
+
+                        <div className="flex gap-2 mt-3">
+                          <Badge variant="secondary">{member.subject}</Badge>
+                          <Badge variant="outline">{member.position}</Badge>
+                        </div>
+
+                        <div className="mt-4 text-gray-600 text-sm space-y-1">
+                          <p>
+                            <span className="font-semibold text-gray-800">Region: </span>
+                            {member.region}
+                          </p>
+                          {member.institution && (
+                            <p>
+                              <span className="font-semibold text-gray-800">Institution: </span>
+                              {member.institution}
+                            </p>
+                          )}
+                          {member.year && (
+                            <p>
+                              <span className="font-semibold text-gray-800">Year: </span>
+                              {member.year}
+                            </p>
+                          )}
                         </div>
                       </div>
-                      <div className="space-y-3">
-                        <div>
-                          <span className="font-semibold text-gray-800">Achievements: </span>
-                          <span className="text-gray-600">{member.achievements}</span>
-                        </div>
-                        <div>
-                          <span className="font-semibold text-gray-800">Specialization: </span>
-                          <span className="text-gray-600">{member.specialization}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
           </div>
 
+          {/* Meeting schedule */}
           <Card className="border-0 shadow-lg mt-8">
             <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
               <CardTitle className="text-2xl">Meeting Schedule</CardTitle>
             </CardHeader>
             <CardContent className="p-8">
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="text-center">
+              <div className="grid md:grid-cols-3 gap-6 text-center">
+                <div>
                   <div className="text-2xl font-bold text-orange-500 mb-2">Monthly</div>
                   <div className="text-gray-600">Regular Council Meetings</div>
                 </div>
-                <div className="text-center">
+                <div>
                   <div className="text-2xl font-bold text-orange-500 mb-2">Quarterly</div>
                   <div className="text-gray-600">Strategic Planning Sessions</div>
                 </div>
-                <div className="text-center">
+                <div>
                   <div className="text-2xl font-bold text-orange-500 mb-2">Annually</div>
                   <div className="text-gray-600">Comprehensive Program Review</div>
                 </div>
               </div>
             </CardContent>
           </Card>
+
         </div>
       </div>
     </div>
