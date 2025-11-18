@@ -1,81 +1,40 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { FileText, Download, Calendar, Eye } from "lucide-react"
+import { FileText, Calendar } from "lucide-react"
 
 export default function DocumentsPage() {
   const documents = [
     {
-      title: "Charter of the Science Olympiad Center",
-      type: "Founding Document",
-      date: "January 15, 2020",
-      size: "2.3 MB",
-      format: "PDF",
-      description: "Official charter establishing the Science Olympiad Center and its mission",
+      title: "PQ-346: On Measures to Further Improve the System of Working with Talented Youth",
+      type: "Presidential Resolution",
+      date: "September 30, 2024",
+      format: "Online",
+      link: "http://lex.uz//uz/docs/-7145231",
+      description:
+        "Discussion of the implementation of the resolution, coordination and control of the activities of responsible organizations are entrusted to the Prime Minister of the Republic of Uzbekistan A.N. Aripov. Signed by President Sh. Mirziyoyev.",
     },
     {
-      title: "Educational License",
-      type: "Legal Document",
-      date: "March 10, 2020",
-      size: "1.1 MB",
-      format: "PDF",
-      description: "Official license to conduct educational activities in Uzbekistan",
+      title: "PQ-4306: On Measures to Identify Talented Youth and Organize a Continuous System of Training Highly Qualified Personnel",
+      type: "Presidential Resolution",
+      date: "May 3, 2019",
+      format: "Online",
+      link: "http://lex.uz//docs/4320713",
+      description:
+        "Control over the implementation of this resolution is entrusted to the Adviser to the President of the Republic of Uzbekistan A.A. Abduvaхitov and the Deputy Prime Minister of the Republic of Uzbekistan A.A. Abduхakimov. Signed by President Sh. Mirziyoyev.",
     },
     {
-      title: "Academic Regulations",
-      type: "Policy Document",
-      date: "September 1, 2024",
-      size: "3.7 MB",
-      format: "PDF",
-      description: "Comprehensive academic policies and student regulations",
-    },
-    {
-      title: "Code of Conduct",
-      type: "Policy Document",
-      date: "August 15, 2024",
-      size: "1.8 MB",
-      format: "PDF",
-      description: "Ethical guidelines and behavioral expectations for students and staff",
-    },
-    {
-      title: "Financial Transparency Report 2024",
-      type: "Financial Report",
-      date: "December 31, 2024",
-      size: "4.2 MB",
-      format: "PDF",
-      description: "Annual financial report and budget allocation details",
-    },
-    {
-      title: "Quality Assurance Standards",
-      type: "Academic Document",
-      date: "June 20, 2024",
-      size: "2.9 MB",
-      format: "PDF",
-      description: "Educational quality standards and assessment criteria",
-    },
-    {
-      title: "Partnership Agreements",
-      type: "Legal Document",
-      date: "November 5, 2024",
-      size: "5.1 MB",
-      format: "PDF",
-      description: "International and domestic partnership agreements",
-    },
-    {
-      title: "Student Privacy Policy",
-      type: "Policy Document",
-      date: "July 10, 2024",
-      size: "1.5 MB",
-      format: "PDF",
-      description: "Data protection and privacy policies for students and families",
+      title: "Resolution No. 562: On Improving the System of Science Olympiads Among Talented Students and Implementation of the Best School System for Teaching Foreign Languages",
+      type: "Cabinet of Ministers Resolution",
+      date: "September 9, 2021",
+      format: "Online",
+      link: "http://lex.uz//uz/docs/-5621189",
+      description:
+        "Resolution on improving the system of conducting science olympiads and introducing a system for identifying the best school in teaching foreign languages. Paragraph 6 as amended by Presidential Resolution PQ-346 dated September 30, 2024. Signed by Prime Minister A. Aripov.",
     },
   ]
 
   const documentCategories = [
-    { name: "Founding Documents", count: 2, color: "bg-blue-500" },
-    { name: "Policy Documents", count: 3, color: "bg-green-500" },
-    { name: "Financial Reports", count: 1, color: "bg-orange-500" },
-    { name: "Academic Documents", count: 2, color: "bg-purple-500" },
+    { name: "Government Resolutions", count: 3, color: "bg-blue-600" },
   ]
 
   return (
@@ -83,10 +42,10 @@ export default function DocumentsPage() {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Official Documents</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Official Government Documents</h1>
             <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Access our official documents, policies, and reports that govern the operations of the Science Olympiad
-              Center
+              Access official state documents related to national policies for supporting gifted youth, olympiad
+              development, and educational excellence.
             </p>
           </div>
 
@@ -115,19 +74,19 @@ export default function DocumentsPage() {
                 <div>
                   <h4 className="font-semibold text-lg text-gray-800 mb-4">Public Documents</h4>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Charter and founding documents</li>
-                    <li>• Educational policies and regulations</li>
-                    <li>• Code of conduct and ethics</li>
-                    <li>• Annual reports and transparency documents</li>
+                    <li>• Government resolutions and decrees</li>
+                    <li>• National education policies</li>
+                    <li>• Regulations for olympiad development</li>
+                    <li>• State programs for gifted youth</li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg text-gray-800 mb-4">Access Requirements</h4>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Most documents are freely accessible</li>
-                    <li>• Some financial details require authorization</li>
-                    <li>• Student records are strictly confidential</li>
-                    <li>• Contact us for specific document requests</li>
+                    <li>• Most documents are freely available</li>
+                    <li>• Some materials may require authorization</li>
+                    <li>• Official government records remain unchanged</li>
+                    <li>• Contact us for specific document inquiries</li>
                   </ul>
                 </div>
               </div>
@@ -138,37 +97,32 @@ export default function DocumentsPage() {
             {documents.map((doc, index) => (
               <Card key={index} className="border-0 shadow-lg">
                 <CardContent className="p-6">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-grow">
-                      <div className="flex items-center gap-3 mb-2">
-                        <FileText className="w-6 h-6 text-orange-500" />
-                        <h3 className="text-xl font-semibold text-gray-900">{doc.title}</h3>
-                        <Badge variant="secondary">{doc.type}</Badge>
-                      </div>
-                      <p className="text-gray-600 mb-4">{doc.description}</p>
-                      <div className="flex items-center gap-6 text-sm text-gray-500">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          <span>{doc.date}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <FileText className="w-4 h-4" />
-                          <span>{doc.format}</span>
-                        </div>
-                        <div>
-                          <span>{doc.size}</span>
-                        </div>
-                      </div>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-3">
+                      <FileText className="w-6 h-6 text-orange-500" />
+                      <h3 className="text-xl font-semibold text-gray-900">{doc.title}</h3>
+                      <Badge variant="secondary">{doc.type}</Badge>
                     </div>
-                    <div className="flex gap-2 ml-4">
-                      <Button variant="outline" size="sm">
-                        <Eye className="w-4 h-4 mr-2" />
-                        Preview
-                      </Button>
-                      <Button size="sm" className="bg-orange-500 hover:bg-orange-600">
-                        <Download className="w-4 h-4 mr-2" />
-                        Download
-                      </Button>
+                    <p className="text-gray-600">{doc.description}</p>
+                    <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{doc.date}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <FileText className="w-4 h-4" />
+                        <span>{doc.format}</span>
+                      </div>
+                      <div>
+                        <a
+                          href={doc.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 underline"
+                        >
+                          View Document
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -183,17 +137,8 @@ export default function DocumentsPage() {
             <CardContent className="p-8">
               <div className="text-center">
                 <p className="text-gray-600 mb-6">
-                  Can't find the document you're looking for? Contact our administration office for assistance.
+                  Can't find a specific document? Contact our administration office for further assistance.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button variant="outline" size="lg">
-                    <FileText className="w-4 h-4 mr-2" />
-                    Request Document
-                  </Button>
-                  <Button size="lg" className="bg-blue-500 hover:bg-blue-600">
-                    Contact Administration
-                  </Button>
-                </div>
               </div>
             </CardContent>
           </Card>
