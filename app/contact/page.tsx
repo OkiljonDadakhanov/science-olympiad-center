@@ -70,11 +70,11 @@ export default function ContactPage() {
                         <div>
                           <h3 className="font-semibold text-lg mb-2">Phone</h3>
                           <p className="text-muted-foreground">
-                            Main Office: +998 71 123 45 67
+                            Main Office: +998 77 550 33 66
                             <br />
-                            Admissions: +998 71 123 45 68
+                            Admissions: +998 77 550 33 66
                             <br />
-                            International: +998 71 123 45 69
+                            International: +998 77 550 33 66
                           </p>
                         </div>
                       </div>

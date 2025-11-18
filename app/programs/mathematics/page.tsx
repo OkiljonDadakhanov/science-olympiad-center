@@ -32,13 +32,15 @@ export default function MathematicsPage() {
               <div className="lg:col-span-2">
                 <h2 className="text-3xl font-bold mb-6 font-[family-name:var(--font-playfair)]">Program Overview</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Our mathematics program is designed to develop exceptional problem-solving skills and mathematical
-                  intuition. Students work through challenging problems from various areas of mathematics, building the
-                  analytical thinking required for success in national and international competitions.
+                  The Mathematics Program of the Science Olympiad Center aims to cultivate deep mathematical thinking
+                  through systematic training, rigorous problem-solving practice, and exposure to international olympiad
+                  standards. Students engage in intensive coursework covering advanced mathematical theories and learn to
+                  apply them in non-standard, competition-level problem contexts.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                  The curriculum covers advanced topics in algebra, geometry, number theory, and combinatorics, with
-                  emphasis on creative problem-solving techniques and mathematical proof writing.
+                  The curriculum integrates conceptual understanding, creative problem-solving, mathematical proof
+                  techniques, competition strategies, and timed assessments. This approach ensures readiness for district,
+                  regional, national, and international olympiads.
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -52,19 +54,23 @@ export default function MathematicsPage() {
                     <CardContent className="space-y-3">
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Master advanced problem-solving techniques</p>
+                        <p className="text-muted-foreground">Master advanced olympiad-style problem-solving methods</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Develop mathematical proof writing skills</p>
+                        <p className="text-muted-foreground">Strengthen logical reasoning and proof-writing skills</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Build competition strategy and time management</p>
+                        <p className="text-muted-foreground">Build effective contest strategies and time management skills</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Enhance analytical and logical thinking</p>
+                        <p className="text-muted-foreground">Enhance abstract thinking across algebra, geometry, number theory, and combinatorics</p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                        <p className="text-muted-foreground">Prepare for high-performing participation in international mathematics competitions</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -79,19 +85,19 @@ export default function MathematicsPage() {
                     <CardContent className="space-y-3">
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Strong foundation in high school mathematics</p>
+                        <p className="text-muted-foreground">Strong foundation in secondary school mathematics</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Passion for mathematical problem solving</p>
+                        <p className="text-muted-foreground">Demonstrated interest in advanced mathematical problem solving</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Commitment to intensive training</p>
+                        <p className="text-muted-foreground">High level of self-discipline and readiness for intensive training</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Selection through entrance examination</p>
+                        <p className="text-muted-foreground">Successful completion of the Center’s competitive entrance examination</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -114,15 +120,15 @@ export default function MathematicsPage() {
                     <div className="flex items-center gap-3">
                       <Users className="h-5 w-5 text-primary" />
                       <div>
-                        <div className="font-medium">Students</div>
-                        <div className="text-sm text-muted-foreground">50+ active participants</div>
+                        <div className="font-medium">Participants</div>
+                        <div className="text-sm text-muted-foreground">50+ active students</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <Award className="h-5 w-5 text-primary" />
                       <div>
                         <div className="font-medium">Achievements</div>
-                        <div className="text-sm text-muted-foreground">15 International Medals</div>
+                        <div className="text-sm text-muted-foreground">15+ international medals (IMO, ZIO, WMI)</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
@@ -141,7 +147,7 @@ export default function MathematicsPage() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <p className="text-sm text-muted-foreground">
-                      Applications are open for talented students who demonstrate exceptional mathematical ability.
+                      Open to students with outstanding mathematical talent and demonstrated analytical ability.
                     </p>
                     <Button className="w-full">
                       Apply Now <ArrowRight className="ml-2 h-4 w-4" />
@@ -161,7 +167,7 @@ export default function MathematicsPage() {
                 Curriculum Topics
               </h2>
               <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
-                Comprehensive coverage of advanced mathematical topics essential for olympiad success.
+                A structured roadmap covering all essential olympiad domains in mathematics.
               </p>
             </div>
 
@@ -170,21 +176,12 @@ export default function MathematicsPage() {
                 <CardHeader>
                   <CardTitle>Algebra</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <Badge variant="outline" className="text-xs">
-                      Polynomials
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Functional Equations
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Inequalities
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Complex Numbers
-                    </Badge>
-                  </div>
+                <CardContent className="space-y-2">
+                  <Badge variant="outline" className="text-xs">Polynomials</Badge>
+                  <Badge variant="outline" className="text-xs">Functional Equations</Badge>
+                  <Badge variant="outline" className="text-xs">Inequalities</Badge>
+                  <Badge variant="outline" className="text-xs">Complex Numbers</Badge>
+                  <Badge variant="outline" className="text-xs">Equations & Transformations</Badge>
                 </CardContent>
               </Card>
 
@@ -192,21 +189,12 @@ export default function MathematicsPage() {
                 <CardHeader>
                   <CardTitle>Geometry</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <Badge variant="outline" className="text-xs">
-                      Euclidean Geometry
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Coordinate Geometry
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Transformations
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Circle Geometry
-                    </Badge>
-                  </div>
+                <CardContent className="space-y-2">
+                  <Badge variant="outline" className="text-xs">Euclidean Geometry</Badge>
+                  <Badge variant="outline" className="text-xs">Coordinate Geometry</Badge>
+                  <Badge variant="outline" className="text-xs">Transformational Geometry</Badge>
+                  <Badge variant="outline" className="text-xs">Circle and Triangle Geometry</Badge>
+                  <Badge variant="outline" className="text-xs">Geometric Constructions & Proofs</Badge>
                 </CardContent>
               </Card>
 
@@ -214,21 +202,12 @@ export default function MathematicsPage() {
                 <CardHeader>
                   <CardTitle>Number Theory</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <Badge variant="outline" className="text-xs">
-                      Divisibility
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Modular Arithmetic
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Prime Numbers
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Diophantine Equations
-                    </Badge>
-                  </div>
+                <CardContent className="space-y-2">
+                  <Badge variant="outline" className="text-xs">Divisibility Rules</Badge>
+                  <Badge variant="outline" className="text-xs">Modular Arithmetic</Badge>
+                  <Badge variant="outline" className="text-xs">Prime Numbers & Factorization</Badge>
+                  <Badge variant="outline" className="text-xs">Diophantine Equations</Badge>
+                  <Badge variant="outline" className="text-xs">Arithmetic Functions</Badge>
                 </CardContent>
               </Card>
 
@@ -236,21 +215,12 @@ export default function MathematicsPage() {
                 <CardHeader>
                   <CardTitle>Combinatorics</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <Badge variant="outline" className="text-xs">
-                      Counting Principles
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Graph Theory
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Probability
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Generating Functions
-                    </Badge>
-                  </div>
+                <CardContent className="space-y-2">
+                  <Badge variant="outline" className="text-xs">Counting Principles</Badge>
+                  <Badge variant="outline" className="text-xs">Graph Theory Fundamentals</Badge>
+                  <Badge variant="outline" className="text-xs">Probability</Badge>
+                  <Badge variant="outline" className="text-xs">Recurrence Relations</Badge>
+                  <Badge variant="outline" className="text-xs">Generating Functions</Badge>
                 </CardContent>
               </Card>
 
@@ -258,43 +228,24 @@ export default function MathematicsPage() {
                 <CardHeader>
                   <CardTitle>Mathematical Analysis</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <Badge variant="outline" className="text-xs">
-                      Sequences & Series
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Limits
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Continuity
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Optimization
-                    </Badge>
-                  </div>
+                <CardContent className="space-y-2">
+                  <Badge variant="outline" className="text-xs">Sequences & Series</Badge>
+                  <Badge variant="outline" className="text-xs">Limits and Continuity</Badge>
+                  <Badge variant="outline" className="text-xs">Inequalities in Analysis</Badge>
+                  <Badge variant="outline" className="text-xs">Optimization Problems</Badge>
                 </CardContent>
               </Card>
 
               <Card className="border-secondary/20">
                 <CardHeader>
-                  <CardTitle>Problem Solving</CardTitle>
+                  <CardTitle>Problem Solving & Competition Preparation</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <Badge variant="outline" className="text-xs">
-                      Proof Techniques
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Strategy Development
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Contest Preparation
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Time Management
-                    </Badge>
-                  </div>
+                <CardContent className="space-y-2">
+                  <Badge variant="outline" className="text-xs">Olympiad Proof Techniques</Badge>
+                  <Badge variant="outline" className="text-xs">Strategy Development</Badge>
+                  <Badge variant="outline" className="text-xs">Simulation of Contest Conditions</Badge>
+                  <Badge variant="outline" className="text-xs">Time Management</Badge>
+                  <Badge variant="outline" className="text-xs">Error Analysis & Post-Contest Review</Badge>
                 </CardContent>
               </Card>
             </div>

@@ -128,7 +128,7 @@ Graduates also receive mentorship, scholarship recommendations, and university a
       answer: `For assistance with the online application platform:
 
 📧 techsupport@olympiads.uz
-📞 (+998) 71 123 45 67
+📞 +998 77 550 33 66
 
 Support is available Monday – Friday, 09:00 – 18:00.`,
     },

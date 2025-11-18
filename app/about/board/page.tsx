@@ -118,7 +118,7 @@ export default function BoardOfTrusteesPage() {
                   <Phone className="w-7 h-7 text-orange-500" />
                   <div>
                     <div className="font-semibold text-gray-900">Phone</div>
-                    <div className="text-gray-600">+998 71 123-45-67</div>
+                    <div className="text-gray-600">+998 77 550 33 66</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">

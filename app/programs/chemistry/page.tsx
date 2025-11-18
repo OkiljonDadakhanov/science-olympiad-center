@@ -1,9 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Atom, Thermometer, Zap, Waves, Telescope, BookOpen, Clock, Users, Award, Target, ArrowRight } from "lucide-react"
+import { Atom, Zap, Thermometer, Beaker, BookOpen, Clock, Users, Award, Target, ArrowRight } from "lucide-react"
 
-export default function PhysicsProgramPage() {
+export default function ChemistryProgramPage() {
   return (
     <div className="min-h-screen">
       <main>
@@ -12,13 +12,13 @@ export default function PhysicsProgramPage() {
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-6">
-                <Atom className="h-10 w-10 text-primary" />
+                <BookOpen className="h-10 w-10 text-primary" />
               </div>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance mb-6 font-[family-name:var(--font-playfair)]">
-                Physics <span className="text-primary">Program</span>
+                Chemistry <span className="text-primary">Program</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground text-balance leading-relaxed">
-                Master fundamental laws of nature through theoretical understanding and experimental discovery, with a focus on olympiad-level problem solving.
+                Elite training program aligned with the International Chemistry Olympiad (IChO) standards, integrating theoretical mastery and practical laboratory work.
               </p>
             </div>
           </div>
@@ -31,11 +31,8 @@ export default function PhysicsProgramPage() {
               <div className="lg:col-span-2">
                 <h2 className="text-3xl font-bold mb-6 font-[family-name:var(--font-playfair)]">Program Overview</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  The Physics Program develops analytical reasoning through intensive theoretical training and experimental physics practice.
-                  Students explore classical and modern physics, applying mathematical methods and modeling techniques to solve olympiad-level problems.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                  Curriculum integrates conceptual understanding, experimental methods, and problem-solving strategies to prepare for national and international competitions.
+                  The Chemistry Program builds strong foundations in chemical theory, reaction mechanisms, and laboratory experimentation.
+                  Students solve IChO-level problems, conduct advanced experiments, and study analytical and synthetic chemistry techniques.
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -49,23 +46,19 @@ export default function PhysicsProgramPage() {
                     <CardContent className="space-y-3">
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Master theoretical and experimental physics concepts</p>
+                        <p className="text-muted-foreground">Develop deep understanding of chemical principles</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Apply calculus-based reasoning to olympiad problems</p>
+                        <p className="text-muted-foreground">Master reaction mechanisms and quantitative analysis</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Perform quantitative modeling and derive physical laws</p>
+                        <p className="text-muted-foreground">Apply thermodynamics, kinetics, and equilibrium in problem solving</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Strengthen laboratory and experimental analysis skills</p>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Develop contest strategies for multi-step physics problems</p>
+                        <p className="text-muted-foreground">Gain laboratory skills aligned with IChO practical requirements</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -80,19 +73,15 @@ export default function PhysicsProgramPage() {
                     <CardContent className="space-y-3">
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Strong foundation in mathematics and basic physics</p>
+                        <p className="text-muted-foreground">Strong background in general chemistry</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Understanding of mechanics, thermodynamics, and electromagnetism</p>
+                        <p className="text-muted-foreground">Ability to understand mathematical descriptions of chemical processes</p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">High motivation for advanced scientific study</p>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                        <p className="text-muted-foreground">Successful completion of entrance assessment</p>
+                        <p className="text-muted-foreground">Familiarity with laboratory safety</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -109,21 +98,14 @@ export default function PhysicsProgramPage() {
                       <Clock className="h-5 w-5 text-primary" />
                       <div>
                         <div className="font-medium">Duration</div>
-                        <div className="text-sm text-muted-foreground">10 months</div>
+                        <div className="text-sm text-muted-foreground">8 months</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <Users className="h-5 w-5 text-primary" />
                       <div>
                         <div className="font-medium">Participants</div>
-                        <div className="text-sm text-muted-foreground">40+ active students</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Award className="h-5 w-5 text-primary" />
-                      <div>
-                        <div className="font-medium">Achievements</div>
-                        <div className="text-sm text-muted-foreground">10+ IPhO/ZIO Medals</div>
+                        <div className="text-sm text-muted-foreground">35+ active students</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
@@ -131,6 +113,13 @@ export default function PhysicsProgramPage() {
                       <div>
                         <div className="font-medium">Level</div>
                         <div className="text-sm text-muted-foreground">Advanced</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Award className="h-5 w-5 text-primary" />
+                      <div>
+                        <div className="font-medium">Achievements</div>
+                        <div className="text-sm text-muted-foreground">10+ IChO Medals</div>
                       </div>
                     </div>
                   </CardContent>
@@ -142,7 +131,7 @@ export default function PhysicsProgramPage() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <p className="text-sm text-muted-foreground">
-                      Open to students with outstanding mathematical and physics talent.
+                      Open to students with outstanding chemistry talent and laboratory skills.
                     </p>
                     <Button className="w-full">
                       Apply Now <ArrowRight className="ml-2 h-4 w-4" />
@@ -162,79 +151,67 @@ export default function PhysicsProgramPage() {
                 Curriculum Topics
               </h2>
               <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
-                A structured roadmap covering all essential physics domains.
+                A structured roadmap covering all essential domains in chemistry.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               <Card className="border-primary/20">
                 <CardHeader>
-                  <CardTitle>Mechanics</CardTitle>
+                  <CardTitle>Physical Chemistry</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <Badge variant="outline" className="text-xs">Kinematics & Dynamics</Badge>
-                  <Badge variant="outline" className="text-xs">Newton’s Laws</Badge>
-                  <Badge variant="outline" className="text-xs">Energy & Momentum</Badge>
-                  <Badge variant="outline" className="text-xs">Rotational Motion</Badge>
-                  <Badge variant="outline" className="text-xs">Oscillations</Badge>
+                  <Badge variant="outline" className="text-xs">Chemical Thermodynamics</Badge>
+                  <Badge variant="outline" className="text-xs">Chemical Kinetics</Badge>
+                  <Badge variant="outline" className="text-xs">Equilibrium & Le Chatelier</Badge>
+                  <Badge variant="outline" className="text-xs">Electrochemistry</Badge>
                 </CardContent>
               </Card>
 
               <Card className="border-secondary/20">
                 <CardHeader>
-                  <CardTitle>Thermodynamics</CardTitle>
+                  <CardTitle>Organic Chemistry</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <Badge variant="outline" className="text-xs">Heat & Work</Badge>
-                  <Badge variant="outline" className="text-xs">Entropy</Badge>
-                  <Badge variant="outline" className="text-xs">Thermodynamic Cycles</Badge>
-                  <Badge variant="outline" className="text-xs">Kinetic Theory</Badge>
+                  <Badge variant="outline" className="text-xs">Structure & Bonding</Badge>
+                  <Badge variant="outline" className="text-xs">Reaction Mechanisms</Badge>
+                  <Badge variant="outline" className="text-xs">Stereochemistry</Badge>
+                  <Badge variant="outline" className="text-xs">Spectroscopy (IR, NMR basics)</Badge>
                 </CardContent>
               </Card>
 
               <Card className="border-primary/20">
                 <CardHeader>
-                  <CardTitle>Electromagnetism</CardTitle>
+                  <CardTitle>Inorganic Chemistry</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <Badge variant="outline" className="text-xs">Electrostatics</Badge>
-                  <Badge variant="outline" className="text-xs">Circuits</Badge>
-                  <Badge variant="outline" className="text-xs">Magnetism</Badge>
-                  <Badge variant="outline" className="text-xs">Maxwell’s Equations</Badge>
+                  <Badge variant="outline" className="text-xs">Periodicity</Badge>
+                  <Badge variant="outline" className="text-xs">Coordination Compounds</Badge>
+                  <Badge variant="outline" className="text-xs">Transition Metals</Badge>
+                  <Badge variant="outline" className="text-xs">Main Group Chemistry</Badge>
                 </CardContent>
               </Card>
 
               <Card className="border-secondary/20">
                 <CardHeader>
-                  <CardTitle>Optics</CardTitle>
+                  <CardTitle>Analytical Chemistry</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <Badge variant="outline" className="text-xs">Geometrical Optics</Badge>
-                  <Badge variant="outline" className="text-xs">Wave Optics</Badge>
-                  <Badge variant="outline" className="text-xs">Interference & Diffraction</Badge>
+                  <Badge variant="outline" className="text-xs">Titration</Badge>
+                  <Badge variant="outline" className="text-xs">Quantitative Analysis</Badge>
+                  <Badge variant="outline" className="text-xs">Instrumental Methods</Badge>
                 </CardContent>
               </Card>
 
               <Card className="border-primary/20">
                 <CardHeader>
-                  <CardTitle>Modern Physics</CardTitle>
+                  <CardTitle>Laboratory Skills</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <Badge variant="outline" className="text-xs">Quantum Physics Basics</Badge>
-                  <Badge variant="outline" className="text-xs">Atomic Structure</Badge>
-                  <Badge variant="outline" className="text-xs">Nuclear & Particle Physics</Badge>
-                </CardContent>
-              </Card>
-
-              <Card className="border-secondary/20">
-                <CardHeader>
-                  <CardTitle>Problem Solving</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <Badge variant="outline" className="text-xs">IPhO Solutions</Badge>
-                  <Badge variant="outline" className="text-xs">Multi-step Derivations</Badge>
-                  <Badge variant="outline" className="text-xs">Experimental Tasks</Badge>
-                  <Badge variant="outline" className="text-xs">Error Propagation</Badge>
+                  <Badge variant="outline" className="text-xs">Synthesis</Badge>
+                  <Badge variant="outline" className="text-xs">Stoichiometry</Badge>
+                  <Badge variant="outline" className="text-xs">Error Analysis</Badge>
+                  <Badge variant="outline" className="text-xs">Safety Protocols</Badge>
                 </CardContent>
               </Card>
             </div>
