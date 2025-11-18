@@ -7,25 +7,23 @@ export default function SelectionCriteriaPage() {
     {
       category: "Age Requirements",
       items: [
-        "Students aged 10-18 years",
-        "Must be enrolled in secondary education",
-        "No upper age limit for exceptional cases",
+        "Students aged 10–18 years currently enrolled in secondary or specialized education institutions.",
+        "Exceptions may apply for outstanding candidates recommended by regional or national olympiad committees.",
       ],
     },
     {
       category: "Academic Performance",
       items: [
-        "Minimum GPA of 4.0 (out of 5.0) in relevant subjects",
-        "Strong performance in mathematics and sciences",
-        "Demonstrated interest in olympiad competitions",
+        "Minimum GPA of 4.0 out of 5.0 in core science subjects.",
+        "Demonstrated excellence in mathematics, physics, chemistry, biology, or informatics.",
+        "Proven participation and achievements in regional or national olympiads.",
       ],
     },
     {
       category: "Subject Proficiency",
       items: [
-        "Advanced knowledge in chosen subject area",
-        "Ability to solve complex problems",
-        "Understanding of competition-level concepts",
+        "Advanced knowledge and problem-solving ability in the chosen subject area.",
+        "Capacity to analyze, reason, and solve olympiad-level challenges.",
       ],
     },
   ]
@@ -35,25 +33,25 @@ export default function SelectionCriteriaPage() {
       icon: BookOpen,
       title: "Academic Excellence",
       weight: "40%",
-      description: "School grades, test scores, and academic achievements in relevant subjects",
+      description: "School performance, test results, and academic achievements.",
     },
     {
       icon: Target,
       title: "Problem-Solving Skills",
       weight: "30%",
-      description: "Performance on subject-specific assessments and logical reasoning tests",
+      description: "Results from olympiad-style tasks and analytical reasoning tests.",
     },
     {
       icon: Award,
       title: "Competition Experience",
       weight: "20%",
-      description: "Previous participation in olympiads, contests, or academic competitions",
+      description: "Achievements in regional, national, or international olympiads.",
     },
     {
       icon: Users,
       title: "Motivation & Commitment",
       weight: "10%",
-      description: "Personal statement, recommendations, and demonstrated dedication to learning",
+      description: "Evaluation of motivation letter, recommendations, and dedication to learning.",
     },
   ]
 
@@ -61,46 +59,41 @@ export default function SelectionCriteriaPage() {
     {
       subject: "Mathematics",
       requirements: [
-        "Strong foundation in algebra, geometry, and number theory",
-        "Experience with mathematical proofs and logical reasoning",
-        "Familiarity with combinatorics and discrete mathematics",
-        "Ability to solve IMO-style problems",
+        "Strong foundation in algebra, geometry, number theory, and combinatorics.",
+        "Experience in solving proof-based and analytical problems.",
+        "Ability to tackle IMO-style problems.",
       ],
     },
     {
       subject: "Physics",
       requirements: [
-        "Solid understanding of mechanics, thermodynamics, and electromagnetism",
-        "Mathematical skills including calculus and differential equations",
-        "Laboratory experience and experimental design knowledge",
-        "Problem-solving skills for IPhO-level questions",
+        "Solid understanding of mechanics, thermodynamics, and electromagnetism.",
+        "Competence in mathematical modeling and analytical thinking.",
+        "Problem-solving skills aligned with IPhO-level standards.",
       ],
     },
     {
       subject: "Chemistry",
       requirements: [
-        "Comprehensive knowledge of organic, inorganic, and physical chemistry",
-        "Understanding of chemical reactions and mechanisms",
-        "Laboratory skills and safety protocols",
-        "Analytical thinking for IChO-style problems",
+        "Proficiency in organic, inorganic, and physical chemistry.",
+        "Ability to conduct experiments and analyze chemical mechanisms.",
+        "Preparedness for IChO-style theoretical and practical problems.",
       ],
     },
     {
       subject: "Biology",
       requirements: [
-        "Strong foundation in molecular biology, genetics, and ecology",
-        "Understanding of biochemical processes and cell biology",
-        "Knowledge of anatomy, physiology, and evolution",
-        "Research experience and scientific methodology",
+        "Knowledge of molecular biology, genetics, biochemistry, and ecology.",
+        "Familiarity with laboratory practices and scientific inquiry.",
+        "Analytical skills for IBO-level challenges.",
       ],
     },
     {
-      subject: "Computer Science",
+      subject: "Informatics (Computer Science)",
       requirements: [
-        "Proficiency in programming languages (C++, Python, Java)",
-        "Understanding of algorithms and data structures",
-        "Problem-solving skills for competitive programming",
-        "Mathematical foundation for algorithm analysis",
+        "Proficiency in C++, Python, or Java.",
+        "Strong understanding of algorithms, data structures, and problem-solving.",
+        "Preparedness for IOI-style competitive programming tasks.",
       ],
     },
   ]
@@ -112,11 +105,14 @@ export default function SelectionCriteriaPage() {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Selection Criteria</h1>
             <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Our comprehensive selection process ensures we identify students with exceptional potential for success in
-              international science olympiads
+              Our Science Olympiad Center implements a transparent and merit-based selection system aligned with
+              the Resolution No. 562 of the Cabinet of Ministers of the Republic of Uzbekistan (September 9, 2021),
+              ensuring nationwide identification of the most talented students capable of representing Uzbekistan at
+              international olympiads in mathematics, physics, chemistry, biology, and informatics.
             </p>
           </div>
 
+          {/* Eligibility Requirements */}
           <Card className="border-0 shadow-lg mb-8">
             <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
               <CardTitle className="text-2xl">Eligibility Requirements</CardTitle>
@@ -140,6 +136,7 @@ export default function SelectionCriteriaPage() {
             </CardContent>
           </Card>
 
+          {/* Selection Criteria */}
           <Card className="border-0 shadow-lg mb-8">
             <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
               <CardTitle className="text-2xl">Selection Criteria & Weights</CardTitle>
@@ -162,6 +159,7 @@ export default function SelectionCriteriaPage() {
             </CardContent>
           </Card>
 
+          {/* Subject Requirements */}
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Subject-Specific Requirements</h2>
             {subjectRequirements.map((subject, index) => (
@@ -183,6 +181,7 @@ export default function SelectionCriteriaPage() {
             ))}
           </div>
 
+          {/* Assessment Process */}
           <Card className="border-0 shadow-lg mt-8">
             <CardHeader className="bg-gradient-to-r from-green-500 to-green-600 text-white">
               <CardTitle className="text-2xl">Assessment Process</CardTitle>
@@ -192,30 +191,31 @@ export default function SelectionCriteriaPage() {
                 <div>
                   <h4 className="font-semibold text-lg text-gray-800 mb-4">Initial Screening</h4>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Application review and document verification</li>
-                    <li>• Academic transcript evaluation</li>
-                    <li>• Recommendation letter assessment</li>
-                    <li>• Personal statement review</li>
+                    <li>• Application review and eligibility verification.</li>
+                    <li>• Academic transcript evaluation.</li>
+                    <li>• Review of recommendation letters and motivation statement.</li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg text-gray-800 mb-4">Expert Evaluation</h4>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Subject-specific written examination</li>
-                    <li>• Problem-solving assessment</li>
-                    <li>• Interview with subject experts</li>
-                    <li>• Final ranking and selection</li>
+                    <li>• Subject-specific written tests.</li>
+                    <li>• Logical and problem-solving assessments.</li>
+                    <li>• Interviews conducted by academic experts.</li>
+                    <li>• Final ranking and selection by the National Olympiad Committee.</li>
                   </ul>
                 </div>
               </div>
             </CardContent>
           </Card>
 
+          {/* Important Note */}
           <div className="text-center mt-8 p-6 bg-yellow-50 rounded-lg border border-yellow-200">
             <h3 className="text-xl font-semibold text-yellow-800 mb-2">Important Note</h3>
             <p className="text-yellow-700">
-              Meeting the minimum requirements does not guarantee admission. Due to limited spots, we select only the
-              most qualified candidates who demonstrate exceptional potential for success in international competitions.
+              Meeting the minimum eligibility criteria does not guarantee selection. Due to limited capacity and high
+              competition, only the most promising candidates demonstrating outstanding scientific aptitude and
+              potential are chosen to represent Uzbekistan in international olympiads.
             </p>
           </div>
         </div>
