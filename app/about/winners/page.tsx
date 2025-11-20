@@ -10,11 +10,9 @@ import { BASE_URL } from "@/lib/api-winners"
 export default function WinnersPage() {
   const { 
     winners, loading, error,
-    fetchData,
-    nextUrl, prevUrl,
+    fetchData, nextUrl, prevUrl,
     currentPage, totalPages,
-    availableYears,
-    availableSubjects
+    availableYears, availableSubjects
   } = useWinners()
 
   const [olympiadType, setOlympiadType] = useState("ALL")
@@ -23,38 +21,55 @@ export default function WinnersPage() {
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([])
   const topRef = useRef<HTMLDivElement>(null)
 
-  // Reset to page 1 when filters change - call server with filter params
+  // FADE OUT BACKGROUND ON SCROLL
+  const [bgOpacity, setBgOpacity] = useState(1)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const fadePoint = 300 // px until fully invisible
+      const scrollTop = window.scrollY
+      const newOpacity = Math.max(0, 1 - scrollTop / fadePoint)
+      setBgOpacity(newOpacity)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // Reset to page 1 when filters change
   useEffect(() => {
     const url = new URL(BASE_URL)
 
-    // Medals (multiple allowed)
     selectedMedals.forEach((m) => url.searchParams.append("medal", m))
-
-    // Subjects (multiple allowed)
     selectedSubjects.forEach((s) => url.searchParams.append("subject", s))
 
-    // Olympiad type
     if (olympiadType !== "ALL") url.searchParams.set("olympiad_type", olympiadType)
-
-    // Academic year
     if (year !== "ALL") url.searchParams.set("academic_year", year)
 
-    // Start from first page when filters change
     url.searchParams.delete("page")
-
     fetchData(url.toString())
   }, [olympiadType, year, selectedMedals, selectedSubjects])
 
   const handlePageChange = (url: string) => {
     fetchData(url)
-    // Smooth scroll to top
     topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
   return (
-    <main className="min-h-screen py-20">
+    <main className="relative min-h-screen py-20">
+
+      {/* BACKGROUND IMAGE WITH FADING */}
+      <div
+        className="fixed top-0 left-0 w-full h-[400px] bg-cover bg-center bg-no-repeat z-[-1]"
+        style={{
+          backgroundImage: 'url("/bg.jpg")',
+          opacity: bgOpacity,
+          transition: "opacity 0.2s linear"
+        }}
+      />
+
       <div ref={topRef} />
-      
+
       {/* Hero */}
       <section className="text-center mb-16">
         <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-6 mx-auto">
@@ -89,25 +104,23 @@ export default function WinnersPage() {
           </div>
         )}
 
-  <WinnersGrid winners={winners} loading={loading} />
+        <WinnersGrid winners={winners} loading={loading} />
 
-        {/* Enhanced Pagination */}
         {!loading && winners.length > 0 && (
           <div className="mt-12 flex flex-col items-center gap-4">
-            {/* Page Info */}
+
             {totalPages > 0 && (
               <div className="text-sm text-muted-foreground">
-                Page <span className="font-semibold text-foreground">{currentPage}</span> of{" "}
-                <span className="font-semibold text-foreground">{totalPages}</span>
+                Page <span className="font-semibold">{currentPage}</span> of{" "}
+                <span className="font-semibold">{totalPages}</span>
               </div>
             )}
 
-            {/* Navigation Buttons */}
             <div className="flex gap-3">
               <button
                 onClick={() => handlePageChange(prevUrl!)}
                 disabled={!prevUrl}
-                className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-gray-100 transition-all font-medium"
+                className="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-40"
               >
                 ← Previous
               </button>
@@ -115,7 +128,7 @@ export default function WinnersPage() {
               <button
                 onClick={() => handlePageChange(nextUrl!)}
                 disabled={!nextUrl}
-                className="px-6 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-primary transition-all font-medium"
+                className="px-6 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 disabled:opacity-40"
               >
                 Next →
               </button>
@@ -123,11 +136,10 @@ export default function WinnersPage() {
           </div>
         )}
 
-        {/* Empty State */}
         {!loading && winners.length === 0 && !error && (
           <div className="text-center py-16">
             <div className="text-6xl mb-4">🏆</div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">No winners found</h3>
+            <h3 className="text-xl font-semibold mb-2">No winners found</h3>
             <p className="text-muted-foreground">
               Try adjusting your filters to see more results.
             </p>
