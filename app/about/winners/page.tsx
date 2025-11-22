@@ -1,11 +1,12 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import { Trophy } from "lucide-react"
 import WinnersFilter from "@/components/winners/WinnersFilter"
 import WinnersGrid from "@/components/winners/winners-grid"
 import { useWinners } from "@/hooks/useWinners"
 import { BASE_URL } from "@/lib/api-winners"
+import { FadingBackground } from "@/components/fading-bg"
 
 export default function WinnersPage() {
   const { 
@@ -21,23 +22,8 @@ export default function WinnersPage() {
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([])
   const topRef = useRef<HTMLDivElement>(null)
 
-  // FADE OUT BACKGROUND ON SCROLL
-  const [bgOpacity, setBgOpacity] = useState(1)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const fadePoint = 300 // px until fully invisible
-      const scrollTop = window.scrollY
-      const newOpacity = Math.max(0, 1 - scrollTop / fadePoint)
-      setBgOpacity(newOpacity)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   // Reset to page 1 when filters change
-  useEffect(() => {
+  useState(() => {
     const url = new URL(BASE_URL)
 
     selectedMedals.forEach((m) => url.searchParams.append("medal", m))
@@ -58,15 +44,8 @@ export default function WinnersPage() {
   return (
     <main className="relative min-h-screen py-20">
 
-      {/* BACKGROUND IMAGE WITH FADING */}
-      <div
-        className="fixed top-0 left-0 w-full h-[400px] bg-cover bg-center bg-no-repeat z-[-1]"
-        style={{
-          backgroundImage: 'url("/bg.jpg")',
-          opacity: bgOpacity,
-          transition: "opacity 0.2s linear"
-        }}
-      />
+      {/* Reusable fading background */}
+      <FadingBackground imageUrl="/bg.jpg" height={400} />
 
       <div ref={topRef} />
 
@@ -149,4 +128,3 @@ export default function WinnersPage() {
     </main>
   )
 }
- 

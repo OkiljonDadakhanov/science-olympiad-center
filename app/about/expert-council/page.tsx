@@ -4,6 +4,7 @@ import { useEffect, useState, useMemo } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { BookOpen, Users, Award, Target } from "lucide-react"
+import { FadingBackground } from "@/components/fading-bg" // import the fading bg
 
 /* -------------------------------------------------------
    TYPES
@@ -136,8 +137,11 @@ export default function ExpertCouncilPage() {
      RENDER
   --------------------------------------------------------*/
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50">
-      <div className="container mx-auto px-4 py-12">
+    <div className="min-h-screen relative">
+      {/* Fading Background */}
+      <FadingBackground imageUrl="/expert-bg.jpg" height={500} />
+
+      <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
