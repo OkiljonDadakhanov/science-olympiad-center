@@ -20,7 +20,7 @@ export default function OrganizationPage() {
           <div className="space-y-8">
             {/* General Information */}
             <Card className="border-0 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+              <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900">
                 <CardTitle className="text-2xl">Full Name</CardTitle>
               </CardHeader>
               <CardContent className="p-8">
@@ -40,13 +40,13 @@ export default function OrganizationPage() {
             </Card>
 
             <Card className="border-0 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+              <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900">
                 <CardTitle className="text-2xl">Date of Establishment</CardTitle>
               </CardHeader>
               <CardContent className="p-8">
                 <p className="text-lg text-gray-700 mb-4">January 9, 2025</p>
                 <p className="text-gray-600">
-                  The Center was established as a state institution under the Agency for Specialized Educational Institutions of the Ministry of Preschool and School Education in accordance with the Resolution of the Cabinet of Ministers of the Republic of Uzbekistan No. 562 dated September 9, 2021.
+                  About the Center In accordance with Presidential Decree PQ–346 of September 30, 2024, the Science Olympiad Center was established as a state institution under the Agency for Specialized Educational Institutions of the Ministry of Preschool and School Education.
                 </p>
               </CardContent>
             </Card>
@@ -72,7 +72,7 @@ export default function OrganizationPage() {
 
             {/* Management and Organizational Structure */}
             <Card className="border-0 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+              <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900">
                 <CardTitle className="text-2xl">Management and Organizational Structure</CardTitle>
               </CardHeader>
               <CardContent className="p-8 space-y-6">
@@ -110,9 +110,8 @@ export default function OrganizationPage() {
               <CardContent className="p-8 space-y-3 text-gray-700">
                 <p><strong>Address:</strong> 52/1 Darvozakent Street, Yunusabad District, Tashkent City, Republic of Uzbekistan</p>
                 <p><strong>Working Hours:</strong> Monday – Friday, from 09:00 to 18:00</p>
-                <p><strong>Telephone:</strong> (+998) __ ___ __ __</p>
-                <p><strong>Official Website:</strong> <a href="https://www.olympiads.uz" className="text-blue-600 hover:underline">www.olympiads.uz</a></p>
-                <p><strong>Email:</strong> <a href="mailto:info@olympiads.uz" className="text-blue-600 hover:underline">info@olympiads.uz</a></p>
+                <p><strong>Telephone:</strong> (+998)77 550 33 66</p>
+                <p><strong>Email:</strong> <a href="mailto:info@scienceolympiad.uz" className="text-blue-600 hover:underline">info@olympiads.uz</a></p>
               </CardContent>
             </Card>
           </div>

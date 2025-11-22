@@ -66,7 +66,7 @@ export default function DocumentsPage() {
           </div>
 
           <Card className="border-0 shadow-lg mb-8">
-            <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+            <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900">
               <CardTitle className="text-2xl">Document Access Policy</CardTitle>
             </CardHeader>
             <CardContent className="p-8">

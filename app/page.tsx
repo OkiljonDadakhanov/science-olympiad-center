@@ -2,7 +2,7 @@ import { HeroSection } from "@/components/hero-section"
 import { NewsEventsSection } from "@/components/news-events-section"
 import { ProgramsOverviewSection } from "@/components/programs-overview-section"
 import { FAQSection } from "@/components/faq-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
+// import { TestimonialsSection } from "@/components/testimonials-section"
 
 export default function HomePage() {
   return (
@@ -12,7 +12,7 @@ export default function HomePage() {
         <HeroSection />
         <NewsEventsSection />
         <ProgramsOverviewSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <FAQSection />
       </main>
     

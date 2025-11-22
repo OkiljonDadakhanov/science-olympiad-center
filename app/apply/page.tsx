@@ -118,7 +118,7 @@ export default function ApplyPage() {
           </div>
 
           <Card className="border-0 shadow-lg mb-12">
-            <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+            <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900">
               <CardTitle className="text-2xl">Application Process</CardTitle>
             </CardHeader>
             <CardContent className="p-8">
@@ -175,7 +175,7 @@ export default function ApplyPage() {
             </Card>
 
             <Card className="border-0 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+              <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900">
                 <CardTitle className="text-xl">Quick Links</CardTitle>
               </CardHeader>
               <CardContent className="p-6">

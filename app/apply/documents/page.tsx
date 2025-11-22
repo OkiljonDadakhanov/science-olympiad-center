@@ -135,7 +135,7 @@ export default function RequiredDocumentsPage() {
             {/* DOCUMENT REQUIREMENTS */}
             <div className="lg:col-span-2">
               <Card className="border-0 shadow-xl rounded-xl">
-                <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-t-xl">
+                <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900 rounded-t-xl">
                   <CardTitle className="text-2xl">Document Requirements</CardTitle>
                 </CardHeader>
                 <CardContent className="p-8 space-y-8">

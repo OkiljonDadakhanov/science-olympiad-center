@@ -36,7 +36,7 @@ export default function OnlineApplicationPage() {
 
           <form className="space-y-8">
             <Card className="border-0 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+              <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900">
                 <CardTitle className="text-xl">Personal Information</CardTitle>
               </CardHeader>
               <CardContent className="p-6 space-y-4">
