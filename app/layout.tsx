@@ -22,20 +22,16 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const host = (await headers()).get("host") || ""
-  const isProductionDomain = host.includes("olympcenter.uz")
-
-  const showLayout = !isProductionDomain // ✅ only show nav/footer on dev or preview
-
   return (
     <html lang="en">
       <body className={`font-sans ${playfair.variable}`}>
         <ClientLayout>
-          {showLayout && <Navigation />}
+          <Navigation />
           {children}
-          {showLayout && <Footer />}
+          <Footer />
         </ClientLayout>
       </body>
     </html>
   )
 }
+
