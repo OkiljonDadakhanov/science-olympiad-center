@@ -46,7 +46,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-6">Quick Links</h3>
             <div className="space-y-3">
-              <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors">
+              <Link href="/about/general" className="block text-muted-foreground hover:text-primary transition-colors">
                 About Us
               </Link>
               <Link href="/about/mission" className="block text-muted-foreground hover:text-primary transition-colors">
@@ -55,18 +55,18 @@ export function Footer() {
               <Link href="/about/team" className="block text-muted-foreground hover:text-primary transition-colors">
                 Our Team
               </Link>
-              <Link href="/programs" className="block text-muted-foreground hover:text-primary transition-colors">
+              {/* <Link href="/programs" className="block text-muted-foreground hover:text-primary transition-colors">
                 Programs
-              </Link>
-              <Link href="/competitions" className="block text-muted-foreground hover:text-primary transition-colors">
+              </Link> */}
+              {/* <Link href="/competitions" className="block text-muted-foreground hover:text-primary transition-colors">
                 Competitions
-              </Link>
+              </Link> */}
               <Link href="/news" className="block text-muted-foreground hover:text-primary transition-colors">
                 News
               </Link>
-              <Link href="/events" className="block text-muted-foreground hover:text-primary transition-colors">
+              {/* <Link href="/events" className="block text-muted-foreground hover:text-primary transition-colors">
                 Events
-              </Link>
+              </Link> */}
             </div>
           </div>
 
@@ -140,7 +140,7 @@ export function Footer() {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <h4 className="font-medium mb-3">Newsletter</h4>
               <p className="text-sm text-muted-foreground mb-3">
                 Get updates on competitions, events, and achievements.
@@ -151,14 +151,14 @@ export function Footer() {
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
         <Separator className="my-8" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-muted-foreground">© 2024 Science Olympiad Center. All rights reserved.</div>
+          <div className="text-sm text-muted-foreground">© 2025 Science Olympiad Center. All rights reserved.</div>
           <div className="flex gap-6 text-sm">
             <Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy

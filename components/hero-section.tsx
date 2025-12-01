@@ -101,7 +101,9 @@ export function HeroSection() {
   const currentOlympiad = upcomingOlympiads[currentSlide]
 
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden">
+    <section className="relative pt-20 lg:pt-32 pb-10 lg:pb-16 overflow-hidden">
+
+      
       {/* Dynamic background with animated gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50" />
       

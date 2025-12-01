@@ -35,4 +35,19 @@ export const partners: Partner[] = [
     logo: "/partners/cau.jpg",
     website: "https://centralasian.uz/",
   },
+  {
+    name: "MAAB Innovation",
+    logo: "/partners/maab.jpg",
+    website: "https://maab.uz/index.html",
+  },
+  {
+    name: "Ajou University in Tashkent",
+    logo: "/partners/aju.jpg",
+    website: "https://ajou.uz/uz/",
+  },
+  {
+    name: "Turin Polytechnic University in Tashkent",
+    logo: "/partners/turin.jpg",
+    website: "https://turin.uz/",
+  },
 ]
