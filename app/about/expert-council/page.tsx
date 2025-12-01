@@ -5,11 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { BookOpen, Users, Award, Target } from "lucide-react"
 import { FadingBackground } from "@/components/fading-bg" // import the fading bg
-
-/* -------------------------------------------------------
-   TYPES
---------------------------------------------------------*/
-
+ 
 export type Mentor = {
   id: number
   full_name: string
