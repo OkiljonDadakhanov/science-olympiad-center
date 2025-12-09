@@ -124,8 +124,10 @@ export default function InternationalOlympiadsPage() {
       <FadingBackground imageUrl="/ipho-slider.jpg" height={400} />
       <main className="relative">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-indigo-500/10">
-          <div className="container">
+        <section className="py-20 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-indigo-500/10 backdrop-blur-sm relative">
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] pointer-events-none"></div>
+          <div className="container relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 bg-blue-500/10 px-4 py-2 rounded-full mb-6">
                 <Globe className="h-5 w-5 text-blue-600" />
@@ -151,7 +153,7 @@ export default function InternationalOlympiadsPage() {
         </section>
 
         {/* Overview Stats */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-16 bg-white/80 backdrop-blur-sm">
           <div className="container">
             <div className="grid md:grid-cols-4 gap-8">
               <div className="text-center">
@@ -175,7 +177,7 @@ export default function InternationalOlympiadsPage() {
         </section>
 
         {/* Main Competitions */}
-        <section id="competitions" className="py-20">
+        <section id="competitions" className="py-20 bg-white/90 backdrop-blur-sm">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
@@ -188,7 +190,7 @@ export default function InternationalOlympiadsPage() {
 
             <div className="space-y-12">
               {internationalOlympiads.map((olympiad, index) => (
-                <Card key={index} className="overflow-hidden">
+                <Card key={index} className="overflow-hidden bg-white/95 backdrop-blur-sm border-2 shadow-xl">
                   <div className="grid lg:grid-cols-3 gap-0">
                     {/* Main Info */}
                     <div className="lg:col-span-2 p-8">
@@ -338,7 +340,7 @@ export default function InternationalOlympiadsPage() {
         </section>
 
         {/* Selection Process */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 bg-white/80 backdrop-blur-sm">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
@@ -401,7 +403,7 @@ export default function InternationalOlympiadsPage() {
         </section>
 
         {/* Historical Performance */}
-        <section className="py-20">
+        <section className="py-20 bg-white/90 backdrop-blur-sm">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
