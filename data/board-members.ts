@@ -15,7 +15,7 @@ export const boardMembers: BoardMember[] = [
       "Expert in media communications, public relations, and digital resource management",
     expertise:
       "Digital Media Strategy, Public Communications, Educational Media Development",
-    experience: "15+ years in media management and communication strategy",
+    experience: "1+ years in media management and communication strategy",
     image: "/team/tamanno.jpg",
   },
   {
@@ -24,7 +24,7 @@ export const boardMembers: BoardMember[] = [
     background:
       "Certified accountant with experience in financial reporting and budgeting",
     expertise: "Accounting, Financial Management, Audit and Compliance",
-    experience: "20+ years in financial administration and auditing",
+    experience: "2+ years in financial administration and auditing",
     image: "/team/abduvali.jpg",
   },
   {
@@ -35,7 +35,7 @@ export const boardMembers: BoardMember[] = [
       "Specialist in teacher training and curriculum development for STEM education",
     expertise:
       "Pedagogical Innovation, Curriculum Design, Teacher Capacity Building",
-    experience: "18+ years in education and methodology development",
+    experience: "1+ years in education and methodology development",
     image: "/team/nargiza.jpg",
   },
   {
@@ -55,7 +55,7 @@ export const boardMembers: BoardMember[] = [
     background:
       "Experienced educator specializing in student preparation for international STEM competitions",
     expertise: "STEM Education, Olympiad Training, International Academic Coaching",
-    experience: "15+ years in education and student mentorship",
+    experience: "1+ years in education and student mentorship",
     image: "/team/fayyoz.jpg",
   },
   {
@@ -65,7 +65,7 @@ export const boardMembers: BoardMember[] = [
     background:
       "Expert in academic assessment systems and digital olympiad platforms",
     expertise: "E-learning Platforms, Online Olympiads, Academic Content Development",
-    experience: "17+ years in education technology and assessment design",
+    experience: "1+ years in education technology and assessment design",
     image: "/team/tursunboy.jpg",
   },
 ]
