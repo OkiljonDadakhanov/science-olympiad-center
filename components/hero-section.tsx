@@ -19,6 +19,21 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 
+const heroBackgrounds = [
+  {
+    src: "/main-bg.jpg",
+    alt: "Students collaborating at an olympiad event",
+  },
+  {
+    src: "/bg.jpg",
+    alt: "Auditorium filled with competitors",
+  },
+  {
+    src: "/expert-bg.jpg",
+    alt: "Mentors guiding students through challenges",
+  },
+]
+
 const upcomingOlympiads = [
   {
     id: 1,
@@ -80,7 +95,9 @@ const upcomingOlympiads = [
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentBackground, setCurrentBackground] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+  const [scrollOffset, setScrollOffset] = useState(0)
 
   useEffect(() => {
     setIsVisible(true)
@@ -88,6 +105,21 @@ export function HeroSection() {
       setCurrentSlide((prev) => (prev + 1) % upcomingOlympiads.length)
     }, 6000)
     return () => clearInterval(timer)
+    const bgTimer = setInterval(() => {
+      setCurrentBackground((prev) => (prev + 1) % heroBackgrounds.length)
+    }, 8000)
+
+    const handleScroll = () => {
+      setScrollOffset(window.scrollY * 0.08)
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+
+    return () => {
+      clearInterval(timer)
+      clearInterval(bgTimer)
+      window.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   const nextSlide = () => {
@@ -102,14 +134,25 @@ export function HeroSection() {
 
   return (
     <section className="relative pt-20 lg:pt-32 pb-10 lg:pb-16 overflow-hidden">
-
-      
-      {/* Dynamic background with animated gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50" />
-      
-      {/* Animated mesh gradient overlay */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-secondary/20 animate-pulse" />
+      {/* Full-bleed scrolling background carousel */}
+      <div className="absolute inset-0 overflow-hidden" aria-hidden>
+        {heroBackgrounds.map((bg, index) => (
+          <div
+            key={bg.src}
+            className={`absolute inset-0 transition-all duration-1000 ease-out ${
+              index === currentBackground ? "opacity-100 scale-100" : "opacity-0 scale-105"
+            }`}
+            style={{
+              backgroundImage: `url(${bg.src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              transform: `translateY(${index === currentBackground ? scrollOffset : 0}px)`,
+            }}
+            role="presentation"
+          />
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/70 via-primary/40 to-secondary/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-transparent to-white" />
       </div>
 
       {/* Floating geometric shapes */}
