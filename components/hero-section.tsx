@@ -207,17 +207,17 @@ export function HeroSection() {
           <div className="flex flex-wrap items-center justify-center gap-6 mt-12 text-sm text-gray-600">
             <div className="flex items-center gap-2">
               <Trophy className="h-5 w-5 text-primary" />
-              <span className="font-medium">500+ Medals Won</span>
+              <span className="font-medium text-white">500+ Medals Won</span>
             </div>
-            <div className="w-1 h-1 rounded-full bg-gray-300" />
+            <div className="w-1 h-1 rounded-full text-white" />
             <div className="flex items-center gap-2">
               <Users className="h-5 w-5 text-primary" />
-              <span className="font-medium">10,000+ Students</span>
+              <span className="font-medium text-white">10,000+ Students</span>
             </div>
-            <div className="w-1 h-1 rounded-full bg-gray-300" />
+            <div className="w-1 h-1 rounded-full text-white" />
             <div className="flex items-center gap-2">
               <Globe className="h-5 w-5 text-primary" />
-              <span className="font-medium">50+ Countries</span>
+              <span className="font-medium text-white">50+ Countries</span>
             </div>
           </div>
         </div>
@@ -227,11 +227,11 @@ export function HeroSection() {
           <div className="text-center mb-10">
            
             <h2 className="text-3xl md:text-4xl font-bold mb-3">
-              <span className="bg-gradient-to-r from-gray-900 to-primary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r text-white bg-clip-text text-transparent">
                 Upcoming Competitions
               </span>
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-white ">
               Don't miss these incredible opportunities
             </p>
           </div>
