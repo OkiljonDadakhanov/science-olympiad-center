@@ -12,7 +12,43 @@ export default function BoardOfTrusteesPage() {
     <div className="min-h-screen relative">
       <FadingBackground imageUrl="/main-bg.jpg" height={400} />
       <div className="relative bg-gradient-to-br from-orange-50/98 via-white/95 to-blue-50/98 backdrop-blur-sm min-h-screen">
-      <div className="container mx-auto px-4 py-12">
+        {/* Gerb Background Images - 3 duplicates */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+          {/* Top Left */}
+          <div className="absolute top-10 left-10">
+            <Image
+              src="/gerb.png"
+              alt="Coat of Arms"
+              width={600}
+              height={600}
+              className="opacity-8 object-contain w-[50vw] h-[50vh] max-w-[600px] max-h-[600px]"
+              priority
+            />
+          </div>
+          {/* Center */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <Image
+              src="/gerb.png"
+              alt="Coat of Arms"
+              width={800}
+              height={800}
+              className="opacity-10 object-contain w-[80vw] h-[80vh] max-w-[1000px] max-h-[1000px]"
+              priority
+            />
+          </div>
+          {/* Bottom Right */}
+          <div className="absolute bottom-10 right-10">
+            <Image
+              src="/gerb.png"
+              alt="Coat of Arms"
+              width={600}
+              height={600}
+              className="opacity-8 object-contain w-[50vw] h-[50vh] max-w-[600px] max-h-[600px]"
+              priority
+            />
+          </div>
+        </div>
+      <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
