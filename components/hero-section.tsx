@@ -151,7 +151,8 @@ export function HeroSection() {
             role="presentation"
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/70 via-primary/40 to-secondary/40" />
+        <div className="absolute inset-0 bg-black/70" />
+
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-transparent to-white" />
       </div>
 

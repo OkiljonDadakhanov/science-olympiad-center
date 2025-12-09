@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Users, Trophy, Clock, FileText, Star, Award, CheckCircle, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { FadingBackground } from "@/components/fading-bg"
 
 const prestigiousOlympiads = [
   {
@@ -103,8 +104,9 @@ const prestigiousOlympiads = [
 
 export default function PrestigiousOlympiadsPage() {
   return (
-    <div className="min-h-screen">
-      <main>
+    <div className="min-h-screen relative">
+      <FadingBackground imageUrl="/imo-slider.jpg" height={400} />
+      <main className="relative">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-yellow-500/10 via-orange-500/5 to-red-500/10">
           <div className="container">

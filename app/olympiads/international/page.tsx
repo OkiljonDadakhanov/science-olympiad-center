@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Globe, Trophy, Users, MapPin, Calendar, Star, Award, CheckCircle, ArrowRight, Plane } from "lucide-react"
 import Link from "next/link"
+import { FadingBackground } from "@/components/fading-bg"
 
 const internationalOlympiads = [
   {
@@ -119,8 +120,9 @@ const internationalOlympiads = [
 
 export default function InternationalOlympiadsPage() {
   return (
-    <div className="min-h-screen">
-      <main>
+    <div className="min-h-screen relative">
+      <FadingBackground imageUrl="/ipho-slider.jpg" height={400} />
+      <main className="relative">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-indigo-500/10">
           <div className="container">

@@ -2,28 +2,32 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useState } from "react"
+import Image from "next/image"
 
 // --- DATA (extracted from your image) ---
 const orgData = {
   director: {
-    name: "Shermatov Turaboy",
+    name: "Shermatov Turaboy Yusupboevich",
     role: "Director",
     work: "14 years",
+    image: "/tree/torabek.jpg",
     education: [
-      "2012 – Bachelor’s, National University of Uzbekistan",
-      "2015 – Master’s, National University of Uzbekistan",
-      "2017 – IWANN-7, Turkey",
-      "2021 – School Leaders Program, University of Cambridge"
+      "2012 – Bachelor's degree, National University of Uzbekistan",
+      "2015 – Master's degree, National University of Uzbekistan",
+      "2017 – International Workshop IWANN-7, Turkey",
+      "2021 – International Program for 'School Leaders,' University of Cambridge",
+      "2023 – 'Management' Training Course, Academy of Public Administration under the President of the Republic of Uzbekistan",
+      "2024 – Specialized Training Course, Academy of Public Administration under the President of the Republic of Uzbekistan"
     ]
   },
 
   deputy: {
-    name: "Tukhtayev Davron",
+    name: "Tuxtayev Davron Dilmurot ugli",
     role: "Deputy Director",
-    work: "10 years",
+    work: "5 years",
+    image: "/tree/tukhtaev.jpg",
     education: [
-      "2013 – Bachelor’s, Tashkent State Pedagogical University",
-      "2016 – Master’s, Tashkent State Pedagogical University"
+      "2014 – National University of Uzbekistan"
     ]
   },
 
@@ -31,35 +35,43 @@ const orgData = {
     {
       name: "Department for Organizing Local Subject Olympiads and Competitions",
       head: {
-        name: "Ishmurodov Shohriddin",
+        name: "Ishmuradov Shovhiddin Ilhomovich",
         role: "Head of Department",
-        work: "9 years",
-        education: ["Bachelor’s degree, National University of Uzbekistan"]
+        work: "21 years",
+        image: "/team/shovqiddin.jpg",
+        education: ["2004 – Navoi State Pedagogical Institute"]
       },
       staff: [
         {
-          name: "Ibragimov Mirzohid",
+          name: "Ibroghimov Mirzokhid Isroilovich",
           role: "Chief Specialist",
-          work: "7 years",
-          education: ["Bachelor’s degree"]
+          work: "29 years",
+          image: "/tree/mirzohid.jpg",
+          education: ["1996 – Tashkent State University"]
         },
         {
-          name: "Ergashev Abdulmanzur",
+          name: "Ergashov Abulmansur Abduvokhidovich",
           role: "Chief Specialist",
-          work: "6 years",
-          education: ["Bachelor’s degree"]
+          work: "9 years",
+          image: "/tree/abdulmansur.jpg",
+          education: ["2016 – Tashkent State Pedagogical University named after Nizami"]
         },
         {
-          name: "Raxshanov Rasuljon",
-          role: "Leading Specialist",
-          work: "4 years",
-          education: ["Bachelor’s degree"]
-        },
-        {
-          name: "Karimova Shahnoza",
+          name: "Ravshanov Rasuljon Rustamovich",
           role: "Leading Specialist",
           work: "5 years",
-          education: ["Bachelor’s degree"]
+          image: "/tree/rasuljon.jpg",
+          education: ["2021 – Navoi State Pedagogical Institute"]
+        },
+        {
+          name: "Karimova Shahnóza Abdurasul qizi",
+          role: "Leading Specialist",
+          work: "3 years",
+          image: "/tree/munisa.jpg",
+          education: [
+            "2019 – Tashkent State University of Uzbek Language and Literature named after Alisher Navoi (Bachelor's degree)",
+            "2021 – Tashkent State University of Uzbek Language and Literature named after Alisher Navoi (Master's degree)"
+          ]
         }
       ]
     },
@@ -67,29 +79,36 @@ const orgData = {
     {
       name: "Department for Selecting and Preparing Students for International Science Olympiads",
       head: {
-        name: "Tuychiyev Fayyoz",
+        name: "Tuychiev Fayyoz Farhod ugli",
         role: "Head of Department",
-        work: "8 years",
-        education: ["Master’s degree"]
+        work: "4 years",
+        image: "/team/fayyoz.jpg",
+        education: [
+          "2021 – V.I. Ulyanov (Lenin) Saint Petersburg State Electrotechnical University 'LETI'",
+          "2023 – Tashkent State Technical University named after I.A. Karimov (Master's degree)"
+        ]
       },
       staff: [
         {
-          name: "Rustamov Sherzod",
+          name: "Rustamov Sherzod Allanazarovich",
           role: "Chief Specialist",
-          work: "5 years",
-          education: ["Bachelor’s degree"]
+          work: "12 years",
+          image: "/tree/sherzod.jpg",
+          education: ["2021 – Berdakh State University of Karakalpakstan"]
         },
         {
-          name: "Kalandarova Mavjuda",
+          name: "Kalandarova Mavjuda Obidjonovna",
           role: "Leading Specialist",
-          work: "4 years",
-          education: ["Master’s degree"]
+          work: "25 years",
+          image: "/tree/mavjuda.jpg",
+          education: ["2024 – Gulistan State University"]
         },
         {
-          name: "Toirova Ruxsora",
+          name: "Toirova Ruhsora Khurshid kizi",
           role: "Leading Specialist",
-          work: "3 years",
-          education: ["Bachelor’s degree"]
+          work: "1 year",
+          image: "/tree/ruxsora.jpg",
+          education: ["2025 – Yangi Uzbekistan University"]
         }
       ]
     },
@@ -97,35 +116,32 @@ const orgData = {
     {
       name: "Department for Preparing Olympiad Materials, Monitoring and Organizing Online Olympiads",
       head: {
-        name: "Jumayev Tursunboy",
+        name: "Jumaev Tursunboy Khusen ogli",
         role: "Head of Department",
-        work: "11 years",
-        education: ["Master’s degree"]
+        work: "7 years",
+        image: "/team/tursunboy.jpg",
+        education: [
+          "2018 – Bukhara State University",
+          "2022 – National University of Uzbekistan"
+        ]
       },
       staff: [
         {
-          name: "Shamshiyev Davron",
+          name: "Shamsiyev Davron Asliddinovich",
           role: "Chief Specialist",
-          work: "7 years",
-          education: ["Bachelor’s degree"]
+          work: "5 years",
+          image: "/tree/davron.jpg",
+          education: ["2024 – Tashkent State University of Economics"]
         },
         {
-          name: "Dadakhanov Oqiljon",
-          role: "Chief Specialist (0.50)",
-          work: "4 years",
-          education: ["Bachelor’s degree"]
-        },
-        {
-          name: "Shukurullayev Shohbek",
-          role: "Chief Specialist (0.50)",
-          work: "3 years",
-          education: ["Bachelor’s degree"]
-        },
-        {
-          name: "Boyqobilov Dilshod",
+          name: "Boykobilov Dilshod Bahriddinovich",
           role: "Leading Specialist",
-          work: "6 years",
-          education: ["Bachelor’s degree"]
+          work: "8 years",
+          image: "/tree/dilshod.jpg",
+          education: [
+            "2015 – Jizzakh State Pedagogical Institute (Bachelor's degree)",
+            "2017 – Gulistan State University (Master's degree)"
+          ]
         }
       ]
     },
@@ -133,29 +149,35 @@ const orgData = {
     {
       name: "Department for Developing Methodological Guidelines and Educational Manuals and Working with Trainer-Teachers",
       head: {
-        name: "Tadjiyeva Nargiza",
+        name: "Tadjieva Nargiza Rustamovna",
         role: "Head of Department",
-        work: "9 years",
-        education: ["Master’s degree"]
+        work: "21 years",
+        image: "/tree/nargiza.jpg",
+        education: [
+          "2005 – Mukimiy Kokand State Pedagogical Institute (Bachelor's degree)",
+          "2023 – Al-Bukhari Oriental University (Master's degree)"
+        ]
       },
       staff: [
         {
-          name: "Vacant",
-          role: "Chief Specialist",
-          work: "",
-          education: []
+          name: "Djumabayeva Janar Muratbayeva",
+          role: "Leading Specialist",
+          work: "20 years",
+          image: "/tree/janar.jpg",
+          education: [
+            "2004 – Karakalpakstan State University",
+            "2025 – Student at the Higher School of Business and Entrepreneurship under the Cabinet of Ministers"
+          ]
         },
         {
-          name: "Djumabayeva Jamar",
+          name: "Soatova Guljakhon Mukhammatovna",
           role: "Leading Specialist",
-          work: "5 years",
-          education: ["Bachelor’s degree"]
-        },
-        {
-          name: "Soatova Guljaxon",
-          role: "Leading Specialist",
-          work: "6 years",
-          education: ["Master’s degree"]
+          work: "18 years",
+          image: "/tree/guljahon.jpg",
+          education: [
+            "2010 – Tashkent State University of World Languages",
+            "2025 – University of Digital Economy and Agrotechnologies"
+          ]
         }
       ]
     }
@@ -163,40 +185,46 @@ const orgData = {
 
   support: [
     {
-      name: "Aripov Jahongir",
+      name: "Aripov Jahongir Alimovich",
       role: "Chief HR Specialist",
-      work: "8 years",
-      education: ["Bachelor’s, University of World Economy and Diplomacy"]
+      work: "14 years",
+      image: "/tree/jahongir.jpg",
+      education: ["2010 – Tashkent State Pedagogical University named after Nizami"]
     },
     {
-      name: "Chuliyev Abduvali",
+      name: "Choliev Abduvali Abdulasam ugli",
       role: "Head of Accounting Department",
-      work: "12 years",
-      education: ["Accounting and Finance"]
+      work: "10 years",
+      image: "/tree/bugaltr.jpg",
+      education: ["2015 – Jizzakh Polytechnic Institute"]
     },
     {
-      name: "Mahkamov Sardor",
+      name: "Makhamatov Sardor Zoirovich",
       role: "Public Procurement Specialist",
       work: "7 years",
-      education: ["Bachelor’s degree"]
+      image: "/tree/sardor.jpg",
+      education: ["2017 – Tashkent University of Information Technologies named after Muhammad al-Khwarizmi"]
     },
     {
-      name: "Turayeva Tamanno",
+      name: "Turaeva Tamanno Ochilovna",
       role: "Head of Digital Media Department",
-      work: "6 years",
-      education: ["Communications"]
-    },
-    {
-      name: "Nizamkhanov Alixon",
-      role: "Facilities Manager",
-      work: "15 years",
-      education: ["Technical Maintenance"]
-    },
-    {
-      name: "Iskandarov Bunyod",
-      role: "Technical Service Specialist",
       work: "5 years",
-      education: ["Computer Engineering"]
+      image: "/team/tamanno.jpg",
+      education: ["2022 – Uzbekistan State University of World Languages"]
+    },
+    {
+      name: "Ergashboev Jumanazar Abdunabi ugli",
+      role: "Specialist",
+      work: "8 years",
+      image: "/tree/jumanazar.jpg",
+      education: ["2024 – Moscow University of Finance and Industry"]
+    },
+    {
+      name: "Uloshov Abumuslim Komil ugli",
+      role: "Specialist",
+      work: "4 years",
+      image: "/tree/muslim.jpg",
+      education: ["2022 – National University of Uzbekistan"]
     }
   ]
 };
@@ -211,24 +239,49 @@ const PersonCard = ({ person, className = "" }) => {
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
-      <div className="bg-white border-2 border-blue-400 rounded-lg p-3 shadow-md hover:shadow-xl transition-all cursor-pointer min-w-[140px]">
-        <div className="w-12 h-12 bg-gray-300 rounded-full mx-auto mb-2"></div>
-        <p className="text-xs font-semibold text-center text-gray-900">
+      <div className="bg-white border-2 border-blue-400 rounded-lg p-4 shadow-md hover:shadow-xl hover:border-blue-600 transition-all cursor-pointer min-w-[160px]">
+        <div className="w-14 h-14 rounded-full mx-auto mb-3 flex items-center justify-center overflow-hidden border-2 border-blue-300 bg-gray-100">
+          {person.image ? (
+            <Image
+              src={person.image}
+              alt={person.name}
+              width={56}
+              height={56}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold text-lg">
+              {person.name.split(' ').map(n => n[0]).join('').substring(0, 2)}
+            </div>
+          )}
+        </div>
+        <p className="text-xs font-semibold text-center text-gray-900 leading-tight mb-1">
           {person.name}
         </p>
-        <p className="text-xs text-center text-gray-600">
+        <p className="text-xs text-center text-gray-600 leading-tight">
           {person.role}
         </p>
       </div>
 
       {showTooltip && person.work && (
-        <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 w-64 bg-gray-900 text-white text-xs rounded-lg p-3 shadow-xl z-50">
+        <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-4 shadow-xl z-50">
           <p className="mb-2">
             <span className="font-semibold">Work experience:</span> {person.work}
           </p>
-          <p>
-            <span className="font-semibold">Education:</span> {person.education}
-          </p>
+          {Array.isArray(person.education) && person.education.length > 0 ? (
+            <div>
+              <span className="font-semibold">Place of Higher Education Completion:</span>
+              <ul className="mt-1 space-y-1 ml-2">
+                {person.education.map((edu, idx) => (
+                  <li key={idx}>• {edu}</li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <p>
+              <span className="font-semibold">Education:</span> {person.education || "Not specified"}
+            </p>
+          )}
         </div>
       )}
     </div>
@@ -238,7 +291,7 @@ const PersonCard = ({ person, className = "" }) => {
 // --- PAGE ---
 export default function OrganizationPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-gray-50 py-12">
       <div className="container mx-auto px-4">
 
         <div className="text-center mb-8">
@@ -273,8 +326,8 @@ export default function OrganizationPage() {
                 {orgData.departments.map((dept, idx) => (
                   <div key={idx} className="relative">
                     <div className="absolute left-1/2 -top-8 w-0.5 h-8 bg-blue-400"></div>
-                    <div className="border-2 border-blue-300 rounded-lg p-4 bg-blue-50">
-                      <h3 className="text-xs font-bold text-center mb-4 text-gray-800">
+                    <div className="border-2 border-blue-300 rounded-lg p-5 bg-gradient-to-br from-blue-50 to-blue-100/50 shadow-sm">
+                      <h3 className="text-sm font-bold text-center mb-5 text-gray-800 leading-tight">
                         {dept.name}
                       </h3>
                       <div className="flex justify-center mb-4">

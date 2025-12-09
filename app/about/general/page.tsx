@@ -29,17 +29,36 @@ export default function GeneralInformationPage() {
           </div>
           {/* Stats Section */}
           <div className="grid md:grid-cols-4 gap-6 mb-12">
-            {stats.map((stat, index) => (
-              <Card key={index} className="border-0 shadow-lg text-center">
-                <CardContent className="p-6">
-                  <stat.icon className="w-12 h-12 mx-auto mb-4 text-orange-500" />
-                  <div className="text-3xl font-bold text-gray-900 mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-600">{stat.label}</div>
-                </CardContent>
-              </Card>
-            ))}
+            {stats.map((stat, index) => {
+              let linkHref = "";
+              if (stat.label === "Active Students" || stat.label === "International Medals") {
+                linkHref = "/about/winners";
+              } else if (stat.label === "Partner Countries") {
+                linkHref = "/about/partners";
+              } else if (stat.label === "Programs & Courses") {
+                linkHref = "/programs/mathematics";
+              }
+
+              const cardContent = (
+                <Card key={index} className={`border-0 shadow-lg text-center ${linkHref ? "hover:shadow-xl transition-all duration-300 cursor-pointer" : ""}`}>
+                  <CardContent className="p-6">
+                    <stat.icon className="w-12 h-12 mx-auto mb-4 text-orange-500" />
+                    <div className="text-3xl font-bold text-gray-900 mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="text-gray-600">{stat.label}</div>
+                  </CardContent>
+                </Card>
+              );
+
+              return linkHref ? (
+                <Link key={index} href={linkHref} className="block">
+                  {cardContent}
+                </Link>
+              ) : (
+                cardContent
+              );
+            })}
           </div>
           {/* ⭐ NEW: Olympiad Statistics */}
           <Card className="border-0 shadow-lg mb-12">

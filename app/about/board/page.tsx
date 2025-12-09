@@ -5,10 +5,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { boardMembers } from "@/data/board-members";
+import { FadingBackground } from "@/components/fading-bg";
 
 export default function BoardOfTrusteesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50">
+    <div className="min-h-screen relative">
+      <FadingBackground imageUrl="/main-bg.jpg" height={400} />
+      <div className="relative bg-gradient-to-br from-orange-50/98 via-white/95 to-blue-50/98 backdrop-blur-sm min-h-screen">
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -28,7 +31,7 @@ export default function BoardOfTrusteesPage() {
             {boardMembers.map((member, index) => (
               <Card
                 key={index}
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden bg-white/90 backdrop-blur-sm"
+                className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden bg-white/95 backdrop-blur-sm border border-gray-100"
               >
                 <CardContent className="p-8">
                   <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
@@ -84,10 +87,24 @@ export default function BoardOfTrusteesPage() {
                         </div>
                         <div>
                           <span className="font-semibold text-gray-900">
-                            Experience:
+                            Work Experience:
                           </span>{" "}
                           {member.experience}
                         </div>
+                        {member.education && member.education.length > 0 && (
+                          <div>
+                            <span className="font-semibold text-gray-900">
+                              Education:
+                            </span>
+                            <ul className="mt-2 space-y-1 ml-4">
+                              {member.education.map((edu, idx) => (
+                                <li key={idx} className="text-sm">
+                                  • {edu}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -132,6 +149,7 @@ export default function BoardOfTrusteesPage() {
             </CardContent>
           </Card>
         </div>
+      </div>
       </div>
     </div>
   );
