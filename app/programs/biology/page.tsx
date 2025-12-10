@@ -1,14 +1,100 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Users, Award, BookOpen, Target, Clock, ArrowRight, Microscope, DNA, Leaf, Cell, Virus } from "lucide-react"
+import { useEffect, useRef } from "react"
 
 export default function BiologyProgramPage() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+
+    const cells: Array<{
+      x: number
+      y: number
+      vx: number
+      vy: number
+      radius: number
+      opacity: number
+    }> = []
+
+    for (let i = 0; i < 20; i++) {
+      cells.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        radius: 30 + Math.random() * 40,
+        opacity: 0.2 + Math.random() * 0.3
+      })
+    }
+
+    function draw() {
+      if (!ctx) return
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      cells.forEach((cell) => {
+        ctx.save()
+        ctx.globalAlpha = cell.opacity
+        ctx.strokeStyle = '#00aa00'
+        ctx.fillStyle = '#00aa00'
+        ctx.lineWidth = 2
+
+        // Draw cell membrane
+        ctx.beginPath()
+        ctx.arc(cell.x, cell.y, cell.radius, 0, Math.PI * 2)
+        ctx.stroke()
+
+        // Draw nucleus
+        ctx.beginPath()
+        ctx.arc(cell.x, cell.y, cell.radius * 0.3, 0, Math.PI * 2)
+        ctx.fill()
+
+        ctx.restore()
+
+        cell.x += cell.vx
+        cell.y += cell.vy
+
+        if (cell.x < cell.radius || cell.x > canvas.width - cell.radius) cell.vx *= -1
+        if (cell.y < cell.radius || cell.y > canvas.height - cell.radius) cell.vy *= -1
+      })
+
+      requestAnimationFrame(draw)
+    }
+
+    draw()
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
-    <div className="min-h-screen">
-      <main>
+    <div className="min-h-screen relative">
+      {/* Interactive Biology Background */}
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0 z-0"
+        style={{ background: 'linear-gradient(to bottom right, rgba(0, 170, 0, 0.05), rgba(16, 185, 129, 0.05))' }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-green-50/60 via-white/70 to-emerald-50/60 z-[1]" />
+      <main className="relative z-10">
         {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 relative ">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-6">
@@ -25,7 +111,7 @@ export default function BiologyProgramPage() {
         </section>
 
         {/* Program Overview & Cards */}
-        <section className="py-20">
+        <section className="py-20 relative">
           <div className="container">
             <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               <div className="lg:col-span-2">
@@ -144,7 +230,7 @@ export default function BiologyProgramPage() {
         </section>
 
         {/* Curriculum */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 bg-muted/20 relative">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">

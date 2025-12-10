@@ -316,7 +316,7 @@ export default function LocalOlympiadsPage() {
                         </div>
                         <p className="text-muted-foreground italic">{stage.uzbekName}</p>
                       </div>
-                      {stage.status && (
+                      {'status' in stage && typeof stage.status === 'string' && stage.status && (
                         <Badge variant="outline" className="text-sm">
                           {stage.status}
                         </Badge>
@@ -335,7 +335,7 @@ export default function LocalOlympiadsPage() {
                         <CheckCircle className="h-5 w-5 text-green-500" />
                         Eligibility
                       </h4>
-                      <p className="text-muted-foreground">{stage.eligibility || stage.note}</p>
+                      <p className="text-muted-foreground">{stage.eligibility || ('note' in stage && typeof stage.note === 'string' ? stage.note : '')}</p>
                     </div>
 
                     {/* Stage 1 Specific Content */}
@@ -391,7 +391,7 @@ export default function LocalOlympiadsPage() {
                             Subjects ({stage.totalSubjects})
                           </h4>
                           <div className="flex flex-wrap gap-2">
-                            {stage.subjects?.map((subject, i) => (
+                            {Array.isArray(stage.subjects) && stage.subjects.map((subject: string, i: number) => (
                               <Badge key={i} variant="outline" className="text-sm">
                                 {subject}
                               </Badge>
@@ -460,7 +460,7 @@ export default function LocalOlympiadsPage() {
                     )}
 
                     {/* Stage 3 Specific Content */}
-                    {stage.stage === 3 && (
+                    {stage.stage === 3 && 'subjects' in stage && stage.subjects && typeof stage.subjects === 'object' && !Array.isArray(stage.subjects) && (
                       <>
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
@@ -471,25 +471,25 @@ export default function LocalOlympiadsPage() {
                             <div className="p-4 bg-blue-50 rounded-lg">
                               <h5 className="font-semibold mb-2">Part 1: Written Problems</h5>
                               <ul className="text-sm text-muted-foreground space-y-1">
-                                <li>• {stage.subjects?.science.part1.problems} problems of varying difficulty</li>
-                                <li>• {stage.subjects?.science.part1.points} points maximum</li>
-                                <li>• Duration: {stage.subjects?.science.part1.duration}</li>
+                                <li>• {(stage.subjects as any).science?.part1.problems} problems of varying difficulty</li>
+                                <li>• {(stage.subjects as any).science?.part1.points} points maximum</li>
+                                <li>• Duration: {(stage.subjects as any).science?.part1.duration}</li>
                                 <li>• Each problem evaluated according to specific criteria</li>
                               </ul>
                             </div>
                             <div className="p-4 bg-green-50 rounded-lg">
                               <h5 className="font-semibold mb-2">Part 2: Test Questions</h5>
                               <ul className="text-sm text-muted-foreground space-y-1">
-                                <li>• {stage.subjects?.science.part2.questions} test questions ({stage.subjects?.science.part2.points} points)</li>
-                                <li>• Duration: {stage.subjects?.science.part2.duration}</li>
-                                <li>• {stage.subjects?.science.part2.breakdown?.simple}</li>
-                                <li>• {stage.subjects?.science.part2.breakdown?.medium}</li>
-                                <li>• {stage.subjects?.science.part2.breakdown?.complex}</li>
-                                <li>• Total: {stage.subjects?.science.part2.total}</li>
+                                <li>• {(stage.subjects as any).science?.part2.questions} test questions ({(stage.subjects as any).science?.part2.points} points)</li>
+                                <li>• Duration: {(stage.subjects as any).science?.part2.duration}</li>
+                                <li>• {(stage.subjects as any).science?.part2.breakdown?.simple}</li>
+                                <li>• {(stage.subjects as any).science?.part2.breakdown?.medium}</li>
+                                <li>• {(stage.subjects as any).science?.part2.breakdown?.complex}</li>
+                                <li>• Total: {(stage.subjects as any).science?.part2.total}</li>
                               </ul>
                             </div>
                             <div className="p-3 bg-primary/10 rounded-lg text-center">
-                              <strong>Total: {stage.subjects?.science.total}</strong>
+                              <strong>Total: {(stage.subjects as any).science?.total}</strong>
                             </div>
                           </div>
                         </div>
@@ -500,12 +500,12 @@ export default function LocalOlympiadsPage() {
                           </h4>
                           <div className="p-4 bg-purple-50 rounded-lg">
                             <p className="text-sm text-muted-foreground mb-2">
-                              <strong>{stage.subjects?.informatics.problems} problems</strong> solved on an online portal
+                              <strong>{(stage.subjects as any).informatics?.problems} problems</strong> solved on an online portal
                             </p>
                             <ul className="text-sm text-muted-foreground space-y-1">
-                              <li>• Duration: {stage.subjects?.informatics.duration}</li>
-                              <li>• Maximum points: {stage.subjects?.informatics.points}</li>
-                              <li>• Programming languages: {stage.subjects?.informatics.languages?.join(", ")}</li>
+                              <li>• Duration: {(stage.subjects as any).informatics?.duration}</li>
+                              <li>• Maximum points: {(stage.subjects as any).informatics?.points}</li>
+                              <li>• Programming languages: {(stage.subjects as any).informatics?.languages?.join(", ")}</li>
                               <li>• Points awarded for fully completed and system-accepted problems</li>
                             </ul>
                           </div>
@@ -517,14 +517,14 @@ export default function LocalOlympiadsPage() {
                           </h4>
                           <div className="p-4 bg-red-50 rounded-lg">
                             <p className="text-sm text-muted-foreground mb-2">
-                              <strong>{stage.subjects?.humanities.questions} test questions</strong> ({stage.subjects?.humanities.points} points)
+                              <strong>{(stage.subjects as any).humanities?.questions} test questions</strong> ({(stage.subjects as any).humanities?.points} points)
                             </p>
                             <ul className="text-sm text-muted-foreground space-y-1">
-                              <li>• Duration: {stage.subjects?.humanities.duration}</li>
-                              <li>• {stage.subjects?.humanities.breakdown?.simple}</li>
-                              <li>• {stage.subjects?.humanities.breakdown?.medium}</li>
-                              <li>• {stage.subjects?.humanities.breakdown?.complex}</li>
-                              <li>• Total: {stage.subjects?.humanities.total}</li>
+                              <li>• Duration: {(stage.subjects as any).humanities?.duration}</li>
+                              <li>• {(stage.subjects as any).humanities?.breakdown?.simple}</li>
+                              <li>• {(stage.subjects as any).humanities?.breakdown?.medium}</li>
+                              <li>• {(stage.subjects as any).humanities?.breakdown?.complex}</li>
+                              <li>• Total: {(stage.subjects as any).humanities?.total}</li>
                             </ul>
                           </div>
                         </div>
@@ -588,27 +588,29 @@ export default function LocalOlympiadsPage() {
                           <p className="text-muted-foreground">{stage.eligibility}</p>
                         </div>
 
-                        <div className="mb-6">
-                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
-                            <Trophy className="h-5 w-5 text-yellow-500" />
-                            Prizes and Awards
-                          </h4>
-                          <div className="space-y-4">
-                            <div className="p-4 bg-yellow-50 rounded-lg">
-                              <h5 className="font-semibold mb-2">Monetary Prizes</h5>
-                              <ul className="space-y-1 text-sm text-muted-foreground">
-                                <li>• <strong>1st Place:</strong> {stage.prizes?.monetary.first}</li>
-                                <li>• <strong>2nd Place:</strong> {stage.prizes?.monetary.second}</li>
-                                <li>• <strong>3rd Place:</strong> {stage.prizes?.monetary.third}</li>
-                              </ul>
-                            </div>
-                            <div className="p-4 bg-blue-50 rounded-lg">
-                              <h5 className="font-semibold mb-2">Certificates and Diplomas</h5>
-                              <p className="text-sm text-muted-foreground mb-2">{stage.prizes?.certificates}</p>
-                              <p className="text-sm text-muted-foreground">{stage.prizes?.benefits}</p>
+                        {'prizes' in stage && stage.prizes && typeof stage.prizes === 'object' && (
+                          <div className="mb-6">
+                            <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                              <Trophy className="h-5 w-5 text-yellow-500" />
+                              Prizes and Awards
+                            </h4>
+                            <div className="space-y-4">
+                              <div className="p-4 bg-yellow-50 rounded-lg">
+                                <h5 className="font-semibold mb-2">Monetary Prizes</h5>
+                                <ul className="space-y-1 text-sm text-muted-foreground">
+                                  <li>• <strong>1st Place:</strong> {stage.prizes.monetary?.first}</li>
+                                  <li>• <strong>2nd Place:</strong> {stage.prizes.monetary?.second}</li>
+                                  <li>• <strong>3rd Place:</strong> {stage.prizes.monetary?.third}</li>
+                                </ul>
+                              </div>
+                              <div className="p-4 bg-blue-50 rounded-lg">
+                                <h5 className="font-semibold mb-2">Certificates and Diplomas</h5>
+                                <p className="text-sm text-muted-foreground mb-2">{stage.prizes.certificates}</p>
+                                <p className="text-sm text-muted-foreground">{stage.prizes.benefits}</p>
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        )}
 
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
@@ -617,103 +619,113 @@ export default function LocalOlympiadsPage() {
                           </h4>
                           
                           {/* Science Subjects */}
-                          <div className="mb-4">
-                            <h5 className="font-semibold mb-2 text-primary">Science Subjects (Mathematics, Physics, Chemistry, Biology)</h5>
-                            <div className="p-4 bg-blue-50 rounded-lg space-y-3">
-                              <div>
-                                <h6 className="font-semibold text-sm mb-1">Round 1: Written Work</h6>
-                                <ul className="text-sm text-muted-foreground space-y-1">
-                                  <li>• {stage.format?.science.round1.problems} problems of varying difficulty ({stage.format?.science.round1.points.join(", ")} points each)</li>
-                                  <li>• Total: {stage.format?.science.round1.totalPoints} points</li>
-                                  <li>• Duration: {stage.format?.science.round1.duration}</li>
-                                </ul>
-                              </div>
-                              <div>
-                                <h6 className="font-semibold text-sm mb-1">Round 2: Test Questions</h6>
-                                <p className="text-sm text-muted-foreground">Test examination format</p>
+                          {'format' in stage && stage.format && typeof stage.format === 'object' && 'science' in stage.format && (
+                            <div className="mb-4">
+                              <h5 className="font-semibold mb-2 text-primary">Science Subjects (Mathematics, Physics, Chemistry, Biology)</h5>
+                              <div className="p-4 bg-blue-50 rounded-lg space-y-3">
+                                <div>
+                                  <h6 className="font-semibold text-sm mb-1">Round 1: Written Work</h6>
+                                  <ul className="text-sm text-muted-foreground space-y-1">
+                                    <li>• {stage.format.science.round1.problems} problems of varying difficulty ({stage.format.science.round1.points.join(", ")} points each)</li>
+                                    <li>• Total: {stage.format.science.round1.totalPoints} points</li>
+                                    <li>• Duration: {stage.format.science.round1.duration}</li>
+                                  </ul>
+                                </div>
+                                <div>
+                                  <h6 className="font-semibold text-sm mb-1">Round 2: Test Questions</h6>
+                                  <p className="text-sm text-muted-foreground">Test examination format</p>
+                                </div>
                               </div>
                             </div>
-                          </div>
+                          )}
 
                           {/* Informatics */}
-                          <div className="mb-4">
-                            <h5 className="font-semibold mb-2 text-purple-500">Informatics and Information Technologies</h5>
-                            <div className="p-4 bg-purple-50 rounded-lg">
-                              <p className="text-sm text-muted-foreground mb-2">
-                                <strong>Format:</strong> Two days under same conditions (placing program solutions in electronic system)
-                              </p>
-                              <ul className="text-sm text-muted-foreground space-y-1">
-                                <li>• {stage.format?.informatics.problemsPerDay} problems per day ({stage.format?.informatics.totalProblems} total)</li>
-                                <li>• {stage.format?.informatics.pointsPerProblem} points per problem = {stage.format?.informatics.totalPoints} points total</li>
-                                <li>• Duration: {stage.format?.informatics.durationPerDay} per day</li>
-                                <li>• Programming languages: {stage.format?.informatics.languages?.join(", ")}</li>
-                                <li>• Points awarded by electronic system for fully completed and accepted problems</li>
-                              </ul>
-                            </div>
-                          </div>
-
-                          {/* Language and Literature Subjects */}
-                          <div className="mb-4">
-                            <h5 className="font-semibold mb-2 text-green-500">Language and Literature Subjects</h5>
-                            <p className="text-sm text-muted-foreground mb-2">
-                              Native Language and Literature, Uzbek Language, Russian Language and Literature, Kazakh Language, Tajik Language, Karakalpak Language and Literature
-                            </p>
-                            <div className="p-4 bg-green-50 rounded-lg space-y-2">
-                              <div>
-                                <h6 className="font-semibold text-sm mb-1">Round 1: Written Work (Essay)</h6>
+                          {'format' in stage && stage.format && typeof stage.format === 'object' && 'informatics' in stage.format && (
+                            <div className="mb-4">
+                              <h5 className="font-semibold mb-2 text-purple-500">Informatics and Information Technologies</h5>
+                              <div className="p-4 bg-purple-50 rounded-lg">
+                                <p className="text-sm text-muted-foreground mb-2">
+                                  <strong>Format:</strong> Two days under same conditions (placing program solutions in electronic system)
+                                </p>
                                 <ul className="text-sm text-muted-foreground space-y-1">
-                                  <li>• Duration: {stage.format?.languages.round1.duration}</li>
-                                  <li>• Total: {stage.format?.languages.round1.points} points</li>
+                                  <li>• {stage.format.informatics.problemsPerDay} problems per day ({stage.format.informatics.totalProblems} total)</li>
+                                  <li>• {stage.format.informatics.pointsPerProblem} points per problem = {stage.format.informatics.totalPoints} points total</li>
+                                  <li>• Duration: {stage.format.informatics.durationPerDay} per day</li>
+                                  <li>• Programming languages: {stage.format.informatics.languages?.join(", ")}</li>
+                                  <li>• Points awarded by electronic system for fully completed and accepted problems</li>
                                 </ul>
                               </div>
-                              <div>
-                                <h6 className="font-semibold text-sm mb-1">Round 2: Test Questions</h6>
-                                <p className="text-sm text-muted-foreground">Test examination format</p>
+                            </div>
+                          )}
+
+                          {/* Language and Literature Subjects */}
+                          {'format' in stage && stage.format && typeof stage.format === 'object' && 'languages' in stage.format && (
+                            <div className="mb-4">
+                              <h5 className="font-semibold mb-2 text-green-500">Language and Literature Subjects</h5>
+                              <p className="text-sm text-muted-foreground mb-2">
+                                Native Language and Literature, Uzbek Language, Russian Language and Literature, Kazakh Language, Tajik Language, Karakalpak Language and Literature
+                              </p>
+                              <div className="p-4 bg-green-50 rounded-lg space-y-2">
+                                <div>
+                                  <h6 className="font-semibold text-sm mb-1">Round 1: Written Work (Essay)</h6>
+                                  <ul className="text-sm text-muted-foreground space-y-1">
+                                    <li>• Duration: {stage.format.languages.round1.duration}</li>
+                                    <li>• Total: {stage.format.languages.round1.points} points</li>
+                                  </ul>
+                                </div>
+                                <div>
+                                  <h6 className="font-semibold text-sm mb-1">Round 2: Test Questions</h6>
+                                  <p className="text-sm text-muted-foreground">Test examination format</p>
+                                </div>
                               </div>
                             </div>
-                          </div>
+                          )}
 
                           {/* Foreign Languages */}
-                          <div className="mb-4">
-                            <h5 className="font-semibold mb-2 text-orange-500">Foreign Languages (English, German, French)</h5>
-                            <div className="p-4 bg-orange-50 rounded-lg">
-                              <p className="text-sm text-muted-foreground mb-2">
-                                <strong>Format:</strong> Single round with two parts (listening comprehension, reading, and lexico-grammatical skills assessment)
-                              </p>
-                              <div className="space-y-2">
-                                <div>
-                                  <h6 className="font-semibold text-sm mb-1">Part 1: Listening and Reading Skills</h6>
-                                  <p className="text-sm text-muted-foreground">
-                                    Maximum {stage.format?.foreignLanguages.part1.points} points - Assessment of listening comprehension and reading abilities
-                                  </p>
-                                </div>
-                                <div>
-                                  <h6 className="font-semibold text-sm mb-1">Part 2: Lexico-Grammatical Skills</h6>
-                                  <p className="text-sm text-muted-foreground">
-                                    Maximum {stage.format?.foreignLanguages.part2.points} points - Test questions assessing vocabulary and grammar knowledge
-                                  </p>
-                                </div>
-                                <div className="mt-2 p-2 bg-white rounded">
-                                  <p className="text-sm font-semibold">
-                                    Total: {stage.format?.foreignLanguages.total} points | Duration: {stage.format?.foreignLanguages.duration}
-                                  </p>
+                          {'format' in stage && stage.format && typeof stage.format === 'object' && 'foreignLanguages' in stage.format && (
+                            <div className="mb-4">
+                              <h5 className="font-semibold mb-2 text-orange-500">Foreign Languages (English, German, French)</h5>
+                              <div className="p-4 bg-orange-50 rounded-lg">
+                                <p className="text-sm text-muted-foreground mb-2">
+                                  <strong>Format:</strong> Single round with two parts (listening comprehension, reading, and lexico-grammatical skills assessment)
+                                </p>
+                                <div className="space-y-2">
+                                  <div>
+                                    <h6 className="font-semibold text-sm mb-1">Part 1: Listening and Reading Skills</h6>
+                                    <p className="text-sm text-muted-foreground">
+                                      Maximum {stage.format.foreignLanguages.part1.points} points - Assessment of listening comprehension and reading abilities
+                                    </p>
+                                  </div>
+                                  <div>
+                                    <h6 className="font-semibold text-sm mb-1">Part 2: Lexico-Grammatical Skills</h6>
+                                    <p className="text-sm text-muted-foreground">
+                                      Maximum {stage.format.foreignLanguages.part2.points} points - Test questions assessing vocabulary and grammar knowledge
+                                    </p>
+                                  </div>
+                                  <div className="mt-2 p-2 bg-white rounded">
+                                    <p className="text-sm font-semibold">
+                                      Total: {stage.format.foreignLanguages.total} points | Duration: {stage.format.foreignLanguages.duration}
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          )}
 
                           {/* Humanities */}
-                          <div className="mb-4">
-                            <h5 className="font-semibold mb-2 text-red-500">Humanities Subjects</h5>
-                            <div className="p-4 bg-red-50 rounded-lg">
-                              <p className="text-sm text-muted-foreground mb-1">
-                                <strong>Subjects:</strong> {stage.format?.humanities.subjects.join(", ")}
-                              </p>
-                              <p className="text-sm text-muted-foreground">
-                                <strong>Format:</strong> Single round - Test questions
-                              </p>
+                          {'format' in stage && stage.format && typeof stage.format === 'object' && 'humanities' in stage.format && (
+                            <div className="mb-4">
+                              <h5 className="font-semibold mb-2 text-red-500">Humanities Subjects</h5>
+                              <div className="p-4 bg-red-50 rounded-lg">
+                                <p className="text-sm text-muted-foreground mb-1">
+                                  <strong>Subjects:</strong> {stage.format.humanities.subjects.join(", ")}
+                                </p>
+                                <p className="text-sm text-muted-foreground">
+                                  <strong>Format:</strong> Single round - Test questions
+                                </p>
+                              </div>
                             </div>
-                          </div>
+                          )}
 
                           {/* Other Subjects */}
                           <div>

@@ -1,14 +1,94 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Atom, Thermometer, Zap, Waves, Telescope, BookOpen, Clock, Users, Award, Target, ArrowRight } from "lucide-react"
+import { useEffect, useRef } from "react"
 
 export default function PhysicsProgramPage() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+
+    const formulas = ['F=ma', 'E=mc²', 'λ=h/p', 'V=IR', 'E=hf', 'p=mv']
+    const particles: Array<{
+      x: number
+      y: number
+      vx: number
+      vy: number
+      formula: string
+      size: number
+      opacity: number
+    }> = []
+
+    for (let i = 0; i < 25; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        formula: formulas[Math.floor(Math.random() * formulas.length)],
+        size: 12 + Math.random() * 8,
+        opacity: 0.3 + Math.random() * 0.4
+      })
+    }
+
+    function draw() {
+      if (!ctx) return
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      particles.forEach((particle) => {
+        ctx.save()
+        ctx.globalAlpha = particle.opacity
+        ctx.fillStyle = '#9900ff'
+        ctx.font = `${particle.size}px serif`
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'middle'
+        ctx.fillText(particle.formula, particle.x, particle.y)
+        ctx.restore()
+
+        particle.x += particle.vx
+        particle.y += particle.vy
+
+        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
+        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
+      })
+
+      requestAnimationFrame(draw)
+    }
+
+    draw()
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
-    <div className="min-h-screen">
-      <main>
+    <div className="min-h-screen relative">
+      {/* Interactive Physics Background */}
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0 z-0"
+        style={{ background: 'linear-gradient(to bottom right, rgba(153, 0, 255, 0.05), rgba(99, 102, 241, 0.05))' }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-50/60 via-white/70 to-indigo-50/60 z-[1]" />
+      <main className="relative z-10">
         {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 relative ">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-6">
@@ -25,7 +105,7 @@ export default function PhysicsProgramPage() {
         </section>
 
         {/* Program Overview & Cards */}
-        <section className="py-20">
+        <section className="py-20 relative ">
           <div className="container">
             <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               <div className="lg:col-span-2">
@@ -155,7 +235,7 @@ export default function PhysicsProgramPage() {
         </section>
 
         {/* Curriculum */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 bg-muted/20 relative ">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
