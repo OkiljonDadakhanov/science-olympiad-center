@@ -2,140 +2,152 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { MapPin, Trophy, Users, Calendar, Clock, Star, CheckCircle, ArrowRight, GraduationCap } from "lucide-react"
+import { MapPin, Trophy, Users, Calendar, Clock, Star, CheckCircle, ArrowRight, GraduationCap, BookOpen, Award, Target } from "lucide-react"
 import Link from "next/link"
 import { FadingBackground } from "@/components/fading-bg"
 
-const localOlympiads = [
+const olympiadStages = [
   {
-    name: "Tashkent Regional Mathematics Competition",
-    description:
-      "Annual mathematics competition for students in Tashkent region, serving as a stepping stone to national competitions.",
-    region: "Tashkent",
-    level: "Regional",
-    participants: "200+ students",
-    duration: "3 hours",
-    format: "5 problems",
-    subjects: ["Algebra", "Geometry", "Number Theory"],
-    eligibility: "Grades 8-11, Tashkent region schools",
-    registrationDeadline: "October 1, 2024",
-    competitionDate: "November 15, 2024",
-    venue: "Tashkent State University",
-    prizes: "Medals, certificates, national qualification",
+    stage: 1,
+    name: "School Stage",
+    uzbekName: "Maktab bosqichi",
+    description: "The first stage of the Main Olympiad, conducted among students of state and non-state general secondary education institutions, academic lyceums, and vocational schools across 17 subjects.",
+    eligibility: "Students in grades 9-11 of state and non-state general secondary education institutions, and students in stages 1-2 of academic lyceums and vocational education institutions.",
+    participants: "530,629 winners",
+    nextStageParticipants: "431,270 participants (81%)",
+    format: "Organized by educational institution pedagogical councils",
     requirements: [
-      "Student of Tashkent region school",
-      "Strong mathematics foundation",
-      "Teacher recommendation",
-      "School registration required",
+      "Determining competition dates and ensuring student safety",
+      "Forming judging panels (3-7 members) for each subject",
+      "Creating appeal commission member lists",
+      "Preparing control materials and ensuring confidentiality",
+      "Submitting recommendations for winners to advance to the next stage"
     ],
-    preparation: [
-      "Regional problem sets practice",
-      "Basic olympiad techniques",
-      "Time management skills",
-      "Mathematical reasoning",
+    notification: "All students must be informed at least 3 days before the competition through notice boards, social media, Telegram groups, teacher announcements, and general assemblies.",
+    winners: "Up to 3 winners per subject and grade level (1st, 2nd, 3rd places) are determined based on scores and recommended by the school pedagogical council to participate in the next stage.",
+    subjects: [
+      "Mathematics", "Physics", "Chemistry", "Biology", "Informatics and Information Technologies",
+      "Native Language and Literature", "Uzbek Language", "Russian Language and Literature",
+      "Karakalpak Language and Literature", "Tajik Language", "Kazakh Language",
+      "English Language", "German Language", "French Language",
+      "History", "State and Law Fundamentals", "Geography"
     ],
-    lastYearResults: {
-      participants: 185,
-      gold: 8,
-      silver: 15,
-      bronze: 25,
-      nationalQualifiers: 12,
+    totalSubjects: 17
+  },
+  {
+    stage: 2,
+    name: "District/City Stage",
+    uzbekName: "Tuman (shahar) bosqichi",
+    description: "The second stage of the Main Olympiad, conducted among students of general secondary education institutions, non-state general secondary education institutions, and specialized schools under the Agency for Specialized Educational Institutions.",
+    eligibility: "Students in grades 9-11 of general secondary education institutions, non-state general secondary education institutions, and specialized schools (school-internats), as well as students in stages 1-2 of vocational education institutions.",
+    participants: "431,270 participants",
+    format: "Centralized test examinations in all subjects, conducted at locations determined by regional organizational committees",
+    testDetails: {
+      totalQuestions: 30,
+      group1: {
+        subjects: ["Mathematics", "Physics", "Chemistry", "Biology", "Informatics and Information Technologies"],
+        duration: "90 minutes"
+      },
+      group2: {
+        subjects: [
+          "Native Language and Literature", "Uzbek Language", "Russian Language and Literature",
+          "Karakalpak Language and Literature", "Tajik Language", "Kazakh Language",
+          "English Language", "German Language", "French Language",
+          "History", "State and Law Fundamentals", "Geography"
+        ],
+        duration: "60 minutes"
+      }
     },
+    exceptions: "Academic lyceums under various ministries, specialized schools (Presidential and Creative Schools, Al-Beruniy International School-Internat, Abu Ali ibn Sino, Mirzo Ulug'bek, Muhammad al-Khwarizmi specialized schools) and their regional branches participate directly in the third (regional) stage, skipping this stage.",
+    specialRule: "Students who won 1st place in grades 9-10 in the third (regional) stage of the previous academic year participate directly in the third (regional) stage of the current academic year.",
+    winners: "3 winners per subject and grade level (1st, 2nd, 3rd places) are determined based on test results and recommended by the organizational committee to participate in the third stage.",
+    totalSubjects: 17
   },
   {
-    name: "Samarkand Physics Olympiad",
-    description:
-      "Regional physics competition focusing on theoretical problem-solving and experimental skills for Central Asian students.",
-    region: "Samarkand",
-    level: "Regional",
-    participants: "150+ students",
-    duration: "4 hours (3h theory + 1h practical)",
-    format: "Theoretical problems + Simple experiments",
-    subjects: ["Mechanics", "Electricity", "Optics", "Thermodynamics"],
-    eligibility: "Grades 9-11, Central Asian schools",
-    registrationDeadline: "September 20, 2024",
-    competitionDate: "October 25, 2024",
-    venue: "Samarkand State University",
-    prizes: "Medals, lab equipment, national pathway",
-    requirements: [
-      "Secondary school enrollment",
-      "Basic physics laboratory experience",
-      "School physics teacher endorsement",
-      "Regional residency or school attendance",
-    ],
-    preparation: [
-      "Regional physics problems",
-      "Basic experimental techniques",
-      "Scientific calculation methods",
-      "Laboratory safety training",
-    ],
-    lastYearResults: {
-      participants: 142,
-      gold: 6,
-      silver: 12,
-      bronze: 20,
-      nationalQualifiers: 8,
+    stage: 3,
+    name: "Regional Stage",
+    uzbekName: "Hududiy bosqichi",
+    description: "The third stage of the Main Olympiad, featuring more complex problem-solving and comprehensive evaluation across multiple subjects.",
+    eligibility: "Students who won 1st, 2nd, or 3rd place in the district/city stage in the relevant subject and grade, as well as up to 3 students recommended by specialized educational institutions, academic lyceums, and non-state educational institutions.",
+    participants: "28,000+ students",
+    format: "Two-part examinations for science subjects; single-part test examinations for humanities",
+    subjects: {
+      science: {
+        subjects: ["Mathematics", "Physics", "Chemistry", "Biology"],
+        part1: {
+          type: "Written Problems",
+          problems: 5,
+          points: 50,
+          duration: "180 minutes",
+          description: "Problems of varying difficulty levels, each evaluated according to specific criteria"
+        },
+        part2: {
+          type: "Test Questions",
+          questions: 30,
+          points: 50,
+          duration: "90 minutes",
+          breakdown: {
+            simple: "First 10 questions: Simple closed tests (A, B, C, D), 0.9 points each",
+            medium: "Next 10 questions: Medium difficulty closed tests (A, B, C, D), 1.5 points each",
+            complex: "Last 10 questions: Open tests (written answers), 2.6 points each"
+          },
+          total: "10×0.9 + 10×1.5 + 10×2.6 = 50 points"
+        },
+        total: "100 points maximum"
+      },
+      informatics: {
+        subject: "Informatics and Information Technologies",
+        format: "Single-part online competition",
+        problems: 5,
+        points: 50,
+        duration: "240 minutes",
+        languages: ["C++", "Python", "Java"],
+        description: "Problems of varying difficulty levels solved on an online portal. Points awarded for fully completed and system-accepted problems."
+      },
+      humanities: {
+        subjects: ["History", "State and Law Fundamentals", "Geography"],
+        format: "Single-part test examination",
+        questions: 40,
+        points: 100,
+        duration: "80 minutes",
+        breakdown: {
+          simple: "First 10 questions: Simple difficulty closed tests (A, B, C, D), 1.3 points each",
+          medium: "Next 15 questions: Medium difficulty closed tests (A, B, C, D), 2.4 points each",
+          complex: "Last 15 questions: High difficulty closed tests (A, B, C, D), 3.4 points each"
+        },
+        total: "10×1.3 + 15×2.4 + 15×3.4 = 100 points"
+      }
     },
-  },
-  {
-    name: "Fergana Valley Chemistry Challenge",
-    description:
-      "Multi-city chemistry competition covering the Fergana Valley region with emphasis on practical applications.",
-    region: "Fergana Valley",
-    level: "Inter-Regional",
-    participants: "120+ students",
-    duration: "4 hours (2.5h theory + 1.5h lab)",
-    format: "Written exam + Laboratory work",
-    subjects: ["General Chemistry", "Organic Chemistry", "Chemical Analysis"],
-    eligibility: "Grades 10-11, Fergana Valley schools",
-    registrationDeadline: "September 30, 2024",
-    competitionDate: "November 8, 2024",
-    venue: "Fergana Polytechnic Institute",
-    prizes: "Medals, chemistry sets, university scholarships",
-    requirements: [
-      "Fergana Valley region school attendance",
-      "Chemistry laboratory course completion",
-      "Minimum B grade in chemistry",
-      "Safety certification required",
-    ],
-    preparation: [
-      "Regional chemistry curriculum",
-      "Laboratory technique practice",
-      "Chemical safety protocols",
-      "Analytical problem solving",
-    ],
-    lastYearResults: {
-      participants: 118,
-      gold: 5,
-      silver: 10,
-      bronze: 18,
-      nationalQualifiers: 6,
+    winners: "3 winners per subject and grade level (1st, 2nd, 3rd places) are determined based on total scores and recommended by the judging panel and organizational committee to participate in the next stage.",
+    statistics: {
+      group1: {
+        subjects: ["Mathematics", "Physics", "Chemistry", "Biology", "Informatics and Information Technologies"],
+        dates: "November 24-28",
+        grades: "9-10-11",
+        participants: "~9,500 students"
+      },
+      group2: {
+        subjects: [
+          "Native Language and Literature", "Uzbek Language", "Karakalpak Language and Literature",
+          "Russian Language and Literature", "Tajik Language", "Kazakh Language",
+          "English Language", "German Language", "French Language",
+          "History", "Geography", "State and Law Fundamentals"
+        ],
+        participants: "18,500+ students"
+      }
     },
-  },
-]
-
-const upcomingEvents = [
-  {
-    name: "Bukhara Biology Olympiad",
-    date: "2024-12-05",
-    location: "Bukhara State University",
-    participants: "80+ expected",
-    subjects: ["Botany", "Zoology", "Ecology"],
+    prizes: "Winners (1st, 2nd, 3rd places) in each subject are awarded one-time monetary prizes as specified in the Cabinet of Ministers Resolution No. 562 dated September 9, 2021.",
+    republicQualifiers: "11th grade students with the highest achievements in each subject receive invitations to participate in the Republic Stage of the Main Olympiad."
   },
   {
-    name: "Nukus Computer Science Challenge",
-    date: "2024-11-20",
-    location: "Karakalpakstan State University",
-    participants: "60+ expected",
-    subjects: ["Programming", "Algorithms", "Data Structures"],
-  },
-  {
-    name: "Andijan Multi-Science Competition",
-    date: "2024-12-12",
-    location: "Andijan State University",
-    participants: "200+ expected",
-    subjects: ["Math", "Physics", "Chemistry", "Biology"],
-  },
+    stage: 4,
+    name: "Republic Stage",
+    uzbekName: "Respublika bosqichi",
+    description: "The final and most prestigious stage of the Main Olympiad, bringing together the best students from across Uzbekistan.",
+    eligibility: "To be announced",
+    status: "Information pending",
+    note: "Details for the Republic Stage will be updated soon."
+  }
 ]
 
 export default function LocalOlympiadsPage() {
@@ -150,22 +162,22 @@ export default function LocalOlympiadsPage() {
           <div className="container relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 bg-green-500/10 px-4 py-2 rounded-full mb-6">
-                <MapPin className="h-5 w-5 text-green-600" />
-                <span className="text-green-700 font-medium">Regional & Local</span>
+                <Trophy className="h-5 w-5 text-green-600" />
+                <span className="text-green-700 font-medium">Main Olympiad Stages</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance mb-6 font-[family-name:var(--font-playfair)]">
                 Local <span className="text-primary">Olympiads</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground text-balance mb-8 leading-relaxed">
-                Start your olympiad journey with regional and local competitions across Uzbekistan. Build your skills,
-                gain experience, and qualify for national competitions.
+                The Main Olympiad is conducted across 17 subjects in four progressive stages, from school level to republic level, 
+                providing a comprehensive pathway for academic excellence.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" asChild>
-                  <Link href="/apply/online">Register for Local Events</Link>
+                  <Link href="#stages">Explore Stages</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link href="#competitions">Browse Competitions</Link>
+                  <Link href="/apply/criteria">View Requirements</Link>
                 </Button>
               </div>
             </div>
@@ -177,114 +189,83 @@ export default function LocalOlympiadsPage() {
           <div className="container">
             <div className="grid md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">15</div>
-                <div className="text-muted-foreground">Local Competitions</div>
+                <div className="text-3xl font-bold text-primary mb-2">4</div>
+                <div className="text-muted-foreground">Competition Stages</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">1,200+</div>
-                <div className="text-muted-foreground">Annual Participants</div>
+                <div className="text-3xl font-bold text-primary mb-2">17</div>
+                <div className="text-muted-foreground">Subjects</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">14</div>
-                <div className="text-muted-foreground">Regions Covered</div>
+                <div className="text-3xl font-bold text-primary mb-2">530K+</div>
+                <div className="text-muted-foreground">School Stage Winners</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">85%</div>
-                <div className="text-muted-foreground">Advancement Rate</div>
+                <div className="text-3xl font-bold text-primary mb-2">28K+</div>
+                <div className="text-muted-foreground">Regional Participants</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Main Competitions */}
-        <section id="competitions" className="py-20 bg-white/90 backdrop-blur-sm">
+        {/* Main Stages */}
+        <section id="stages" className="py-20 bg-white/90 backdrop-blur-sm">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
-                Featured Local Competitions
+                Olympiad Stages
               </h2>
               <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
-                These regional competitions provide excellent preparation and qualification opportunities for national
-                olympiads.
+                Progress through four stages of competition, from school level to republic level, demonstrating your excellence in 17 subjects.
               </p>
             </div>
 
-            <div className="space-y-12">
-              {localOlympiads.map((olympiad, index) => (
+            <div className="space-y-16">
+              {olympiadStages.map((stage, index) => (
                 <Card key={index} className="overflow-hidden bg-white/95 backdrop-blur-sm border-2 shadow-xl">
-                  <div className="grid lg:grid-cols-3 gap-0">
-                    {/* Main Info */}
-                    <div className="lg:col-span-2 p-8">
-                      <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <h3 className="text-2xl font-bold mb-2">{olympiad.name}</h3>
-                          <p className="text-muted-foreground leading-relaxed">{olympiad.description}</p>
+                  <CardHeader className="bg-gradient-to-r from-primary/10 to-secondary/10 border-b">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="flex items-center gap-3 mb-2">
+                          <Badge className="bg-primary text-white text-lg px-4 py-1">
+                            Stage {stage.stage}
+                          </Badge>
+                          <h3 className="text-2xl md:text-3xl font-bold">{stage.name}</h3>
                         </div>
-                        <Badge variant="secondary" className="ml-4">
-                          <MapPin className="h-3 w-3 mr-1" />
-                          {olympiad.level}
+                        <p className="text-muted-foreground italic">{stage.uzbekName}</p>
+                      </div>
+                      {stage.status && (
+                        <Badge variant="outline" className="text-sm">
+                          {stage.status}
                         </Badge>
-                      </div>
+                      )}
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="p-8">
+                    <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                      {stage.description}
+                    </p>
 
-                      {/* Competition Details */}
-                      <div className="grid md:grid-cols-2 gap-6 mb-6">
-                        <div className="space-y-3">
-                          <div className="flex items-center gap-2 text-sm">
-                            <MapPin className="h-4 w-4 text-muted-foreground" />
-                            <span className="font-medium">Region:</span>
-                            <span>{olympiad.region}</span>
-                          </div>
-                          <div className="flex items-center gap-2 text-sm">
-                            <Users className="h-4 w-4 text-muted-foreground" />
-                            <span className="font-medium">Participants:</span>
-                            <span>{olympiad.participants}</span>
-                          </div>
-                          <div className="flex items-center gap-2 text-sm">
-                            <Clock className="h-4 w-4 text-muted-foreground" />
-                            <span className="font-medium">Duration:</span>
-                            <span>{olympiad.duration}</span>
-                          </div>
-                        </div>
-                        <div className="space-y-3">
-                          <div className="flex items-center gap-2 text-sm">
-                            <Calendar className="h-4 w-4 text-muted-foreground" />
-                            <span className="font-medium">Registration:</span>
-                            <span>{olympiad.registrationDeadline}</span>
-                          </div>
-                          <div className="flex items-center gap-2 text-sm">
-                            <Trophy className="h-4 w-4 text-muted-foreground" />
-                            <span className="font-medium">Competition:</span>
-                            <span>{olympiad.competitionDate}</span>
-                          </div>
-                          <div className="flex items-center gap-2 text-sm">
-                            <GraduationCap className="h-4 w-4 text-muted-foreground" />
-                            <span className="font-medium">Venue:</span>
-                            <span>{olympiad.venue}</span>
-                          </div>
-                        </div>
-                      </div>
+                    {/* Eligibility */}
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                        <CheckCircle className="h-5 w-5 text-green-500" />
+                        Eligibility
+                      </h4>
+                      <p className="text-muted-foreground">{stage.eligibility || stage.note}</p>
+                    </div>
 
-                      {/* Subjects */}
-                      <div className="mb-6">
-                        <h4 className="font-semibold mb-3">Competition Subjects</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {olympiad.subjects.map((subject, i) => (
-                            <Badge key={i} variant="outline">
-                              {subject}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Requirements & Preparation */}
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                          <h4 className="font-semibold mb-3 flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-green-500" />
-                            Requirements
+                    {/* Stage 1 Specific Content */}
+                    {stage.stage === 1 && (
+                      <>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <BookOpen className="h-5 w-5 text-blue-500" />
+                            Organization Requirements
                           </h4>
-                          <ul className="space-y-1 text-sm text-muted-foreground">
-                            {olympiad.requirements.map((req, i) => (
+                          <ul className="space-y-2 text-muted-foreground">
+                            {stage.requirements?.map((req, i) => (
                               <li key={i} className="flex items-start gap-2">
                                 <span className="text-primary mt-1">•</span>
                                 <span>{req}</span>
@@ -292,200 +273,239 @@ export default function LocalOlympiadsPage() {
                             ))}
                           </ul>
                         </div>
-                        <div>
-                          <h4 className="font-semibold mb-3 flex items-center gap-2">
-                            <Star className="h-4 w-4 text-blue-500" />
-                            Preparation Areas
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Calendar className="h-5 w-5 text-purple-500" />
+                            Notification Requirements
                           </h4>
-                          <ul className="space-y-1 text-sm text-muted-foreground">
-                            {olympiad.preparation.map((prep, i) => (
-                              <li key={i} className="flex items-start gap-2">
-                                <span className="text-primary mt-1">•</span>
-                                <span>{prep}</span>
-                              </li>
+                          <p className="text-muted-foreground">{stage.notification}</p>
+                        </div>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Award className="h-5 w-5 text-yellow-500" />
+                            Winners
+                          </h4>
+                          <p className="text-muted-foreground">{stage.winners}</p>
+                        </div>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Users className="h-5 w-5 text-orange-500" />
+                            Participation Statistics
+                          </h4>
+                          <div className="grid md:grid-cols-2 gap-4">
+                            <div className="p-4 bg-primary/5 rounded-lg">
+                              <div className="text-sm text-muted-foreground mb-1">School Stage Winners</div>
+                              <div className="text-2xl font-bold text-primary">{stage.participants}</div>
+                            </div>
+                            <div className="p-4 bg-secondary/5 rounded-lg">
+                              <div className="text-sm text-muted-foreground mb-1">Advanced to District Stage</div>
+                              <div className="text-2xl font-bold text-secondary">{stage.nextStageParticipants}</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Target className="h-5 w-5 text-red-500" />
+                            Subjects ({stage.totalSubjects})
+                          </h4>
+                          <div className="flex flex-wrap gap-2">
+                            {stage.subjects?.map((subject, i) => (
+                              <Badge key={i} variant="outline" className="text-sm">
+                                {subject}
+                              </Badge>
                             ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Results & Actions */}
-                    <div className="bg-muted/30 p-8 flex flex-col">
-                      <div className="mb-6">
-                        <h4 className="font-semibold mb-4">2023 Results</h4>
-                        <div className="space-y-2 mb-4">
-                          <div className="flex justify-between text-sm">
-                            <span>Participants:</span>
-                            <span className="font-medium">{olympiad.lastYearResults.participants}</span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-yellow-600">🥇 Gold:</span>
-                            <span className="font-medium">{olympiad.lastYearResults.gold}</span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-400">🥈 Silver:</span>
-                            <span className="font-medium">{olympiad.lastYearResults.silver}</span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-orange-600">🥉 Bronze:</span>
-                            <span className="font-medium">{olympiad.lastYearResults.bronze}</span>
                           </div>
                         </div>
-                        <div className="text-center p-3 bg-primary/10 rounded-lg">
-                          <div className="text-sm text-muted-foreground">National Qualifiers</div>
-                          <div className="text-lg font-bold text-primary">
-                            {olympiad.lastYearResults.nationalQualifiers}
+                      </>
+                    )}
+
+                    {/* Stage 2 Specific Content */}
+                    {stage.stage === 2 && (
+                      <>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Clock className="h-5 w-5 text-blue-500" />
+                            Test Format
+                          </h4>
+                          <div className="space-y-4">
+                            <div className="p-4 bg-blue-50 rounded-lg">
+                              <h5 className="font-semibold mb-2">Group 1 Subjects (90 minutes)</h5>
+                              <p className="text-sm text-muted-foreground mb-2">
+                                {stage.testDetails?.group1.subjects.join(", ")}
+                              </p>
+                              <p className="text-sm">
+                                <strong>30 test questions</strong> per subject
+                              </p>
+                            </div>
+                            <div className="p-4 bg-green-50 rounded-lg">
+                              <h5 className="font-semibold mb-2">Group 2 Subjects (60 minutes)</h5>
+                              <p className="text-sm text-muted-foreground mb-2">
+                                {stage.testDetails?.group2.subjects.join(", ")}
+                              </p>
+                              <p className="text-sm">
+                                <strong>30 test questions</strong> per subject
+                              </p>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Users className="h-5 w-5 text-orange-500" />
+                            Participation
+                          </h4>
+                          <p className="text-muted-foreground mb-2">
+                            <strong>{stage.participants}</strong> students participated in this stage.
+                          </p>
+                        </div>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Star className="h-5 w-5 text-yellow-500" />
+                            Special Rules
+                          </h4>
+                          <div className="space-y-2 text-muted-foreground">
+                            <p>{stage.exceptions}</p>
+                            <p>{stage.specialRule}</p>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Award className="h-5 w-5 text-green-500" />
+                            Winners
+                          </h4>
+                          <p className="text-muted-foreground">{stage.winners}</p>
+                        </div>
+                      </>
+                    )}
 
-                      <div className="mt-auto space-y-3">
-                        <Button className="w-full" asChild>
-                          <Link href="/apply/online">
-                            Register Now <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                        <Button variant="outline" className="w-full bg-transparent" asChild>
-                          <Link href="/apply/criteria">View Details</Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+                    {/* Stage 3 Specific Content */}
+                    {stage.stage === 3 && (
+                      <>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <BookOpen className="h-5 w-5 text-blue-500" />
+                            Science Subjects Format
+                          </h4>
+                          <div className="space-y-4">
+                            <div className="p-4 bg-blue-50 rounded-lg">
+                              <h5 className="font-semibold mb-2">Part 1: Written Problems</h5>
+                              <ul className="text-sm text-muted-foreground space-y-1">
+                                <li>• {stage.subjects?.science.part1.problems} problems of varying difficulty</li>
+                                <li>• {stage.subjects?.science.part1.points} points maximum</li>
+                                <li>• Duration: {stage.subjects?.science.part1.duration}</li>
+                                <li>• Each problem evaluated according to specific criteria</li>
+                              </ul>
+                            </div>
+                            <div className="p-4 bg-green-50 rounded-lg">
+                              <h5 className="font-semibold mb-2">Part 2: Test Questions</h5>
+                              <ul className="text-sm text-muted-foreground space-y-1">
+                                <li>• {stage.subjects?.science.part2.questions} test questions ({stage.subjects?.science.part2.points} points)</li>
+                                <li>• Duration: {stage.subjects?.science.part2.duration}</li>
+                                <li>• {stage.subjects?.science.part2.breakdown?.simple}</li>
+                                <li>• {stage.subjects?.science.part2.breakdown?.medium}</li>
+                                <li>• {stage.subjects?.science.part2.breakdown?.complex}</li>
+                                <li>• Total: {stage.subjects?.science.part2.total}</li>
+                              </ul>
+                            </div>
+                            <div className="p-3 bg-primary/10 rounded-lg text-center">
+                              <strong>Total: {stage.subjects?.science.total}</strong>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <GraduationCap className="h-5 w-5 text-purple-500" />
+                            Informatics Format
+                          </h4>
+                          <div className="p-4 bg-purple-50 rounded-lg">
+                            <p className="text-sm text-muted-foreground mb-2">
+                              <strong>{stage.subjects?.informatics.problems} problems</strong> solved on an online portal
+                            </p>
+                            <ul className="text-sm text-muted-foreground space-y-1">
+                              <li>• Duration: {stage.subjects?.informatics.duration}</li>
+                              <li>• Maximum points: {stage.subjects?.informatics.points}</li>
+                              <li>• Programming languages: {stage.subjects?.informatics.languages?.join(", ")}</li>
+                              <li>• Points awarded for fully completed and system-accepted problems</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <MapPin className="h-5 w-5 text-red-500" />
+                            Humanities Subjects Format
+                          </h4>
+                          <div className="p-4 bg-red-50 rounded-lg">
+                            <p className="text-sm text-muted-foreground mb-2">
+                              <strong>{stage.subjects?.humanities.questions} test questions</strong> ({stage.subjects?.humanities.points} points)
+                            </p>
+                            <ul className="text-sm text-muted-foreground space-y-1">
+                              <li>• Duration: {stage.subjects?.humanities.duration}</li>
+                              <li>• {stage.subjects?.humanities.breakdown?.simple}</li>
+                              <li>• {stage.subjects?.humanities.breakdown?.medium}</li>
+                              <li>• {stage.subjects?.humanities.breakdown?.complex}</li>
+                              <li>• Total: {stage.subjects?.humanities.total}</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Users className="h-5 w-5 text-orange-500" />
+                            Competition Statistics
+                          </h4>
+                          <div className="grid md:grid-cols-2 gap-4">
+                            <div className="p-4 bg-blue-50 rounded-lg">
+                              <h5 className="font-semibold mb-2">Group 1 Subjects</h5>
+                              <p className="text-sm text-muted-foreground mb-1">
+                                {stage.statistics?.group1.subjects.join(", ")}
+                              </p>
+                              <p className="text-sm mb-1">
+                                <strong>Dates:</strong> {stage.statistics?.group1.dates}
+                              </p>
+                              <p className="text-sm mb-1">
+                                <strong>Grades:</strong> {stage.statistics?.group1.grades}
+                              </p>
+                              <p className="text-lg font-bold text-primary">
+                                {stage.statistics?.group1.participants}
+                              </p>
+                            </div>
+                            <div className="p-4 bg-green-50 rounded-lg">
+                              <h5 className="font-semibold mb-2">Group 2 Subjects</h5>
+                              <p className="text-sm text-muted-foreground mb-2">
+                                Languages, History, Geography, State and Law Fundamentals
+                              </p>
+                              <p className="text-lg font-bold text-secondary">
+                                {stage.statistics?.group2.participants}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Trophy className="h-5 w-5 text-yellow-500" />
+                            Prizes
+                          </h4>
+                          <p className="text-muted-foreground">{stage.prizes}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Award className="h-5 w-5 text-green-500" />
+                            Republic Stage Qualification
+                          </h4>
+                          <p className="text-muted-foreground">{stage.republicQualifiers}</p>
+                        </div>
+                      </>
+                    )}
 
-        {/* Upcoming Events */}
-        <section className="py-20 bg-white/80 backdrop-blur-sm">
-          <div className="container">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
-                Upcoming Local Events
-              </h2>
-              <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
-                Don't miss these upcoming opportunities to participate in local and regional competitions.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {upcomingEvents.map((event, index) => (
-                <Card key={index} className="transition-all hover:shadow-lg">
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge variant="secondary">Upcoming</Badge>
-                      <div className="flex items-center text-sm text-muted-foreground">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {new Date(event.date).toLocaleDateString()}
+                    {/* Stage 4 Specific Content */}
+                    {stage.stage === 4 && (
+                      <div className="text-center py-8">
+                        <p className="text-lg text-muted-foreground">
+                          {stage.note}
+                        </p>
                       </div>
-                    </div>
-                    <CardTitle className="text-xl">{event.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3 mb-4">
-                      <div className="flex items-center text-muted-foreground">
-                        <MapPin className="h-4 w-4 mr-2" />
-                        {event.location}
-                      </div>
-                      <div className="flex items-center text-muted-foreground">
-                        <Users className="h-4 w-4 mr-2" />
-                        {event.participants}
-                      </div>
-                    </div>
-
-                    <div className="mb-4">
-                      <h4 className="font-semibold mb-2">Subjects:</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {event.subjects.map((subject, i) => (
-                          <Badge key={i} variant="outline" className="text-xs">
-                            {subject}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-
-                    <Button className="w-full" asChild>
-                      <Link href="/apply/online">Register Interest</Link>
-                    </Button>
+                    )}
                   </CardContent>
                 </Card>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Benefits of Local Participation */}
-        <section className="py-20 bg-white/90 backdrop-blur-sm">
-          <div className="container">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
-                Why Start with Local Olympiads?
-              </h2>
-              <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
-                Local competitions provide the perfect foundation for your olympiad journey.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <GraduationCap className="h-5 w-5 text-green-500" />
-                    Build Experience
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Gain valuable competition experience in a supportive regional environment before advancing to
-                    national levels.
-                  </p>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Competition format familiarity</li>
-                    <li>• Time management skills</li>
-                    <li>• Problem-solving techniques</li>
-                    <li>• Confidence building</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Trophy className="h-5 w-5 text-blue-500" />
-                    Qualification Pathway
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Many local competitions serve as direct qualifiers for national olympiads and training programs.
-                  </p>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• National olympiad qualification</li>
-                    <li>• Training camp invitations</li>
-                    <li>• Scholarship opportunities</li>
-                    <li>• University recognition</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Users className="h-5 w-5 text-purple-500" />
-                    Community & Support
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Connect with like-minded students and teachers in your region who share your passion for science.
-                  </p>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Local study groups</li>
-                    <li>• Mentor relationships</li>
-                    <li>• Peer learning networks</li>
-                    <li>• Regional recognition</li>
-                  </ul>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </section>
@@ -495,18 +515,18 @@ export default function LocalOlympiadsPage() {
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-balance mb-6 font-[family-name:var(--font-playfair)]">
-                Start Your Olympiad Journey Today
+                Start Your Olympiad Journey
               </h2>
               <p className="text-xl text-muted-foreground text-balance mb-8 leading-relaxed">
-                Every champion started with their first local competition. Take the first step towards national and
-                international recognition.
+                Begin at the school stage and progress through district, regional, and republic levels. 
+                Each stage builds your skills and opens new opportunities for academic excellence.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" asChild>
-                  <Link href="/apply/online">Register for Local Events</Link>
+                  <Link href="/apply/criteria">View Qualification Requirements</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link href="/contact">Find Local Coordinators</Link>
+                  <Link href="/contact">Contact Us</Link>
                 </Button>
               </div>
             </div>
