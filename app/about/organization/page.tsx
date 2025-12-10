@@ -67,7 +67,7 @@ const orgData = {
           name: "Karimova Shahnóza Abdurasul qizi",
           role: "Leading Specialist",
           work: "3 years",
-          image: "/tree/munisa.jpg",
+          image: "/tree/shaxnoza.jpg",
           education: [
             "2019 – Tashkent State University of Uzbek Language and Literature named after Alisher Navoi (Bachelor's degree)",
             "2021 – Tashkent State University of Uzbek Language and Literature named after Alisher Navoi (Master's degree)"
