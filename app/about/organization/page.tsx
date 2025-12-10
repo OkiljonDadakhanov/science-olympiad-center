@@ -230,8 +230,63 @@ const orgData = {
 };
 
 // --- UI COMPONENTS ---
-const PersonCard = ({ person, className = "" }) => {
+type PersonCardSize = "large" | "medium" | "normal"
+
+interface PersonCardProps {
+  person: {
+    name: string
+    role: string
+    work?: string
+    image?: string
+    education?: string[] | string
+  }
+  className?: string
+  size?: PersonCardSize
+}
+
+const PersonCard = ({ person, className = "", size = "normal" }: PersonCardProps) => {
   const [showTooltip, setShowTooltip] = useState(false)
+
+  // Size configurations
+  const sizeConfig: Record<PersonCardSize, {
+    card: string
+    avatar: string
+    avatarBorder: string
+    name: string
+    role: string
+    imageSize: number
+    initialSize: string
+  }> = {
+    large: {
+      card: "min-w-[240px] p-6",
+      avatar: "w-20 h-20",
+      avatarBorder: "border-[3px]",
+      name: "text-sm",
+      role: "text-xs",
+      imageSize: 80,
+      initialSize: "text-xl"
+    },
+    medium: {
+      card: "min-w-[200px] p-5",
+      avatar: "w-16 h-16",
+      avatarBorder: "border-2",
+      name: "text-xs",
+      role: "text-xs",
+      imageSize: 64,
+      initialSize: "text-lg"
+    },
+    normal: {
+      card: "min-w-[160px] p-4",
+      avatar: "w-14 h-14",
+      avatarBorder: "border-2",
+      name: "text-xs",
+      role: "text-xs",
+      imageSize: 56,
+      initialSize: "text-lg"
+    }
+  }
+
+  const config = sizeConfig[size] || sizeConfig.normal
 
   return (
     <div
@@ -239,26 +294,26 @@ const PersonCard = ({ person, className = "" }) => {
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
-      <div className="bg-white border-2 border-blue-400 rounded-lg p-4 shadow-md hover:shadow-xl hover:border-blue-600 transition-all cursor-pointer min-w-[160px]">
-        <div className="w-14 h-14 rounded-full mx-auto mb-3 flex items-center justify-center overflow-hidden border-2 border-blue-300 bg-gray-100">
+      <div className={`bg-white border-2 border-blue-400 rounded-lg ${config.card} shadow-md hover:shadow-xl hover:border-blue-600 transition-all cursor-pointer`}>
+        <div className={`${config.avatar} rounded-full mx-auto mb-3 flex items-center justify-center overflow-hidden ${config.avatarBorder} border-blue-300 bg-gray-100`}>
           {person.image ? (
             <Image
               src={person.image}
               alt={person.name}
-              width={56}
-              height={56}
+              width={config.imageSize}
+              height={config.imageSize}
               className="w-full h-full object-cover"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold text-lg">
-              {person.name.split(' ').map(n => n[0]).join('').substring(0, 2)}
+            <div className={`w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold ${config.initialSize}`}>
+              {person.name.split(' ').map((n: string) => n[0]).join('').substring(0, 2)}
             </div>
           )}
         </div>
-        <p className="text-xs font-semibold text-center text-gray-900 leading-tight mb-1">
+        <p className={`${config.name} font-semibold text-center text-gray-900 leading-tight mb-1`}>
           {person.name}
         </p>
-        <p className="text-xs text-center text-gray-600 leading-tight">
+        <p className={`${config.role} text-center text-gray-600 leading-tight`}>
           {person.role}
         </p>
       </div>
@@ -272,7 +327,7 @@ const PersonCard = ({ person, className = "" }) => {
             <div>
               <span className="font-semibold">Place of Higher Education Completion:</span>
               <ul className="mt-1 space-y-1 ml-2">
-                {person.education.map((edu, idx) => (
+                {person.education.map((edu: string, idx: number) => (
                   <li key={idx}>• {edu}</li>
                 ))}
               </ul>
@@ -291,8 +346,18 @@ const PersonCard = ({ person, className = "" }) => {
 // --- PAGE ---
 export default function OrganizationPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-gray-50 py-12">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen relative">
+      {/* Main Background */}
+      <div 
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url("/flag.jpg")',
+        }}
+      />
+      <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-[1]" />
+      
+      <div className="relative z-10 min-h-screen py-12">
+        <div className="container mx-auto px-4">
 
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -303,9 +368,9 @@ export default function OrganizationPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-8 overflow-x-auto">
+        <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-8 overflow-x-auto">
           <div className="flex justify-center mb-8">
-            <PersonCard person={orgData.director} />
+            <PersonCard person={orgData.director} size="large" />
           </div>
 
           <div className="flex justify-center">
@@ -313,7 +378,7 @@ export default function OrganizationPage() {
           </div>
 
           <div className="flex justify-center mb-8">
-            <PersonCard person={orgData.deputy} />
+            <PersonCard person={orgData.deputy} size="medium" />
           </div>
 
           <div className="flex justify-center mb-8">
@@ -381,6 +446,7 @@ export default function OrganizationPage() {
           </CardContent>
         </Card>
 
+        </div>
       </div>
     </div>
   )
