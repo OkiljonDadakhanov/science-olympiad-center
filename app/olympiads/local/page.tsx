@@ -143,10 +143,92 @@ const olympiadStages = [
     stage: 4,
     name: "Republic Stage",
     uzbekName: "Respublika bosqichi",
-    description: "The final and most prestigious stage of the Main Olympiad, bringing together the best students from across Uzbekistan.",
-    eligibility: "To be announced",
-    status: "Information pending",
-    note: "Details for the Republic Stage will be updated soon."
+    description: "The final and most prestigious stage of the Main Olympiad, bringing together the best students from across Uzbekistan to compete at the national level.",
+    eligibility: "Students who won 1st, 2nd, or 3rd place in the third (regional) stage - specifically 11th grade students from general secondary education institutions, vocational schools, and academic lyceums.",
+    prizes: {
+      monetary: {
+        first: "12 base calculation amounts",
+        second: "8 base calculation amounts",
+        third: "6 base calculation amounts"
+      },
+      certificates: "Diplomas and certificates",
+      benefits: "Winners receive certificates that grant the right to admission to state higher education institutions without exams or with maximum points"
+    },
+    format: {
+      humanities: {
+        subjects: ["History", "State and Law Fundamentals", "Geography"],
+        type: "Single round",
+        format: "Test questions"
+      },
+      foreignLanguages: {
+        subjects: ["English Language", "German Language", "French Language"],
+        type: "Single round with two parts",
+        part1: {
+          name: "Listening comprehension and reading skills",
+          points: 60,
+          description: "Assessment of listening and reading comprehension abilities"
+        },
+        part2: {
+          name: "Lexico-grammatical skills",
+          points: 40,
+          format: "Test questions",
+          description: "Assessment of vocabulary and grammar knowledge"
+        },
+        total: 100,
+        duration: "180 minutes"
+      },
+      informatics: {
+        subject: "Informatics and Information Technologies",
+        type: "Two days under same conditions",
+        format: "Placing program solutions in electronic system",
+        problemsPerDay: 5,
+        totalProblems: 10,
+        pointsPerProblem: 10,
+        totalPoints: 100,
+        durationPerDay: "240 minutes",
+        languages: ["C++", "Python", "Java"],
+        description: "Participants solve problems by placing program solutions in an electronic system. Points are awarded by the electronic system for fully completed and accepted problems."
+      },
+      science: {
+        subjects: ["Mathematics", "Physics", "Chemistry", "Biology"],
+        type: "Two rounds",
+        round1: {
+          name: "Written work",
+          problems: 5,
+          points: [7, 7, 10, 10, 16],
+          totalPoints: 50,
+          duration: "180 minutes",
+          description: "Problems of varying difficulty levels"
+        },
+        round2: {
+          name: "Test questions",
+          format: "Test examination"
+        }
+      },
+      languages: {
+        subjects: [
+          "Native Language and Literature",
+          "Uzbek Language",
+          "Russian Language and Literature",
+          "Kazakh Language",
+          "Tajik Language",
+          "Karakalpak Language and Literature"
+        ],
+        type: "Two rounds",
+        round1: {
+          name: "Written work (Essay)",
+          duration: "60 minutes",
+          points: 50
+        },
+        round2: {
+          name: "Test questions",
+          format: "Test examination"
+        }
+      },
+      other: {
+        description: "All other subjects are conducted in two rounds: written work and test questions"
+      }
+    }
   }
 ]
 
@@ -497,11 +579,153 @@ export default function LocalOlympiadsPage() {
 
                     {/* Stage 4 Specific Content */}
                     {stage.stage === 4 && (
-                      <div className="text-center py-8">
-                        <p className="text-lg text-muted-foreground">
-                          {stage.note}
-                        </p>
-                      </div>
+                      <>
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <CheckCircle className="h-5 w-5 text-green-500" />
+                            Eligibility
+                          </h4>
+                          <p className="text-muted-foreground">{stage.eligibility}</p>
+                        </div>
+
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <Trophy className="h-5 w-5 text-yellow-500" />
+                            Prizes and Awards
+                          </h4>
+                          <div className="space-y-4">
+                            <div className="p-4 bg-yellow-50 rounded-lg">
+                              <h5 className="font-semibold mb-2">Monetary Prizes</h5>
+                              <ul className="space-y-1 text-sm text-muted-foreground">
+                                <li>• <strong>1st Place:</strong> {stage.prizes?.monetary.first}</li>
+                                <li>• <strong>2nd Place:</strong> {stage.prizes?.monetary.second}</li>
+                                <li>• <strong>3rd Place:</strong> {stage.prizes?.monetary.third}</li>
+                              </ul>
+                            </div>
+                            <div className="p-4 bg-blue-50 rounded-lg">
+                              <h5 className="font-semibold mb-2">Certificates and Diplomas</h5>
+                              <p className="text-sm text-muted-foreground mb-2">{stage.prizes?.certificates}</p>
+                              <p className="text-sm text-muted-foreground">{stage.prizes?.benefits}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                            <BookOpen className="h-5 w-5 text-blue-500" />
+                            Competition Format by Subject Groups
+                          </h4>
+                          
+                          {/* Science Subjects */}
+                          <div className="mb-4">
+                            <h5 className="font-semibold mb-2 text-primary">Science Subjects (Mathematics, Physics, Chemistry, Biology)</h5>
+                            <div className="p-4 bg-blue-50 rounded-lg space-y-3">
+                              <div>
+                                <h6 className="font-semibold text-sm mb-1">Round 1: Written Work</h6>
+                                <ul className="text-sm text-muted-foreground space-y-1">
+                                  <li>• {stage.format?.science.round1.problems} problems of varying difficulty ({stage.format?.science.round1.points.join(", ")} points each)</li>
+                                  <li>• Total: {stage.format?.science.round1.totalPoints} points</li>
+                                  <li>• Duration: {stage.format?.science.round1.duration}</li>
+                                </ul>
+                              </div>
+                              <div>
+                                <h6 className="font-semibold text-sm mb-1">Round 2: Test Questions</h6>
+                                <p className="text-sm text-muted-foreground">Test examination format</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Informatics */}
+                          <div className="mb-4">
+                            <h5 className="font-semibold mb-2 text-purple-500">Informatics and Information Technologies</h5>
+                            <div className="p-4 bg-purple-50 rounded-lg">
+                              <p className="text-sm text-muted-foreground mb-2">
+                                <strong>Format:</strong> Two days under same conditions (placing program solutions in electronic system)
+                              </p>
+                              <ul className="text-sm text-muted-foreground space-y-1">
+                                <li>• {stage.format?.informatics.problemsPerDay} problems per day ({stage.format?.informatics.totalProblems} total)</li>
+                                <li>• {stage.format?.informatics.pointsPerProblem} points per problem = {stage.format?.informatics.totalPoints} points total</li>
+                                <li>• Duration: {stage.format?.informatics.durationPerDay} per day</li>
+                                <li>• Programming languages: {stage.format?.informatics.languages?.join(", ")}</li>
+                                <li>• Points awarded by electronic system for fully completed and accepted problems</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          {/* Language and Literature Subjects */}
+                          <div className="mb-4">
+                            <h5 className="font-semibold mb-2 text-green-500">Language and Literature Subjects</h5>
+                            <p className="text-sm text-muted-foreground mb-2">
+                              Native Language and Literature, Uzbek Language, Russian Language and Literature, Kazakh Language, Tajik Language, Karakalpak Language and Literature
+                            </p>
+                            <div className="p-4 bg-green-50 rounded-lg space-y-2">
+                              <div>
+                                <h6 className="font-semibold text-sm mb-1">Round 1: Written Work (Essay)</h6>
+                                <ul className="text-sm text-muted-foreground space-y-1">
+                                  <li>• Duration: {stage.format?.languages.round1.duration}</li>
+                                  <li>• Total: {stage.format?.languages.round1.points} points</li>
+                                </ul>
+                              </div>
+                              <div>
+                                <h6 className="font-semibold text-sm mb-1">Round 2: Test Questions</h6>
+                                <p className="text-sm text-muted-foreground">Test examination format</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Foreign Languages */}
+                          <div className="mb-4">
+                            <h5 className="font-semibold mb-2 text-orange-500">Foreign Languages (English, German, French)</h5>
+                            <div className="p-4 bg-orange-50 rounded-lg">
+                              <p className="text-sm text-muted-foreground mb-2">
+                                <strong>Format:</strong> Single round with two parts (listening comprehension, reading, and lexico-grammatical skills assessment)
+                              </p>
+                              <div className="space-y-2">
+                                <div>
+                                  <h6 className="font-semibold text-sm mb-1">Part 1: Listening and Reading Skills</h6>
+                                  <p className="text-sm text-muted-foreground">
+                                    Maximum {stage.format?.foreignLanguages.part1.points} points - Assessment of listening comprehension and reading abilities
+                                  </p>
+                                </div>
+                                <div>
+                                  <h6 className="font-semibold text-sm mb-1">Part 2: Lexico-Grammatical Skills</h6>
+                                  <p className="text-sm text-muted-foreground">
+                                    Maximum {stage.format?.foreignLanguages.part2.points} points - Test questions assessing vocabulary and grammar knowledge
+                                  </p>
+                                </div>
+                                <div className="mt-2 p-2 bg-white rounded">
+                                  <p className="text-sm font-semibold">
+                                    Total: {stage.format?.foreignLanguages.total} points | Duration: {stage.format?.foreignLanguages.duration}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Humanities */}
+                          <div className="mb-4">
+                            <h5 className="font-semibold mb-2 text-red-500">Humanities Subjects</h5>
+                            <div className="p-4 bg-red-50 rounded-lg">
+                              <p className="text-sm text-muted-foreground mb-1">
+                                <strong>Subjects:</strong> {stage.format?.humanities.subjects.join(", ")}
+                              </p>
+                              <p className="text-sm text-muted-foreground">
+                                <strong>Format:</strong> Single round - Test questions
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Other Subjects */}
+                          <div>
+                            <h5 className="font-semibold mb-2 text-gray-600">All Other Subjects</h5>
+                            <div className="p-4 bg-gray-50 rounded-lg">
+                              <p className="text-sm text-muted-foreground">
+                                Two rounds: written work and test questions
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </>
                     )}
                   </CardContent>
                 </Card>
