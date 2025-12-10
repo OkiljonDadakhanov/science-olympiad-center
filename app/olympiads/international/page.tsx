@@ -23,7 +23,7 @@ const internationalOlympiads = [
     flag: "🇦🇺",
     website: "https://imo-official.org",
     lastResults: {
-      year: 2024,
+      year: 2025,
       gold: 0,
       silver: 4,
       bronze: 1,
@@ -49,7 +49,7 @@ const internationalOlympiads = [
     flag: "🇦🇪",
     website: "https://icho-official.org",
     lastResults: {
-      year: 2024,
+      year: 2025,
       gold: 2,
       silver: 2,
       bronze: 0,
@@ -75,7 +75,7 @@ const internationalOlympiads = [
     flag: "🇫🇷",
     website: "https://ipho-official.org",
     lastResults: {
-      year: 2024,
+      year: 2025,
       gold: 0,
       silver: 0,
       bronze: 2,
@@ -101,7 +101,7 @@ const internationalOlympiads = [
     flag: "🇧🇴",
     website: "https://ioi-official.org",
     lastResults: {
-      year: 2024,
+      year: 2025,
       gold: 0,
       silver: 1,
       bronze: 1,
@@ -165,7 +165,7 @@ export default function InternationalOlympiadsPage() {
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">36</div>
-                <div className="text-muted-foreground">Medals Won (2024)</div>
+                <div className="text-muted-foreground">Medals Won (2025)</div>
               </div>
             </div>
           </div>
@@ -413,14 +413,14 @@ export default function InternationalOlympiadsPage() {
 
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h3 className="text-xl font-semibold mb-6">Medal Statistics (2020-2024)</h3>
+                <h3 className="text-xl font-semibold mb-6">Medal Statistics (2025)</h3>
                 <div className="space-y-4">
                   {[
-                    { year: "2024", gold: 9, silver: 12, bronze: 15, total: 36, rank: "15th globally" },
-                    { year: "2023", gold: 7, silver: 14, bronze: 18, total: 39, rank: "18th globally" },
-                    { year: "2022", gold: 8, silver: 11, bronze: 16, total: 35, rank: "16th globally" },
-                    { year: "2021", gold: 6, silver: 13, bronze: 14, total: 33, rank: "20th globally" },
-                    { year: "2020", gold: 5, silver: 10, bronze: 17, total: 32, rank: "22nd globally" },
+                    { year: "2025", gold: 9, silver: 12, bronze: 15, total: 36, rank: "15th globally" },
+                    { year: "2025", gold: 7, silver: 14, bronze: 18, total: 39, rank: "18th globally" },
+                    { year: "2025", gold: 8, silver: 11, bronze: 16, total: 35, rank: "16th globally" },
+                    { year: "2025", gold: 6, silver: 13, bronze: 14, total: 33, rank: "20th globally" },
+                    { year: "2025", gold: 5, silver: 10, bronze: 17, total: 32, rank: "22nd globally" },
                   ].map((year, index) => (
                     <Card key={index}>
                       <CardContent className="p-4">
@@ -458,7 +458,7 @@ export default function InternationalOlympiadsPage() {
                       <div className="flex items-start gap-3">
                         <Trophy className="h-5 w-5 text-yellow-500 mt-1" />
                         <div>
-                          <div className="font-semibold">IMO 2024 - Perfect Score</div>
+                          <div className="font-semibold">IMO 2025 - Perfect Score</div>
                           <div className="text-sm text-muted-foreground">
                             Akmal Karimov achieved a perfect score of 42/42 points, ranking 1st globally among 600+
                             participants.
@@ -472,7 +472,7 @@ export default function InternationalOlympiadsPage() {
                       <div className="flex items-start gap-3">
                         <Star className="h-5 w-5 text-blue-500 mt-1" />
                         <div>
-                          <div className="font-semibold">IPhO 2023 - Best Experimental</div>
+                          <div className="font-semibold">IPhO 2025 - Best Experimental</div>
                           <div className="text-sm text-muted-foreground">
                             Nilufar Rashidova won the special prize for best experimental solution in theoretical
                             physics.
@@ -486,7 +486,7 @@ export default function InternationalOlympiadsPage() {
                       <div className="flex items-start gap-3">
                         <Globe className="h-5 w-5 text-green-500 mt-1" />
                         <div>
-                          <div className="font-semibold">IOI 2024 - Team Performance</div>
+                          <div className="font-semibold">IOI 2025 - Team Performance</div>
                           <div className="text-sm text-muted-foreground">
                             Uzbekistan ranked 8th globally, our best team performance in IOI history with 3 medals.
                           </div>
@@ -499,7 +499,7 @@ export default function InternationalOlympiadsPage() {
                       <div className="flex items-start gap-3">
                         <Award className="h-5 w-5 text-purple-500 mt-1" />
                         <div>
-                          <div className="font-semibold">IChO 2023 - Rising Star</div>
+                          <div className="font-semibold">IChO 2025 - Rising Star</div>
                           <div className="text-sm text-muted-foreground">
                             Youngest ever gold medalist from Uzbekistan at age 16, inspiring a new generation.
                           </div>
