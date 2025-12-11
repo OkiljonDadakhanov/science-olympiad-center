@@ -9,8 +9,16 @@ import { AlertCircle, Upload, Send } from "lucide-react"
 
 export default function OnlineApplicationPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50">
-      <div className="container mx-auto px-4 py-12">
+    <div className="min-h-screen relative">
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url("/bg/online-application.jpg")',
+        }}
+      />
+      <div className="absolute inset-0 bg-white/75 z-[1]" />
+      <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Online Application</h1>

@@ -101,10 +101,19 @@ const categories = ["All", "Achievement", "Program", "Facility", "Student Story"
 
 export default function NewsPage() {
   return (
-    <div className="min-h-screen">
-      <main>
+    <div className="min-h-screen relative">
+      {/* Creative News Background */}
+      <div 
+        className="fixed inset-0 z-0 opacity-15"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='news' x='0' y='0' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Crect x='10' y='10' width='40' height='30' rx='2' fill='none' stroke='%23007bff' stroke-width='1.5'/%3E%3Cline x1='15' y1='20' x2='45' y2='20' stroke='%23007bff' stroke-width='1'/%3E%3Cline x1='15' y1='28' x2='40' y2='28' stroke='%23007bff' stroke-width='1'/%3E%3Cline x1='15' y1='35' x2='35' y2='35' stroke='%23007bff' stroke-width='1'/%3E%3Ccircle cx='60' cy='25' r='8' fill='%23ff6b00'/%3E%3Cpath d='M 55 25 L 58 28 L 65 20' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Crect x='70' y='15' width='20' height='25' rx='2' fill='none' stroke='%2300aaff' stroke-width='1.5'/%3E%3Cline x1='75' y1='22' x2='85' y2='22' stroke='%2300aaff' stroke-width='1'/%3E%3Cline x1='75' y1='30' x2='82' y2='30' stroke='%2300aaff' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23news)'/%3E%3C/svg%3E")`,
+          backgroundSize: '200px 200px',
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/70 via-white/80 to-purple-50/70 z-[1]" />
+      <main className="relative z-10">
         {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 relative">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance mb-6 font-[family-name:var(--font-playfair)]">

@@ -116,7 +116,7 @@ const orgData = {
     {
       name: "Department for Preparing Olympiad Materials, Monitoring and Organizing Online Olympiads",
       head: {
-        name: "Jumaev Tursunboy Khusen ogli",
+        name: "Jumaev Tursunboy Khusen ugli",
         role: "Head of Department",
         work: "7 years",
         image: "/team/tursunboy.jpg",
@@ -258,30 +258,30 @@ const PersonCard = ({ person, className = "", size = "normal" }: PersonCardProps
     initialSize: string
   }> = {
     large: {
-      card: "min-w-[240px] p-6",
-      avatar: "w-20 h-20",
+      card: "min-w-[320px] p-8",
+      avatar: "w-28 h-28",
       avatarBorder: "border-[3px]",
-      name: "text-sm",
-      role: "text-xs",
-      imageSize: 80,
-      initialSize: "text-xl"
+      name: "text-base",
+      role: "text-sm",
+      imageSize: 112,
+      initialSize: "text-2xl"
     },
     medium: {
-      card: "min-w-[200px] p-5",
-      avatar: "w-16 h-16",
+      card: "min-w-[280px] p-7",
+      avatar: "w-24 h-24",
       avatarBorder: "border-2",
-      name: "text-xs",
+      name: "text-sm",
       role: "text-xs",
-      imageSize: 64,
-      initialSize: "text-lg"
+      imageSize: 96,
+      initialSize: "text-xl"
     },
     normal: {
-      card: "min-w-[160px] p-4",
-      avatar: "w-14 h-14",
+      card: "min-w-[200px] p-6",
+      avatar: "w-20 h-20",
       avatarBorder: "border-2",
       name: "text-xs",
       role: "text-xs",
-      imageSize: 56,
+      imageSize: 80,
       initialSize: "text-lg"
     }
   }
@@ -294,28 +294,32 @@ const PersonCard = ({ person, className = "", size = "normal" }: PersonCardProps
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
-      <div className={`bg-white border-2 border-blue-400 rounded-lg ${config.card} shadow-md hover:shadow-xl hover:border-blue-600 transition-all cursor-pointer`}>
-        <div className={`${config.avatar} rounded-full mx-auto mb-3 flex items-center justify-center overflow-hidden ${config.avatarBorder} border-blue-300 bg-gray-100`}>
-          {person.image ? (
-            <Image
-              src={person.image}
-              alt={person.name}
-              width={config.imageSize}
-              height={config.imageSize}
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <div className={`w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold ${config.initialSize}`}>
-              {person.name.split(' ').map((n: string) => n[0]).join('').substring(0, 2)}
-            </div>
-          )}
+      <div className={`bg-white border-2 border-blue-400 rounded-lg ${config.card} shadow-md hover:shadow-xl hover:border-blue-600 transition-all cursor-pointer flex flex-col`}>
+        <div className="flex-grow flex items-end justify-center mb-4">
+          <div className={`${config.avatar} rounded-full flex items-center justify-center overflow-hidden ${config.avatarBorder} border-blue-300 bg-gray-100`}>
+            {person.image ? (
+              <Image
+                src={person.image}
+                alt={person.name}
+                width={config.imageSize}
+                height={config.imageSize}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className={`w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold ${config.initialSize}`}>
+                {person.name.split(' ').map((n: string) => n[0]).join('').substring(0, 2)}
+              </div>
+            )}
+          </div>
         </div>
-        <p className={`${config.name} font-semibold text-center text-gray-900 leading-tight mb-1`}>
-          {person.name}
-        </p>
-        <p className={`${config.role} text-center text-gray-600 leading-tight`}>
-          {person.role}
-        </p>
+        <div className="mt-auto">
+          <p className={`${config.name} font-semibold text-center text-gray-900 leading-tight mb-1`}>
+            {person.name}
+          </p>
+          <p className={`${config.role} text-center text-gray-600 leading-tight`}>
+            {person.role}
+          </p>
+        </div>
       </div>
 
       {showTooltip && person.work && (

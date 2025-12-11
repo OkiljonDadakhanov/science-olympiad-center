@@ -8,10 +8,19 @@ import { MapPin, Phone, Mail, Clock, Send } from "lucide-react"
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen">
-      <main>
+    <div className="min-h-screen relative">
+      {/* Creative Contact Background */}
+      <div 
+        className="fixed inset-0 z-0 opacity-15"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='150' height='150' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='contact' x='0' y='0' width='150' height='150' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='30' cy='30' r='8' fill='%23007bff'/%3E%3Cpath d='M 30 30 L 50 50' stroke='%23007bff' stroke-width='2'/%3E%3Crect x='50' y='50' width='20' height='15' rx='2' fill='%23007bff'/%3E%3Ccircle cx='100' cy='40' r='6' fill='%23ff6b00'/%3E%3Cpath d='M 100 40 L 120 60' stroke='%23ff6b00' stroke-width='2'/%3E%3Crect x='120' y='60' width='18' height='12' rx='2' fill='%23ff6b00'/%3E%3Ccircle cx='70' cy='100' r='7' fill='%2300aaff'/%3E%3Cpath d='M 70 100 L 90 120' stroke='%2300aaff' stroke-width='2'/%3E%3Crect x='90' y='120' width='16' height='10' rx='2' fill='%2300aaff'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23contact)'/%3E%3C/svg%3E")`,
+          backgroundSize: '300px 300px',
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/70 via-white/80 to-orange-50/70 z-[1]" />
+      <main className="relative z-10">
         {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 relative">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance mb-6 font-[family-name:var(--font-playfair)]">

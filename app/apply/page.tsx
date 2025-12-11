@@ -82,162 +82,173 @@ export default function ApplyPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50">
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">How to Apply</h1>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Join Uzbekistan's premier science olympiad training programs. Our comprehensive application process
-              ensures we identify and nurture the most talented students.
-            </p>
-          </div>
+    <div className="min-h-screen relative">
+      {/* Creative Application Background */}
+      <div 
+        className="fixed inset-0 z-0 opacity-15"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='apply' x='0' y='0' width='120' height='120' patternUnits='userSpaceOnUse'%3E%3Crect x='10' y='10' width='30' height='40' rx='2' fill='none' stroke='%23ff6b00' stroke-width='2'/%3E%3Cline x1='15' y1='20' x2='35' y2='20' stroke='%23ff6b00' stroke-width='1'/%3E%3Cline x1='15' y1='30' x2='30' y2='30' stroke='%23ff6b00' stroke-width='1'/%3E%3Cline x1='15' y1='40' x2='25' y2='40' stroke='%23ff6b00' stroke-width='1'/%3E%3Ccircle cx='60' cy='30' r='15' fill='none' stroke='%23007bff' stroke-width='2'/%3E%3Cpath d='M 55 30 L 58 33 L 65 25' stroke='%23007bff' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='80' y='15' width='25' height='35' rx='2' fill='none' stroke='%2300aaff' stroke-width='2'/%3E%3Cline x1='85' y1='25' x2='100' y2='25' stroke='%2300aaff' stroke-width='1'/%3E%3Cline x1='85' y1='35' x2='95' y2='35' stroke='%2300aaff' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23apply)'/%3E%3C/svg%3E")`,
+          backgroundSize: '250px 250px',
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-50/70 via-white/80 to-blue-50/70 z-[1]" />
+      <div className="relative z-10">
+        <div className="container mx-auto px-4 py-12">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">How to Apply</h1>
+              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                Join Uzbekistan's premier science olympiad training programs. Our comprehensive application process
+                ensures we identify and nurture the most talented students.
+              </p>
+            </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            <Card className="border-0 shadow-lg text-center">
-              <CardContent className="p-6">
-                <Users className="w-12 h-12 mx-auto mb-4 text-orange-500" />
-                <div className="text-3xl font-bold text-gray-900 mb-2">2,500+</div>
-                <div className="text-gray-600">Students Trained</div>
-              </CardContent>
-            </Card>
-            <Card className="border-0 shadow-lg text-center">
-              <CardContent className="p-6">
-                <Award className="w-12 h-12 mx-auto mb-4 text-blue-500" />
-                <div className="text-3xl font-bold text-gray-900 mb-2">150+</div>
-                <div className="text-gray-600">International Medals</div>
-              </CardContent>
-            </Card>
-            <Card className="border-0 shadow-lg text-center">
-              <CardContent className="p-6">
-                <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-500" />
-                <div className="text-3xl font-bold text-gray-900 mb-2">95%</div>
-                <div className="text-gray-600">Success Rate</div>
-              </CardContent>
-            </Card>
-          </div>
+            <div className="grid lg:grid-cols-3 gap-8 mb-12">
+              <Card className="border-0 shadow-lg text-center">
+                <CardContent className="p-6">
+                  <Users className="w-12 h-12 mx-auto mb-4 text-orange-500" />
+                  <div className="text-3xl font-bold text-gray-900 mb-2">2,500+</div>
+                  <div className="text-gray-600">Students Trained</div>
+                </CardContent>
+              </Card>
+              <Card className="border-0 shadow-lg text-center">
+                <CardContent className="p-6">
+                  <Award className="w-12 h-12 mx-auto mb-4 text-blue-500" />
+                  <div className="text-3xl font-bold text-gray-900 mb-2">150+</div>
+                  <div className="text-gray-600">International Medals</div>
+                </CardContent>
+              </Card>
+              <Card className="border-0 shadow-lg text-center">
+                <CardContent className="p-6">
+                  <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-500" />
+                  <div className="text-3xl font-bold text-gray-900 mb-2">95%</div>
+                  <div className="text-gray-600">Success Rate</div>
+                </CardContent>
+              </Card>
+            </div>
 
-          <Card className="border-0 shadow-lg mb-12">
-            <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900">
-              <CardTitle className="text-2xl">Application Process</CardTitle>
-            </CardHeader>
-            <CardContent className="p-8">
-              <div className="space-y-6">
-                {applicationSteps.map((step, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <div
-                        className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ${
-                          step.status === "active" ? "bg-orange-500" : "bg-gray-400"
-                        }`}
-                      >
-                        {step.step}
-                      </div>
-                    </div>
-                    <div className="flex-grow">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-lg font-semibold text-gray-900">{step.title}</h3>
-                        <Badge variant="outline" className="text-xs">
-                          <Clock className="w-3 h-3 mr-1" />
-                          {step.duration}
-                        </Badge>
-                      </div>
-                      <p className="text-gray-600">{step.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            <Card className="border-0 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-                <CardTitle className="text-xl">Available Programs</CardTitle>
+            <Card className="border-0 shadow-lg mb-12">
+              <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900">
+                <CardTitle className="text-2xl">Application Process</CardTitle>
               </CardHeader>
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  {programs.map((program, index) => (
-                    <div key={index} className="border-l-4 border-orange-500 pl-4">
-                      <h4 className="font-semibold text-gray-900 mb-1">{program.name}</h4>
-                      <div className="flex flex-wrap gap-2 text-sm text-gray-600">
-                        <span>Duration: {program.duration}</span>
-                        <span>•</span>
-                        <span>Level: {program.level}</span>
-                        <span>•</span>
-                        <span>Starts: {program.nextStart}</span>
+              <CardContent className="p-8">
+                <div className="space-y-6">
+                  {applicationSteps.map((step, index) => (
+                    <div key={index} className="flex items-start gap-4">
+                      <div className="flex-shrink-0">
+                        <div
+                          className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ${
+                            step.status === "active" ? "bg-orange-500" : "bg-gray-400"
+                          }`}
+                        >
+                          {step.step}
+                        </div>
                       </div>
-                      <div className="text-sm text-green-600 mt-1">{program.spots}</div>
+                      <div className="flex-grow">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="text-lg font-semibold text-gray-900">{step.title}</h3>
+                          <Badge variant="outline" className="text-xs">
+                            <Clock className="w-3 h-3 mr-1" />
+                            {step.duration}
+                          </Badge>
+                        </div>
+                        <p className="text-gray-600">{step.description}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900">
-                <CardTitle className="text-xl">Quick Links</CardTitle>
-              </CardHeader>
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  <Link
-                    href="/apply/criteria"
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <FileText className="w-5 h-5 text-orange-500" />
-                      <span className="font-medium">Selection Criteria</span>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
-                  </Link>
-                  <Link
-                    href="/apply/online"
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-blue-500" />
-                      <span className="font-medium">Online Application</span>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
-                  </Link>
-                  <Link
-                    href="/apply/documents"
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <FileText className="w-5 h-5 text-green-500" />
-                      <span className="font-medium">Required Documents</span>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
-                  </Link>
-                  <Link
-                    href="/apply/faq"
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <Users className="w-5 h-5 text-purple-500" />
-                      <span className="font-medium">FAQ</span>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+            <div className="grid lg:grid-cols-2 gap-8 mb-12">
+              <Card className="border-0 shadow-lg">
+                <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+                  <CardTitle className="text-xl">Available Programs</CardTitle>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <div className="space-y-4">
+                    {programs.map((program, index) => (
+                      <div key={index} className="border-l-4 border-orange-500 pl-4">
+                        <h4 className="font-semibold text-gray-900 mb-1">{program.name}</h4>
+                        <div className="flex flex-wrap gap-2 text-sm text-gray-600">
+                          <span>Duration: {program.duration}</span>
+                          <span>•</span>
+                          <span>Level: {program.level}</span>
+                          <span>•</span>
+                          <span>Starts: {program.nextStart}</span>
+                        </div>
+                        <div className="text-sm text-green-600 mt-1">{program.spots}</div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
 
-          <div className="text-center">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-3"
-            >
-              <Link href="/apply/online" className="flex items-center gap-2">
-                Start Your Application
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </Button>
-            <p className="text-gray-600 mt-4">
-              Application deadline: <span className="font-semibold">January 31, 2025</span>
-            </p>
+              <Card className="border-0 shadow-lg">
+                <CardHeader className="bg-gradient-to-r from-stone-200 to-stone-300 text-gray-900">
+                  <CardTitle className="text-xl">Quick Links</CardTitle>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <div className="space-y-4">
+                    <Link
+                      href="/apply/criteria"
+                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                    >
+                      <div className="flex items-center gap-3">
+                        <FileText className="w-5 h-5 text-orange-500" />
+                        <span className="font-medium">Selection Criteria</span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-gray-400" />
+                    </Link>
+                    <Link
+                      href="/apply/online"
+                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                    >
+                      <div className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-blue-500" />
+                        <span className="font-medium">Online Application</span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-gray-400" />
+                    </Link>
+                    <Link
+                      href="/apply/documents"
+                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                    >
+                      <div className="flex items-center gap-3">
+                        <FileText className="w-5 h-5 text-green-500" />
+                        <span className="font-medium">Required Documents</span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-gray-400" />
+                    </Link>
+                    <Link
+                      href="/apply/faq"
+                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                    >
+                      <div className="flex items-center gap-3">
+                        <Users className="w-5 h-5 text-purple-500" />
+                        <span className="font-medium">FAQ</span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-gray-400" />
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-3"
+              >
+                <Link href="/apply/online" className="flex items-center gap-2">
+                  Start Your Application
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </Button>
+              <p className="text-gray-600 mt-4">
+                Application deadline: <span className="font-semibold">January 31, 2025</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
