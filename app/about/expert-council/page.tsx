@@ -32,6 +32,13 @@ export default function ExpertCouncilPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
 
+  // Pagination
+  const [nextUrl, setNextUrl] = useState<string | null>(null)
+  const [prevUrl, setPrevUrl] = useState<string | null>(null)
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const [totalPages, setTotalPages] = useState<number>(0)
+  const [totalCount, setTotalCount] = useState<number>(0)
+
   // Filters
   const [year, setYear] = useState<string>("ALL")
   const [subject, setSubject] = useState<string>("ALL")
@@ -65,6 +72,25 @@ export default function ExpertCouncilPage() {
       const results: Mentor[] = data.results || []
 
       setMembers(results)
+
+      // Pagination info from API
+      setNextUrl(data.next ?? null)
+      setPrevUrl(data.previous ?? null)
+      const count = typeof data.count === "number" ? data.count : results.length
+      setTotalCount(count)
+
+      // Derive current page from URL (default 1)
+      if (url) {
+        const urlObj = new URL(url)
+        const pageParam = urlObj.searchParams.get("page")
+        setCurrentPage(pageParam ? parseInt(pageParam) : 1)
+      } else {
+        setCurrentPage(1)
+      }
+
+      // Derive total pages from count and page size actually returned
+      const pageSize = results.length > 0 ? results.length : 1
+      setTotalPages(Math.max(1, Math.ceil(count / pageSize)))
 
       setAvailableYears(
         Array.from(
@@ -115,6 +141,12 @@ export default function ExpertCouncilPage() {
 
     fetchMentors(url.toString())
   }, [year, subject, region, district, position, search, ordering])
+
+  const handlePageChange = (url: string | null) => {
+    if (!url) return
+    fetchMentors(url)
+    // keep scroll behavior simple; user can see top of list already
+  }
 
   /* -------------------------------------------------------
      RESPONSIBILITIES
@@ -232,31 +264,69 @@ export default function ExpertCouncilPage() {
             {error && <p className="text-center text-red-500">{error}</p>}
 
             {!loading && !error && (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {members.map((member) => (
-                  <Card key={member.id} className="border-0 shadow-lg hover:shadow-xl transition">
-                    <CardContent className="p-6">
-                      <div className="flex flex-col items-center text-center">
-                        <img
-                          src={member.photo_url || "/placeholder.png"}
-                          alt={member.full_name}
-                          className="w-32 h-32 rounded-full object-cover shadow mb-4"
-                        />
-                        <h3 className="text-xl font-bold text-gray-900">{member.full_name}</h3>
-                        <div className="flex flex-wrap justify-center gap-2 mt-3">
-                          {member.subject && <Badge variant="secondary">{member.subject}</Badge>}
-                          {member.position && <Badge variant="outline">{member.position}</Badge>}
+              <>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {members.map((member) => (
+                    <Card key={member.id} className="border-0 shadow-lg hover:shadow-xl transition">
+                      <CardContent className="p-6">
+                        <div className="flex flex-col items-center text-center">
+                          <img
+                            src={member.photo_url || "/placeholder.png"}
+                            alt={member.full_name}
+                            className="w-32 h-32 rounded-full object-cover shadow mb-4"
+                          />
+                          <h3 className="text-xl font-bold text-gray-900">{member.full_name}</h3>
+                          <div className="flex flex-wrap justify-center gap-2 mt-3">
+                            {member.subject && <Badge variant="secondary">{member.subject}</Badge>}
+                            {member.position && <Badge variant="outline">{member.position}</Badge>}
+                          </div>
+                          <div className="mt-4 text-gray-600 text-sm space-y-1">
+                            <p>
+                              <span className="font-semibold text-gray-800">Region:</span> {member.region}
+                            </p>
+                            {member.institution && (
+                              <p>
+                                <span className="font-semibold text-gray-800">Institution:</span>{" "}
+                                {member.institution}
+                              </p>
+                            )}
+                            {member.year && (
+                              <p>
+                                <span className="font-semibold text-gray-800">Year:</span> {member.year}
+                              </p>
+                            )}
+                          </div>
                         </div>
-                        <div className="mt-4 text-gray-600 text-sm space-y-1">
-                          <p><span className="font-semibold text-gray-800">Region:</span> {member.region}</p>
-                          {member.institution && <p><span className="font-semibold text-gray-800">Institution:</span> {member.institution}</p>}
-                          {member.year && <p><span className="font-semibold text-gray-800">Year:</span> {member.year}</p>}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                {totalPages > 1 && (
+                  <div className="mt-10 flex flex-col items-center gap-3">
+                    <div className="text-sm text-gray-600">
+                      Page <span className="font-semibold">{currentPage}</span> of{" "}
+                      <span className="font-semibold">{totalPages}</span> ({totalCount} members)
+                    </div>
+                    <div className="flex gap-3">
+                      <button
+                        onClick={() => handlePageChange(prevUrl)}
+                        disabled={!prevUrl}
+                        className="px-4 py-2 rounded-lg border bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40"
+                      >
+                        ← Previous
+                      </button>
+                      <button
+                        onClick={() => handlePageChange(nextUrl)}
+                        disabled={!nextUrl}
+                        className="px-4 py-2 rounded-lg border bg-primary text-white hover:bg-primary/90 disabled:opacity-40"
+                      >
+                        Next →
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </div>
 

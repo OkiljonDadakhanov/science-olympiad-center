@@ -25,16 +25,18 @@ interface WinnersFilterProps {
 }
 
 const MEDAL_OPTIONS = [
-  { value: "Oltin", label: "Gold 🥇", color: "bg-yellow-100 text-yellow-800 border-yellow-300" },
-  { value: "Kumush", label: "Silver 🥈", color: "bg-gray-100 text-gray-800 border-gray-300" },
-  { value: "Bronza", label: "Bronze 🥉", color: "bg-orange-100 text-orange-800 border-orange-300" },
+  // Values are what the API expects; labels are localized
+  { value: "Gold", label: "Gold 🥇", color: "bg-yellow-100 text-yellow-800 border-yellow-300" },
+  { value: "Silver", label: "Silver 🥈", color: "bg-gray-100 text-gray-800 border-gray-300" },
+  { value: "Bronze", label: "Bronze 🥉", color: "bg-orange-100 text-orange-800 border-orange-300" },
 ]
 
 const OLYMPIAD_TYPES = [
   { value: "ALL", label: "All Types" },
-  { value: "Mintaqaviy", label: "Regional" },
-  { value: "Respublika", label: "National" },
-  { value: "Xalqaro", label: "International" },
+  // Values match backend enum (e.g. MINTAQAVIY, RESPUBLIKA, XALQARO)
+  { value: "MINTAQAVIY", label: "Regional" },
+  { value: "RESPUBLIKA", label: "National" },
+  { value: "XALQARO", label: "International" },
 ]
 
 export default function WinnersFilter({

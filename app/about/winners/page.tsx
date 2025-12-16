@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Trophy } from "lucide-react"
 import WinnersFilter from "@/components/winners/WinnersFilter"
 import WinnersGrid from "@/components/winners/winners-grid"
@@ -23,7 +23,7 @@ export default function WinnersPage() {
   const topRef = useRef<HTMLDivElement>(null)
 
   // Reset to page 1 when filters change
-  useState(() => {
+  useEffect(() => {
     const url = new URL(BASE_URL)
 
     selectedMedals.forEach((m) => url.searchParams.append("medal", m))
@@ -32,6 +32,7 @@ export default function WinnersPage() {
     if (olympiadType !== "ALL") url.searchParams.set("olympiad_type", olympiadType)
     if (year !== "ALL") url.searchParams.set("academic_year", year)
 
+    // Always go back to the first page when filters change
     url.searchParams.delete("page")
     fetchData(url.toString())
   }, [olympiadType, year, selectedMedals, selectedSubjects])
