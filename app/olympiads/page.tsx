@@ -23,6 +23,14 @@ const olympiadCategories = [
     count: "8 competitions",
   },
   {
+    title: "Regional International Olympiads",
+    description: "Regional international olympiads across Europe, Asia and the Asia-Pacific",
+    href: "/olympiads/mintaqaviy",
+    icon: Trophy,
+    color: "bg-gradient-to-br from-indigo-500/10 to-emerald-500/10 border-indigo-500/20",
+    count: "13 competitions",
+  },
+  {
     title: "Local Olympiads",
     description: "Regional and local science competitions",
     href: "/olympiads/local",

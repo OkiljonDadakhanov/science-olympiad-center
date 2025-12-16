@@ -30,6 +30,7 @@ const olympiads = [
   { title: "Prestigious Olympiads", href: "/olympiads/prestigious", description: "National competitions and elite international qualifiers" },
   { title: "International Olympiads", href: "/olympiads/international", description: "Global science olympiad competitions worldwide" },
   { title: "Local Olympiads", href: "/olympiads/local", description: "Regional and local science competitions" },
+  { title: "Regional International Olympiads", href: "/olympiads/mintaqaviy", description: "Regional international olympiads across Europe, Asia and the Asia-Pacific" },
 ]
 
 const aboutUsItems = [

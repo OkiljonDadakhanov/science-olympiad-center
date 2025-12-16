@@ -2,7 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Globe, Trophy, Users, MapPin, Calendar, Star, Award, CheckCircle, ArrowRight, Plane } from "lucide-react"
+import { Globe, Trophy, Users, MapPin, Calendar, Star, Award, CheckCircle, ArrowRight, Plane, Clock, FileText } from "lucide-react"
 import Link from "next/link"
 import { FadingBackground } from "@/components/fading-bg"
 
@@ -110,6 +110,48 @@ const internationalOlympiads = [
     },
     preparation: ["Competitive programming", "Algorithm training", "Mock contests", "Optimization techniques"],
     benefits: ["Top tech university visibility", "Global coding community", "Career opportunities", "Prestige awards"],
+  },
+]
+
+const otherInternationalOlympiads = [
+  {
+    name: "English Language Olympiad (ELO)",
+    description:
+      "International English language olympiad assessing performance, language proficiency, research and social engagement.",
+    location: "Amman, Jordan",
+    date: "8–10 May",
+    teamSize: "Senior: 5–7 members, Junior: 3–5 members",
+    duration: "2 days",
+    format: "Performance, test, project presentation, research paper, group work and volunteering",
+    eligibility: "Under 20 years, not enrolled in university",
+    medals: { gold: 0, silver: 7, bronze: 0 },
+    category: "Language",
+  },
+  {
+    name: "International Economics Olympiad (IEO)",
+    description:
+      "Global competition for high school students in economics, business case analysis and financial literacy.",
+    location: "Baku, Azerbaijan",
+    date: "20–29 July",
+    teamSize: "5 students",
+    duration: "3 days",
+    format: "Economics test, business case preparation and business case presentation",
+    eligibility: "Under 20 years, not enrolled in university",
+    medals: { gold: 0, silver: 1, bronze: 1 },
+    category: "Economics",
+  },
+  {
+    name: "International Geography Olympiad (IGeO)",
+    description:
+      "International competition testing geographical knowledge, analytical thinking and fieldwork skills.",
+    location: "Bangkok, Thailand",
+    date: "26 July – 1 August 2025",
+    teamSize: "4 students",
+    duration: "3 days",
+    format: "Multimedia test, theoretical tasks, practical fieldwork and case-solving",
+    eligibility: "Under 20 years, not enrolled in university",
+    medals: { gold: 0, silver: 0, bronze: 2 },
+    category: "Geography",
   },
 ]
 
@@ -330,6 +372,94 @@ export default function InternationalOlympiadsPage() {
                       </div>
                     </div>
                   </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Other International Olympiads */}
+        <section className="py-20 bg-white/95 backdrop-blur-sm">
+          <div className="container">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
+                Other International Olympiads
+              </h2>
+              <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
+                International olympiads in economics, geography and English that broaden academic excellence beyond STEM.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {otherInternationalOlympiads.map((olympiad, index) => (
+                <Card key={index} className="border-2 shadow-lg bg-white/95">
+                  <CardContent className="p-6 space-y-4">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <h3 className="text-xl font-bold">{olympiad.name}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{olympiad.description}</p>
+                      </div>
+                      <Badge variant="secondary">{olympiad.category}</Badge>
+                    </div>
+
+                    <div className="space-y-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <MapPin className="h-4 w-4 text-muted-foreground" />
+                        <span className="font-medium">Location:</span>
+                        <span className="text-muted-foreground">{olympiad.location}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4 text-muted-foreground" />
+                        <span className="font-medium">Date:</span>
+                        <span className="text-muted-foreground">{olympiad.date}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Users className="h-4 w-4 text-muted-foreground" />
+                        <span className="font-medium">Team Size:</span>
+                        <span className="text-muted-foreground">{olympiad.teamSize}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-4 w-4 text-muted-foreground" />
+                        <span className="font-medium">Duration:</span>
+                        <span className="text-muted-foreground">{olympiad.duration}</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <FileText className="h-4 w-4 text-muted-foreground mt-0.5" />
+                        <div>
+                          <span className="font-medium">Format:</span>{" "}
+                          <span className="text-muted-foreground">{olympiad.format}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-muted-foreground mt-0.5" />
+                        <div>
+                          <span className="font-medium">Eligibility:</span>{" "}
+                          <span className="text-muted-foreground">{olympiad.eligibility}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold mb-2 flex items-center gap-2">
+                        <Award className="h-4 w-4 text-yellow-500" />
+                        2025 Medal Results
+                      </h4>
+                      <div className="space-y-1 text-sm">
+                        <div className="flex justify-between">
+                          <span className="text-yellow-600">🥇 Gold</span>
+                          <span className="font-medium">{olympiad.medals.gold}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-500">🥈 Silver</span>
+                          <span className="font-medium">{olympiad.medals.silver}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-orange-600">🥉 Bronze</span>
+                          <span className="font-medium">{olympiad.medals.bronze}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
                 </Card>
               ))}
             </div>

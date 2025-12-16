@@ -102,6 +102,65 @@ const prestigiousOlympiads = [
   },
 ]
 
+const prestigiousInternationalOlympiads = [
+  {
+    name: "International Mathematical Olympiad (IMO)",
+    location: "Australia",
+    date: "10–20 July",
+    teamSize: "6 students",
+    format: "6 problems over 2 days",
+    duration: "2 days, 4.5 hours each",
+    eligibility: "Under 20 years, not enrolled in university",
+    medals: {
+      gold: 0,
+      silver: 4,
+      bronze: 1,
+    },
+  },
+  {
+    name: "International Chemistry Olympiad (IChO)",
+    location: "United Arab Emirates",
+    date: "5–14 July",
+    teamSize: "4 students",
+    format: "12 problems over 2 days",
+    duration: "2 days, 5 hours each",
+    eligibility: "Under 20 years, not enrolled in university",
+    medals: {
+      gold: 2,
+      silver: 2,
+      bronze: 0,
+    },
+  },
+  {
+    name: "International Physics Olympiad (IPhO)",
+    location: "France",
+    date: "18–24 July",
+    teamSize: "4 students",
+    format: "6 problems over 2 days",
+    duration: "2 days, 5 hours each",
+    eligibility: "Under 20 years, not enrolled in university",
+    medals: {
+      gold: 0,
+      silver: 0,
+      bronze: 2,
+    },
+  },
+  {
+    name: "International Olympiad in Informatics (IOI)",
+    location: "Bolivia",
+    date: "27 July – 3 August",
+    teamSize: "4 students",
+    format: "6 problems over 2 days",
+    duration: "2 days, 5 hours each",
+    eligibility: "Under 20 years, not enrolled in university",
+    medals: {
+      gold: 0,
+      silver: 1,
+      bronze: 1,
+    },
+  },
+]
+
 export default function PrestigiousOlympiadsPage() {
   return (
     <div className="min-h-screen relative">
@@ -307,6 +366,99 @@ export default function PrestigiousOlympiadsPage() {
                       </div>
                     </div>
                   </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Prestigious International Olympiads */}
+        <section className="py-20 bg-white/95 backdrop-blur-sm">
+          <div className="container">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
+                Prestigious International Olympiads
+              </h2>
+              <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
+                International STEM olympiads where our best students compete for medals and global recognition.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {prestigiousInternationalOlympiads.map((olympiad, index) => (
+                <Card key={index} className="border-2 shadow-lg bg-white/95">
+                  <CardContent className="p-6 space-y-4">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="text-2xl font-bold mb-1">{olympiad.name}</h3>
+                        <p className="text-muted-foreground">
+                          Elite international competition for the world&apos;s strongest high school students.
+                        </p>
+                      </div>
+                      <Badge variant="secondary">
+                        <Trophy className="h-3 w-3 mr-1" />
+                        International
+                      </Badge>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-4 text-sm">
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <Star className="h-4 w-4 text-muted-foreground" />
+                          <span className="font-medium">Location:</span>
+                          <span className="text-muted-foreground">{olympiad.location}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Calendar className="h-4 w-4 text-muted-foreground" />
+                          <span className="font-medium">Date:</span>
+                          <span className="text-muted-foreground">{olympiad.date}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Users className="h-4 w-4 text-muted-foreground" />
+                          <span className="font-medium">Team Size:</span>
+                          <span className="text-muted-foreground">{olympiad.teamSize}</span>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <FileText className="h-4 w-4 text-muted-foreground" />
+                          <span className="font-medium">Format:</span>
+                          <span className="text-muted-foreground">{olympiad.format}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Clock className="h-4 w-4 text-muted-foreground" />
+                          <span className="font-medium">Duration:</span>
+                          <span className="text-muted-foreground">{olympiad.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="h-4 w-4 text-muted-foreground" />
+                          <span className="font-medium">Eligibility:</span>
+                          <span className="text-muted-foreground">{olympiad.eligibility}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold mb-2 flex items-center gap-2">
+                        <Award className="h-4 w-4 text-yellow-500" />
+                        2025 Medal Results
+                      </h4>
+                      <div className="space-y-1 text-sm">
+                        <div className="flex justify-between">
+                          <span className="text-yellow-600">🥇 Gold</span>
+                          <span className="font-medium">{olympiad.medals.gold}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-500">🥈 Silver</span>
+                          <span className="font-medium">{olympiad.medals.silver}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-orange-600">🥉 Bronze</span>
+                          <span className="font-medium">{olympiad.medals.bronze}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
                 </Card>
               ))}
             </div>
