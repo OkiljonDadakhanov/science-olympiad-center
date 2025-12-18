@@ -5,6 +5,7 @@ import "./globals.css"
 import { ClientLayout } from "./client-layout"
 import { Navigation } from "@/components/navigation"
 import Footer from "@/components/footer"
+import { Toaster } from "@/components/ui/toaster"
 import { headers } from "next/headers" // ✅ import this
 
 const playfair = Playfair_Display({
@@ -30,6 +31,7 @@ export default async function RootLayout({
           {children}
           <Footer />
         </ClientLayout>
+        <Toaster />
       </body>
     </html>
   )
