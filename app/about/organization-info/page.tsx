@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react"
 import * as f3 from "family-chart"
+import * as d3 from "d3"
 import "family-chart/styles/family-chart.css"
 
 // Organizational data structure
@@ -248,32 +249,31 @@ const orgData = {
   ]
 }
 
-  // Helper function to detect gender from name
-  function detectGender(name: string): "M" | "F" {
-    const nameLower = name.toLowerCase()
-    // Uzbek female name indicators
-    if (
-      nameLower.includes("qizi") ||
-      nameLower.includes("kizi") ||
-      nameLower.endsWith("ovna") ||
-      nameLower.endsWith("bayeva") ||
-      nameLower.endsWith("yeva") ||
-      nameLower.includes("tamanno") ||
-      nameLower.includes("nargiza") ||
-      nameLower.includes("mavjuda") ||
-      nameLower.includes("ruhsora") ||
-      nameLower.includes("ruxsora") ||
-      nameLower.includes("shahnóza") ||
-      nameLower.includes("shahnoza") ||
-      nameLower.includes("janar") ||
-      nameLower.includes("guljakhon")
-    ) {
-      return "F"
-    }
-    return "M"
+// Helper function to detect gender from name
+function detectGender(name: string): "M" | "F" {
+  const nameLower = name.toLowerCase()
+  if (
+    nameLower.includes("qizi") ||
+    nameLower.includes("kizi") ||
+    nameLower.endsWith("ovna") ||
+    nameLower.endsWith("bayeva") ||
+    nameLower.endsWith("yeva") ||
+    nameLower.includes("tamanno") ||
+    nameLower.includes("nargiza") ||
+    nameLower.includes("mavjuda") ||
+    nameLower.includes("ruhsora") ||
+    nameLower.includes("ruxsora") ||
+    nameLower.includes("shahnóza") ||
+    nameLower.includes("shahnoza") ||
+    nameLower.includes("janar") ||
+    nameLower.includes("guljakhon")
+  ) {
+    return "F"
   }
+  return "M"
+}
 
-  // Convert org data to family-chart format
+// Convert org data to family-chart format
 function convertToFamilyChartData() {
   const nodes: any[] = []
 
@@ -309,7 +309,7 @@ function convertToFamilyChartData() {
     }
   })
 
-  // Support staff (report to Director)
+  // Support staff (report directly to Director)
   orgData.support.forEach((person) => {
     nodes.push({
       id: person.id,
@@ -327,12 +327,12 @@ function convertToFamilyChartData() {
     })
   })
 
-  // Departments (heads report to Deputy Director)
+  // Departments (heads report to Deputy Director - Davron)
   orgData.departments.forEach((dept) => {
     // Department Head - connects to Deputy Director (Davron)
     nodes.push({
       id: dept.head.id,
-      fid: orgData.deputy.id,
+      fid: orgData.deputy.id, // This ensures Ishmurodov connects to Davron
       mid: null,
       pids: [orgData.deputy.id],
       name: dept.head.name,
@@ -379,7 +379,6 @@ export default function OrganizationInfoPage() {
     try {
       const data = convertToFamilyChartData()
       
-      // Verify data structure
       console.log("Organization chart data:", data)
       
       if (!data.nodes || data.nodes.length === 0) {
@@ -387,44 +386,66 @@ export default function OrganizationInfoPage() {
         return
       }
 
-      // Create custom card HTML with image, name, and role
+      // Create beautiful custom card HTML with image, name, and role
       const cardHtml = (d: any) => {
         const person = d.data
         const imgSrc = d.img || "/placeholder.png"
         const name = d.name || "Unknown"
         const role = person?.role || ""
         
-        // Different colors based on hierarchy level
+        // Beautiful gradient colors based on hierarchy level
         let bgGradient = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
         let borderColor = "#4a5568"
+        let borderWidth = "3px"
         
         if (d.id === orgData.director.id) {
           bgGradient = "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
           borderColor = "#c53030"
+          borderWidth = "4px"
         } else if (d.id === orgData.deputy.id) {
           bgGradient = "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
           borderColor = "#2c5282"
+          borderWidth = "3px"
         } else if (person?.department) {
+          // Department heads
           bgGradient = "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
           borderColor = "#2d5016"
+          borderWidth = "3px"
         } else if (d.fid === orgData.director.id && d.id !== orgData.deputy.id) {
+          // Support staff
           bgGradient = "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
           borderColor = "#7c2d12"
+          borderWidth = "2px"
+        } else {
+          // Regular staff
+          bgGradient = "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+          borderColor = "#4a5568"
+          borderWidth = "2px"
         }
 
         return `
           <div class="org-card" style="
             background: ${bgGradient};
-            border: 3px solid ${borderColor};
-            border-radius: 12px;
-            padding: 12px;
-            min-width: 200px;
-            max-width: 220px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
+            border: ${borderWidth} solid ${borderColor};
+            border-radius: 16px;
+            padding: 16px;
+            min-width: 220px;
+            max-width: 240px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             position: relative;
+            overflow: hidden;
           ">
+            <div style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              height: 4px;
+              background: ${borderColor};
+              opacity: 0.6;
+            "></div>
             <div style="
               display: flex;
               flex-direction: column;
@@ -433,38 +454,52 @@ export default function OrganizationInfoPage() {
             ">
               <div style="
                 position: relative;
-                margin-bottom: 8px;
+                margin-bottom: 12px;
               ">
+                <div style="
+                  position: absolute;
+                  inset: -4px;
+                  background: linear-gradient(45deg, ${borderColor}, transparent);
+                  border-radius: 50%;
+                  opacity: 0.3;
+                  z-index: -1;
+                "></div>
                 <img 
                   src="${imgSrc}" 
                   alt="${name}"
                   style="
-                    width: 80px;
-                    height: 80px;
+                    width: 90px;
+                    height: 90px;
                     border-radius: 50%;
-                    border: 3px solid white;
+                    border: 4px solid white;
                     object-fit: cover;
                     background: white;
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                    transition: transform 0.3s ease;
                   "
                   onerror="this.src='/placeholder.png'"
                 />
               </div>
               <div style="
-                font-weight: bold;
-                font-size: 13px;
+                font-weight: 700;
+                font-size: 14px;
                 color: white;
-                margin-bottom: 4px;
-                line-height: 1.3;
-                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+                margin-bottom: 6px;
+                line-height: 1.4;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                min-height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
               ">
                 ${name}
               </div>
               <div style="
-                font-size: 11px;
-                color: rgba(255, 255, 255, 0.95);
-                line-height: 1.2;
-                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+                font-size: 12px;
+                color: rgba(255, 255, 255, 0.98);
+                line-height: 1.3;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+                font-weight: 500;
               ">
                 ${role}
               </div>
@@ -473,17 +508,17 @@ export default function OrganizationInfoPage() {
         `
       }
 
-      // Create the chart
+      // Create the chart with optimized spacing
       const f3Chart = f3.createChart(chartRef.current, data)
-        .setTransitionTime(800)
-        .setCardXSpacing(300)
-        .setCardYSpacing(200)
-        .setCardMinWidth(200)
-        .setCardMinHeight(150)
+        .setTransitionTime(1000)
+        .setCardXSpacing(320)
+        .setCardYSpacing(220)
+        .setCardMinWidth(220)
+        .setCardMinHeight(180)
 
       f3Chart.setCardHtml(cardHtml)
 
-      // Set card display fields (optional, for tooltip)
+      // Set card display fields for tooltip
       f3Chart.setCardDisplay([
         ["name"],
         ["role"],
@@ -495,45 +530,159 @@ export default function OrganizationInfoPage() {
 
       chartInstanceRef.current = f3Chart
 
-      // Wait for DOM to update, then add hover effects and style connections
+      // Use d3 to enhance connection lines and add interactivity
       setTimeout(() => {
-        // Add hover effects to cards
-        const cards = chartRef.current?.querySelectorAll(".org-card")
-        cards?.forEach((card: any) => {
-          card.addEventListener("mouseenter", function (this: HTMLElement) {
-            this.style.transform = "scale(1.08)"
-            this.style.boxShadow = "0 12px 24px rgba(0, 0, 0, 0.25)"
-            this.style.zIndex = "1000"
-            this.style.transition = "all 0.3s ease"
-          })
-          card.addEventListener("mouseleave", function (this: HTMLElement) {
-            this.style.transform = "scale(1)"
-            this.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)"
-            this.style.zIndex = "1"
-          })
-        })
+        const svg = chartRef.current?.querySelector("svg")
+        if (!svg) return
 
-        // Style connection lines to be more visible and beautiful
-        const lines = chartRef.current?.querySelectorAll("line, path")
-        lines?.forEach((line: any) => {
+        // Style connection lines with d3 for beautiful gradients and animations
+        const lines = svg.querySelectorAll("line, path")
+        
+        lines.forEach((line: any) => {
           if (line.tagName === "line") {
-            line.setAttribute("stroke", "#4a5568")
-            line.setAttribute("stroke-width", "2.5")
+            // Create gradient for lines
+            const defs = svg.querySelector("defs") || d3.select(svg).append("defs").node()
+            const gradientId = `gradient-${Math.random().toString(36).substr(2, 9)}`
+            
+            const gradient = d3.select(defs)
+              .append("linearGradient")
+              .attr("id", gradientId)
+              .attr("x1", "0%")
+              .attr("y1", "0%")
+              .attr("x2", "100%")
+              .attr("y2", "0%")
+            
+            gradient.append("stop")
+              .attr("offset", "0%")
+              .attr("stop-color", "#4a90e2")
+              .attr("stop-opacity", 0.8)
+            
+            gradient.append("stop")
+              .attr("offset", "50%")
+              .attr("stop-color", "#7b68ee")
+              .attr("stop-opacity", 0.9)
+            
+            gradient.append("stop")
+              .attr("offset", "100%")
+              .attr("stop-color", "#4a90e2")
+              .attr("stop-opacity", 0.8)
+
+            line.setAttribute("stroke", `url(#${gradientId})`)
+            line.setAttribute("stroke-width", "3")
             line.setAttribute("stroke-linecap", "round")
-            line.setAttribute("opacity", "0.6")
+            line.setAttribute("opacity", "0.7")
+            line.setAttribute("filter", "url(#glow)")
+            
+            // Add hover effect
+            d3.select(line)
+              .on("mouseenter", function() {
+                d3.select(this)
+                  .transition()
+                  .duration(200)
+                  .attr("stroke-width", "5")
+                  .attr("opacity", "1")
+              })
+              .on("mouseleave", function() {
+                d3.select(this)
+                  .transition()
+                  .duration(200)
+                  .attr("stroke-width", "3")
+                  .attr("opacity", "0.7")
+              })
           } else if (line.tagName === "path") {
-            line.setAttribute("stroke", "#4a5568")
-            line.setAttribute("stroke-width", "2.5")
+            // Style paths (curved connections)
+            const defs = svg.querySelector("defs") || d3.select(svg).append("defs").node()
+            const gradientId = `gradient-path-${Math.random().toString(36).substr(2, 9)}`
+            
+            const gradient = d3.select(defs)
+              .append("linearGradient")
+              .attr("id", gradientId)
+              .attr("x1", "0%")
+              .attr("y1", "0%")
+              .attr("x2", "100%")
+              .attr("y2", "0%")
+            
+            gradient.append("stop")
+              .attr("offset", "0%")
+              .attr("stop-color", "#667eea")
+              .attr("stop-opacity", 0.8)
+            
+            gradient.append("stop")
+              .attr("offset", "100%")
+              .attr("stop-color", "#764ba2")
+              .attr("stop-opacity", 0.8)
+
+            line.setAttribute("stroke", `url(#${gradientId})`)
+            line.setAttribute("stroke-width", "3")
             line.setAttribute("fill", "none")
             line.setAttribute("stroke-linecap", "round")
-            line.setAttribute("opacity", "0.6")
+            line.setAttribute("opacity", "0.7")
+            
+            // Add hover effect
+            d3.select(line)
+              .on("mouseenter", function() {
+                d3.select(this)
+                  .transition()
+                  .duration(200)
+                  .attr("stroke-width", "5")
+                  .attr("opacity", "1")
+              })
+              .on("mouseleave", function() {
+                d3.select(this)
+                  .transition()
+                  .duration(200)
+                  .attr("stroke-width", "3")
+                  .attr("opacity", "0.7")
+              })
           }
         })
-      }, 100)
+
+        // Add glow filter for lines
+        const defs = svg.querySelector("defs") || d3.select(svg).append("defs").node()
+        if (!svg.querySelector("#glow")) {
+          const filter = d3.select(defs)
+            .append("filter")
+            .attr("id", "glow")
+          
+          filter.append("feGaussianBlur")
+            .attr("stdDeviation", "3")
+            .attr("result", "coloredBlur")
+          
+          const feMerge = filter.append("feMerge")
+          feMerge.append("feMergeNode").attr("in", "coloredBlur")
+          feMerge.append("feMergeNode").attr("in", "SourceGraphic")
+        }
+
+        // Enhanced hover effects for cards
+        const cards = chartRef.current?.querySelectorAll(".org-card")
+        cards?.forEach((card: any) => {
+          const img = card.querySelector("img")
+          
+          card.addEventListener("mouseenter", function(this: HTMLElement) {
+            this.style.transform = "scale(1.1) translateY(-5px)"
+            this.style.boxShadow = "0 20px 40px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2)"
+            this.style.zIndex = "1000"
+            this.style.transition = "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
+            
+            if (img) {
+              img.style.transform = "scale(1.1)"
+            }
+          })
+          
+          card.addEventListener("mouseleave", function(this: HTMLElement) {
+            this.style.transform = "scale(1) translateY(0)"
+            this.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1)"
+            this.style.zIndex = "1"
+            
+            if (img) {
+              img.style.transform = "scale(1)"
+            }
+          })
+        })
+      }, 500)
 
       return () => {
         if (chartInstanceRef.current) {
-          // Cleanup if needed
           chartInstanceRef.current = null
         }
       }
@@ -543,39 +692,54 @@ export default function OrganizationInfoPage() {
   }, [])
 
   return (
-    <div className="min-h-screen relative bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen relative bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       {/* Header */}
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Organizational Structure
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Science Olympiads Center under the Agency for Specialized Educational Institutions
           </p>
         </div>
 
         {/* Chart Container */}
-        <div className="bg-white rounded-xl shadow-2xl p-6 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 overflow-hidden border border-gray-200">
           <style jsx global>{`
             #OrganizationChart {
               width: 100%;
-              height: 900px;
+              height: 1000px;
+              min-height: 900px;
               margin: auto;
-              background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+              background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 50%, #e2e8f0 100%);
               color: #1a202c;
               position: relative;
-              border-radius: 8px;
+              border-radius: 12px;
+              overflow: hidden;
+            }
+            #OrganizationChart::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: 
+                radial-gradient(circle at 20% 50%, rgba(79, 70, 229, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+              pointer-events: none;
             }
             #OrganizationChart svg {
               width: 100%;
               height: 100%;
             }
             #OrganizationChart .org-card {
-              filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+              filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+              transition: filter 0.3s ease;
             }
             #OrganizationChart .org-card:hover {
-              filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+              filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
             }
           `}</style>
           <div
@@ -586,19 +750,35 @@ export default function OrganizationInfoPage() {
         </div>
 
         {/* Instructions */}
-        <div className="mt-8 max-w-3xl mx-auto bg-blue-50 border border-blue-200 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">
+        <div className="mt-8 max-w-3xl mx-auto bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-xl p-6 shadow-lg">
+          <h3 className="text-lg font-semibold text-blue-900 mb-3 flex items-center gap-2">
+            <span className="text-2xl">✨</span>
             Interactive Features
           </h3>
-          <ul className="text-sm text-blue-800 space-y-1 list-disc list-inside">
-            <li>Hover over cards to see enhanced details</li>
-            <li>Click and drag to pan around the organizational chart</li>
-            <li>Use mouse wheel to zoom in and out</li>
-            <li>Cards are connected with beautiful lines showing reporting relationships</li>
+          <ul className="text-sm text-blue-800 space-y-2 list-none">
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500 mt-1">•</span>
+              <span><strong>Hover over cards</strong> to see enhanced details and animations</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500 mt-1">•</span>
+              <span><strong>Click and drag</strong> to pan around the organizational chart</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500 mt-1">•</span>
+              <span><strong>Mouse wheel</strong> to zoom in and out</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500 mt-1">•</span>
+              <span><strong>Beautiful gradient lines</strong> connect team members showing reporting relationships</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500 mt-1">•</span>
+              <span><strong>Color-coded cards</strong> indicate hierarchy levels (Director, Deputy, Department Heads, Staff)</span>
+            </li>
           </ul>
         </div>
       </div>
     </div>
   )
 }
-

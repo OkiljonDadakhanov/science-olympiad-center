@@ -5,9 +5,17 @@ import { Target, Eye, Lightbulb, Users } from "lucide-react"
 
 export default function MissionVisionPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url("/bg/about.jpg")',
+        }}
+      />
+      <div className="absolute inset-0 bg-white/75 z-[1]" />
  
-      <main>
+      <main className="relative z-10">
         {/* Hero Section */}
         <section className="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
           <div className="container">
