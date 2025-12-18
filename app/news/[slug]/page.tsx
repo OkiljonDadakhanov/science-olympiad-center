@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, Clock, Share2, Loader2, ArrowLeft } from "lucide-react"
+import { Calendar, Clock, Eye, Share2, Loader2, ArrowLeft, Check } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useToast } from "@/hooks/use-toast"
@@ -43,6 +43,14 @@ function formatDate(dateString: string): string {
   })
 }
 
+// Helper function to format view count
+function formatViewCount(count: number): string {
+  if (count >= 1000) {
+    return `${(count / 1000).toFixed(1)}k`
+  }
+  return count.toString()
+}
+
 const BASE_URL = "https://api.olympcenter.uz/api/news/"
 
 export default function NewsArticlePage() {
@@ -50,11 +58,61 @@ export default function NewsArticlePage() {
   const router = useRouter()
   const slug = params?.slug as string
   const { toast } = useToast()
+  const hasIncrementedView = useRef(false)
 
   const [article, setArticle] = useState<NewsArticle | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [isSharing, setIsSharing] = useState(false)
+
+  // Increment view count
+  useEffect(() => {
+    async function incrementViewCount() {
+      if (!slug || !article || hasIncrementedView.current) return
+
+      try {
+        hasIncrementedView.current = true
+        // Try common patterns for view increment endpoints
+        const endpoints = [
+          `${BASE_URL}${slug}/view/`,
+          `${BASE_URL}${slug}/increment-view/`,
+          `${BASE_URL}${article.id}/view/`,
+          `${BASE_URL}${article.id}/increment-view/`,
+        ]
+
+        for (const endpoint of endpoints) {
+          try {
+            const response = await fetch(endpoint, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              cache: "no-store",
+            })
+            if (response.ok) {
+              // Refresh article to get updated view count
+              const updatedResponse = await fetch(`${BASE_URL}${slug}/`, { cache: "no-store" })
+              if (updatedResponse.ok) {
+                const updatedArticle = await updatedResponse.json()
+                setArticle(updatedArticle)
+              }
+              break
+            }
+          } catch (e) {
+            // Continue to next endpoint
+            continue
+          }
+        }
+      } catch (err) {
+        // Silently fail - view count increment is not critical
+        console.error("Error incrementing view count:", err)
+      }
+    }
+
+    if (article) {
+      incrementViewCount()
+    }
+  }, [article, slug])
 
   useEffect(() => {
     async function fetchArticle() {
@@ -240,6 +298,10 @@ export default function NewsArticlePage() {
                   <div className="flex items-center gap-1">
                     <Clock className="h-4 w-4" />
                     {calculateReadTime(article.body)}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Eye className="h-4 w-4" />
+                    {formatViewCount(article.view_count)} views
                   </div>
                 </div>
               </div>

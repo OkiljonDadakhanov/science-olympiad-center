@@ -2,9 +2,10 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
@@ -15,7 +16,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const programs = [
@@ -53,6 +54,23 @@ const applyItems = [
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
+  const pathname = usePathname()
+
+  // Auto-expand submenu based on current route
+  useEffect(() => {
+    if (isOpen && pathname) {
+      if (pathname.startsWith("/about")) {
+        setOpenSubmenu("about")
+      } else if (pathname.startsWith("/apply")) {
+        setOpenSubmenu("apply")
+      } else if (pathname.startsWith("/programs")) {
+        setOpenSubmenu("programs")
+      } else if (pathname.startsWith("/olympiads")) {
+        setOpenSubmenu("olympiads")
+      }
+    }
+  }, [isOpen, pathname])
 
   return (
     <header className="sticky top-0 z-[60] w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -172,24 +190,179 @@ export function Navigation() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t">
-            <Link href="/about" className="block px-3 py-2 text-base font-medium hover:bg-accent rounded-md">
-              About Us
-            </Link>
-            <Link href="/apply" className="block px-3 py-2 text-base font-medium hover:bg-accent rounded-md">
-              How to Apply
-            </Link>
-            <Link href="/programs" className="block px-3 py-2 text-base font-medium hover:bg-accent rounded-md">
-              Programs
-            </Link>
-            <Link href="/olympiads" className="block px-3 py-2 text-base font-medium hover:bg-accent rounded-md">
-              Olympiads
-            </Link>
-            <Link href="/news" className="block px-3 py-2 text-base font-medium hover:bg-accent rounded-md">
+        <div className="md:hidden border-t bg-background">
+          <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            {/* About Us with submenu */}
+            <div>
+              <button
+                onClick={() => setOpenSubmenu(openSubmenu === "about" ? null : "about")}
+                className="w-full flex items-center justify-between px-3 py-3 text-base font-medium hover:bg-accent rounded-md transition-colors"
+              >
+                <span>About Us</span>
+                {openSubmenu === "about" ? (
+                  <ChevronDown className="h-4 w-4 transition-transform" />
+                ) : (
+                  <ChevronRight className="h-4 w-4 transition-transform" />
+                )}
+              </button>
+              {openSubmenu === "about" && (
+                <div className="pl-4 pb-2 space-y-1 mt-1 border-l-2 border-muted">
+                  <Link
+                    href="/about/mission"
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "block px-3 py-2.5 text-sm rounded-md transition-colors",
+                      pathname === "/about/mission"
+                        ? "text-primary font-medium bg-accent"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                    )}
+                  >
+                    Our Mission
+                  </Link>
+                  {aboutUsItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "block px-3 py-2.5 text-sm rounded-md transition-colors",
+                        pathname === item.href
+                          ? "text-primary font-medium bg-accent"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      )}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* How to Apply with submenu */}
+            <div>
+              <button
+                onClick={() => setOpenSubmenu(openSubmenu === "apply" ? null : "apply")}
+                className="w-full flex items-center justify-between px-3 py-3 text-base font-medium hover:bg-accent rounded-md transition-colors"
+              >
+                <span>How to Apply</span>
+                {openSubmenu === "apply" ? (
+                  <ChevronDown className="h-4 w-4 transition-transform" />
+                ) : (
+                  <ChevronRight className="h-4 w-4 transition-transform" />
+                )}
+              </button>
+              {openSubmenu === "apply" && (
+                <div className="pl-4 pb-2 space-y-1 mt-1 border-l-2 border-muted">
+                  {applyItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "block px-3 py-2.5 text-sm rounded-md transition-colors",
+                        pathname === item.href
+                          ? "text-primary font-medium bg-accent"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      )}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Programs with submenu */}
+            <div>
+              <button
+                onClick={() => setOpenSubmenu(openSubmenu === "programs" ? null : "programs")}
+                className="w-full flex items-center justify-between px-3 py-3 text-base font-medium hover:bg-accent rounded-md transition-colors"
+              >
+                <span>Programs</span>
+                {openSubmenu === "programs" ? (
+                  <ChevronDown className="h-4 w-4 transition-transform" />
+                ) : (
+                  <ChevronRight className="h-4 w-4 transition-transform" />
+                )}
+              </button>
+              {openSubmenu === "programs" && (
+                <div className="pl-4 pb-2 space-y-1 mt-1 border-l-2 border-muted">
+                  {programs.map((program) => (
+                    <Link
+                      key={program.href}
+                      href={program.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "block px-3 py-2.5 text-sm rounded-md transition-colors",
+                        pathname === program.href
+                          ? "text-primary font-medium bg-accent"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      )}
+                    >
+                      {program.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Olympiads with submenu */}
+            <div>
+              <button
+                onClick={() => setOpenSubmenu(openSubmenu === "olympiads" ? null : "olympiads")}
+                className="w-full flex items-center justify-between px-3 py-3 text-base font-medium hover:bg-accent rounded-md transition-colors"
+              >
+                <span>Olympiads</span>
+                {openSubmenu === "olympiads" ? (
+                  <ChevronDown className="h-4 w-4 transition-transform" />
+                ) : (
+                  <ChevronRight className="h-4 w-4 transition-transform" />
+                )}
+              </button>
+              {openSubmenu === "olympiads" && (
+                <div className="pl-4 pb-2 space-y-1 mt-1 border-l-2 border-muted">
+                  {olympiads.map((olympiad) => (
+                    <Link
+                      key={olympiad.href}
+                      href={olympiad.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "block px-3 py-2.5 text-sm rounded-md transition-colors",
+                        pathname === olympiad.href
+                          ? "text-primary font-medium bg-accent"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      )}
+                    >
+                      {olympiad.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Simple links without submenu */}
+            <Link
+              href="/news"
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "block px-3 py-3 text-base font-medium rounded-md transition-colors",
+                pathname?.startsWith("/news")
+                  ? "text-primary bg-accent"
+                  : "hover:bg-accent"
+              )}
+            >
               News & Events
             </Link>
-            <Link href="/contact" className="block px-3 py-2 text-base font-medium hover:bg-accent rounded-md">
+            <Link
+              href="/contact"
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "block px-3 py-3 text-base font-medium rounded-md transition-colors",
+                pathname === "/contact"
+                  ? "text-primary bg-accent"
+                  : "hover:bg-accent"
+              )}
+            >
               Contact
             </Link>
           </div>

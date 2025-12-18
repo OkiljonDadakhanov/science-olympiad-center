@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, Clock, ArrowRight, Share2, Loader2 } from "lucide-react"
+import { Calendar, Clock, ArrowRight, Eye, Share2, Loader2 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useToast } from "@/hooks/use-toast"
@@ -47,6 +47,14 @@ function formatDate(dateString: string): string {
     month: "long",
     day: "numeric",
   })
+}
+
+// Helper function to format view count
+function formatViewCount(count: number): string {
+  if (count >= 1000) {
+    return `${(count / 1000).toFixed(1)}k`
+  }
+  return count.toString()
 }
 
 const BASE_URL = "https://api.olympcenter.uz/api/news/"
@@ -296,15 +304,21 @@ export default function NewsPage() {
                                 Read More <ArrowRight className="ml-2 h-4 w-4" />
                               </Link>
                             </Button>
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={(e) => handleShare(article, e)}
-                              disabled={sharingId === article.id}
-                              title="Share article"
-                            >
-                              <Share2 className="h-4 w-4" />
-                            </Button>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                              <div className="flex items-center gap-1">
+                                <Eye className="h-4 w-4" />
+                                {formatViewCount(article.view_count)}
+                              </div>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={(e) => handleShare(article, e)}
+                                disabled={sharingId === article.id}
+                                title="Share article"
+                              >
+                                <Share2 className="h-4 w-4" />
+                              </Button>
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
@@ -367,6 +381,10 @@ export default function NewsPage() {
                             <Button variant="outline" size="sm" asChild>
                               <Link href={`/news/${article.slug}`}>Read More</Link>
                             </Button>
+                            <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                              <Eye className="h-4 w-4" />
+                              {formatViewCount(article.view_count)}
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
