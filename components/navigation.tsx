@@ -3,9 +3,8 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
+import { Link, usePathname } from "@/i18n/routing"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
@@ -18,55 +17,61 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
-
-const programs = [
-  { title: "Mathematics", href: "/programs/mathematics", description: "Advanced mathematical problem solving and competition preparation" },
-  { title: "Physics", href: "/programs/physics", description: "Theoretical and experimental physics olympiad training" },
-  { title: "Chemistry", href: "/programs/chemistry", description: "Chemical analysis and laboratory skills development" },
-  { title: "Biology", href: "/programs/biology", description: "Life sciences and biological research methodologies" },
-  { title: "Computer Science", href: "/programs/computer-science", description: "Programming, algorithms, and computational thinking" },
-]
-
-const olympiads = [
-  { title: "Prestigious Olympiads", href: "/olympiads/prestigious", description: "National competitions and elite international qualifiers" },
-  { title: "International Olympiads", href: "/olympiads/international", description: "Global science olympiad competitions worldwide" },
-  { title: "Local Olympiads", href: "/olympiads/local", description: "Regional and local science competitions" },
-  { title: "Regional International Olympiads", href: "/olympiads/mintaqaviy", description: "Regional international olympiads across Europe, Asia and the Asia-Pacific" },
-]
-
-const aboutUsItems = [
-  { title: "Organization Info", href: "/about/organization", description: "Information about our educational organization" },
-  { title: "General Information", href: "/about/general", description: "Overview of our center and activities" },
-  { title: "Winners", href: "/about/winners", description: "Our successful olympiad champions" },
-  { title: "Board of Trustees", href: "/about/board", description: "Our governing board and leadership" },
-  { title: "Expert Council", href: "/about/expert-council", description: "Academic experts and advisors" },
-  { title: "Documents", href: "/about/documents", description: "Official documents and policies" },
-  { title: "Partners", href: "/about/partners", description: "Our institutional partnerships" },
-]
-
-const applyItems = [
-  { title: "Selection Criteria", href: "/apply/criteria", description: "Requirements and evaluation process" },
-  { title: "Online Application", href: "/apply/online", description: "Submit your application online" },
-  { title: "Required Documents", href: "/apply/documents", description: "List of necessary documents" },
-  { title: "Rules of Stay", href: "/apply/rules", description: "Program rules and regulations" },
-  { title: "FAQ", href: "/apply/faq", description: "Frequently asked questions" },
-]
+import { useTranslations } from "next-intl"
+import { LanguageSwitcher } from "@/components/language-switcher"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Navigation() {
+  const t = useTranslations('nav')
   const [isOpen, setIsOpen] = useState(false)
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const pathname = usePathname()
 
+  const programs = [
+    { title: t('mathematics'), href: "/programs/mathematics", description: "Advanced mathematical problem solving and competition preparation" },
+    { title: t('physics'), href: "/programs/physics", description: "Theoretical and experimental physics olympiad training" },
+    { title: t('chemistry'), href: "/programs/chemistry", description: "Chemical analysis and laboratory skills development" },
+    { title: t('biology'), href: "/programs/biology", description: "Life sciences and biological research methodologies" },
+    { title: t('computerScience'), href: "/programs/computer-science", description: "Programming, algorithms, and computational thinking" },
+  ]
+
+  const olympiads = [
+    { title: t('prestigiousOlympiads'), href: "/olympiads/prestigious", description: "National competitions and elite international qualifiers" },
+    { title: t('internationalOlympiads'), href: "/olympiads/international", description: "Global science olympiad competitions worldwide" },
+    { title: t('localOlympiads'), href: "/olympiads/local", description: "Regional and local science competitions" },
+    { title: t('regionalInternationalOlympiads'), href: "/olympiads/mintaqaviy", description: "Regional international olympiads across Europe, Asia and the Asia-Pacific" },
+  ]
+
+  const aboutUsItems = [
+    { title: t('organizationInfo'), href: "/about/organization", description: "Information about our educational organization" },
+    { title: t('generalInformation'), href: "/about/general", description: "Overview of our center and activities" },
+    { title: t('winners'), href: "/about/winners", description: "Our successful olympiad champions" },
+    { title: t('boardOfTrustees'), href: "/about/board", description: "Our governing board and leadership" },
+    { title: t('expertCouncil'), href: "/about/expert-council", description: "Academic experts and advisors" },
+    { title: t('documents'), href: "/about/documents", description: "Official documents and policies" },
+    { title: t('partners'), href: "/about/partners", description: "Our institutional partnerships" },
+  ]
+
+  const applyItems = [
+    { title: t('selectionCriteria'), href: "/apply/criteria", description: "Requirements and evaluation process" },
+    { title: t('onlineApplication'), href: "/apply/online", description: "Submit your application online" },
+    { title: t('requiredDocuments'), href: "/apply/documents", description: "List of necessary documents" },
+    { title: t('rulesOfStay'), href: "/apply/rules", description: "Program rules and regulations" },
+    { title: t('faq'), href: "/apply/faq", description: "Frequently asked questions" },
+  ]
+
   // Auto-expand submenu based on current route
   useEffect(() => {
     if (isOpen && pathname) {
-      if (pathname.startsWith("/about")) {
+      // Remove locale prefix for matching
+      const pathWithoutLocale = pathname.replace(/^\/(uz|en|ru)/, '') || '/'
+      if (pathWithoutLocale.startsWith("/about")) {
         setOpenSubmenu("about")
-      } else if (pathname.startsWith("/apply")) {
+      } else if (pathWithoutLocale.startsWith("/apply")) {
         setOpenSubmenu("apply")
-      } else if (pathname.startsWith("/programs")) {
+      } else if (pathWithoutLocale.startsWith("/programs")) {
         setOpenSubmenu("programs")
-      } else if (pathname.startsWith("/olympiads")) {
+      } else if (pathWithoutLocale.startsWith("/olympiads")) {
         setOpenSubmenu("olympiads")
       }
     }
@@ -84,7 +89,7 @@ export function Navigation() {
         <NavigationMenu className="relative z-[60] hidden md:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
+              <NavigationMenuTrigger>{t('aboutUs')}</NavigationMenuTrigger>
               <NavigationMenuContent className="-mt-px pointer-events-auto">
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
@@ -93,7 +98,7 @@ export function Navigation() {
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                         href="/about/mission"
                       >
-                        <div className="mb-2 mt-4 text-lg font-medium">Our Mission</div>
+                        <div className="mb-2 mt-4 text-lg font-medium">{t('ourMission')}</div>
                         <p className="text-sm leading-tight text-muted-foreground">
                           Identifying talented students and fostering their interest in science through olympiads.
                         </p>
@@ -110,7 +115,7 @@ export function Navigation() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger>How to Apply</NavigationMenuTrigger>
+              <NavigationMenuTrigger>{t('howToApply')}</NavigationMenuTrigger>
               <NavigationMenuContent className="-mt-px pointer-events-auto">
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
@@ -136,7 +141,7 @@ export function Navigation() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Programs</NavigationMenuTrigger>
+              <NavigationMenuTrigger>{t('programs')}</NavigationMenuTrigger>
               <NavigationMenuContent className="-mt-px pointer-events-auto">
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                   {programs.map((program) => (
@@ -149,7 +154,7 @@ export function Navigation() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Olympiads</NavigationMenuTrigger>
+              <NavigationMenuTrigger>{t('olympiads')}</NavigationMenuTrigger>
               <NavigationMenuContent className="-mt-px pointer-events-auto">
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-1 lg:w-[600px]">
                   {olympiads.map((olympiad) => (
@@ -164,7 +169,7 @@ export function Navigation() {
             <NavigationMenuItem>
               <Link href="/news">
                 <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  News & Events
+                  {t('newsEvents')}
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
@@ -172,7 +177,7 @@ export function Navigation() {
             <NavigationMenuItem>
               <Link href="/contact" >
                 <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  Contact
+                  {t('contact')}
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
@@ -182,10 +187,20 @@ export function Navigation() {
           <NavigationMenuViewport className="absolute left-0 top-full w-full -mt-px" />
         </NavigationMenu>
 
+        {/* Language Switcher & Theme Toggle */}
+        <div className="hidden md:flex items-center gap-1">
+          <ThemeToggle />
+          <LanguageSwitcher />
+        </div>
+
         {/* Mobile menu button */}
-        <Button variant="ghost" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </Button>
+        <div className="md:hidden flex items-center gap-1">
+          <ThemeToggle />
+          <LanguageSwitcher />
+          <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -198,7 +213,7 @@ export function Navigation() {
                 onClick={() => setOpenSubmenu(openSubmenu === "about" ? null : "about")}
                 className="w-full flex items-center justify-between px-3 py-3 text-base font-medium hover:bg-accent rounded-md transition-colors"
               >
-                <span>About Us</span>
+                <span>{t('aboutUs')}</span>
                 {openSubmenu === "about" ? (
                   <ChevronDown className="h-4 w-4 transition-transform" />
                 ) : (
@@ -212,12 +227,12 @@ export function Navigation() {
                     onClick={() => setIsOpen(false)}
                     className={cn(
                       "block px-3 py-2.5 text-sm rounded-md transition-colors",
-                      pathname === "/about/mission"
+                      pathname?.includes("/about/mission")
                         ? "text-primary font-medium bg-accent"
                         : "text-muted-foreground hover:text-foreground hover:bg-accent"
                     )}
                   >
-                    Our Mission
+                    {t('ourMission')}
                   </Link>
                   {aboutUsItems.map((item) => (
                     <Link
@@ -226,7 +241,7 @@ export function Navigation() {
                       onClick={() => setIsOpen(false)}
                       className={cn(
                         "block px-3 py-2.5 text-sm rounded-md transition-colors",
-                        pathname === item.href
+                        pathname?.includes(item.href)
                           ? "text-primary font-medium bg-accent"
                           : "text-muted-foreground hover:text-foreground hover:bg-accent"
                       )}
@@ -244,7 +259,7 @@ export function Navigation() {
                 onClick={() => setOpenSubmenu(openSubmenu === "apply" ? null : "apply")}
                 className="w-full flex items-center justify-between px-3 py-3 text-base font-medium hover:bg-accent rounded-md transition-colors"
               >
-                <span>How to Apply</span>
+                <span>{t('howToApply')}</span>
                 {openSubmenu === "apply" ? (
                   <ChevronDown className="h-4 w-4 transition-transform" />
                 ) : (
@@ -260,7 +275,7 @@ export function Navigation() {
                       onClick={() => setIsOpen(false)}
                       className={cn(
                         "block px-3 py-2.5 text-sm rounded-md transition-colors",
-                        pathname === item.href
+                        pathname?.includes(item.href)
                           ? "text-primary font-medium bg-accent"
                           : "text-muted-foreground hover:text-foreground hover:bg-accent"
                       )}
@@ -278,7 +293,7 @@ export function Navigation() {
                 onClick={() => setOpenSubmenu(openSubmenu === "programs" ? null : "programs")}
                 className="w-full flex items-center justify-between px-3 py-3 text-base font-medium hover:bg-accent rounded-md transition-colors"
               >
-                <span>Programs</span>
+                <span>{t('programs')}</span>
                 {openSubmenu === "programs" ? (
                   <ChevronDown className="h-4 w-4 transition-transform" />
                 ) : (
@@ -294,7 +309,7 @@ export function Navigation() {
                       onClick={() => setIsOpen(false)}
                       className={cn(
                         "block px-3 py-2.5 text-sm rounded-md transition-colors",
-                        pathname === program.href
+                        pathname?.includes(program.href)
                           ? "text-primary font-medium bg-accent"
                           : "text-muted-foreground hover:text-foreground hover:bg-accent"
                       )}
@@ -312,7 +327,7 @@ export function Navigation() {
                 onClick={() => setOpenSubmenu(openSubmenu === "olympiads" ? null : "olympiads")}
                 className="w-full flex items-center justify-between px-3 py-3 text-base font-medium hover:bg-accent rounded-md transition-colors"
               >
-                <span>Olympiads</span>
+                <span>{t('olympiads')}</span>
                 {openSubmenu === "olympiads" ? (
                   <ChevronDown className="h-4 w-4 transition-transform" />
                 ) : (
@@ -328,7 +343,7 @@ export function Navigation() {
                       onClick={() => setIsOpen(false)}
                       className={cn(
                         "block px-3 py-2.5 text-sm rounded-md transition-colors",
-                        pathname === olympiad.href
+                        pathname?.includes(olympiad.href)
                           ? "text-primary font-medium bg-accent"
                           : "text-muted-foreground hover:text-foreground hover:bg-accent"
                       )}
@@ -346,24 +361,24 @@ export function Navigation() {
               onClick={() => setIsOpen(false)}
               className={cn(
                 "block px-3 py-3 text-base font-medium rounded-md transition-colors",
-                pathname?.startsWith("/news")
+                pathname?.includes("/news")
                   ? "text-primary bg-accent"
                   : "hover:bg-accent"
               )}
             >
-              News & Events
+              {t('newsEvents')}
             </Link>
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
               className={cn(
                 "block px-3 py-3 text-base font-medium rounded-md transition-colors",
-                pathname === "/contact"
+                pathname?.includes("/contact")
                   ? "text-primary bg-accent"
                   : "hover:bg-accent"
               )}
             >
-              Contact
+              {t('contact')}
             </Link>
           </div>
         </div>

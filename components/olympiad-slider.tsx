@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, Users, ChevronLeft, ChevronRight, Award, Globe, BookOpen } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
 
 const upcomingOlympiads = [
   {

@@ -1,11 +1,16 @@
-import Link from "next/link"
+"use client"
+
+import { Link } from "@/i18n/routing"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, ArrowRight } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export function Footer() {
+  const t = useTranslations('footer')
+  const tNav = useTranslations('nav')
   return (
     <footer className="bg-muted/30 border-t">
       <div className="container py-16">
@@ -23,8 +28,7 @@ export function Footer() {
               <span className="font-bold text-xl text-primary">Science Olympiad Center</span>
             </Link>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Nurturing future scientists through world-class olympiad training and international competitions.
-              Identifying talent, fostering excellence, and building Uzbekistan's scientific potential.
+              {t('description')}
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="sm" className="h-10 w-10 p-0">
@@ -44,16 +48,16 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">Quick Links</h3>
+            <h3 className="font-semibold text-lg mb-6">{t('quickLinks')}</h3>
             <div className="space-y-3">
               <Link href="/about/general" className="block text-muted-foreground hover:text-primary transition-colors">
-                About Us
+                {t('aboutUs')}
               </Link>
               <Link href="/about/mission" className="block text-muted-foreground hover:text-primary transition-colors">
-                Mission & Vision
+                {t('missionVision')}
               </Link>
               <Link href="/about/team" className="block text-muted-foreground hover:text-primary transition-colors">
-                Our Team
+                {t('ourTeam')}
               </Link>
               {/* <Link href="/programs" className="block text-muted-foreground hover:text-primary transition-colors">
                 Programs
@@ -62,7 +66,7 @@ export function Footer() {
                 Competitions
               </Link> */}
               <Link href="/news" className="block text-muted-foreground hover:text-primary transition-colors">
-                News
+                {t('news')}
               </Link>
               {/* <Link href="/events" className="block text-muted-foreground hover:text-primary transition-colors">
                 Events
@@ -72,56 +76,56 @@ export function Footer() {
 
           {/* Programs */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">Programs</h3>
+            <h3 className="font-semibold text-lg mb-6">{t('programs')}</h3>
             <div className="space-y-3">
               <Link
                 href="/programs/mathematics"
                 className="block text-muted-foreground hover:text-primary transition-colors"
               >
-                Mathematics
+                {tNav('mathematics')}
               </Link>
               <Link
                 href="/programs/physics"
                 className="block text-muted-foreground hover:text-primary transition-colors"
               >
-                Physics
+                {tNav('physics')}
               </Link>
               <Link
                 href="/programs/chemistry"
                 className="block text-muted-foreground hover:text-primary transition-colors"
               >
-                Chemistry
+                {tNav('chemistry')}
               </Link>
               <Link
                 href="/programs/biology"
                 className="block text-muted-foreground hover:text-primary transition-colors"
               >
-                Biology
+                {tNav('biology')}
               </Link>
               <Link
                 href="/programs/computer-science"
                 className="block text-muted-foreground hover:text-primary transition-colors"
               >
-                Computer Science
+                {tNav('computerScience')}
               </Link>
               <Link
                 href="/competitions/national"
                 className="block text-muted-foreground hover:text-primary transition-colors"
               >
-                National Olympiads
+                {t('nationalOlympiads')}
               </Link>
               <Link
                 href="/competitions/international"
                 className="block text-muted-foreground hover:text-primary transition-colors"
               >
-                International Competitions
+                {t('internationalCompetitions')}
               </Link>
             </div>
           </div>
 
           {/* Contact & Newsletter */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">Stay Connected</h3>
+            <h3 className="font-semibold text-lg mb-6">{t('stayConnected')}</h3>
             <div className="space-y-4 mb-6">
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -158,16 +162,16 @@ export function Footer() {
         <Separator className="my-8" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-muted-foreground">© 2025 Science Olympiad Center. All rights reserved.</div>
+          <div className="text-sm text-muted-foreground">{t('copyright')}</div>
           <div className="flex gap-6 text-sm">
             <Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
-              Privacy Policy
+              {t('privacyPolicy')}
             </Link>
             <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
-              Terms of Service
+              {t('termsOfService')}
             </Link>
             <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
-              Contact
+              {t('contact')}
             </Link>
           </div>
         </div>

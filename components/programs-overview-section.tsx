@@ -1,68 +1,71 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Calculator, Atom, Microscope, Code, Zap, ArrowRight, Users, Award } from "lucide-react"
-import Link from "next/link"
-
-const programs = [
-  {
-    id: "mathematics",
-    title: "Mathematics",
-    icon: Calculator,
-    description: "Advanced mathematical problem solving and competition preparation",
-    students: "50+",
-    achievements: "15 International Medals",
-    href: "/programs/mathematics",
-  },
-  {
-    id: "physics",
-    title: "Physics",
-    icon: Zap,
-    description: "Theoretical and experimental physics olympiad training",
-    students: "45+",
-    achievements: "12 International Medals",
-    href: "/programs/physics",
-  },
-  {
-    id: "chemistry",
-    title: "Chemistry",
-    icon: Atom,
-    description: "Chemical analysis and laboratory skills development",
-    students: "40+",
-    achievements: "10 International Medals",
-    href: "/programs/chemistry",
-  },
-  {
-    id: "biology",
-    title: "Biology",
-    icon: Microscope,
-    description: "Life sciences and biological research methodologies",
-    students: "35+",
-    achievements: "8 International Medals",
-    href: "/programs/biology",
-  },
-  {
-    id: "computer-science",
-    title: "Computer Science",
-    icon: Code,
-    description: "Programming, algorithms, and computational thinking",
-    students: "60+",
-    achievements: "18 International Medals",
-    href: "/programs/computer-science",
-  },
-]
+import { Link } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
 
 export function ProgramsOverviewSection() {
+  const t = useTranslations('programs')
+  
+  const programs = [
+    {
+      id: "mathematics",
+      title: t('mathematics.title'),
+      icon: Calculator,
+      description: t('mathematics.description'),
+      students: "50+",
+      achievements: "15 International Medals",
+      href: "/programs/mathematics",
+    },
+    {
+      id: "physics",
+      title: t('physics.title'),
+      icon: Zap,
+      description: t('physics.description'),
+      students: "45+",
+      achievements: "12 International Medals",
+      href: "/programs/physics",
+    },
+    {
+      id: "chemistry",
+      title: t('chemistry.title'),
+      icon: Atom,
+      description: t('chemistry.description'),
+      students: "40+",
+      achievements: "10 International Medals",
+      href: "/programs/chemistry",
+    },
+    {
+      id: "biology",
+      title: t('biology.title'),
+      icon: Microscope,
+      description: t('biology.description'),
+      students: "35+",
+      achievements: "8 International Medals",
+      href: "/programs/biology",
+    },
+    {
+      id: "computer-science",
+      title: t('computerScience.title'),
+      icon: Code,
+      description: t('computerScience.description'),
+      students: "60+",
+      achievements: "18 International Medals",
+      href: "/programs/computer-science",
+    },
+  ]
   return (
     <section className="py-20">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
-            Our <span className="text-primary">Programs</span>
+            {t('title').replace(t('titleHighlight'), '').trim()} <span className="text-primary">{t('titleHighlight')}</span>
           </h2>
           <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
-            Comprehensive training programs designed to prepare exceptional students for national and international
-            science olympiads.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -94,7 +97,7 @@ export function ProgramsOverviewSection() {
                   </div>
                   <Button asChild variant="outline" className="w-full bg-transparent">
                     <Link href={program.href}>
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                      {t('learnMore')} <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </CardContent>
@@ -136,7 +139,7 @@ export function ProgramsOverviewSection() {
                     </div>
                     <Button asChild variant="outline" size="sm">
                       <Link href={program.href}>
-                        Learn More <ArrowRight className="ml-2 h-3 w-3" />
+                        {t('learnMore')} <ArrowRight className="ml-2 h-3 w-3" />
                       </Link>
                     </Button>
                   </div>
@@ -149,7 +152,7 @@ export function ProgramsOverviewSection() {
         <div className="text-center">
           <Button asChild size="lg">
             <Link href="/programs">
-              View All Programs <ArrowRight className="ml-2 h-5 w-5" />
+              {t('viewAllPrograms')} <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>

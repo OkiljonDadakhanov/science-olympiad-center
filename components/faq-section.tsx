@@ -5,48 +5,45 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react"
 import { useState } from "react"
-import Link from "next/link"
-
-const faqs = [
-  {
-    category: "General",
-    question: "What is the Science Olympiad Center?",
-    answer:
-      "The Science Olympiad Center is Uzbekistan's premier institution for identifying, training, and supporting talented students in science competitions. We prepare students for national and international olympiads in mathematics, physics, chemistry, biology, and computer science.",
-  },
-  {
-    category: "Application",
-    question: "When is the application deadline?",
-    answer:
-      "The application deadline for 2025 programs is January 31, 2025. We recommend submitting your application early as spots are limited and filled on a competitive basis.",
-  },
-  {
-    category: "Programs",
-    question: "How long are the training programs?",
-    answer:
-      "Program duration varies by subject: Mathematics (6 months), Physics (8 months), Chemistry (7 months), Biology (9 months), and Computer Science (5 months). All programs include intensive training and competition preparation.",
-  },
-  {
-    category: "Application",
-    question: "Is there an application fee?",
-    answer:
-      "No, there is no application fee. Our programs are completely free for selected students, including training, materials, and competition participation.",
-  },
-  {
-    category: "Programs",
-    question: "What is the selection process?",
-    answer:
-      "Selection involves application review, subject-specific assessments, expert evaluation, and interviews. We consider academic performance (40%), problem-solving skills (30%), competition experience (20%), and motivation (10%).",
-  },
-  {
-    category: "General",
-    question: "Are there accommodation facilities?",
-    answer:
-      "Yes, we provide accommodation for students from outside Tashkent. Our residential facilities include dormitories, dining halls, study rooms, and recreational areas, all supervised by qualified staff.",
-  },
-]
+import { Link } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
 
 export function FAQSection() {
+  const t = useTranslations('faq')
+  const tCategories = useTranslations('faq.categories')
+  
+  const faqs = [
+    {
+      category: tCategories('general'),
+      question: t('questions.whatIsCenter'),
+      answer: t('questions.whatIsCenterAnswer'),
+    },
+    {
+      category: tCategories('application'),
+      question: t('questions.applicationDeadline'),
+      answer: t('questions.applicationDeadlineAnswer'),
+    },
+    {
+      category: tCategories('programs'),
+      question: t('questions.programDuration'),
+      answer: t('questions.programDurationAnswer'),
+    },
+    {
+      category: tCategories('application'),
+      question: t('questions.applicationFee'),
+      answer: t('questions.applicationFeeAnswer'),
+    },
+    {
+      category: tCategories('programs'),
+      question: t('questions.selectionProcess'),
+      answer: t('questions.selectionProcessAnswer'),
+    },
+    {
+      category: tCategories('general'),
+      question: t('questions.accommodation'),
+      answer: t('questions.accommodationAnswer'),
+    },
+  ]
   const [openItems, setOpenItems] = useState<number[]>([])
 
   const toggleItem = (index: number) => {
@@ -58,10 +55,10 @@ export function FAQSection() {
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
-            Frequently Asked <span className="text-primary">Questions</span>
+            {t('title')}
           </h2>
           <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
-            Find answers to common questions about our programs, application process, and admission requirements.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -99,7 +96,7 @@ export function FAQSection() {
           <div className="text-center">
             <Button asChild size="lg">
               <Link href="/apply/faq">
-                View All FAQs <ArrowRight className="ml-2 h-5 w-5" />
+                {t('viewAllFAQs')} <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>

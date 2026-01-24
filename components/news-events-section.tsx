@@ -1,8 +1,11 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Clock, ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
 
 const newsItems = [
   {
@@ -63,15 +66,18 @@ const upcomingEvents = [
 ]
 
 export function NewsEventsSection() {
+  const t = useTranslations('newsEvents')
+  const tCommon = useTranslations('common')
+  
   return (
     <section className="py-20 bg-muted/30">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
-            Latest News & Upcoming Events
+            {t('title')}
           </h2>
           <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
-            Stay updated with our latest achievements, program announcements, and upcoming competitions.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -79,10 +85,10 @@ export function NewsEventsSection() {
           {/* News Section */}
           <div>
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-semibold">Recent News</h3>
+              <h3 className="text-2xl font-semibold">{t('recentNews')}</h3>
               <Button variant="outline" asChild>
                 <Link href="/news">
-                  View All <ArrowRight className="ml-2 h-4 w-4" />
+                  {t('viewAll')} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -99,7 +105,7 @@ export function NewsEventsSection() {
                       alt={item.title}
                       className="object-cover w-full h-full"
                     />
-                    {item.featured && <Badge className="absolute top-4 left-4 bg-primary">Featured</Badge>}
+                    {item.featured && <Badge className="absolute top-4 left-4 bg-primary">{tCommon('featured')}</Badge>}
                   </div>
                   <CardHeader>
                     <div className="flex items-center gap-2 mb-2">
@@ -120,10 +126,10 @@ export function NewsEventsSection() {
           {/* Events Section */}
           <div>
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-semibold">Upcoming Events</h3>
+              <h3 className="text-2xl font-semibold">{t('upcomingEvents')}</h3>
               <Button variant="outline" asChild>
                 <Link href="/events">
-                  View All <ArrowRight className="ml-2 h-4 w-4" />
+                  {t('viewAll')} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
