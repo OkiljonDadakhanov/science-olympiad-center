@@ -1,0 +1,466 @@
+key,en,ru,uz
+common.apply,Apply,Подать заявку,Ariza berish
+common.back,Back,Назад,Orqaga
+common.contact,Contact,Контакты,Aloqa
+common.error,Error,Ошибка,Xatolik
+common.events,Events,События,Tadbirlar
+common.featured,Featured,Рекомендуемое,Tanlangan
+common.learnMore,Learn More,Узнать больше,Batafsil
+common.loading,Loading...,Загрузка...,Yuklanmoqda...
+common.news,News,Новости,Yangiliklar
+common.readMore,Read More,Читать далее,Ko'proq o'qish
+common.share,Share,Поделиться,Ulashish
+common.viewAll,View All,Посмотреть все,Barchasini ko'rish
+faq.categories.application,Application,Заявка,Ariza
+faq.categories.general,General,Общее,Umumiy
+faq.categories.programs,Programs,Программы,Dasturlar
+faq.questions.accommodation,Are there accommodation facilities?,Есть ли условия для проживания?,Yashash imkoniyatlari bormi?
+faq.questions.accommodationAnswer,"Yes, we provide accommodation for students from outside Tashkent. Our residential facilities include dormitories, dining halls, study rooms, and recreational areas, all supervised by qualified staff.","Да, мы предоставляем жилье для студентов из-за пределов Ташкента. Наши жилые объекты включают общежития, столовые, учебные комнаты и зоны отдыха, все под наблюдением квалифицированного персонала.","Ha, biz Toshkentdan tashqaridagi talabalar uchun yashash joyini ta'minlaymiz. Bizning turar joy ob'ektlarimiz yotoqxonalar, oshxonalar, o'quv xonalari va dam olish joylarini o'z ichiga oladi, ularning barchasi malakali xodimlar tomonidan nazorat qilinadi."
+faq.questions.applicationDeadline,When is the application deadline?,Когда крайний срок подачи заявки?,Ariza berish muddati qachon?
+faq.questions.applicationDeadlineAnswer,"The application deadline for 2025 programs is January 31, 2025. We recommend submitting your application early as spots are limited and filled on a competitive basis.","Крайний срок подачи заявок на программы 2025 года - 31 января 2025 года. Мы рекомендуем подать заявку заранее, так как места ограничены и заполняются на конкурсной основе.",2025 yil dasturlari uchun ariza berish muddati 2025 yil 31 yanvar. O'rinlar cheklangan va raqobat asosida to'ldirilgani uchun arizangizni erta topshirishni tavsiya qilamiz.
+faq.questions.applicationFee,Is there an application fee?,Есть ли плата за подачу заявки?,Ariza to'lovi bormi?
+faq.questions.applicationFeeAnswer,"No, there is no application fee. Our programs are completely free for selected students, including training, materials, and competition participation.","Нет, платы за подачу заявки нет. Наши программы полностью бесплатны для отобранных студентов, включая обучение, материалы и участие в соревнованиях.","Yo'q, ariza to'lovi yo'q. Bizning dasturlarimiz tanlangan talabalar uchun to'liq bepul, shu jumladan tayyorgarlik, materiallar va musobaqada ishtirok etish."
+faq.questions.programDuration,How long are the training programs?,Как долго длятся программы подготовки?,Tayyorgarlik dasturlari qancha davom etadi?
+faq.questions.programDurationAnswer,"Program duration varies by subject: Mathematics (6 months), Physics (8 months), Chemistry (7 months), Biology (9 months), and Computer Science (5 months). All programs include intensive training and competition preparation.","Продолжительность программы варьируется в зависимости от предмета: Математика (6 месяцев), Физика (8 месяцев), Химия (7 месяцев), Биология (9 месяцев) и Информатика (5 месяцев). Все программы включают интенсивную подготовку и подготовку к соревнованиям.","Dastur davomiyligi fan bo'yicha farq qiladi: Matematika (6 oy), Fizika (8 oy), Kimyo (7 oy), Biologiya (9 oy) va Informatika (5 oy). Barcha dasturlar intensiv tayyorgarlik va musobaqaga tayyorgarlikni o'z ichiga oladi."
+faq.questions.selectionProcess,What is the selection process?,Как проходит процесс отбора?,Tanlov jarayoni qanday?
+faq.questions.selectionProcessAnswer,"Selection involves application review, subject-specific assessments, expert evaluation, and interviews. We consider academic performance (40%), problem-solving skills (30%), competition experience (20%), and motivation (10%).","Отбор включает рассмотрение заявки, предметные оценки, экспертную оценку и собеседования. Мы учитываем академическую успеваемость (40%), навыки решения проблем (30%), опыт участия в соревнованиях (20%) и мотивацию (10%).","Tanlov ariza ko'rib chiqish, fan bo'yicha baholash, ekspert baholash va suhbatlarni o'z ichiga oladi. Biz akademik ko'rsatkichlarni (40%), muammolarni yechish ko'nikmalarini (30%), musobaqa tajribasini (20%) va motivatsiyani (10%) hisobga olamiz."
+faq.questions.whatIsCenter,What is the Science Olympiad Center?,Что такое Центр научных олимпиад?,Fan Olimpiadasi Markazi nima?
+faq.questions.whatIsCenterAnswer,"The Science Olympiad Center is Uzbekistan's premier institution for identifying, training, and supporting talented students in science competitions. We prepare students for national and international olympiads in mathematics, physics, chemistry, biology, and computer science.","Центр научных олимпиад - это ведущее учреждение Узбекистана по выявлению, обучению и поддержке талантливых студентов в научных соревнованиях. Мы готовим студентов к национальным и международным олимпиадам по математике, физике, химии, биологии и информатике.","Fan Olimpiadasi Markazi - bu O'zbekistondagi fan musobaqalarida iqtidorli talabalarni aniqlash, tayyorlash va qo'llab-quvvatlash bo'yicha yetakchi muassasa. Biz talabalarni matematika, fizika, kimyo, biologiya va informatika bo'yicha milliy va xalqaro olimpiadalarga tayyorlaymiz."
+faq.subtitle,"Find answers to common questions about our programs, application process, and admission requirements.","Найдите ответы на распространенные вопросы о наших программах, процессе подачи заявок и требованиях к поступлению.","Bizning dasturlarimiz, ariza berish jarayoni va qabul qilish talablari haqidagi keng tarqalgan savollarga javob toping."
+faq.title,Frequently Asked Questions,Часто задаваемые вопросы,Tez-tez so'raladigan savollar
+faq.viewAllFAQs,View All FAQs,Посмотреть все вопросы,Barcha savol-javoblarni ko'rish
+footer.aboutUs,About Us,О нас,Biz haqimizda
+footer.contact,Contact,Контакты,Aloqa
+footer.copyright,© 2025 Science Olympiad Center. All rights reserved.,© 2025 Центр научных олимпиад. Все права защищены.,© 2025 Fan Olimpiadasi Markazi. Barcha huquqlar himoyalangan.
+footer.description,"Nurturing future scientists through world-class olympiad training and international competitions. Identifying talent, fostering excellence, and building Uzbekistan's scientific potential.","Воспитание будущих ученых через олимпиадную подготовку мирового класса и международные соревнования. Выявление талантов, развитие совершенства и создание научного потенциала Узбекистана.","Dunyoning eng yaxshi olimpiada tayyorgarligi va xalqaro musobaqalar orqali kelajak olimlarini tarbiyalash. Talantlarni aniqlash, mukammallikni rivojlantirish va O'zbekistonning ilmiy salohiyatini qurish."
+footer.internationalCompetitions,International Competitions,Международные соревнования,Xalqaro musobaqalar
+footer.missionVision,Mission & Vision,Миссия и видение,Missiya va ko'rinish
+footer.nationalOlympiads,National Olympiads,Национальные олимпиады,Milliy olimpiadalar
+footer.news,News,Новости,Yangiliklar
+footer.ourTeam,Our Team,Наша команда,Bizning jamoamiz
+footer.privacyPolicy,Privacy Policy,Политика конфиденциальности,Maxfiylik siyosati
+footer.programs,Programs,Программы,Dasturlar
+footer.quickLinks,Quick Links,Быстрые ссылки,Tezkor havolalar
+footer.stayConnected,Stay Connected,Оставайтесь на связи,Bog'lanishda bo'ling
+footer.termsOfService,Terms of Service,Условия обслуживания,Xizmat ko'rsatish shartlari
+hero.applyNow,Apply Now,Подать заявку сейчас,Hozir ariza bering
+hero.comprehensiveTraining,Comprehensive Training,Комплексная подготовка,Keng qamrovli tayyorgarlik
+hero.comprehensiveTrainingDesc,Structured programs covering all science disciplines,"Структурированные программы, охватывающие все научные дисциплины",Barcha fan sohalarini qamrab oluvchi tuzilgan dasturlar
+hero.countries,50+ Countries,50+ стран,50+ davlat
+hero.countriesRepresented,Countries Represented,Представленные страны,Vakillik qilgan davlatlar
+hero.description,Join thousands of brilliant minds competing in world-class science olympiads. Your journey to international recognition starts here.,"Присоединяйтесь к тысячам блестящих умов, соревнующихся в мировых научных олимпиадах. Ваш путь к международному признанию начинается здесь.",Dunyoning eng yaxshi fan olimpiadalari musobaqalarida qatnashayotgan minglab aqlli yoshlarga qo'shiling. Xalqaro tan olinishga sari yo'lingiz shu yerdan boshlanadi.
+hero.dontMiss,Don't miss these incredible opportunities,Не упустите эти невероятные возможности,Bu ajoyib imkoniyatlarni o'tkazib yubormang
+hero.eventDate,Event Date,Дата события,Tadbir sanasi
+hero.expertMentorship,Expert Mentorship,Экспертное наставничество,Ekspert mentorlik
+hero.expertMentorshipDesc,Learn from Olympic medalists and renowned scientists,Учитесь у медалистов олимпиад и известных ученых,Olimpiada medallari sovrindorlari va taniqli olimlardan o'rganing
+hero.exploreOlympiads,Explore Olympiads,Изучить олимпиады,Olimpiadalarni ko'rib chiqish
+hero.globalNetwork,Global Network,Глобальная сеть,Global tarmoq
+hero.globalNetworkDesc,Connect with peers and mentors worldwide,Общайтесь с коллегами и наставниками по всему миру,Dunyoning turli burchaklaridagi tengdoshlar va mentorlar bilan bog'laning
+hero.latestNews,Latest News,Последние новости,So'nggi yangiliklar
+hero.location,Location,Местоположение,Joylashuv
+hero.medalsWon,500+ Medals Won,500+ медалей,500+ medal
+hero.missionDescription,We believe every student has the potential to excel in science. Our comprehensive programs combine rigorous training with world-class mentorship.,"Мы верим, что каждый студент имеет потенциал преуспеть в науке. Наши комплексные программы сочетают строгую подготовку с наставничеством мирового класса.",Biz har bir talabaning fan bo'yicha yuksalish salohiyatiga ega ekanligiga ishonamiz. Bizning keng qamrovli dasturlarimiz qat'iy tayyorgarlikni dunyo darajasidagi mentorlik bilan birlashtiradi.
+hero.newsHighlights,News Highlights,Новости,Yangiliklar
+hero.nurturingScientificExcellence,Nurturing Scientific Excellence,Воспитание научного совершенства,Ilmiy mukammallikni rivojlantirish
+hero.ourMission,Our Mission,Наша миссия,Bizning missiyamiz
+hero.participants,Participants,Участники,Ishtirokchilar
+hero.provenResults,Proven Results,Проверенные результаты,Tasdiqlangan natijalar
+hero.provenResultsDesc,Track record of international competition success,Послужной список успехов на международных соревнованиях,Xalqaro musobaqalarda muvaffaqiyatli natijalar
+hero.registrationDeadline,Registration Deadline,Срок регистрации,Ro'yxatdan o'tish muddati
+hero.startJourney,Start Your Journey,Начать путь,Safar boshlash
+hero.students,"10,000+ Students","10,000+ студентов","10,000+ talaba"
+hero.studentsTrained,Students Trained,Обученных студентов,Tayyorlangan talabalar
+hero.subtitle,Into Excellence,В совершенство,Mukammallikka aylantiring
+hero.title,Transform Your Passion,Превратите свою страсть,Sizning ehtirosingizni
+hero.upcomingCompetitions,Upcoming Competitions,Предстоящие соревнования,Yaqinlashib kelayotgan musobaqalar
+hero.viewAllNews,View All News,Все новости,Barcha yangiliklar
+hero.yearsOfExcellence,Years of Excellence,Лет совершенства,Mukammallik yillari
+nav.aboutUs,About Us,О нас,Biz haqimizda
+nav.biology,Biology,Биология,Biologiya
+nav.boardOfTrustees,Board of Trustees,Попечительский совет,Kuzatuv kengashi
+nav.chemistry,Chemistry,Химия,Kimyo
+nav.computerScience,Computer Science,Информатика,Informatika
+nav.contact,Contact,Контакты,Aloqa
+nav.documents,Documents,Документы,Hujjatlar
+nav.expertCouncil,Expert Council,Экспертный совет,Ekspertlar kengashi
+nav.faq,FAQ,Часто задаваемые вопросы,Savol-javob
+nav.generalInformation,General Information,Общая информация,Umumiy ma'lumot
+nav.howToApply,How to Apply,Как подать заявку,Qanday ariza berish
+nav.internationalOlympiads,International Olympiads,Международные олимпиады,Xalqaro olimpiadalar
+nav.localOlympiads,Local Olympiads,Местные олимпиады,Mahalliy olimpiadalar
+nav.mathematics,Mathematics,Математика,Matematika
+nav.newsEvents,News & Events,Новости и события,Yangiliklar va tadbirlar
+nav.olympiads,Olympiads,Олимпиады,Olimpiadalar
+nav.onlineApplication,Online Application,Онлайн-заявка,Onlayn ariza
+nav.organizationInfo,Organization Info,Информация об организации,Tashkilot haqida
+nav.ourMission,Our Mission,Наша миссия,Bizning missiyamiz
+nav.partners,Partners,Партнеры,Hamkorlar
+nav.physics,Physics,Физика,Fizika
+nav.prestigiousOlympiads,Prestigious Olympiads,Престижные олимпиады,Prestijli olimpiadalar
+nav.programs,Programs,Программы,Dasturlar
+nav.regionalInternationalOlympiads,Regional International Olympiads,Региональные международные олимпиады,Mintaqaviy xalqaro olimpiadalar
+nav.requiredDocuments,Required Documents,Необходимые документы,Kerakli hujjatlar
+nav.rulesOfStay,Rules of Stay,Правила пребывания,Qoidalar
+nav.selectionCriteria,Selection Criteria,Критерии отбора,Tanlov mezonlari
+nav.winners,Winners,Победители,G'oliblar
+news.articleNotFound,Article not found,Статья не найдена,Maqola topilmadi
+news.backToAllNews,Back to All News,Вернуться ко всем новостям,Barcha yangiliklarga qaytish
+news.backToNews,Back to News,Вернуться к новостям,Yangiliklarga qaytish
+news.error,Error,Ошибка,Xatolik
+news.goBack,Go Back,Назад,Orqaga
+news.linkCopied,Link copied!,Ссылка скопирована!,Havola nusxalandi!
+news.linkCopiedDesc,Article link has been copied to clipboard.,Ссылка на статью скопирована в буфер обмена.,Maqola havolasi buferga nusxalandi.
+news.loadingArticle,Loading article...,Загрузка статьи...,Maqola yuklanmoqda...
+news.minRead,min read,мин чтения,daqiqa o'qish
+news.shareArticle,Share Article,Поделиться статьей,Maqolani ulashish
+news.shareError,Failed to share article. Please try again.,"Не удалось поделиться статьей. Пожалуйста, попробуйте снова.","Maqolani ulashib bo'lmadi. Iltimos, qayta urinib ko'ring."
+news.shared,Shared!,Поделились!,Ulashildi!
+news.sharedSuccess,Article shared successfully.,Статья успешно поделена.,Maqola muvaffaqiyatli ulashildi.
+news.sharing,Sharing...,Поделиться...,Ulashilmoqda...
+news.views,views,просмотров,ko'rishlar
+newsEvents.recentNews,Recent News,Последние новости,So'nggi yangiliklar
+newsEvents.subtitle,"Stay updated with our latest achievements, program announcements, and upcoming competitions.","Будьте в курсе наших последних достижений, объявлений о программах и предстоящих соревнований.","Bizning so'nggi yutuqlarimiz, dastur e'lonlari va yaqinlashib kelayotgan musobaqalar haqida xabardor bo'ling."
+newsEvents.title,Latest News & Upcoming Events,Последние новости и предстоящие события,So'nggi yangiliklar va yaqinlashib kelayotgan tadbirlar
+newsEvents.upcomingEvents,Upcoming Events,Предстоящие события,Yaqinlashib kelayotgan tadbirlar
+newsEvents.viewAll,View All,Посмотреть все,Barchasini ko'rish
+pages.about.achievements,Achievements,Достижения,Yutuqlar
+pages.about.description,"Learn about our mission, vision, and the team dedicated to nurturing scientific excellence in Uzbekistan.","Узнайте о нашей миссии, видении и команде, посвященной развитию научного совершенства в Узбекистане.","Bizning missiyamiz, ko'rinishimiz va O'zbekistonda ilmiy mukammallikni rivojlantirishga bag'ishlangan jamoamiz haqida bilib oling."
+pages.about.general.aboutCenter,About the Center,О Центре,Markaz haqida
+pages.about.general.aboutCenterText1,The Science Olympiad Center is an educational and organizational institution established as a state organization under the Agency for Specialized Educational Institutions of the Ministry of Preschool and School Education.,"Центр научных олимпиад — образовательное и организационное учреждение, созданное как государственная организация при Агентстве специализированных образовательных учреждений Министерства дошкольного и школьного образования.",Fanlar olimpiadasi markazi — Maktabgacha va maktab ta'limi vazirligi huzuridagi Ixtisoslashtirilgan ta'lim muassasalari agentligi tarkibida davlat tashkiloti sifatida tashkil etilgan ta'lim va tashkiliy muassasa.
+pages.about.general.aboutCenterText2,"The Center operates based on the advanced initiatives of the President of the Republic of Uzbekistan with the goal of identifying gifted students, developing their scientific potential, and preparing internationally competitive specialists.","Центр работает на основе передовых инициатив Президента Республики Узбекистан с целью выявления одаренных студентов, развития их научного потенциала и подготовки конкурентоспособных на международном уровне специалистов.","Markaz O'zbekiston Respublikasi Prezidentining ilg'or tashabbuslari asosida iqtidorli o'quvchilarni aniqlash, ularning ilmiy salohiyatini rivojlantirish va xalqaro miqyosda raqobatbardosh mutaxassislarni tayyorlash maqsadida faoliyat yuritadi."
+pages.about.general.aboutCenterText3,"Its mission is to establish a system for early identification, development, and international preparation of talented students through science olympiads, competitions, and academic challenges under the guidance of qualified mentors.","Его миссия — создать систему раннего выявления, развития и международной подготовки талантливых студентов через научные олимпиады, конкурсы и академические соревнования под руководством квалифицированных наставников.","Uning vazifasi — malakali murabbiylar rahbarligida fan olimpiadalari, musobaqalar va akademik tanlovlar orqali iqtidorli o'quvchilarni erta aniqlash, rivojlantirish va xalqaro tayyorlash tizimini yaratish."
+pages.about.general.boardOfTrustees,Board of Trustees,Попечительский совет,Vasiylik kengashi
+pages.about.general.developmentStages,Stages of Development and Achievements,Этапы развития и достижения,Rivojlanish bosqichlari va yutuqlar
+pages.about.general.futureDirections,Future Directions,Направления развития,Kelajak yo'nalishlari
+pages.about.general.internationalOlympiads,International Olympiads,Международные олимпиады,Xalqaro olimpiadalar
+pages.about.general.keyObjectives,Key Objectives,Ключевые задачи,Asosiy maqsadlar
+pages.about.general.legalDocuments,Legal Documents of the Center,Правовые документы Центра,Markazning huquqiy hujjatlari
+pages.about.general.olympiadStats,Olympiad Statistics,Статистика олимпиад,Olimpiada statistikasi
+pages.about.general.prestigiousInternational,Prestigious International Olympiads,Престижные международные олимпиады,Nufuzli xalqaro olimpiadalar
+pages.about.general.regionalContinental,Regional & Continental Olympiads,Региональные и континентальные олимпиады,Mintaqaviy va kontinental olimpiadalar
+pages.about.general.stats.activeStudents,Active Students,Активные студенты,Faol o'quvchilar
+pages.about.general.stats.internationalMedals,International Medals,Международные медали,Xalqaro medallar
+pages.about.general.stats.partnerCountries,Partner Countries,Страны-партнеры,Hamkor davlatlar
+pages.about.general.stats.programsCourses,Programs & Courses,Программы и курсы,Dasturlar va kurslar
+pages.about.general.strategicPrinciples,Strategic Principles,Стратегические принципы,Strategik tamoyillar
+pages.about.general.subtitle,The Science Olympiad Center is a state educational institution under the Agency for Specialized Educational Institutions of the Ministry of Preschool and School Education of the Republic of Uzbekistan.,Центр научных олимпиад — государственное образовательное учреждение при Агентстве специализированных образовательных учреждений Министерства дошкольного и школьного образования Республики Узбекистан.,Fanlar olimpiadasi markazi — O'zbekiston Respublikasi Maktabgacha va maktab ta'limi vazirligi huzuridagi Ixtisoslashtirilgan ta'lim muassasalari agentligi tarkibidagi davlat ta'lim muassasasidir.
+pages.about.general.title,General Information,Общая информация,Umumiy ma'lumot
+pages.about.general.watch,Watch,Смотреть,Ko'rish
+pages.about.leadership,Leadership,Руководство,Rahbariyat
+pages.about.ourHistory,Our History,Наша история,Bizning tarixımız
+pages.about.ourMission,Our Mission,Наша миссия,Bizning missiyamiz
+pages.about.ourValues,Our Values,Наши ценности,Bizning qadriyatlarimiz
+pages.about.ourVision,Our Vision,Наше видение,Bizning ko'rinishimiz
+pages.about.partners,Partners,Партнеры,Hamkorlar
+pages.about.title,About,О,Biz
+pages.about.titleHighlight,Us,нас,haqimizda
+pages.apply.applyNow,Apply Now,Подать заявку,Hozir ariza bering
+pages.apply.criteria,Selection Criteria,Критерии отбора,Tanlov mezonlari
+pages.apply.deadline,Application Deadline,Срок подачи,Ariza berish muddati
+pages.apply.description,Join our elite training programs and start your journey towards international olympiad success.,Присоединяйтесь к нашим элитным программам подготовки и начните путь к успеху на международных олимпиадах.,Bizning elit tayyorgarlik dasturlarimizga qo'shiling va xalqaro olimpiadalarda muvaffaqiyatga erishish yo'lingizni boshlang.
+pages.apply.documents,Required Documents,Необходимые документы,Kerakli hujjatlar
+pages.apply.eligibility,Eligibility,Требования,Talablar
+pages.apply.faq,FAQ,Часто задаваемые вопросы,Savol-javob
+pages.apply.process,Application Process,Процесс подачи,Ariza berish jarayoni
+pages.apply.requirements,Requirements,Требования,Talablar
+pages.apply.rules,Rules of Stay,Правила пребывания,Qoidalar
+pages.apply.title,How to,Как,Qanday
+pages.apply.titleHighlight,Apply,подать заявку,ariza berish
+pages.contact.address,Address,Адрес,Manzil
+pages.contact.closed,Closed,Закрыто,Yopiq
+pages.contact.description,"Get in touch with us for any inquiries about our programs, admissions, or partnerships.","Свяжитесь с нами по любым вопросам о наших программах, поступлении или партнерстве.","Dasturlarimiz, qabul yoki hamkorlik haqida har qanday savollar uchun biz bilan bog'laning."
+pages.contact.email,Email,Эл. почта,Elektron pochta
+pages.contact.emailLabel,Email,Эл. почта,Elektron pochta
+pages.contact.firstName,First Name,Имя,Ism
+pages.contact.getInTouch,Get in Touch,Связаться,Bog'lanish
+pages.contact.lastName,Last Name,Фамилия,Familiya
+pages.contact.message,Message,Сообщение,Xabar
+pages.contact.mondayFriday,Monday - Friday,Понедельник - Пятница,Dushanba - Juma
+pages.contact.phone,Phone,Телефон,Telefon
+pages.contact.phoneLabel,Phone,Телефон,Telefon
+pages.contact.saturday,Saturday,Суббота,Shanba
+pages.contact.send,Send Message,Отправить,Yuborish
+pages.contact.sendMessage,Send us a Message,Отправить сообщение,Xabar yuborish
+pages.contact.sending,Sending...,Отправка...,Yuborilmoqda...
+pages.contact.subject,Subject,Тема,Mavzu
+pages.contact.sunday,Sunday,Воскресенье,Yakshanba
+pages.contact.title,Contact,Свяжитесь,Biz bilan
+pages.contact.titleHighlight,Us,с нами,bog'laning
+pages.contact.workingHours,Working Hours,Рабочие часы,Ish vaqti
+pages.news.allNews,All News,Все новости,Barcha yangiliklar
+pages.news.description,"Stay updated with the latest achievements, announcements, and developments from the Science Olympiad Center.","Будьте в курсе последних достижений, объявлений и новостей Центра научных олимпиад.","Fan Olimpiadasi Markazining so'nggi yutuqlari, e'lonlari va yangiliklari bilan tanishing."
+pages.news.featured,Featured,Избранное,Tanlangan
+pages.news.featuredDesc,Our most important news and achievements,Наши самые важные новости и достижения,Bizning eng muhim yangiliklar va yutuqlarimiz
+pages.news.featuredStories,Featured Stories,Избранные статьи,Tanlangan maqolalar
+pages.news.loading,Loading news...,Загрузка новостей...,Yangiliklar yuklanmoqda...
+pages.news.moreNews,More News,Больше новостей,Ko'proq yangiliklar
+pages.news.moreNewsDesc,Complete coverage of our activities and achievements,Полный обзор нашей деятельности и достижений,Bizning faoliyat va yutuqlarimizning to'liq sharhi
+pages.news.noArticles,No news articles found in this category.,Статьи в этой категории не найдены.,Bu kategoriyada maqolalar topilmadi.
+pages.news.noImage,No image,Нет изображения,Rasm yo'q
+pages.news.readMore,Read More,Читать далее,Batafsil
+pages.news.retry,Retry,Повторить,Qayta urinish
+pages.news.title,Latest,Последние,So'nggi
+pages.news.titleHighlight,News,Новости,Yangiliklar
+pages.olympiads.description,Explore various national and international science olympiad competitions.,Изучите различные национальные и международные научные олимпиады.,Turli milliy va xalqaro fan olimpiadalarini ko'rib chiqing.
+pages.olympiads.international,International Olympiads,Международные олимпиады,Xalqaro olimpiadalar
+pages.olympiads.local,Local Olympiads,Местные олимпиады,Mahalliy olimpiadalar
+pages.olympiads.pastResults,Past Results,Прошлые результаты,O'tgan natijalar
+pages.olympiads.prestigious,Prestigious Olympiads,Престижные олимпиады,Prestijli olimpiadalar
+pages.olympiads.regional,Regional International Olympiads,Региональные международные олимпиады,Mintaqaviy xalqaro olimpiadalar
+pages.olympiads.title,Science,Научные,Fan
+pages.olympiads.titleHighlight,Olympiads,Олимпиады,Olimpiadalari
+pages.olympiads.upcomingEvents,Upcoming Events,Предстоящие события,Yaqinlashib kelayotgan tadbirlar
+pages.programs.mainDescription,Comprehensive training programs designed to prepare exceptional students for national and international science olympiads.,"Комплексные программы подготовки, разработанные для подготовки выдающихся студентов к национальным и международным научным олимпиадам.",Milliy va xalqaro fan olimpiadalari uchun istisno talabalar tayyorlash uchun mo'ljallangan keng qamrovli tayyorgarlik dasturlari.
+pages.programs.mainTitle,Our Training,Наши учебные,Bizning tayyorgarlik
+pages.programs.mainTitleHighlight,Programs,Программы,Dasturlarimiz
+programDetails.achievements,Achievements,Достижения,Yutuqlar
+programDetails.activeStudents,active students,активных студентов,faol talaba
+programDetails.advanced,Advanced,Продвинутый,Yuqori daraja
+programDetails.application,Application,Заявка,Ariza
+programDetails.applyNow,Apply Now,Подать заявку,Hozir ariza bering
+programDetails.biology.applicationNote,Open to students with strong biological knowledge and laboratory skills.,Открыто для студентов с сильными знаниями биологии и лабораторными навыками.,Kuchli biologik bilim va laboratoriya ko'nikmalariga ega talabalar uchun ochiq.
+programDetails.biology.cellBiology,Cell Biology,Клеточная биология,Hujayra biologiyasi
+programDetails.biology.curriculumDescription,A structured roadmap covering all essential domains in biology.,"Структурированная программа, охватывающая все основные области биологии.",Biologiyaning barcha muhim sohalarini qamrab oluvchi tuzilgan yo'l xaritasi.
+programDetails.biology.description,Comprehensive biological sciences training fully aligned with the International Biology Olympiad (IBO) standards.,"Комплексная подготовка по биологии, полностью соответствующая стандартам Международной биологической олимпиады (IBO).",Xalqaro Biologiya Olimpiadasi (IBO) standartlariga to'liq mos keladigan keng qamrovli biologik fanlar tayyorgarligi.
+programDetails.biology.duration,9,9,9
+programDetails.biology.ecology,Ecology,Экология,Ekologiya
+programDetails.biology.genetics,Genetics,Генетика,Genetika
+programDetails.biology.laboratorySkills,Laboratory Skills,Лабораторные навыки,Laboratoriya ko'nikmalari
+programDetails.biology.medals,IBO & regional olympiad finalists,Финалисты IBO и региональных олимпиад,IBO va mintaqaviy olimpiada finalistlari
+programDetails.biology.molecularBiology,Molecular Biology,Молекулярная биология,Molekulyar biologiya
+programDetails.biology.objectives.1,Master core concepts of modern biology,Освоить ключевые концепции современной биологии,Zamonaviy biologiyaning asosiy tushunchalarini o'zlashtirish
+programDetails.biology.objectives.2,Analyze biological systems at molecular and organismal levels,Анализировать биологические системы на молекулярном и организменном уровнях,Biologik tizimlarni molekulyar va organizm darajasida tahlil qilish
+programDetails.biology.objectives.3,Develop experimental design and data interpretation skills,Развить навыки планирования экспериментов и интерпретации данных,Eksperimental loyihalash va ma'lumotlarni talqin qilish ko'nikmalarini rivojlantirish
+programDetails.biology.objectives.4,Apply scientific method to olympiad-level problems,Применять научный метод к олимпиадным задачам,Olimpiada darajasidagi masalalarga ilmiy usulni qo'llash
+programDetails.biology.overview,"This program cultivates advanced biological knowledge through conceptual lectures, laboratory modules, and olympiad-style problem solving. Students explore molecular, cellular, ecological, and evolutionary biology with emphasis on scientific reasoning.","Эта программа развивает продвинутые биологические знания через концептуальные лекции, лабораторные модули и решение олимпиадных задач. Студенты изучают молекулярную, клеточную, экологическую и эволюционную биологию.","Bu dastur kontseptual ma'ruzalar, laboratoriya modullari va olimpiada uslubidagi masala yechish orqali ilg'or biologik bilimlarni rivojlantiradi. Talabalar molekulyar, hujayra, ekologik va evolyutsion biologiyani ilmiy fikrlashga e'tibor qaratgan holda o'rganadilar."
+programDetails.biology.physiology,Physiology,Физиология,Fiziologiya
+programDetails.biology.prereqs.1,General biology knowledge,Общие знания биологии,Umumiy biologiya bilimlari
+programDetails.biology.prereqs.2,Strong interest in molecular sciences,Сильный интерес к молекулярным наукам,Molekulyar fanlarga kuchli qiziqish
+programDetails.biology.prereqs.3,Readiness for intensive lab and theoretical training,Готовность к интенсивной лабораторной и теоретической подготовке,Intensiv laboratoriya va nazariy tayyorgarlikka tayyorlik
+programDetails.biology.program,Program,Программа,Dasturi
+programDetails.biology.students,30+,30+,30+
+programDetails.biology.title,Biology,Биология,Biologiya
+programDetails.biology.topics.cellDivision,Cell Division,Деление клеток,Hujayra bo'linishi
+programDetails.biology.topics.dataAnalysis,Data Analysis,Анализ данных,Ma'lumotlar tahlili
+programDetails.biology.topics.dnaRna,DNA/RNA Structure,Структура ДНК/РНК,DNK/RNK tuzilishi
+programDetails.biology.topics.ecosystems,Ecosystems,Экосистемы,Ekotizimlar
+programDetails.biology.topics.energyFlow,Energy Flow,Поток энергии,Energiya oqimi
+programDetails.biology.topics.gelElectrophoresis,Gel Electrophoresis,Гель-электрофорез,Gel elektroforez
+programDetails.biology.topics.geneExpression,Gene Expression,Экспрессия генов,Gen ekspressiyasi
+programDetails.biology.topics.homeostasis,Homeostasis,Гомеостаз,Gomeostaz
+programDetails.biology.topics.humanPhysiology,Human Physiology,Физиология человека,Odam fiziologiyasi
+programDetails.biology.topics.membrane,Membrane Transport,Мембранный транспорт,Membrana transporti
+programDetails.biology.topics.mendelian,Mendelian Genetics,Менделевская генетика,Mendel genetikasi
+programDetails.biology.topics.microscopy,Microscopy,Микроскопия,Mikroskopiya
+programDetails.biology.topics.mutations,Genetic Mutations,Генетические мутации,Genetik mutatsiyalar
+programDetails.biology.topics.organelles,Cellular Organelles,Клеточные органеллы,Hujayra organellalari
+programDetails.biology.topics.plantPhysiology,Plant Physiology,Физиология растений,O'simlik fiziologiyasi
+programDetails.biology.topics.populationDynamics,Population Dynamics,Динамика популяций,Populyatsiya dinamikasi
+programDetails.biology.topics.populationGenetics,Population Genetics,Популяционная генетика,Populyatsiya genetikasi
+programDetails.biology.topics.recombinant,Recombinant DNA Technology,Технология рекомбинантной ДНК,Rekombinant DNK texnologiyasi
+programDetails.chemistry.analyticalChemistry,Analytical Chemistry,Аналитическая химия,Analitik kimyo
+programDetails.chemistry.applicationNote,Open to students with outstanding chemistry talent and laboratory skills.,Открыто для студентов с выдающимися способностями в химии и лабораторными навыками.,Ajoyib kimyo iqtidori va laboratoriya ko'nikmalariga ega talabalar uchun ochiq.
+programDetails.chemistry.curriculumDescription,A structured roadmap covering all essential domains in chemistry.,"Структурированная программа, охватывающая все основные области химии.",Kimyoning barcha muhim sohalarini qamrab oluvchi tuzilgan yo'l xaritasi.
+programDetails.chemistry.description,"Elite training program aligned with the International Chemistry Olympiad (IChO) standards, integrating theoretical mastery and practical laboratory work.","Элитная программа подготовки, соответствующая стандартам Международной химической олимпиады (IChO), объединяющая теоретическое мастерство и практическую лабораторную работу.","Xalqaro Kimyo Olimpiadasi (IChO) standartlariga mos keladigan, nazariy bilim va amaliy laboratoriya ishlarini birlashtirgan elit tayyorgarlik dasturi."
+programDetails.chemistry.inorganicChemistry,Inorganic Chemistry,Неорганическая химия,Anorganik kimyo
+programDetails.chemistry.laboratorySkills,Laboratory Skills,Лабораторные навыки,Laboratoriya ko'nikmalari
+programDetails.chemistry.medals,10+ IChO Medals,10+ медалей IChO,10+ IChO medali
+programDetails.chemistry.objectives.1,Develop deep understanding of chemical principles,Развить глубокое понимание химических принципов,Kimyoviy tamoyillarni chuqur tushunishni rivojlantirish
+programDetails.chemistry.objectives.2,Master reaction mechanisms and quantitative analysis,Освоить реакционные механизмы и количественный анализ,Reaksiya mexanizmlari va miqdoriy tahlilni o'zlashtirish
+programDetails.chemistry.objectives.3,"Apply thermodynamics, kinetics, and equilibrium in problem solving","Применять термодинамику, кинетику и равновесие в решении задач","Termodinamika, kinetika va muvozanatni masala yechishda qo'llash"
+programDetails.chemistry.objectives.4,Gain laboratory skills aligned with IChO practical requirements,Получить лабораторные навыки в соответствии с практическими требованиями IChO,IChO amaliy talablariga mos laboratoriya ko'nikmalarini olish
+programDetails.chemistry.organicChemistry,Organic Chemistry,Органическая химия,Organik kimyo
+programDetails.chemistry.overview,"The Chemistry Program builds strong foundations in chemical theory, reaction mechanisms, and laboratory experimentation. Students solve IChO-level problems, conduct advanced experiments, and study analytical and synthetic chemistry techniques.","Программа по химии создает прочную основу в химической теории, реакционных механизмах и лабораторном эксперименте. Студенты решают задачи уровня IChO, проводят передовые эксперименты и изучают методы аналитической и синтетической химии.","Kimyo dasturi kimyoviy nazariya, reaksiya mexanizmlari va laboratoriya tajribalari bo'yicha mustahkam poydevor yaratadi. Talabalar IChO darajasidagi masalalarni yechadilar, ilg'or tajribalar o'tkazadilar va analitik hamda sintetik kimyo texnikalarini o'rganadilar."
+programDetails.chemistry.physicalChemistry,Physical Chemistry,Физическая химия,Fizik kimyo
+programDetails.chemistry.prereqs.1,Strong background in general chemistry,Сильная база в общей химии,Umumiy kimyo bo'yicha kuchli bilim
+programDetails.chemistry.prereqs.2,Ability to understand mathematical descriptions of chemical processes,Способность понимать математические описания химических процессов,Kimyoviy jarayonlarning matematik tavsiflarini tushunish qobiliyati
+programDetails.chemistry.prereqs.3,Familiarity with laboratory safety,Знакомство с лабораторной безопасностью,Laboratoriya xavfsizligi bilan tanishlik
+programDetails.chemistry.program,Program,Программа,Dasturi
+programDetails.chemistry.title,Chemistry,Химия,Kimyo
+programDetails.chemistry.topics.coordination,Coordination Compounds,Координационные соединения,Koordinatsion birikmalar
+programDetails.chemistry.topics.electrochemistry,Electrochemistry,Электрохимия,Elektrokimyo
+programDetails.chemistry.topics.equilibrium,Equilibrium & Le Chatelier,Равновесие и принцип Ле Шателье,Muvozanat va Le Shatelye prinsipi
+programDetails.chemistry.topics.errorAnalysis,Error Analysis,Анализ ошибок,Xatolar tahlili
+programDetails.chemistry.topics.instrumental,Instrumental Methods,Инструментальные методы,Instrumental usullar
+programDetails.chemistry.topics.kinetics,Chemical Kinetics,Химическая кинетика,Kimyoviy kinetika
+programDetails.chemistry.topics.mainGroup,Main Group Chemistry,Химия главных групп,Asosiy guruh kimyosi
+programDetails.chemistry.topics.mechanisms,Reaction Mechanisms,Реакционные механизмы,Reaksiya mexanizmlari
+programDetails.chemistry.topics.periodicity,Periodicity,Периодичность,Davriylik
+programDetails.chemistry.topics.quantitative,Quantitative Analysis,Количественный анализ,Miqdoriy tahlil
+programDetails.chemistry.topics.safety,Safety Protocols,Протоколы безопасности,Xavfsizlik protokollari
+programDetails.chemistry.topics.spectroscopy,"Spectroscopy (IR, NMR basics)","Спектроскопия (ИК, основы ЯМР)","Spektroskopiya (IQ, YMR asoslari)"
+programDetails.chemistry.topics.stereochemistry,Stereochemistry,Стереохимия,Stereokimyo
+programDetails.chemistry.topics.stoichiometry,Stoichiometry,Стехиометрия,Stexiometriya
+programDetails.chemistry.topics.structure,Structure & Bonding,Структура и связи,Tuzilish va bog'lanish
+programDetails.chemistry.topics.synthesis,Synthesis,Синтез,Sintez
+programDetails.chemistry.topics.thermodynamics,Chemical Thermodynamics,Химическая термодинамика,Kimyoviy termodinamika
+programDetails.chemistry.topics.titration,Titration,Титрование,Titratsiya
+programDetails.chemistry.topics.transition,Transition Metals,Переходные металлы,O'tish metallari
+programDetails.computerScience.advanced,Advanced Topics,Продвинутые темы,Ilg'or mavzular
+programDetails.computerScience.algorithms,Algorithms,Алгоритмы,Algoritmlar
+programDetails.computerScience.applicationNote,Open to students with strong programming and algorithmic skills.,Открыто для студентов с сильными навыками программирования и алгоритмов.,Kuchli dasturlash va algoritmik ko'nikmalarga ega talabalar uchun ochiq.
+programDetails.computerScience.contestPrep,Contest Preparation,Подготовка к соревнованиям,Musobaqaga tayyorgarlik
+programDetails.computerScience.curriculumDescription,Structured roadmap covering essential computer science and competitive programming domains.,"Структурированная программа, охватывающая информатику и спортивное программирование.",Informatika va raqobatbardosh dasturlashning muhim sohalarini qamrab oluvchi tuzilgan yo'l xaritasi.
+programDetails.computerScience.dataStructures,Data Structures,Структуры данных,Ma'lumotlar tuzilmalari
+programDetails.computerScience.description,Advanced program for preparing students for the International Olympiad in Informatics (IOI) and competitive programming contests.,Продвинутая программа подготовки к Международной олимпиаде по информатике (IOI) и соревнованиям по спортивному программированию.,Xalqaro Informatika Olimpiadasi (IOI) va raqobatbardosh dasturlash musobaqalariga talabalarni tayyorlash uchun ilg'or dastur.
+programDetails.computerScience.duration,6,6,6
+programDetails.computerScience.fundamentals,Programming Fundamentals,Основы программирования,Dasturlash asoslari
+programDetails.computerScience.medals,IOI and regional contest medals,Медали IOI и региональных соревнований,IOI va mintaqaviy musobaqa medallari
+programDetails.computerScience.objectives.1,Develop proficiency in competitive programming,Развить навыки спортивного программирования,Raqobatbardosh dasturlashda malaka oshirish
+programDetails.computerScience.objectives.2,Understand advanced algorithms and data structures,Понять продвинутые алгоритмы и структуры данных,Ilg'or algoritmlar va ma'lumotlar tuzilmalarini tushunish
+programDetails.computerScience.objectives.3,Strengthen logical and analytical reasoning,Укрепить логическое и аналитическое мышление,Mantiqiy va analitik fikrlashni mustahkamlash
+programDetails.computerScience.objectives.4,Master IOI-style problem solving and code optimization,Освоить решение задач в стиле IOI и оптимизацию кода,IOI uslubidagi masala yechish va kod optimizatsiyasini o'zlashtirish
+programDetails.computerScience.overview,"The Informatics Program trains students in algorithmic thinking, programming efficiency, and data structure mastery. The curriculum emphasizes solving complex computational problems under timed conditions.","Программа по информатике обучает студентов алгоритмическому мышлению, эффективности программирования и мастерству в структурах данных. Акцент делается на решении сложных вычислительных задач в условиях ограниченного времени.","Informatika dasturi talabalarni algoritmik tafakkur, dasturlash samaradorligi va ma'lumotlar tuzilmalarini o'zlashtirishga o'rgatadi. O'quv dasturi vaqt cheklovlari ostida murakkab hisoblash masalalarini yechishga e'tibor qaratadi."
+programDetails.computerScience.prereqs.1,Proficiency in programming (C++ preferred),Владение программированием (предпочтительно C++),Dasturlashda malaka (C++ afzal)
+programDetails.computerScience.prereqs.2,Strong background in mathematics,Сильная математическая база,Matematika bo'yicha kuchli bilim
+programDetails.computerScience.prereqs.3,Ability to work on challenging logical tasks,Способность работать над сложными логическими задачами,Qiyin mantiqiy vazifalar ustida ishlash qobiliyati
+programDetails.computerScience.program,Program,Программа,Dasturi
+programDetails.computerScience.students,50+,50+,50+
+programDetails.computerScience.title,Computer Science,Информатика,Informatika
+programDetails.computerScience.topics.arrays,"Arrays, Stacks, Queues","Массивы, стеки, очереди","Massivlar, steklar, navbatlar"
+programDetails.computerScience.topics.codeforces,Codeforces-Style Rounds,Раунды в стиле Codeforces,Codeforces uslubidagi raundlar
+programDetails.computerScience.topics.compGeometry,Computational Geometry,Вычислительная геометрия,Hisoblash geometriyasi
+programDetails.computerScience.topics.complexity,Time Complexity Analysis,Анализ временной сложности,Vaqt murakkabligi tahlili
+programDetails.computerScience.topics.cpp,C++ / Python,C++ / Python,C++ / Python
+programDetails.computerScience.topics.debugging,Debugging Techniques,Техники отладки,Xatolarni tuzatish texnikalari
+programDetails.computerScience.topics.divideConquer,Divide & Conquer,Разделяй и властвуй,Bo'l va hukmronlik qil
+programDetails.computerScience.topics.dp,Dynamic Programming,Динамическое программирование,Dinamik dasturlash
+programDetails.computerScience.topics.graphAlgo,Graph Algorithms,Алгоритмы на графах,Graf algoritmlari
+programDetails.computerScience.topics.greedy,Greedy Algorithms,Жадные алгоритмы,Ochko'z algoritmlar
+programDetails.computerScience.topics.hashing,Hashing,Хеширование,Xeshlash
+programDetails.computerScience.topics.io,Input & Output Optimization,Оптимизация ввода/вывода,Kirish va chiqishni optimallashtirish
+programDetails.computerScience.topics.ioiArchive,IOI Problem Archive,Архив задач IOI,IOI masalalar arxivi
+programDetails.computerScience.topics.numberTheory,Number-Theoretic Algorithms,Теоретико-числовые алгоритмы,Sonlar nazariyasi algoritmlari
+programDetails.computerScience.topics.segmentTrees,"Segment Trees, Fenwick Trees","Деревья отрезков, деревья Фенвика","Segment daraxtlar, Fenvik daraxtlari"
+programDetails.computerScience.topics.strategy,Strategy & Optimization,Стратегия и оптимизация,Strategiya va optimallashtirish
+programDetails.computerScience.topics.strings,String Algorithms,Строковые алгоритмы,Satr algoritmlari
+programDetails.computerScience.topics.trees,Trees & Graphs,Деревья и графы,Daraxtlar va graflar
+programDetails.curriculumTopics,Curriculum Topics,Темы учебной программы,O'quv dasturi mavzulari
+programDetails.duration,Duration,Продолжительность,Davomiyligi
+programDetails.intermediate,Intermediate,Средний,O'rta daraja
+programDetails.learningObjectives,Learning Objectives,Цели обучения,O'quv maqsadlari
+programDetails.level,Level,Уровень,Daraja
+programDetails.mathematics.algebra,Algebra,Алгебра,Algebra
+programDetails.mathematics.analysis,Mathematical Analysis,Математический анализ,Matematik tahlil
+programDetails.mathematics.applicationNote,Open to students with outstanding mathematical talent and demonstrated analytical ability.,Открыто для студентов с выдающимися математическими способностями.,Ajoyib matematik iqtidor va tahliliy qobiliyatga ega talabalar uchun ochiq.
+programDetails.mathematics.combinatorics,Combinatorics,Комбинаторика,Kombinatorika
+programDetails.mathematics.curriculumDescription,A structured roadmap covering all essential olympiad domains in mathematics.,"Структурированная программа, охватывающая все основные олимпиадные области математики.",Matematikadagi barcha muhim olimpiada sohalarini qamrab oluvchi tuzilgan yo'l xaritasi.
+programDetails.mathematics.description,Advanced mathematical problem solving and competition preparation for the International Mathematical Olympiad and other prestigious competitions.,Продвинутое решение математических задач и подготовка к Международной математической олимпиаде и другим престижным соревнованиям.,Xalqaro Matematika Olimpiadasi va boshqa nufuzli musobaqalar uchun ilg'or matematik masala yechish va musobaqaga tayyorgarlik.
+programDetails.mathematics.duration,12,12,12
+programDetails.mathematics.geometry,Geometry,Геометрия,Geometriya
+programDetails.mathematics.medals,"15+ international medals (IMO, ZIO, WMI)","15+ международных медалей (IMO, ZIO, WMI)","15+ xalqaro medal (IMO, ZIO, WMI)"
+programDetails.mathematics.numberTheory,Number Theory,Теория чисел,Sonlar nazariyasi
+programDetails.mathematics.objectives.1,Master advanced olympiad-style problem-solving methods,Освоить продвинутые методы решения олимпиадных задач,Ilg'or olimpiada uslubidagi masala yechish usullarini o'zlashtirish
+programDetails.mathematics.objectives.2,Strengthen logical reasoning and proof-writing skills,Укрепить навыки логического рассуждения и написания доказательств,Mantiqiy fikrlash va isbotlash ko'nikmalarini mustahkamlash
+programDetails.mathematics.objectives.3,Build effective contest strategies and time management skills,Развить эффективные стратегии для соревнований и управление временем,Samarali musobaqa strategiyalari va vaqtni boshqarish ko'nikmalarini shakllantirish
+programDetails.mathematics.objectives.4,"Enhance abstract thinking across algebra, geometry, number theory, and combinatorics","Усилить абстрактное мышление в алгебре, геометрии, теории чисел и комбинаторике","Algebra, geometriya, sonlar nazariyasi va kombinatorikada mavhum fikrlashni rivojlantirish"
+programDetails.mathematics.objectives.5,Prepare for high-performing participation in international mathematics competitions,Подготовиться к успешному участию в международных математических соревнованиях,Xalqaro matematika musobaqalarida yuqori natijalarga tayyorgarlik
+programDetails.mathematics.overview,"The Mathematics Program aims to cultivate deep mathematical thinking through systematic training, rigorous problem-solving practice, and exposure to international olympiad standards. Students engage in intensive coursework covering advanced mathematical theories and learn to apply them in non-standard, competition-level problem contexts.","Программа по математике направлена на развитие глубокого математического мышления через систематическое обучение, строгую практику решения задач и знакомство с международными олимпиадными стандартами.","Matematika dasturi tizimli tayyorgarlik, qat'iy masala yechish amaliyoti va xalqaro olimpiada standartlari bilan tanishish orqali chuqur matematik tafakkurni rivojlantirishga qaratilgan. Talabalar ilg'or matematik nazariyalarni qamrab oluvchi intensiv kurslarda ishtirok etadilar va ularni nostandart, musobaqa darajasidagi masala kontekstlarida qo'llashni o'rganadilar."
+programDetails.mathematics.overviewExtra,"The curriculum integrates conceptual understanding, creative problem-solving, mathematical proof techniques, competition strategies, and timed assessments. This approach ensures readiness for district, regional, national, and international olympiads.","Учебная программа объединяет концептуальное понимание, творческое решение задач, техники математических доказательств, соревновательные стратегии и временные ограничения.","O'quv dasturi kontseptual tushunish, ijodiy masala yechish, matematik isbotlash texnikalari, musobaqa strategiyalari va vaqtli baholashlarni birlashtiradi. Bu yondashuv tuman, viloyat, milliy va xalqaro olimpiadalarga tayyorlikni ta'minlaydi."
+programDetails.mathematics.prereqs.1,Strong foundation in secondary school mathematics,Прочная база в школьной математике,O'rta maktab matematikasida kuchli bilim
+programDetails.mathematics.prereqs.2,Demonstrated interest in advanced mathematical problem solving,Продемонстрированный интерес к продвинутому решению задач,Ilg'or matematik masala yechishga qiziqish
+programDetails.mathematics.prereqs.3,High level of self-discipline and readiness for intensive training,Высокий уровень самодисциплины и готовность к интенсивной подготовке,Yuqori darajadagi o'z-o'zini intizomga solish va intensiv tayyorgarlikka tayyorlik
+programDetails.mathematics.prereqs.4,Successful completion of the Center's competitive entrance examination,Успешное прохождение конкурсного вступительного экзамена,Markazning raqobatbardosh kirish imtihonini muvaffaqiyatli topshirish
+programDetails.mathematics.problemSolving,Problem Solving & Competition Preparation,Решение задач и подготовка к соревнованиям,Masala yechish va musobaqaga tayyorgarlik
+programDetails.mathematics.program,Program,Программа,Dasturi
+programDetails.mathematics.students,50+,50+,50+
+programDetails.mathematics.title,Mathematics,Математика,Matematika
+programDetails.mathematics.topics.analysisIneq,Inequalities in Analysis,Неравенства в анализе,Tahlildagi tengsizliklar
+programDetails.mathematics.topics.arithmetic,Arithmetic Functions,Арифметические функции,Arifmetik funksiyalar
+programDetails.mathematics.topics.circleTriangle,Circle and Triangle Geometry,Геометрия окружности и треугольника,Aylana va uchburchak geometriyasi
+programDetails.mathematics.topics.complex,Complex Numbers,Комплексные числа,Kompleks sonlar
+programDetails.mathematics.topics.constructions,Geometric Constructions & Proofs,Геометрические построения и доказательства,Geometrik qurilishlar va isbotlar
+programDetails.mathematics.topics.coordinate,Coordinate Geometry,Координатная геометрия,Koordinatalar geometriyasi
+programDetails.mathematics.topics.counting,Counting Principles,Принципы подсчета,Sanash printsiplari
+programDetails.mathematics.topics.diophantine,Diophantine Equations,Диофантовы уравнения,Diofant tenglamalari
+programDetails.mathematics.topics.divisibility,Divisibility Rules,Правила делимости,Bo'linish qoidalari
+programDetails.mathematics.topics.errorAnalysis,Error Analysis & Post-Contest Review,Анализ ошибок и разбор,Xatolar tahlili va musobaqadan keyingi tahlil
+programDetails.mathematics.topics.euclidean,Euclidean Geometry,Евклидова геометрия,Evklid geometriyasi
+programDetails.mathematics.topics.functionalEq,Functional Equations,Функциональные уравнения,Funksional tenglamalar
+programDetails.mathematics.topics.generating,Generating Functions,Производящие функции,Generatorli funksiyalar
+programDetails.mathematics.topics.graphTheory,Graph Theory Fundamentals,Основы теории графов,Graflar nazariyasi asoslari
+programDetails.mathematics.topics.inequalities,Inequalities,Неравенства,Tengsizliklar
+programDetails.mathematics.topics.limits,Limits and Continuity,Пределы и непрерывность,Limitlar va uzluksizlik
+programDetails.mathematics.topics.modular,Modular Arithmetic,Модульная арифметика,Modulli arifmetika
+programDetails.mathematics.topics.optimization,Optimization Problems,Задачи оптимизации,Optimallashtirish masalalari
+programDetails.mathematics.topics.polynomials,Polynomials,Многочлены,Polinomlar
+programDetails.mathematics.topics.primes,Prime Numbers & Factorization,Простые числа и факторизация,Tub sonlar va faktorizatsiya
+programDetails.mathematics.topics.probability,Probability,Вероятность,Ehtimollik
+programDetails.mathematics.topics.proofTech,Olympiad Proof Techniques,Олимпиадные техники доказательств,Olimpiada isbotlash texnikalari
+programDetails.mathematics.topics.recurrence,Recurrence Relations,Рекуррентные соотношения,Rekurrent munosabatlar
+programDetails.mathematics.topics.sequences,Sequences & Series,Последовательности и ряды,Ketma-ketliklar va qatorlar
+programDetails.mathematics.topics.simulation,Simulation of Contest Conditions,Симуляция соревновательных условий,Musobaqa sharoitlarini simulyatsiya qilish
+programDetails.mathematics.topics.strategy,Strategy Development,Разработка стратегии,Strategiya ishlab chiqish
+programDetails.mathematics.topics.timeManagement,Time Management,Управление временем,Vaqtni boshqarish
+programDetails.mathematics.topics.transformational,Transformational Geometry,Геометрические преобразования,Transformatsion geometriya
+programDetails.mathematics.topics.transformations,Equations & Transformations,Уравнения и преобразования,Tenglamalar va almashtirishlar
+programDetails.months,months,месяцев,oy
+programDetails.participants,Participants,Участники,Ishtirokchilar
+programDetails.physics.applicationNote,Open to students with outstanding mathematical and physics talent.,Открыто для студентов с выдающимися способностями в математике и физике.,Ajoyib matematik va fizika iqtidoriga ega talabalar uchun ochiq.
+programDetails.physics.curriculumDescription,A structured roadmap covering all essential physics domains.,"Структурированная программа, охватывающая все основные области физики.",Fizikaning barcha muhim sohalarini qamrab oluvchi tuzilgan yo'l xaritasi.
+programDetails.physics.description,"Master fundamental laws of nature through theoretical understanding and experimental discovery, with a focus on olympiad-level problem solving.",Освоение фундаментальных законов природы через теоретическое понимание и экспериментальные открытия с акцентом на решение олимпиадных задач.,"Olimpiada darajasidagi masala yechishga e'tibor qaratgan holda, nazariy tushunish va eksperimental kashfiyotlar orqali tabiat qonunlarini o'rganing."
+programDetails.physics.duration,10,10,10
+programDetails.physics.electromagnetism,Electromagnetism,Электромагнетизм,Elektromagnetizm
+programDetails.physics.mechanics,Mechanics,Механика,Mexanika
+programDetails.physics.medals,10+ IPhO/ZIO Medals,10+ медалей IPhO/ZIO,10+ IPhO/ZIO medali
+programDetails.physics.modernPhysics,Modern Physics,Современная физика,Zamonaviy fizika
+programDetails.physics.objectives.1,Master theoretical and experimental physics concepts,Освоить теоретические и экспериментальные концепции физики,Nazariy va eksperimental fizika tushunchalarini o'zlashtirish
+programDetails.physics.objectives.2,Apply calculus-based reasoning to olympiad problems,Применять математический анализ к олимпиадным задачам,Olimpiada masalalariga kalkulusga asoslangan fikrlashni qo'llash
+programDetails.physics.objectives.3,Perform quantitative modeling and derive physical laws,Выполнять количественное моделирование и выводить физические законы,Miqdoriy modellashtirish va fizik qonunlarni chiqarish
+programDetails.physics.objectives.4,Strengthen laboratory and experimental analysis skills,Укрепить навыки лабораторного и экспериментального анализа,Laboratoriya va eksperimental tahlil ko'nikmalarini mustahkamlash
+programDetails.physics.objectives.5,Develop contest strategies for multi-step physics problems,Развить стратегии решения многоэтапных задач по физике,Ko'p bosqichli fizika masalalari uchun musobaqa strategiyalarini ishlab chiqish
+programDetails.physics.optics,Optics,Оптика,Optika
+programDetails.physics.overview,"The Physics Program develops analytical reasoning through intensive theoretical training and experimental physics practice. Students explore classical and modern physics, applying mathematical methods and modeling techniques to solve olympiad-level problems.","Программа по физике развивает аналитическое мышление через интенсивную теоретическую подготовку и практику экспериментальной физики. Студенты изучают классическую и современную физику, применяя математические методы для решения олимпиадных задач.","Fizika dasturi intensiv nazariy tayyorgarlik va eksperimental fizika amaliyoti orqali analitik tafakkurni rivojlantiradi. Talabalar klassik va zamonaviy fizikani o'rganib, matematik usullar va modellashtirish texnikalarini olimpiada darajasidagi masalalarni yechishda qo'llaydilar."
+programDetails.physics.overviewExtra,"Curriculum integrates conceptual understanding, experimental methods, and problem-solving strategies to prepare for national and international competitions.","Учебная программа объединяет концептуальное понимание, экспериментальные методы и стратегии решения задач для подготовки к национальным и международным соревнованиям.","O'quv dasturi kontseptual tushunish, eksperimental usullar va masala yechish strategiyalarini milliy va xalqaro musobaqalarga tayyorgarlik uchun birlashtiradi."
+programDetails.physics.prereqs.1,Strong foundation in mathematics and basic physics,Прочная база в математике и базовой физике,Matematika va asosiy fizika bo'yicha kuchli bilim
+programDetails.physics.prereqs.2,"Understanding of mechanics, thermodynamics, and electromagnetism","Понимание механики, термодинамики и электромагнетизма","Mexanika, termodinamika va elektromagnetizmni tushunish"
+programDetails.physics.prereqs.3,High motivation for advanced scientific study,Высокая мотивация к углубленному научному изучению,Ilg'or ilmiy o'qishga yuqori motivatsiya
+programDetails.physics.prereqs.4,Successful completion of entrance assessment,Успешное прохождение вступительного тестирования,Kirish baholashni muvaffaqiyatli topshirish
+programDetails.physics.problemSolving,Problem Solving,Решение задач,Masala yechish
+programDetails.physics.program,Program,Программа,Dasturi
+programDetails.physics.students,40+,40+,40+
+programDetails.physics.thermodynamics,Thermodynamics,Термодинамика,Termodinamika
+programDetails.physics.title,Physics,Физика,Fizika
+programDetails.physics.topics.atomic,Atomic Structure,Строение атома,Atom tuzilishi
+programDetails.physics.topics.circuits,Circuits,Электрические цепи,Elektr zanjirlari
+programDetails.physics.topics.derivations,Multi-step Derivations,Многоэтапные выводы,Ko'p bosqichli chiqarishlar
+programDetails.physics.topics.electrostatics,Electrostatics,Электростатика,Elektrostatika
+programDetails.physics.topics.energy,Energy & Momentum,Энергия и импульс,Energiya va impuls
+programDetails.physics.topics.entropy,Entropy,Энтропия,Entropiya
+programDetails.physics.topics.errorPropagation,Error Propagation,Распространение погрешностей,Xatolarning tarqalishi
+programDetails.physics.topics.experimental,Experimental Tasks,Экспериментальные задачи,Eksperimental vazifalar
+programDetails.physics.topics.geometrical,Geometrical Optics,Геометрическая оптика,Geometrik optika
+programDetails.physics.topics.heatWork,Heat & Work,Теплота и работа,Issiqlik va ish
+programDetails.physics.topics.interference,Interference & Diffraction,Интерференция и дифракция,Interferensiya va difraksiya
+programDetails.physics.topics.iphoSolutions,IPhO Solutions,Решения IPhO,IPhO yechimlari
+programDetails.physics.topics.kinematics,Kinematics & Dynamics,Кинематика и динамика,Kinematika va dinamika
+programDetails.physics.topics.kineticTheory,Kinetic Theory,Молекулярно-кинетическая теория,Kinetik nazariya
+programDetails.physics.topics.magnetism,Magnetism,Магнетизм,Magnetizm
+programDetails.physics.topics.maxwell,Maxwell's Equations,Уравнения Максвелла,Maksvell tenglamalari
+programDetails.physics.topics.newton,Newton's Laws,Законы Ньютона,Nyuton qonunlari
+programDetails.physics.topics.nuclear,Nuclear & Particle Physics,Ядерная физика и физика частиц,Yadro va zarrachalar fizikasi
+programDetails.physics.topics.oscillations,Oscillations,Колебания,Tebranishlar
+programDetails.physics.topics.quantum,Quantum Physics Basics,Основы квантовой физики,Kvant fizikasi asoslari
+programDetails.physics.topics.rotation,Rotational Motion,Вращательное движение,Aylanma harakat
+programDetails.physics.topics.thermoCycles,Thermodynamic Cycles,Термодинамические циклы,Termodinamik sikllar
+programDetails.physics.topics.waveOptics,Wave Optics,Волновая оптика,To'lqin optikasi
+programDetails.prerequisites,Prerequisites,Предварительные требования,Talablar
+programDetails.programDetailsTitle,Program Details,Детали программы,Dastur tafsilotlari
+programDetails.programOverview,Program Overview,Обзор программы,Dastur haqida
+programs.achievements,Achievements,Достижения,Yutuqlar
+programs.biology.description,Life sciences and biological research methodologies,Естественные науки и методологии биологических исследований,Hayot fanlari va biologik tadqiqot metodologiyalari
+programs.biology.title,Biology,Биология,Biologiya
+programs.chemistry.description,Chemical analysis and laboratory skills development,Химический анализ и развитие лабораторных навыков,Kimyo tahlili va laboratoriya ko'nikmalarini rivojlantirish
+programs.chemistry.title,Chemistry,Химия,Kimyo
+programs.computerScience.description,"Programming, algorithms, and computational thinking","Программирование, алгоритмы и вычислительное мышление","Dasturlash, algoritmlar va hisoblash tafakkuri"
+programs.computerScience.title,Computer Science,Информатика,Informatika
+programs.learnMore,Learn More,Узнать больше,Batafsil
+programs.mathematics.description,Advanced mathematical problem solving and competition preparation,Решение сложных математических задач и подготовка к соревнованиям,Ilg'or matematik masalalarni yechish va musobaqaga tayyorgarlik
+programs.mathematics.title,Mathematics,Математика,Matematika
+programs.physics.description,Theoretical and experimental physics olympiad training,Теоретическая и экспериментальная подготовка к олимпиадам по физике,Nazariy va eksperimental fizika olimpiadasi tayyorgarligi
+programs.physics.title,Physics,Физика,Fizika
+programs.students,Students,Студенты,Talabalar
+programs.subtitle,Comprehensive training programs designed to prepare exceptional students for national and international science olympiads.,"Комплексные программы подготовки, разработанные для подготовки выдающихся студентов к национальным и международным научным олимпиадам.",Milliy va xalqaro fan olimpiadalari uchun istisno talabalar tayyorlash uchun mo'ljallangan keng qamrovli tayyorgarlik dasturlari.
+programs.title,Our Programs,Наши Программы,Bizning Dasturlarimiz
+programs.titleHighlight,Programs,Программы,Dasturlar
+programs.viewAllPrograms,View All Programs,Посмотреть все программы,Barcha dasturlarni ko'rish
