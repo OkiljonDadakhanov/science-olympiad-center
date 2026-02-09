@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, Clock, ArrowRight, Eye, Share2, Loader2 } from "lucide-react"
+import { Calendar, ArrowRight, Share2, Loader2 } from "lucide-react"
 import { Link } from "@/i18n/routing"
 import Image from "next/image"
 import { useToast } from "@/hooks/use-toast"
@@ -33,25 +33,12 @@ interface NewsResponse {
   results: NewsArticle[]
 }
 
-function calculateReadTime(body: string): number {
-  const wordsPerMinute = 200
-  const wordCount = body.split(/\s+/).length
-  return Math.ceil(wordCount / wordsPerMinute)
-}
-
 function formatDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   })
-}
-
-function formatViewCount(count: number): string {
-  if (count >= 1000) {
-    return `${(count / 1000).toFixed(1)}k`
-  }
-  return count.toString()
 }
 
 const BASE_URL = getApiUrl('/news/')
@@ -249,10 +236,6 @@ export default function NewsPage() {
                               <Calendar className="h-4 w-4" />
                               {formatDate(article.published_at)}
                             </div>
-                            <div className="flex items-center gap-1">
-                              <Clock className="h-4 w-4" />
-                              {calculateReadTime(article.body)} {tn('minRead')}
-                            </div>
                           </div>
                           <CardTitle className="text-2xl group-hover:text-primary transition-colors">
                             {article.title}
@@ -269,10 +252,6 @@ export default function NewsPage() {
                               </Link>
                             </Button>
                             <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                              <div className="flex items-center gap-1">
-                                <Eye className="h-4 w-4" />
-                                {formatViewCount(article.view_count)}
-                              </div>
                               <Button
                                 variant="ghost"
                                 size="sm"
@@ -325,9 +304,6 @@ export default function NewsPage() {
                           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                             <Calendar className="h-4 w-4" />
                             {formatDate(article.published_at)}
-                            <span>•</span>
-                            <Clock className="h-4 w-4" />
-                            {calculateReadTime(article.body)} {tn('minRead')}
                           </div>
                           <CardTitle className="text-xl group-hover:text-primary transition-colors line-clamp-2">
                             {article.title}
@@ -341,10 +317,15 @@ export default function NewsPage() {
                             <Button variant="outline" size="sm" asChild>
                               <Link href={`/news/${article.slug}`}>{t('readMore')}</Link>
                             </Button>
-                            <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                              <Eye className="h-4 w-4" />
-                              {formatViewCount(article.view_count)}
-                            </div>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={(e) => handleShare(article, e)}
+                              disabled={sharingId === article.id}
+                              title={tn('shareArticle')}
+                            >
+                              <Share2 className="h-4 w-4" />
+                            </Button>
                           </div>
                         </CardContent>
                       </Card>

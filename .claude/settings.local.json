@@ -2,8 +2,16 @@
   "permissions": {
     "allow": [
       "Bash(npm run build:*)",
-      "Bash(git rebase:*)",
-      "Bash(GIT_EDITOR=true git rebase:*)"
+      "WebFetch(domain:docs.google.com)",
+      "WebFetch(domain:doc-04-7s-sheets.googleusercontent.com)",
+      "Bash(npx tsx scripts/export-translations-to-csv.ts)",
+      "Bash(npm run sync-translations:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git stash:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash pop:*)",
+      "Bash(git push:*)"
     ]
   }
 }

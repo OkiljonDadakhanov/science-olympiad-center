@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Loader2 } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface FormData {
   fullName: string
@@ -29,6 +30,8 @@ const TELEGRAM_BOT_TOKEN = "8252392415:AAEp3LeItcKbZFyr7XCCJ9zcWL2mTkApkCE"
 const TELEGRAM_CHAT_ID = "-5233873678"
 
 export default function ContactPage() {
+  const t = useTranslations('pages.contact')
+
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     phone: "+998 ",
@@ -61,25 +64,25 @@ export default function ContactPage() {
     const newErrors: ValidationErrors = {}
 
     if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required"
+      newErrors.fullName = t('validation.fullNameRequired')
     }
 
     if (!formData.phone.trim() || formData.phone === "+998 ") {
-      newErrors.phone = "Phone number is required"
+      newErrors.phone = t('validation.phoneRequired')
     } else if (!/^\+998\s?\d{2}\s?\d{3}\s?\d{2}\s?\d{2}$/.test(formData.phone.replace(/\s/g, ' ').replace(/\s+/g, ' '))) {
-      newErrors.phone = "Phone format: +998 XX XXX XX XX"
+      newErrors.phone = t('validation.phoneFormat')
     }
 
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Invalid email format"
+      newErrors.email = t('validation.emailInvalid')
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = "Subject is required"
+      newErrors.subject = t('validation.subjectRequired')
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required"
+      newErrors.message = t('validation.messageRequired')
     }
 
     setErrors(newErrors)
@@ -136,11 +139,11 @@ ${formData.message}
       if (success) {
         setIsSuccess(true)
       } else {
-        alert("Failed to send message. Please try again later.")
+        alert(t('sendError'))
       }
     } catch (error) {
       console.error("Form submission error:", error)
-      alert("Failed to send message. Please try again later.")
+      alert(t('sendError'))
     } finally {
       setIsSubmitting(false)
     }
@@ -175,11 +178,10 @@ ${formData.message}
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance mb-6 font-[family-name:var(--font-playfair)]">
-                Contact <span className="text-primary">Us</span>
+                {t('title')} <span className="text-primary">{t('titleHighlight')}</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground text-balance leading-relaxed">
-                Get in touch with our team for inquiries about programs, admissions, partnerships, or any questions
-                about the Science Olympiad Center.
+                {t('description')}
               </p>
             </div>
           </div>
@@ -192,11 +194,9 @@ ${formData.message}
               {/* Contact Information */}
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-3xl font-bold mb-6 font-[family-name:var(--font-playfair)]">Get in Touch</h2>
+                  <h2 className="text-3xl font-bold mb-6 font-[family-name:var(--font-playfair)]">{t('getInTouch')}</h2>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    We're here to help you on your scientific journey. Whether you're a student interested in our
-                    programs, a parent seeking information, or an educator looking to collaborate, we'd love to hear
-                    from you.
+                    {t('getInTouchDesc')}
                   </p>
                 </div>
 
@@ -208,13 +208,13 @@ ${formData.message}
                           <MapPin className="h-6 w-6 text-primary" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-lg mb-2">Address</h3>
+                          <h3 className="font-semibold text-lg mb-2">{t('address')}</h3>
                           <p className="text-muted-foreground">
-                            Science Olympiad Center
+                            {t('addressLine1')}
                             <br />
-                            Mirzo Ulugbek District
+                            {t('addressLine2')}
                             <br />
-                            Tashkent 100174, Uzbekistan
+                            {t('addressLine3')}
                           </p>
                         </div>
                       </div>
@@ -228,13 +228,13 @@ ${formData.message}
                           <Phone className="h-6 w-6 text-secondary" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-lg mb-2">Phone</h3>
+                          <h3 className="font-semibold text-lg mb-2">{t('phoneLabel')}</h3>
                           <p className="text-muted-foreground">
-                            Main Office: +998 77 550 33 66
+                            {t('mainOffice')}: +998 77 550 33 66
                             <br />
-                            Admissions: +998 77 550 33 66
+                            {t('admissionsLabel')}: +998 77 550 33 66
                             <br />
-                            International: +998 77 550 33 66
+                            {t('internationalLabel')}: +998 77 550 33 66
                           </p>
                         </div>
                       </div>
@@ -248,13 +248,13 @@ ${formData.message}
                           <Mail className="h-6 w-6 text-primary" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-lg mb-2">Email</h3>
+                          <h3 className="font-semibold text-lg mb-2">{t('emailLabel')}</h3>
                           <p className="text-muted-foreground">
-                            General: info@scienceolympiad.uz
+                            {t('generalEmail')}: info@scienceolympiad.uz
                             <br />
-                            Admissions: admissions@scienceolympiad.uz
+                            {t('admissionsLabel')}: admissions@scienceolympiad.uz
                             <br />
-                            Press: media@scienceolympiad.uz
+                            {t('pressEmail')}: media@scienceolympiad.uz
                           </p>
                         </div>
                       </div>
@@ -268,13 +268,13 @@ ${formData.message}
                           <Clock className="h-6 w-6 text-secondary" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-lg mb-2">Office Hours</h3>
+                          <h3 className="font-semibold text-lg mb-2">{t('workingHours')}</h3>
                           <p className="text-muted-foreground">
-                            Monday - Friday: 9:00 AM - 6:00 PM
+                            {t('mondayFriday')}: {t('mondayFridayHours')}
                             <br />
-                            Saturday: 9:00 AM - 2:00 PM
+                            {t('saturday')}: {t('saturdayHours')}
                             <br />
-                            Sunday: Closed
+                            {t('sunday')}: {t('closed')}
                           </p>
                         </div>
                       </div>
@@ -288,10 +288,10 @@ ${formData.message}
                 <Card className="border-primary/20 shadow-lg">
                   <CardHeader>
                     <CardTitle className="text-2xl font-bold font-[family-name:var(--font-playfair)]">
-                      Send us a Message
+                      {t('sendMessage')}
                     </CardTitle>
                     <p className="text-muted-foreground">
-                      Fill out the form below and we'll get back to you as soon as possible.
+                      {t('formDescription')}
                     </p>
                   </CardHeader>
                   <CardContent>
@@ -300,24 +300,24 @@ ${formData.message}
                         <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full mb-4">
                           <CheckCircle className="h-8 w-8 text-green-600 dark:text-green-400" />
                         </div>
-                        <h3 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">Thank You!</h3>
+                        <h3 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">{t('thankYou')}</h3>
                         <p className="text-muted-foreground mb-6">
-                          Your message has been sent successfully. We'll get back to you soon!
+                          {t('successMessage')}
                         </p>
                         <Button onClick={resetForm} variant="outline">
-                          Send Another Message
+                          {t('sendAnother')}
                         </Button>
                       </div>
                     ) : (
                       <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="space-y-2">
-                          <Label htmlFor="fullName">Full Name *</Label>
+                          <Label htmlFor="fullName">{t('fullName')} *</Label>
                           <Input
                             id="fullName"
                             name="fullName"
                             value={formData.fullName}
                             onChange={handleChange}
-                            placeholder="Enter your full name"
+                            placeholder={t('fullNamePlaceholder')}
                             className={errors.fullName ? "border-red-500" : ""}
                           />
                           {errors.fullName && (
@@ -327,7 +327,7 @@ ${formData.message}
 
                         <div className="grid md:grid-cols-2 gap-4">
                           <div className="space-y-2">
-                            <Label htmlFor="phone">Phone Number *</Label>
+                            <Label htmlFor="phone">{t('phone')} *</Label>
                             <Input
                               id="phone"
                               name="phone"
@@ -342,14 +342,14 @@ ${formData.message}
                             )}
                           </div>
                           <div className="space-y-2">
-                            <Label htmlFor="email">Email</Label>
+                            <Label htmlFor="email">{t('email')}</Label>
                             <Input
                               id="email"
                               name="email"
                               type="email"
                               value={formData.email}
                               onChange={handleChange}
-                              placeholder="Enter your email address"
+                              placeholder={t('emailPlaceholder')}
                               className={errors.email ? "border-red-500" : ""}
                             />
                             {errors.email && (
@@ -359,13 +359,13 @@ ${formData.message}
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="subject">Subject *</Label>
+                          <Label htmlFor="subject">{t('subject')} *</Label>
                           <Input
                             id="subject"
                             name="subject"
                             value={formData.subject}
                             onChange={handleChange}
-                            placeholder="What is this regarding?"
+                            placeholder={t('subjectPlaceholder')}
                             className={errors.subject ? "border-red-500" : ""}
                           />
                           {errors.subject && (
@@ -374,13 +374,13 @@ ${formData.message}
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="message">Message *</Label>
+                          <Label htmlFor="message">{t('message')} *</Label>
                           <Textarea
                             id="message"
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            placeholder="Tell us more about your inquiry..."
+                            placeholder={t('messagePlaceholder')}
                             className={`min-h-[120px] ${errors.message ? "border-red-500" : ""}`}
                           />
                           {errors.message && (
@@ -397,18 +397,18 @@ ${formData.message}
                           {isSubmitting ? (
                             <>
                               <Loader2 className="h-5 w-5 mr-2 animate-spin" />
-                              Sending...
+                              {t('sending')}
                             </>
                           ) : (
                             <>
                               <Send className="h-5 w-5 mr-2" />
-                              Send Message
+                              {t('send')}
                             </>
                           )}
                         </Button>
 
                         <p className="text-sm text-muted-foreground text-center">
-                          We typically respond within 24 hours during business days.
+                          {t('responseTime')}
                         </p>
                       </form>
                     )}
@@ -424,10 +424,10 @@ ${formData.message}
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
-                Visit Our Center
+                {t('visitUs')}
               </h2>
               <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
-                Located in the heart of Tashkent, our modern facility is easily accessible by public transportation.
+                {t('visitUsDesc')}
               </p>
             </div>
 
@@ -436,11 +436,11 @@ ${formData.message}
                 <div className="aspect-video bg-muted flex items-center justify-center">
                   <div className="text-center">
                     <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">Interactive Map</h3>
+                    <h3 className="text-xl font-semibold mb-2">{t('interactiveMap')}</h3>
                     <p className="text-muted-foreground">
-                      Science Olympiad Center
+                      {t('addressLine1')}
                       <br />
-                      Mirzo Ulugbek District, Tashkent
+                      {t('addressLine2')}, {t('addressCity')}
                     </p>
                   </div>
                 </div>

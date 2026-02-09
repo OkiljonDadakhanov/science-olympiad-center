@@ -6,7 +6,9 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "sync-translations": "npx tsx scripts/sync-translations.ts",
+    "export-translations": "npx tsx scripts/export-translations-to-csv.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
