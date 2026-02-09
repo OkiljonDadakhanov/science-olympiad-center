@@ -614,5 +614,963 @@
       "accommodation": "Yashash imkoniyatlari bormi?",
       "accommodationAnswer": "Ha, biz Toshkent shahriga boshqa hududlardan keladigan o‘quvchilarni yotoqxona bilan ta’minlaymiz. Bizning turar joy ob’ektlarimiz yotoqxonalar, oshxonalar, o‘quv xonalari va dam olish joylarini o‘z ichiga oladi, ularning barchasi malakali xodimlar tomonidan nazorat qilinadi."
     }
+  },
+  "olympiads": {
+    "local": {
+      "hero": {
+        "badge": "Asosiy olimpiada bosqichlari",
+        "title": "Mahalliy",
+        "titleHighlight": "Olimpiadalar",
+        "description": "Asosiy olimpiada 17 ta fan bo'yicha to'rt bosqichda — maktab darajasidan respublika darajasigacha o'tkaziladi va akademik mukammallik uchun keng qamrovli yo'l taqdim etadi.",
+        "exploreStages": "Bosqichlarni ko'rish",
+        "viewRequirements": "Talablarni ko'rish"
+      },
+      "stats": {
+        "competitionStages": "Musobaqa bosqichlari",
+        "subjects": "Fanlar",
+        "schoolStageWinners": "Maktab bosqichi g'oliblari",
+        "regionalParticipants": "Hududiy ishtirokchilar"
+      },
+      "stagesSection": {
+        "title": "Olimpiada bosqichlari",
+        "description": "Maktab darajasidan respublika darajasigacha to'rt bosqichli musobaqada 17 ta fan bo'yicha o'z mahoratingizni namoyish eting."
+      },
+      "stageLabel": "Bosqich",
+      "subjects": {
+        "mathematics": "Matematika",
+        "physics": "Fizika",
+        "chemistry": "Kimyo",
+        "biology": "Biologiya",
+        "informatics": "Informatika va axborot texnologiyalari",
+        "nativeLanguage": "Ona tili va adabiyot",
+        "uzbekLanguage": "O'zbek tili",
+        "russianLanguage": "Rus tili va adabiyot",
+        "karakalpakLanguage": "Qoraqalpoq tili va adabiyot",
+        "tajikLanguage": "Tojik tili",
+        "kazakhLanguage": "Qozoq tili",
+        "englishLanguage": "Ingliz tili",
+        "germanLanguage": "Nemis tili",
+        "frenchLanguage": "Fransuz tili",
+        "history": "Tarix",
+        "stateLaw": "Davlat va huquq asoslari",
+        "geography": "Geografiya"
+      },
+      "labels": {
+        "eligibility": "Ishtirok etish sharti",
+        "organizationRequirements": "Tashkiliy talablar",
+        "notificationRequirements": "Xabardor qilish talablari",
+        "winners": "G'oliblar",
+        "participationStatistics": "Ishtirok statistikasi",
+        "schoolStageWinners": "Maktab bosqichi g'oliblari",
+        "advancedToDistrict": "Tuman bosqichiga o'tganlar",
+        "subjects": "Fanlar",
+        "testFormat": "Test formati",
+        "group1Subjects": "1-guruh fanlari",
+        "group2Subjects": "2-guruh fanlari",
+        "testQuestionsPerSubject": "Har bir fan bo'yicha 30 ta test savoli",
+        "participation": "Ishtirok",
+        "studentsParticipated": "o'quvchi ushbu bosqichda ishtirok etdi.",
+        "specialRules": "Maxsus qoidalar",
+        "scienceSubjectsFormat": "Aniq fanlar formati",
+        "part1WrittenProblems": "1-qism: Yozma masalalar",
+        "part2TestQuestions": "2-qism: Test savollari",
+        "problemsOfVaryingDifficulty": "turli qiyinlik darajasidagi masala",
+        "pointsMaximum": "maksimal ball",
+        "duration": "Davomiyligi",
+        "eachProblemEvaluated": "Har bir masala maxsus mezonlar bo'yicha baholanadi",
+        "testQuestions": "test savoli",
+        "points": "ball",
+        "total": "Jami",
+        "informaticsFormat": "Informatika formati",
+        "problemsSolvedOnline": "masala onlayn portalda yechiladi",
+        "maximumPoints": "Maksimal ball",
+        "programmingLanguages": "Dasturlash tillari",
+        "pointsAwardedForCompleted": "To'liq bajarilgan va tizim tomonidan qabul qilingan masalalar uchun ball beriladi",
+        "humanitiesSubjectsFormat": "Ijtimoiy-gumanitar fanlar formati",
+        "competitionStatistics": "Musobaqa statistikasi",
+        "group2Summary": "Tillar, Tarix, Geografiya, Davlat va huquq asoslari",
+        "dates": "Sanalar",
+        "grades": "Sinflar",
+        "prizes": "Mukofotlar",
+        "republicStageQualification": "Respublika bosqichiga o'tish",
+        "prizesAndAwards": "Mukofotlar va sovrinlar",
+        "monetaryPrizes": "Pul mukofotlari",
+        "firstPlace": "1-o'rin",
+        "secondPlace": "2-o'rin",
+        "thirdPlace": "3-o'rin",
+        "certificatesAndDiplomas": "Sertifikatlar va diplomlar",
+        "competitionFormatBySubjectGroups": "Fan guruhlari bo'yicha musobaqa formati",
+        "scienceSubjectsDetailed": "Aniq fanlar (Matematika, Fizika, Kimyo, Biologiya)",
+        "round1WrittenWork": "1-tur: Yozma ish",
+        "round2TestQuestions": "2-tur: Test savollari",
+        "problemsOfVaryingDifficultyPoints": "turli qiyinlik darajasidagi masala",
+        "pointsEach": "ball har biri",
+        "testExaminationFormat": "Test imtihoni formati",
+        "formatLabel": "Format",
+        "informaticsFormatDescription": "Ikki kun bir xil sharoitda (dastur yechimlarini elektron tizimga joylashtirish)",
+        "problemsPerDay": "masala kuniga",
+        "totalWord": "jami",
+        "pointsPerProblem": "ball har bir masala uchun",
+        "pointsTotal": "ball jami",
+        "perDay": "kuniga",
+        "pointsAwardedBySystem": "To'liq bajarilgan va qabul qilingan masalalar uchun elektron tizim tomonidan ball beriladi",
+        "languageLiteratureSubjects": "Til va adabiyot fanlari",
+        "languageSubjectsList": "Ona tili va adabiyot, O'zbek tili, Rus tili va adabiyot, Qozoq tili, Tojik tili, Qoraqalpoq tili va adabiyot",
+        "round1WrittenWorkEssay": "1-tur: Yozma ish (Insho)",
+        "foreignLanguagesDetailed": "Chet tillari (Ingliz, Nemis, Fransuz)",
+        "foreignLanguagesFormatDescription": "Ikki qismdan iborat bitta tur (tinglash, o'qish va leksik-grammatik ko'nikmalarni baholash)",
+        "part1ListeningReading": "1-qism: Tinglash va o'qish ko'nikmalari",
+        "part2LexicoGrammatical": "2-qism: Leksik-grammatik ko'nikmalar",
+        "maximum": "Maksimal",
+        "listeningReadingAssessment": "Tinglash va o'qish tushunish qobiliyatlarini baholash",
+        "vocabGrammarAssessment": "Lug'at va grammatika bilimlarini baholovchi test savollari",
+        "humanitiesSubjects": "Ijtimoiy-gumanitar fanlar",
+        "subjectsLabel": "Fanlar",
+        "singleRoundTestQuestions": "Bitta tur - Test savollari",
+        "allOtherSubjects": "Barcha boshqa fanlar",
+        "twoRoundsDescription": "Ikki tur: yozma ish va test savollari"
+      },
+      "stages": {
+        "1": {
+          "name": "Maktab bosqichi",
+          "uzbekName": "Maktab bosqichi",
+          "description": "Asosiy olimpiadaning birinchi bosqichi bo'lib, 17 ta fan bo'yicha davlat va nodavlat umumiy o'rta ta'lim muassasalari, akademik litsey va kasb-hunar maktablari o'quvchilari orasida o'tkaziladi.",
+          "eligibility": "Davlat va nodavlat umumiy o'rta ta'lim muassasalarining 9-11-sinf o'quvchilari, akademik litsey va kasb-hunar ta'lim muassasalarining 1-2-bosqich talabalari.",
+          "participants": "530 629 g'olib",
+          "nextStageParticipants": "431 270 ishtirokchi (81%)",
+          "format": "Ta'lim muassasasi pedagogik kengashlari tomonidan tashkil etiladi",
+          "requirements": {
+            "0": "Musobaqa sanalarini belgilash va o'quvchilar xavfsizligini ta'minlash",
+            "1": "Har bir fan bo'yicha hakamlar hay'atini (3-7 a'zo) shakllantirish",
+            "2": "Apellyatsiya komissiyasi a'zolari ro'yxatini tuzish",
+            "3": "Nazorat materiallarini tayyorlash va maxfiylikni ta'minlash",
+            "4": "G'oliblarni keyingi bosqichga o'tkazish bo'yicha tavsiyalar berish"
+          },
+          "notification": "Barcha o'quvchilar musobaqadan kamida 3 kun oldin e'lonlar taxtasi, ijtimoiy tarmoqlar, Telegram guruhlari, o'qituvchi e'lonlari va umumiy yig'ilishlar orqali xabardor qilinishi kerak.",
+          "winners": "Har bir fan va sinf darajasi bo'yicha 3 tagacha g'olib (1, 2, 3-o'rin) ballar asosida aniqlanadi va maktab pedagogik kengashi tomonidan keyingi bosqichda ishtirok etish uchun tavsiya etiladi."
+        },
+        "2": {
+          "name": "Tuman (shahar) bosqichi",
+          "uzbekName": "Tuman (shahar) bosqichi",
+          "description": "Asosiy olimpiadaning ikkinchi bosqichi bo'lib, umumiy o'rta ta'lim muassasalari, nodavlat umumiy o'rta ta'lim muassasalari va Ixtisoslashtirilgan ta'lim muassasalari agentligi tassarufidagi ixtisoslashtirilgan maktablar o'quvchilari orasida o'tkaziladi.",
+          "eligibility": "Umumiy o'rta ta'lim muassasalari, nodavlat umumiy o'rta ta'lim muassasalari va ixtisoslashtirilgan maktablarning (maktab-internatlarning) 9-11-sinf o'quvchilari, shuningdek kasb-hunar ta'lim muassasalarining 1-2-bosqich talabalari.",
+          "participants": "431 270 ishtirokchi",
+          "format": "Barcha fanlar bo'yicha markazlashtirilgan test imtihonlari, hududiy tashkiliy qo'mitalar tomonidan belgilangan joylarda o'tkaziladi",
+          "testDetails": {
+            "group1": {
+              "duration": "90 daqiqa"
+            },
+            "group2": {
+              "duration": "60 daqiqa"
+            }
+          },
+          "exceptions": "Turli vazirliklar tassarufidagi akademik litseylar, ixtisoslashtirilgan maktablar (Prezident va Ijod maktablari, Al-Beruniy xalqaro maktab-internati, Abu Ali ibn Sino, Mirzo Ulug'bek, Muhammad al-Xorazmiy ixtisoslashtirilgan maktablari) va ularning hududiy filiallari ushbu bosqichni o'tkazib, to'g'ridan-to'g'ri uchinchi (hududiy) bosqichda ishtirok etadi.",
+          "specialRule": "Oldingi o'quv yilida uchinchi (hududiy) bosqichda 9-10-sinflarda 1-o'rinni qo'lga kiritgan o'quvchilar joriy o'quv yilining uchinchi (hududiy) bosqichida to'g'ridan-to'g'ri ishtirok etadi.",
+          "winners": "Har bir fan va sinf darajasi bo'yicha 3 g'olib (1, 2, 3-o'rin) test natijalari asosida aniqlanadi va tashkiliy qo'mita tomonidan uchinchi bosqichda ishtirok etish uchun tavsiya etiladi."
+        },
+        "3": {
+          "name": "Hududiy bosqich",
+          "uzbekName": "Hududiy bosqichi",
+          "description": "Asosiy olimpiadaning uchinchi bosqichi bo'lib, bir necha fan bo'yicha murakkabroq masalalarni yechish va keng qamrovli baholashni o'z ichiga oladi.",
+          "eligibility": "Tegishli fan va sinf bo'yicha tuman/shahar bosqichida 1, 2 yoki 3-o'rinni qo'lga kiritgan o'quvchilar, shuningdek ixtisoslashtirilgan ta'lim muassasalari, akademik litseylar va nodavlat ta'lim muassasalari tomonidan tavsiya etilgan 3 tagacha o'quvchi.",
+          "participants": "28 000+ o'quvchi",
+          "format": "Aniq fanlar bo'yicha ikki qismli imtihonlar; ijtimoiy-gumanitar fanlar bo'yicha bir qismli test imtihonlari",
+          "science": {
+            "part1": {
+              "type": "Yozma masalalar",
+              "duration": "180 daqiqa",
+              "description": "Turli qiyinlik darajasidagi masalalar, har biri maxsus mezonlar bo'yicha baholanadi"
+            },
+            "part2": {
+              "type": "Test savollari",
+              "duration": "90 daqiqa",
+              "breakdown": {
+                "simple": "Birinchi 10 ta savol: Oddiy yopiq testlar (A, B, C, D), har biri 0,9 ball",
+                "medium": "Keyingi 10 ta savol: O'rta qiyinlikdagi yopiq testlar (A, B, C, D), har biri 1,5 ball",
+                "complex": "Oxirgi 10 ta savol: Ochiq testlar (yozma javoblar), har biri 2,6 ball"
+              },
+              "total": "10×0,9 + 10×1,5 + 10×2,6 = 50 ball"
+            },
+            "total": "Maksimal 100 ball"
+          },
+          "informatics": {
+            "format": "Bir qismli onlayn musobaqa",
+            "duration": "240 daqiqa",
+            "description": "Turli qiyinlik darajasidagi masalalar onlayn portalda yechiladi. To'liq bajarilgan va tizim tomonidan qabul qilingan masalalar uchun ball beriladi."
+          },
+          "humanities": {
+            "format": "Bir qismli test imtihoni",
+            "duration": "80 daqiqa",
+            "breakdown": {
+              "simple": "Birinchi 10 ta savol: Oddiy qiyinlikdagi yopiq testlar (A, B, C, D), har biri 1,3 ball",
+              "medium": "Keyingi 15 ta savol: O'rta qiyinlikdagi yopiq testlar (A, B, C, D), har biri 2,4 ball",
+              "complex": "Oxirgi 15 ta savol: Yuqori qiyinlikdagi yopiq testlar (A, B, C, D), har biri 3,4 ball"
+            },
+            "total": "10×1,3 + 15×2,4 + 15×3,4 = 100 ball"
+          },
+          "winners": "Har bir fan va sinf darajasi bo'yicha 3 g'olib (1, 2, 3-o'rin) umumiy ballar asosida aniqlanadi va hakamlar hay'ati hamda tashkiliy qo'mita tomonidan keyingi bosqichda ishtirok etish uchun tavsiya etiladi.",
+          "statistics": {
+            "group1": {
+              "dates": "24-28 noyabr",
+              "grades": "9-10-11",
+              "participants": "~9 500 o'quvchi"
+            },
+            "group2": {
+              "participants": "18 500+ o'quvchi"
+            }
+          },
+          "prizes": "Har bir fan bo'yicha g'oliblar (1, 2, 3-o'rin) Vazirlar Mahkamasining 2021-yil 9-sentyabrdagi 562-son qaroriga muvofiq bir martalik pul mukofotlari bilan taqdirlanadi.",
+          "republicQualifiers": "Har bir fan bo'yicha eng yuqori natijaga erishgan 11-sinf o'quvchilari Asosiy olimpiadaning Respublika bosqichida ishtirok etish uchun taklifnoma oladi."
+        },
+        "4": {
+          "name": "Respublika bosqichi",
+          "uzbekName": "Respublika bosqichi",
+          "description": "Asosiy olimpiadaning yakuniy va eng nufuzli bosqichi bo'lib, O'zbekiston bo'ylab eng yaxshi o'quvchilarni milliy darajada bellashish uchun bir joyga to'playdi.",
+          "eligibility": "Uchinchi (hududiy) bosqichda 1, 2 yoki 3-o'rinni qo'lga kiritgan o'quvchilar — xususan umumiy o'rta ta'lim muassasalari, kasb-hunar maktablari va akademik litseylarning 11-sinf o'quvchilari.",
+          "prizes": {
+            "monetary": {
+              "first": "12 bazaviy hisoblash miqdori",
+              "second": "8 bazaviy hisoblash miqdori",
+              "third": "6 bazaviy hisoblash miqdori"
+            },
+            "certificates": "Diplomlar va sertifikatlar",
+            "benefits": "G'oliblar davlat oliy ta'lim muassasalariga imtihonsiz yoki maksimal ball bilan qabul qilinish huquqini beruvchi sertifikat oladi"
+          },
+          "format": {
+            "humanities": {
+              "type": "Bitta tur",
+              "format": "Test savollari"
+            },
+            "foreignLanguages": {
+              "type": "Ikki qismdan iborat bitta tur",
+              "part1": {
+                "name": "Tinglash va o'qish ko'nikmalari",
+                "description": "Tinglash va o'qish tushunish qobiliyatlarini baholash"
+              },
+              "part2": {
+                "name": "Leksik-grammatik ko'nikmalar",
+                "format": "Test savollari",
+                "description": "Lug'at va grammatika bilimlarini baholash"
+              },
+              "duration": "180 daqiqa"
+            },
+            "informatics": {
+              "type": "Ikki kun bir xil sharoitda",
+              "format": "Dastur yechimlarini elektron tizimga joylashtirish",
+              "durationPerDay": "240 daqiqa",
+              "description": "Ishtirokchilar dastur yechimlarini elektron tizimga joylashtirish orqali masalalarni yechadilar. To'liq bajarilgan va qabul qilingan masalalar uchun elektron tizim tomonidan ball beriladi."
+            },
+            "science": {
+              "type": "Ikki tur",
+              "round1": {
+                "name": "Yozma ish",
+                "duration": "180 daqiqa",
+                "description": "Turli qiyinlik darajasidagi masalalar"
+              },
+              "round2": {
+                "name": "Test savollari",
+                "format": "Test imtihoni"
+              }
+            },
+            "languages": {
+              "type": "Ikki tur",
+              "round1": {
+                "name": "Yozma ish (Insho)",
+                "duration": "60 daqiqa"
+              },
+              "round2": {
+                "name": "Test savollari",
+                "format": "Test imtihoni"
+              }
+            },
+            "other": {
+              "description": "Barcha boshqa fanlar ikki turda o'tkaziladi: yozma ish va test savollari"
+            }
+          }
+        }
+      },
+      "cta": {
+        "title": "Olimpiada sayohatingizni boshlang",
+        "description": "Maktab bosqichidan boshlang va tuman, hududiy va respublika darajalarigacha ko'tariling. Har bir bosqich ko'nikmalaringizni oshiradi va akademik mukammallik uchun yangi imkoniyatlar ochadi.",
+        "viewQualification": "Saralash talablarini ko'rish",
+        "contactUs": "Biz bilan bog'laning"
+      }
+    },
+    "prestigious": {
+      "hero": {
+        "badge": "Elita musobaqalar",
+        "titleStart": "Nufuzli",
+        "titleHighlight": "Olimpiadalar",
+        "description": "O'zbekistondagi eng iqtidorli o'quvchilar uchun milliy musobaqalar va xalqaro saralash turlari. Mamlakatimizni jahon sahnasida ifodalash yo'lingiz.",
+        "applyNow": "Ariza topshirish",
+        "viewCompetitions": "Musobaqalarni ko'rish"
+      },
+      "stats": {
+        "competitions": "Nufuzli musobaqalar",
+        "participants": "Yillik ishtirokchilar",
+        "qualifiers": "Xalqaro saralash g'oliblari",
+        "admissionRate": "Universitetga qabul darajasi"
+      },
+      "competitions": {
+        "title": "Asosiy nufuzli musobaqalar",
+        "description": "Ushbu elita musobaqalari xalqaro olimpiadalar va nufuzli universitet dasturlariga yo'l ochadi."
+      },
+      "labels": {
+        "elite": "Elita",
+        "international": "Xalqaro",
+        "participants": "Ishtirokchilar:",
+        "duration": "Davomiyligi:",
+        "format": "Format:",
+        "registration": "Ro'yxatdan o'tish:",
+        "competition": "Musobaqa:",
+        "location": "Joylashuv:",
+        "requirements": "Talablar",
+        "preparationFocus": "Tayyorgarlik yo'nalishi",
+        "date": "Sana:",
+        "teamSize": "Jamoa tarkibi:",
+        "eligibility": "Ishtirok sharti:"
+      },
+      "results": {
+        "title": "2023 yil natijalari",
+        "gold": "🥇 Oltin:",
+        "silver": "🥈 Kumush:",
+        "bronze": "🥉 Bronza:",
+        "internationalTeam": "Xalqaro jamoa:",
+        "medalResults": "2025 yil medal natijalari"
+      },
+      "actions": {
+        "registerNow": "Hozir ro'yxatdan o'tish",
+        "viewRequirements": "Talablarni ko'rish"
+      },
+      "nationalOlympiads": {
+        "math": {
+          "name": "Milliy matematika olimpiadasi",
+          "description": "O'zbekistondagi eng nufuzli matematika musobaqasi, IMO uchun asosiy saralash tanlovi hisoblanadi.",
+          "eligibility": "9-11 sinf, O'zbekiston fuqarolari",
+          "participants": "120 finalist",
+          "duration": "4,5 soat",
+          "format": "6 ta murakkab masala",
+          "prizes": "Oltin, Kumush, Bronza medallar + IMO jamoasiga tanlov",
+          "registrationDeadline": "2024 yil 15 sentyabr",
+          "competitionDate": "2024 yil 10 dekabr",
+          "location": "Toshkent",
+          "requirements": {
+            "0": "Algebra, geometriya, sonlar nazariyasi bo'yicha mustahkam bilim",
+            "1": "Viloyat olimpiadasida ishtirok tajribasi tavsiya etiladi",
+            "2": "Matematikadan A/5 baholi akademik ko'chirma",
+            "3": "Matematika o'qituvchisidan tavsiya xati"
+          },
+          "preparation": {
+            "0": "Ilg'or masala yechish usullari",
+            "1": "O'tgan olimpiada masalalarini mashq qilish",
+            "2": "Matematik isbotlar yozish",
+            "3": "Vaqtni boshqarish strategiyalari"
+          }
+        },
+        "physics": {
+          "name": "Milliy fizika olimpiadasi",
+          "description": "IPhO uchun saralash maqsadida nazariy bilim va eksperimental ko'nikmalarni birlashtirgan yetakchi fizika musobaqasi.",
+          "eligibility": "10-11 sinf, O'zbekiston fuqarolari",
+          "participants": "100 finalist",
+          "duration": "5 soat (3 soat nazariya + 2 soat eksperiment)",
+          "format": "Nazariy masalalar + Laboratoriya tajribalari",
+          "prizes": "Oltin, Kumush, Bronza medallar + IPhO jamoasiga tanlov",
+          "registrationDeadline": "2024 yil 20 sentyabr",
+          "competitionDate": "2024 yil 12 dekabr",
+          "location": "Toshkent",
+          "requirements": {
+            "0": "Ilg'or fizika bilimlari (mexanika, termodinamika, elektromagnetizm)",
+            "1": "O'lchash asboblari bilan laboratoriya tajribasi",
+            "2": "Mustahkam matematik tayyorgarlik (matematik analiz, differensial tenglamalar)",
+            "3": "Oldingi fizika musobaqalarida ishtirok tajribasi afzal"
+          },
+          "preparation": {
+            "0": "Ilg'or nazariy fizika masalalari",
+            "1": "Eksperimental loyihalash va ma'lumotlarni tahlil qilish",
+            "2": "Ilmiy hisobot yozish",
+            "3": "Laboratoriya xavfsizlik qoidalari"
+          }
+        },
+        "chemistry": {
+          "name": "Milliy kimyo olimpiadasi",
+          "description": "IChO uchun nazariy bilim va amaliy laboratoriya ko'nikmalarini sinab ko'radigan keng qamrovli kimyo musobaqasi.",
+          "eligibility": "10-11 sinf, O'zbekiston fuqarolari",
+          "participants": "90 finalist",
+          "duration": "5 soat (3 soat nazariya + 2 soat amaliyot)",
+          "format": "Nazariy masalalar + Laboratoriya sintezi",
+          "prizes": "Oltin, Kumush, Bronza medallar + IChO jamoasiga tanlov",
+          "registrationDeadline": "2024 yil 25 sentyabr",
+          "competitionDate": "2024 yil 14 dekabr",
+          "location": "Toshkent",
+          "requirements": {
+            "0": "Organik, noorganik va fizik kimyoni puxta bilish",
+            "1": "Laboratoriya sintezi va tahlil tajribasi",
+            "2": "Kimyoviy xavfsizlik tartiblarini tushunish",
+            "3": "Kuchli analitik va masala yechish ko'nikmalari"
+          },
+          "preparation": {
+            "0": "Ilg'or kimyoviy reaksiyalar va mexanizmlar",
+            "1": "Miqdoriy tahlil usullari",
+            "2": "Spektroskopiya va tuzilishni aniqlash",
+            "3": "Laboratoriya texnikasini takomillashtirish"
+          }
+        }
+      },
+      "internationalOlympiads": {
+        "imo": {
+          "name": "Xalqaro matematika olimpiadasi (IMO)",
+          "location": "Avstraliya",
+          "date": "10–20 iyul",
+          "teamSize": "6 o'quvchi",
+          "format": "2 kun davomida 6 ta masala",
+          "duration": "2 kun, har biri 4,5 soat",
+          "eligibility": "20 yoshgacha, universitetda o'qimaydigan"
+        },
+        "icho": {
+          "name": "Xalqaro kimyo olimpiadasi (IChO)",
+          "location": "Birlashgan Arab Amirliklari",
+          "date": "5–14 iyul",
+          "teamSize": "4 o'quvchi",
+          "format": "2 kun davomida 12 ta masala",
+          "duration": "2 kun, har biri 5 soat",
+          "eligibility": "20 yoshgacha, universitetda o'qimaydigan"
+        },
+        "ipho": {
+          "name": "Xalqaro fizika olimpiadasi (IPhO)",
+          "location": "Fransiya",
+          "date": "18–24 iyul",
+          "teamSize": "4 o'quvchi",
+          "format": "2 kun davomida 6 ta masala",
+          "duration": "2 kun, har biri 5 soat",
+          "eligibility": "20 yoshgacha, universitetda o'qimaydigan"
+        },
+        "ioi": {
+          "name": "Xalqaro informatika olimpiadasi (IOI)",
+          "location": "Boliviya",
+          "date": "27 iyul – 3 avgust",
+          "teamSize": "4 o'quvchi",
+          "format": "2 kun davomida 6 ta masala",
+          "duration": "2 kun, har biri 5 soat",
+          "eligibility": "20 yoshgacha, universitetda o'qimaydigan"
+        }
+      },
+      "international": {
+        "title": "Nufuzli xalqaro olimpiadalar",
+        "description": "Eng yaxshi o'quvchilarimiz medallar va global e'tirof uchun kurashadigan xalqaro STEM olimpiadalari.",
+        "cardDescription": "Dunyoning eng kuchli maktab o'quvchilari uchun elita xalqaro musobaqa."
+      },
+      "applicationProcess": {
+        "title": "Ariza topshirish jarayoni",
+        "description": "Nufuzli olimpiada musobaqalarida ishtirok etish uchun quyidagi bosqichlarni bajaring.",
+        "steps": {
+          "step1": {
+            "title": "Onlayn ro'yxatdan o'tish",
+            "description": "Akademik ko'chirma va o'qituvchi tavsiyalari bilan arizangizni to'ldiring."
+          },
+          "step2": {
+            "title": "Viloyat saralash tanlovi",
+            "description": "Milliy finalga saralash uchun viloyat musobaqalarida ishtirok eting."
+          },
+          "step3": {
+            "title": "O'quv-mashg'ulot yig'ini",
+            "description": "Eng yaxshi saralangan o'quvchilar tajribali murabbiylar bilan intensiv mashg'ulotlarda ishtirok etadi."
+          },
+          "step4": {
+            "title": "Milliy final",
+            "description": "Medallar va xalqaro jamoaga tanlov uchun milliy finalda qatnashing."
+          }
+        }
+      },
+      "successStories": {
+        "title": "Muvaffaqiyat tarixi",
+        "description": "Xalqaro miqyosda e'tirof etilgan nufuzli olimpiada g'oliblarimiz bilan tanishing.",
+        "stories": {
+          "akmal": {
+            "name": "Akmal Karimov",
+            "title": "Matematikadan oltin medalchi",
+            "quote": "Milliy matematika olimpiadasida g'alaba qozonish menga IMO 2024 yo'lini ochdi, u yerda mukammal natija ko'rsatdim. Hozir MIT da to'liq grant bilan o'qiyapman."
+          },
+          "nilufar": {
+            "name": "Nilufar Rashidova",
+            "title": "Fizikadan oltin medalchi",
+            "quote": "Milliy fizika olimpiadasiga qattiq tayyorgarlik meni IPhO muvaffaqiyatiga olib keldi. Hozirda Kembrij universitetida nazariy fizika bo'yicha PhD o'qiyapman."
+          },
+          "sardor": {
+            "name": "Sardor Abdullayev",
+            "title": "Kimyodan oltin medalchi",
+            "quote": "Milliy kimyo olimpiadasidagi g'alaba IChO oltin medaliga va tadqiqot imkoniyatlariga olib keldi. Hozir Stenford universitetida barqaror kimyo yechimlari ustida ishlayman."
+          }
+        }
+      },
+      "cta": {
+        "title": "Elitaga qo'shilishga tayyormisiz?",
+        "description": "O'zbekistonni xalqaro musobaqalarda ifodalash va fan sohasidagi kelajagingizni ta'minlash sari birinchi qadamni tashlang.",
+        "startApplication": "Ariza boshlash",
+        "getGuidance": "Maslahat olish"
+      }
+    },
+    "international": {
+      "hero": {
+        "badge": "Xalqaro musobaqalar",
+        "titleStart": "Xalqaro",
+        "titleHighlight": "Olimpiadalar",
+        "description": "Jahon sahnasida O'zbekistonni vakili sifatida ishtirok eting va 100 dan ortiq mamlakatning eng iqtidorli yoshlari bilan nufuzli xalqaro fan olimpiadalarida bellashing.",
+        "qualificationButton": "Saralash talablari",
+        "viewCompetitionsButton": "Musobaqalarni ko'rish"
+      },
+      "stats": {
+        "competitions": "Xalqaro musobaqalar",
+        "teamMembers": "Har yilgi jamoa a'zolari",
+        "countries": "Ishtirokchi mamlakatlar",
+        "medals": "Qo'lga kiritilgan medallar (2025)"
+      },
+      "labels": {
+        "international": "Xalqaro",
+        "location": "Joylashuv",
+        "date": "Sana",
+        "teamSize": "Jamoa tarkibi",
+        "students": "talaba",
+        "format": "Format",
+        "duration": "Davomiyligi",
+        "eligibility": "Ishtirok sharti",
+        "competitionSubjects": "Musobaqa fanlari",
+        "preparationProgram": "Tayyorgarlik dasturi",
+        "benefits": "Afzalliklar",
+        "results": "Natijalar",
+        "goldMedal": "🥇 Oltin",
+        "silverMedal": "🥈 Kumush",
+        "bronzeMedal": "🥉 Bronza",
+        "globalRanking": "Jahon reytingi",
+        "viewRequirements": "Talablarni ko'rish",
+        "officialWebsite": "Rasmiy veb-sayt",
+        "medals": "medal",
+        "gold": "Oltin",
+        "silver": "Kumush",
+        "bronze": "Bronza",
+        "goldEmoji": "🥇",
+        "silverEmoji": "🥈",
+        "bronzeEmoji": "🥉"
+      },
+      "mainCompetitions": {
+        "title": "Asosiy xalqaro musobaqalar",
+        "subtitle": "Ushbu jahon miqyosidagi taniqli musobaqalar butun dunyodan eng iqtidorli talabalarni bir joyga to'playdi."
+      },
+      "competitions": {
+        "imo": {
+          "name": "Xalqaro matematika olimpiadasi (IMO)",
+          "description": "Maktab o'quvchilari uchun dunyodagi eng nufuzli matematika musobaqasi.",
+          "country": "Avstraliya",
+          "city": "Avstraliya",
+          "date": "10–20 iyul",
+          "participants": "6 talaba",
+          "duration": "2 kun, har biri 4,5 soat",
+          "format": "2 kun davomida 6 ta masala",
+          "subjects": {
+            "0": "Algebra",
+            "1": "Kombinatorika",
+            "2": "Geometriya",
+            "3": "Sonlar nazariyasi"
+          },
+          "eligibility": "20 yoshgacha, universitetga kiritmagan",
+          "selectionProcess": "Milliy olimpiada + tayyorgarlik yig'ini",
+          "preparation": {
+            "0": "Murakkab masalalar yechish",
+            "1": "Sinov imtihonlari",
+            "2": "Vaqtni boshqarish",
+            "3": "Ruhiy chidamlilik"
+          },
+          "benefits": {
+            "0": "Jahon miqyosida tan olinish",
+            "1": "Stipendiya imkoniyatlari",
+            "2": "Xalqaro tajriba",
+            "3": "Akademik aloqalar"
+          }
+        },
+        "icho": {
+          "name": "Xalqaro kimyo olimpiadasi (IChO)",
+          "description": "Nazariy va amaliy sinovlar bilan o'tkaziladigan jahon kimyo musobaqasi.",
+          "country": "Birlashgan Arab Amirliklari",
+          "city": "BAA",
+          "date": "5–14 iyul",
+          "participants": "4 talaba",
+          "duration": "2 kun, har biri 5 soat",
+          "format": "2 kun davomida 12 ta masala",
+          "subjects": {
+            "0": "Organik",
+            "1": "Anorganik",
+            "2": "Fizikaviy",
+            "3": "Analitik"
+          },
+          "eligibility": "20 yoshgacha, universitetga kiritmagan",
+          "selectionProcess": "Milliy olimpiada + saralash imtihonlari",
+          "preparation": {
+            "0": "Chuqurlashtirilgan nazariya",
+            "1": "Laboratoriya simulyatsiyalari",
+            "2": "O'tgan yillar masalalari",
+            "3": "Xavfsizlik bo'yicha tayyorgarlik"
+          },
+          "benefits": {
+            "0": "Xalqaro laboratoriya tajribasi",
+            "1": "Universitetga kirish imtiyozlari",
+            "2": "Jahon fan tarmog'i",
+            "3": "Karyera imkoniyatlari"
+          }
+        },
+        "ipho": {
+          "name": "Xalqaro fizika olimpiadasi (IPhO)",
+          "description": "O'rta maktab o'quvchilari uchun eng yuqori darajadagi xalqaro fizika musobaqasi.",
+          "country": "Fransiya",
+          "city": "Fransiya",
+          "date": "18–24 iyul",
+          "participants": "4 talaba",
+          "duration": "2 kun, har biri 5 soat",
+          "format": "2 kun davomida 6 ta masala",
+          "subjects": {
+            "0": "Mexanika",
+            "1": "Termodinamika",
+            "2": "Elektromagnetizm",
+            "3": "Zamonaviy fizika"
+          },
+          "eligibility": "20 yoshgacha, universitetga kiritmagan",
+          "selectionProcess": "Milliy olimpiada + intensiv yig'inlar",
+          "preparation": {
+            "0": "Murakkab fizika masalalari",
+            "1": "Formulalarni puxta o'zlashtirish",
+            "2": "Sinov nazariy imtihonlari",
+            "3": "Vaqt strategiyasi"
+          },
+          "benefits": {
+            "0": "Jahon akademik tajribasi",
+            "1": "Ilmiy tadqiqot imkoniyatlari",
+            "2": "Yuqori darajali tengdoshlar tarmog'i",
+            "3": "Karyera o'sishi"
+          }
+        },
+        "ioi": {
+          "name": "Xalqaro informatika olimpiadasi (IOI)",
+          "description": "Maktab o'quvchilari uchun eng nufuzli dasturlash musobaqasi.",
+          "country": "Boliviya",
+          "city": "Boliviya",
+          "date": "27 iyul – 3 avgust",
+          "participants": "4 talaba",
+          "duration": "2 kun, har biri 5 soat",
+          "format": "2 kun davomida 6 ta masala",
+          "subjects": {
+            "0": "Algoritmlar",
+            "1": "Ma'lumotlar tuzilmasi",
+            "2": "Graflar",
+            "3": "Dinamik dasturlash"
+          },
+          "eligibility": "20 yoshgacha, universitetga kiritmagan",
+          "selectionProcess": "Milliy olimpiada + dasturlash yig'inlari",
+          "preparation": {
+            "0": "Musobaqaviy dasturlash",
+            "1": "Algoritmlar bo'yicha mashg'ulotlar",
+            "2": "Sinov musobaqalari",
+            "3": "Optimallashtirish usullari"
+          },
+          "benefits": {
+            "0": "Yetakchi texnologik universitetlarda ko'rinish",
+            "1": "Jahon dasturchilar hamjamiyati",
+            "2": "Karyera imkoniyatlari",
+            "3": "Nufuzli mukofotlar"
+          }
+        }
+      },
+      "otherSection": {
+        "title": "Boshqa xalqaro olimpiadalar",
+        "subtitle": "Iqtisodiyot, geografiya va ingliz tili bo'yicha xalqaro olimpiadalar STEM dan tashqari akademik mukammallikni kengaytiradi.",
+        "medalResults": "2025-yil medal natijalari"
+      },
+      "otherCompetitions": {
+        "elo": {
+          "name": "Ingliz tili olimpiadasi (ELO)",
+          "description": "Til bilish darajasi, ijro, tadqiqot va ijtimoiy faollikni baholovchi xalqaro ingliz tili olimpiadasi.",
+          "location": "Ammon, Iordaniya",
+          "date": "8–10 may",
+          "teamSize": "Kattalar: 5–7 a'zo, Kichiklar: 3–5 a'zo",
+          "duration": "2 kun",
+          "format": "Ijro, test, loyiha taqdimoti, ilmiy maqola, guruh ishi va ko'ngillilik",
+          "eligibility": "20 yoshgacha, universitetga kiritmagan",
+          "category": "Til"
+        },
+        "ieo": {
+          "name": "Xalqaro iqtisodiyot olimpiadasi (IEO)",
+          "description": "Maktab o'quvchilari uchun iqtisodiyot, biznes-keys tahlili va moliyaviy savodxonlik bo'yicha jahon musobaqasi.",
+          "location": "Boku, Ozarbayjon",
+          "date": "20–29 iyul",
+          "teamSize": "5 talaba",
+          "duration": "3 kun",
+          "format": "Iqtisodiyot testi, biznes-keys tayyorlash va biznes-keys taqdimoti",
+          "eligibility": "20 yoshgacha, universitetga kiritmagan",
+          "category": "Iqtisodiyot"
+        },
+        "igeo": {
+          "name": "Xalqaro geografiya olimpiadasi (IGeO)",
+          "description": "Geografik bilimlar, tahliliy fikrlash va dala tadqiqot ko'nikmalarini sinash bo'yicha xalqaro musobaqa.",
+          "location": "Bangkok, Tailand",
+          "date": "26 iyul – 1 avgust 2025",
+          "teamSize": "4 talaba",
+          "duration": "3 kun",
+          "format": "Multimedia test, nazariy topshiriqlar, amaliy dala tadqiqot va keys yechish",
+          "eligibility": "20 yoshgacha, universitetga kiritmagan",
+          "category": "Geografiya"
+        }
+      },
+      "selectionProcess": {
+        "title": "Jamoani tanlash jarayoni",
+        "subtitle": "Bizning qat'iy saralash jarayonimiz faqat eng tayyorlangan talabalar O'zbekistonni xalqaro miqyosda vakili bo'lishini ta'minlaydi.",
+        "steps": {
+          "nationalVictory": {
+            "title": "Milliy g'alaba",
+            "description": "Xalqaro tanlovga loyiq bo'lish uchun milliy olimpiada musobaqalarida medal qo'lga kiriting."
+          },
+          "trainingCamp": {
+            "title": "Tayyorgarlik yig'ini",
+            "description": "Xalqaro darajadagi masalalar va tajribali murabbiylar bilan 3 haftalik intensiv tayyorgarlik yig'inlarida ishtirok eting."
+          },
+          "selectionTests": {
+            "title": "Saralash sinovlari",
+            "description": "Xalqaro musobaqa sharoitlarini aks ettiruvchi bir nechta saralash sinovlarini topshiring."
+          },
+          "teamFormation": {
+            "title": "Jamoa shakllantirish",
+            "description": "Natijalar, barqarorlik va xalqaro musobaqaga tayyorlik asosida yakuniy jamoa tanlanadi."
+          },
+          "internationalCompetition": {
+            "title": "Xalqaro musobaqa",
+            "description": "Davlat to'liq qo'llab-quvvatlashi va tajribali murabbiylar bilan xalqaro maydonda O'zbekistonni vakili sifatida ishtirok eting."
+          }
+        }
+      },
+      "historicalPerformance": {
+        "title": "Tarixiy natijalar",
+        "subtitle": "O'zbekistonning so'nggi besh yil davomida xalqaro fan olimpiadalaridagi yutuqlari haqida ma'lumot.",
+        "medalStatistics": "Medal statistikasi (2025)",
+        "notableAchievements": "Diqqatga sazovor yutuqlar",
+        "years": {
+          "0": {
+            "rank": "Jahonda 15-o'rin"
+          },
+          "1": {
+            "rank": "Jahonda 18-o'rin"
+          },
+          "2": {
+            "rank": "Jahonda 16-o'rin"
+          },
+          "3": {
+            "rank": "Jahonda 20-o'rin"
+          },
+          "4": {
+            "rank": "Jahonda 22-o'rin"
+          }
+        },
+        "achievements": {
+          "imoPerfect": {
+            "title": "IMO 2025 - Mukammal natija",
+            "description": "Akmal Karimov 42/42 ball to'plab, 600 dan ortiq ishtirokchi orasida jahonda 1-o'rinni egalladi."
+          },
+          "iphoBestExperimental": {
+            "title": "IPhO 2025 - Eng yaxshi eksperimental yechim",
+            "description": "Nilufar Rashidova nazariy fizikada eng yaxshi eksperimental yechim uchun maxsus mukofotni qo'lga kiritdi."
+          },
+          "ioiTeam": {
+            "title": "IOI 2025 - Jamoa natijasi",
+            "description": "O'zbekiston jahonda 8-o'rinni egalladi, bu IOI tarixidagi eng yaxshi jamoa natijamiz bo'lib, 3 ta medal qo'lga kiritildi."
+          },
+          "ichoRisingStar": {
+            "title": "IChO 2025 - Ko'tarilayotgan yulduz",
+            "description": "O'zbekistondan 16 yoshda eng yosh oltin medal sohibi, yangi avlodni ilhomlantirmoqda."
+          }
+        }
+      },
+      "cta": {
+        "title": "Jahon e'tirofiga intilasizmi?",
+        "description": "Xalqaro olimpiada chempionlari safiga qo'shiling va dunyoning eng yirik ilmiy sahnasida O'zbekistonni vakili bo'ling.",
+        "checkQualification": "Saralash talablarini tekshirish",
+        "meetChampions": "Chempionlarimiz bilan tanishing"
+      }
+    },
+    "regional": {
+      "hero": {
+        "badge": "Mintaqaviy xalqaro olimpiadalar",
+        "titleStart": "Mintaqaviy xalqaro",
+        "titleHighlight": "Olimpiadalar",
+        "description": "Yevropa, Osiyo va Osiyo–Tinch okeani mintaqasidagi yetakchi mintaqaviy olimpiadalar milliy muvaffaqiyatni jahon darajasidagi musobaqalar bilan bog‘laydi.",
+        "qualificationButton": "Saralash talablari",
+        "viewCompetitionsButton": "Musobaqalarni ko‘rish"
+      },
+      "stats": {
+        "regionalOlympiads": "Mintaqaviy xalqaro olimpiadalar",
+        "hostCountries": "Mezbonlik qiluvchi davlatlar",
+        "teamMembers": "Jamoa a‘zolari",
+        "totalMedals": "Jami medallar"
+      },
+      "competitionsSection": {
+        "title": "Mintaqaviy xalqaro olimpiadalar",
+        "description": "O‘zbekiston talabalari medal qo‘lga kiritadigan va jahon musobaqalariga tayyorgarlik ko‘radigan mintaqaviy olimpiadalar."
+      },
+      "labels": {
+        "shortName": "Qisqa nomi",
+        "location": "Joylashuv",
+        "date": "Sana",
+        "teamSize": "Jamoa tarkibi",
+        "duration": "Davomiyligi",
+        "eligibility": "Ishtirok sharti",
+        "format": "Format"
+      },
+      "medals": {
+        "title": "2025-yil medal natijalari",
+        "gold": "🥇 Oltin",
+        "silver": "🥈 Kumush",
+        "bronze": "🥉 Bronza"
+      },
+      "viewWinners": "G‘oliblarni ko‘rish",
+      "competitions": {
+        "ijso": {
+          "name": "Xalqaro yosh olimlar fan olimpiadasi (IJSO)",
+          "shortName": "IJSO",
+          "location": "Sirius federal hududi, Rossiya",
+          "date": "23-noyabr – 2-dekabr 2025",
+          "teamSize": "6 talaba",
+          "format": "Ko‘p tanlovli test, nazariy tur (6 masala, 4 soat), eksperimental tur",
+          "duration": "3 kun",
+          "eligibility": "20 yoshgacha, universitetda o‘qimagan",
+          "category": "Yosh olimlar fani"
+        },
+        "izho": {
+          "name": "22-Xalqaro Jautikov olimpiadasi (IZhO)",
+          "shortName": "IZhO",
+          "location": "Olmaota, Qozog‘iston",
+          "date": "13–17-yanvar 2025",
+          "teamSize": "4 jamoa, har birida 7 a‘zo",
+          "format": "Matematika: 2 kunda 6 masala; Fizika: 2 kunda 6 masala; Informatika: 1 kunda 3 masala",
+          "duration": "2 kun, 4,5 soat",
+          "eligibility": "20 yoshgacha, universitetda o‘qimagan",
+          "category": "Matematika, Fizika, Informatika"
+        },
+        "cmo": {
+          "name": "Kavkaz matematika olimpiadasi (CMO)",
+          "shortName": "CMO",
+          "location": "Maykop, Adigeya Respublikasi",
+          "date": "14–19-mart 2025",
+          "teamSize": "7 talaba",
+          "format": "2 kunda 8 masala",
+          "duration": "2 kun",
+          "eligibility": "20 yoshgacha, universitetda o‘qimagan",
+          "category": "Matematika"
+        },
+        "egmo": {
+          "name": "Yevropa qizlar matematika olimpiadasi (EGMO)",
+          "shortName": "EGMO",
+          "location": "Prishtina, Kosovo",
+          "date": "11–17-aprel 2025",
+          "teamSize": "4 talaba",
+          "format": "2 kunda 6 masala",
+          "duration": "2 kun",
+          "eligibility": "20 yoshgacha, universitetda o‘qimagan",
+          "category": "Matematika"
+        },
+        "egoi": {
+          "name": "Yevropa qizlar informatika olimpiadasi (EGOI)",
+          "shortName": "EGOI",
+          "location": "Bonn, Germaniya",
+          "date": "14–20-iyul 2025",
+          "teamSize": "4 talaba",
+          "format": "2 kunda 2 musobaqa",
+          "duration": "2 kun",
+          "eligibility": "20 yoshgacha, universitetda o‘qimagan",
+          "category": "Informatika"
+        },
+        "bmo": {
+          "name": "42-Balqon matematika olimpiadasi (BMO)",
+          "shortName": "BMO",
+          "location": "Sarayevo, Bosniya va Gersegovina",
+          "date": "25–30-aprel 2025",
+          "teamSize": "6 talaba",
+          "format": "1 kunda 4 masala",
+          "duration": "1 kun, 4,5 soat",
+          "eligibility": "20 yoshgacha, universitetda o‘qimagan",
+          "category": "Matematika"
+        },
+        "apho": {
+          "name": "Osiyo fizika olimpiadasi (APhO)",
+          "shortName": "APhO",
+          "location": "Dahron, Saudiya Arabistoni Qirolligi",
+          "date": "4–12-may 2025",
+          "teamSize": "5 talaba",
+          "format": "Nazariy va eksperimental imtihonlar",
+          "duration": "2 kun",
+          "eligibility": "20 yoshgacha, universitetda o‘qimagan",
+          "category": "Fizika"
+        },
+        "mmo": {
+          "name": "59-Xalqaro Mendeleev kimyo olimpiadasi (MMO)",
+          "shortName": "MMO",
+          "location": "Belo Horizonte, Braziliya",
+          "date": "5–13-may 2025",
+          "teamSize": "7 talaba",
+          "format": "Amaliy imtihon va 2 nazariy imtihon",
+          "duration": "3 kun",
+          "eligibility": "20 yoshgacha, universitetda o‘qimagan",
+          "category": "Kimyo"
+        },
+        "khimioMath": {
+          "name": "3-Al-Xorazmiy xalqaro matematika va informatika olimpiadasi (KHIMIO)",
+          "shortName": "KHIMIO (Matematika va Informatika)",
+          "location": "Toshkent, O‘zbekiston",
+          "date": "7–13-may 2025",
+          "teamSize": "19 jamoa, har birida 6 a‘zo",
+          "format": "Matematika: 2 kunda 8 masala; Informatika musobaqasi",
+          "duration": "2 kun",
+          "eligibility": "20 yoshgacha, universitetda o‘qimagan",
+          "category": "Matematika, Informatika"
+        },
+        "apio": {
+          "name": "19-Osiyo–Tinch okeani informatika olimpiadasi (APIO, onlayn)",
+          "shortName": "APIO",
+          "location": "Toshkent, O‘zbekiston (onlayn mezbonlik)",
+          "date": "17–18-may 2025",
+          "teamSize": "6 talaba",
+          "format": "Dasturlash musobaqasi",
+          "duration": "2 kun",
+          "eligibility": "20 yoshgacha, universitetda o‘qimagan",
+          "category": "Informatika"
+        },
+        "khimioChem": {
+          "name": "2-Abu Rayhon Beruniy xalqaro kimyo olimpiadasi (KHIMIO)",
+          "shortName": "KHIMIO (Kimyo)",
+          "location": "Toshkent, O‘zbekiston",
+          "date": "28-may – 4-iyun 2025",
+          "teamSize": "5 jamoa, har birida 4 a‘zo",
+          "format": "23 masala",
+          "duration": "2 kun",
+          "eligibility": "18 yoshgacha",
+          "category": "Kimyo"
+        },
+        "jbmo": {
+          "name": "29-Kichik Balqon matematika olimpiadasi (JBMO)",
+          "shortName": "JBMO",
+          "location": "Struga, Shimoliy Makedoniya",
+          "date": "24–29-iyul 2025",
+          "teamSize": "1 jamoa, 6 a‘zo",
+          "format": "4 masala",
+          "duration": "1 kun",
+          "eligibility": "18 yoshgacha",
+          "category": "Matematika"
+        },
+        "apmo": {
+          "name": "Osiyo–Tinch okeani matematika olimpiadasi (APMO, onlayn)",
+          "shortName": "APMO",
+          "location": "Onlayn",
+          "date": "17–18-may 2025",
+          "teamSize": "6 talaba",
+          "format": "Musobaqa (isbotga asoslangan masalalar)",
+          "duration": "2 kun",
+          "eligibility": "20 yoshgacha, universitetda o‘qimagan",
+          "category": "Matematika"
+        }
+      }
+    }
   }
 }

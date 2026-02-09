@@ -614,5 +614,963 @@
       "accommodation": "Are there accommodation facilities?",
       "accommodationAnswer": "Yes, we provide accommodation for students from outside Tashkent. Our residential facilities include dormitories, dining halls, study rooms, and recreational areas, all supervised by qualified staff."
     }
+  },
+  "olympiads": {
+    "local": {
+      "hero": {
+        "badge": "Main Olympiad Stages",
+        "title": "Local",
+        "titleHighlight": "Olympiads",
+        "description": "The Main Olympiad is conducted across 17 subjects in four progressive stages, from school level to republic level, providing a comprehensive pathway for academic excellence.",
+        "exploreStages": "Explore Stages",
+        "viewRequirements": "View Requirements"
+      },
+      "stats": {
+        "competitionStages": "Competition Stages",
+        "subjects": "Subjects",
+        "schoolStageWinners": "School Stage Winners",
+        "regionalParticipants": "Regional Participants"
+      },
+      "stagesSection": {
+        "title": "Olympiad Stages",
+        "description": "Progress through four stages of competition, from school level to republic level, demonstrating your excellence in 17 subjects."
+      },
+      "stageLabel": "Stage",
+      "subjects": {
+        "mathematics": "Mathematics",
+        "physics": "Physics",
+        "chemistry": "Chemistry",
+        "biology": "Biology",
+        "informatics": "Informatics and Information Technologies",
+        "nativeLanguage": "Native Language and Literature",
+        "uzbekLanguage": "Uzbek Language",
+        "russianLanguage": "Russian Language and Literature",
+        "karakalpakLanguage": "Karakalpak Language and Literature",
+        "tajikLanguage": "Tajik Language",
+        "kazakhLanguage": "Kazakh Language",
+        "englishLanguage": "English Language",
+        "germanLanguage": "German Language",
+        "frenchLanguage": "French Language",
+        "history": "History",
+        "stateLaw": "State and Law Fundamentals",
+        "geography": "Geography"
+      },
+      "labels": {
+        "eligibility": "Eligibility",
+        "organizationRequirements": "Organization Requirements",
+        "notificationRequirements": "Notification Requirements",
+        "winners": "Winners",
+        "participationStatistics": "Participation Statistics",
+        "schoolStageWinners": "School Stage Winners",
+        "advancedToDistrict": "Advanced to District Stage",
+        "subjects": "Subjects",
+        "testFormat": "Test Format",
+        "group1Subjects": "Group 1 Subjects",
+        "group2Subjects": "Group 2 Subjects",
+        "testQuestionsPerSubject": "30 test questions per subject",
+        "participation": "Participation",
+        "studentsParticipated": "students participated in this stage.",
+        "specialRules": "Special Rules",
+        "scienceSubjectsFormat": "Science Subjects Format",
+        "part1WrittenProblems": "Part 1: Written Problems",
+        "part2TestQuestions": "Part 2: Test Questions",
+        "problemsOfVaryingDifficulty": "problems of varying difficulty",
+        "pointsMaximum": "points maximum",
+        "duration": "Duration",
+        "eachProblemEvaluated": "Each problem evaluated according to specific criteria",
+        "testQuestions": "test questions",
+        "points": "points",
+        "total": "Total",
+        "informaticsFormat": "Informatics Format",
+        "problemsSolvedOnline": "problems solved on an online portal",
+        "maximumPoints": "Maximum points",
+        "programmingLanguages": "Programming languages",
+        "pointsAwardedForCompleted": "Points awarded for fully completed and system-accepted problems",
+        "humanitiesSubjectsFormat": "Humanities Subjects Format",
+        "competitionStatistics": "Competition Statistics",
+        "group2Summary": "Languages, History, Geography, State and Law Fundamentals",
+        "dates": "Dates",
+        "grades": "Grades",
+        "prizes": "Prizes",
+        "republicStageQualification": "Republic Stage Qualification",
+        "prizesAndAwards": "Prizes and Awards",
+        "monetaryPrizes": "Monetary Prizes",
+        "firstPlace": "1st Place",
+        "secondPlace": "2nd Place",
+        "thirdPlace": "3rd Place",
+        "certificatesAndDiplomas": "Certificates and Diplomas",
+        "competitionFormatBySubjectGroups": "Competition Format by Subject Groups",
+        "scienceSubjectsDetailed": "Science Subjects (Mathematics, Physics, Chemistry, Biology)",
+        "round1WrittenWork": "Round 1: Written Work",
+        "round2TestQuestions": "Round 2: Test Questions",
+        "problemsOfVaryingDifficultyPoints": "problems of varying difficulty",
+        "pointsEach": "points each",
+        "testExaminationFormat": "Test examination format",
+        "formatLabel": "Format",
+        "informaticsFormatDescription": "Two days under same conditions (placing program solutions in electronic system)",
+        "problemsPerDay": "problems per day",
+        "totalWord": "total",
+        "pointsPerProblem": "points per problem",
+        "pointsTotal": "points total",
+        "perDay": "per day",
+        "pointsAwardedBySystem": "Points awarded by electronic system for fully completed and accepted problems",
+        "languageLiteratureSubjects": "Language and Literature Subjects",
+        "languageSubjectsList": "Native Language and Literature, Uzbek Language, Russian Language and Literature, Kazakh Language, Tajik Language, Karakalpak Language and Literature",
+        "round1WrittenWorkEssay": "Round 1: Written Work (Essay)",
+        "foreignLanguagesDetailed": "Foreign Languages (English, German, French)",
+        "foreignLanguagesFormatDescription": "Single round with two parts (listening comprehension, reading, and lexico-grammatical skills assessment)",
+        "part1ListeningReading": "Part 1: Listening and Reading Skills",
+        "part2LexicoGrammatical": "Part 2: Lexico-Grammatical Skills",
+        "maximum": "Maximum",
+        "listeningReadingAssessment": "Assessment of listening comprehension and reading abilities",
+        "vocabGrammarAssessment": "Test questions assessing vocabulary and grammar knowledge",
+        "humanitiesSubjects": "Humanities Subjects",
+        "subjectsLabel": "Subjects",
+        "singleRoundTestQuestions": "Single round - Test questions",
+        "allOtherSubjects": "All Other Subjects",
+        "twoRoundsDescription": "Two rounds: written work and test questions"
+      },
+      "stages": {
+        "1": {
+          "name": "School Stage",
+          "uzbekName": "Maktab bosqichi",
+          "description": "The first stage of the Main Olympiad, conducted among students of state and non-state general secondary education institutions, academic lyceums, and vocational schools across 17 subjects.",
+          "eligibility": "Students in grades 9-11 of state and non-state general secondary education institutions, and students in stages 1-2 of academic lyceums and vocational education institutions.",
+          "participants": "530,629 winners",
+          "nextStageParticipants": "431,270 participants (81%)",
+          "format": "Organized by educational institution pedagogical councils",
+          "requirements": {
+            "0": "Determining competition dates and ensuring student safety",
+            "1": "Forming judging panels (3-7 members) for each subject",
+            "2": "Creating appeal commission member lists",
+            "3": "Preparing control materials and ensuring confidentiality",
+            "4": "Submitting recommendations for winners to advance to the next stage"
+          },
+          "notification": "All students must be informed at least 3 days before the competition through notice boards, social media, Telegram groups, teacher announcements, and general assemblies.",
+          "winners": "Up to 3 winners per subject and grade level (1st, 2nd, 3rd places) are determined based on scores and recommended by the school pedagogical council to participate in the next stage."
+        },
+        "2": {
+          "name": "District/City Stage",
+          "uzbekName": "Tuman (shahar) bosqichi",
+          "description": "The second stage of the Main Olympiad, conducted among students of general secondary education institutions, non-state general secondary education institutions, and specialized schools under the Agency for Specialized Educational Institutions.",
+          "eligibility": "Students in grades 9-11 of general secondary education institutions, non-state general secondary education institutions, and specialized schools (school-internats), as well as students in stages 1-2 of vocational education institutions.",
+          "participants": "431,270 participants",
+          "format": "Centralized test examinations in all subjects, conducted at locations determined by regional organizational committees",
+          "testDetails": {
+            "group1": {
+              "duration": "90 minutes"
+            },
+            "group2": {
+              "duration": "60 minutes"
+            }
+          },
+          "exceptions": "Academic lyceums under various ministries, specialized schools (Presidential and Creative Schools, Al-Beruniy International School-Internat, Abu Ali ibn Sino, Mirzo Ulug'bek, Muhammad al-Khwarizmi specialized schools) and their regional branches participate directly in the third (regional) stage, skipping this stage.",
+          "specialRule": "Students who won 1st place in grades 9-10 in the third (regional) stage of the previous academic year participate directly in the third (regional) stage of the current academic year.",
+          "winners": "3 winners per subject and grade level (1st, 2nd, 3rd places) are determined based on test results and recommended by the organizational committee to participate in the third stage."
+        },
+        "3": {
+          "name": "Regional Stage",
+          "uzbekName": "Hududiy bosqichi",
+          "description": "The third stage of the Main Olympiad, featuring more complex problem-solving and comprehensive evaluation across multiple subjects.",
+          "eligibility": "Students who won 1st, 2nd, or 3rd place in the district/city stage in the relevant subject and grade, as well as up to 3 students recommended by specialized educational institutions, academic lyceums, and non-state educational institutions.",
+          "participants": "28,000+ students",
+          "format": "Two-part examinations for science subjects; single-part test examinations for humanities",
+          "science": {
+            "part1": {
+              "type": "Written Problems",
+              "duration": "180 minutes",
+              "description": "Problems of varying difficulty levels, each evaluated according to specific criteria"
+            },
+            "part2": {
+              "type": "Test Questions",
+              "duration": "90 minutes",
+              "breakdown": {
+                "simple": "First 10 questions: Simple closed tests (A, B, C, D), 0.9 points each",
+                "medium": "Next 10 questions: Medium difficulty closed tests (A, B, C, D), 1.5 points each",
+                "complex": "Last 10 questions: Open tests (written answers), 2.6 points each"
+              },
+              "total": "10×0.9 + 10×1.5 + 10×2.6 = 50 points"
+            },
+            "total": "100 points maximum"
+          },
+          "informatics": {
+            "format": "Single-part online competition",
+            "duration": "240 minutes",
+            "description": "Problems of varying difficulty levels solved on an online portal. Points awarded for fully completed and system-accepted problems."
+          },
+          "humanities": {
+            "format": "Single-part test examination",
+            "duration": "80 minutes",
+            "breakdown": {
+              "simple": "First 10 questions: Simple difficulty closed tests (A, B, C, D), 1.3 points each",
+              "medium": "Next 15 questions: Medium difficulty closed tests (A, B, C, D), 2.4 points each",
+              "complex": "Last 15 questions: High difficulty closed tests (A, B, C, D), 3.4 points each"
+            },
+            "total": "10×1.3 + 15×2.4 + 15×3.4 = 100 points"
+          },
+          "winners": "3 winners per subject and grade level (1st, 2nd, 3rd places) are determined based on total scores and recommended by the judging panel and organizational committee to participate in the next stage.",
+          "statistics": {
+            "group1": {
+              "dates": "November 24-28",
+              "grades": "9-10-11",
+              "participants": "~9,500 students"
+            },
+            "group2": {
+              "participants": "18,500+ students"
+            }
+          },
+          "prizes": "Winners (1st, 2nd, 3rd places) in each subject are awarded one-time monetary prizes as specified in the Cabinet of Ministers Resolution No. 562 dated September 9, 2021.",
+          "republicQualifiers": "11th grade students with the highest achievements in each subject receive invitations to participate in the Republic Stage of the Main Olympiad."
+        },
+        "4": {
+          "name": "Republic Stage",
+          "uzbekName": "Respublika bosqichi",
+          "description": "The final and most prestigious stage of the Main Olympiad, bringing together the best students from across Uzbekistan to compete at the national level.",
+          "eligibility": "Students who won 1st, 2nd, or 3rd place in the third (regional) stage - specifically 11th grade students from general secondary education institutions, vocational schools, and academic lyceums.",
+          "prizes": {
+            "monetary": {
+              "first": "12 base calculation amounts",
+              "second": "8 base calculation amounts",
+              "third": "6 base calculation amounts"
+            },
+            "certificates": "Diplomas and certificates",
+            "benefits": "Winners receive certificates that grant the right to admission to state higher education institutions without exams or with maximum points"
+          },
+          "format": {
+            "humanities": {
+              "type": "Single round",
+              "format": "Test questions"
+            },
+            "foreignLanguages": {
+              "type": "Single round with two parts",
+              "part1": {
+                "name": "Listening comprehension and reading skills",
+                "description": "Assessment of listening and reading comprehension abilities"
+              },
+              "part2": {
+                "name": "Lexico-grammatical skills",
+                "format": "Test questions",
+                "description": "Assessment of vocabulary and grammar knowledge"
+              },
+              "duration": "180 minutes"
+            },
+            "informatics": {
+              "type": "Two days under same conditions",
+              "format": "Placing program solutions in electronic system",
+              "durationPerDay": "240 minutes",
+              "description": "Participants solve problems by placing program solutions in an electronic system. Points are awarded by the electronic system for fully completed and accepted problems."
+            },
+            "science": {
+              "type": "Two rounds",
+              "round1": {
+                "name": "Written work",
+                "duration": "180 minutes",
+                "description": "Problems of varying difficulty levels"
+              },
+              "round2": {
+                "name": "Test questions",
+                "format": "Test examination"
+              }
+            },
+            "languages": {
+              "type": "Two rounds",
+              "round1": {
+                "name": "Written work (Essay)",
+                "duration": "60 minutes"
+              },
+              "round2": {
+                "name": "Test questions",
+                "format": "Test examination"
+              }
+            },
+            "other": {
+              "description": "All other subjects are conducted in two rounds: written work and test questions"
+            }
+          }
+        }
+      },
+      "cta": {
+        "title": "Start Your Olympiad Journey",
+        "description": "Begin at the school stage and progress through district, regional, and republic levels. Each stage builds your skills and opens new opportunities for academic excellence.",
+        "viewQualification": "View Qualification Requirements",
+        "contactUs": "Contact Us"
+      }
+    },
+    "prestigious": {
+      "hero": {
+        "badge": "Elite Competitions",
+        "titleStart": "Prestigious",
+        "titleHighlight": "Olympiads",
+        "description": "National competitions and elite international qualifiers for the most talented students in Uzbekistan. Your pathway to representing our nation on the world stage.",
+        "applyNow": "Apply Now",
+        "viewCompetitions": "View Competitions"
+      },
+      "stats": {
+        "competitions": "Prestigious Competitions",
+        "participants": "Annual Participants",
+        "qualifiers": "International Qualifiers",
+        "admissionRate": "University Admission Rate"
+      },
+      "competitions": {
+        "title": "Major Prestigious Competitions",
+        "description": "These elite competitions serve as gateways to international olympiads and prestigious university programs."
+      },
+      "labels": {
+        "elite": "Elite",
+        "international": "International",
+        "participants": "Participants:",
+        "duration": "Duration:",
+        "format": "Format:",
+        "registration": "Registration:",
+        "competition": "Competition:",
+        "location": "Location:",
+        "requirements": "Requirements",
+        "preparationFocus": "Preparation Focus",
+        "date": "Date:",
+        "teamSize": "Team Size:",
+        "eligibility": "Eligibility:"
+      },
+      "results": {
+        "title": "2023 Results",
+        "gold": "🥇 Gold:",
+        "silver": "🥈 Silver:",
+        "bronze": "🥉 Bronze:",
+        "internationalTeam": "International Team:",
+        "medalResults": "2025 Medal Results"
+      },
+      "actions": {
+        "registerNow": "Register Now",
+        "viewRequirements": "View Requirements"
+      },
+      "nationalOlympiads": {
+        "math": {
+          "name": "National Mathematics Olympiad",
+          "description": "The most prestigious mathematics competition in Uzbekistan, serving as the primary qualifier for IMO.",
+          "eligibility": "Grades 9-11, Uzbek citizens",
+          "participants": "120 finalists",
+          "duration": "4.5 hours",
+          "format": "6 challenging problems",
+          "prizes": "Gold, Silver, Bronze medals + IMO team selection",
+          "registrationDeadline": "September 15, 2024",
+          "competitionDate": "December 10, 2024",
+          "location": "Tashkent",
+          "requirements": {
+            "0": "Strong foundation in algebra, geometry, number theory",
+            "1": "Previous regional olympiad participation recommended",
+            "2": "Academic transcript with mathematics grades A/5",
+            "3": "Recommendation letter from mathematics teacher"
+          },
+          "preparation": {
+            "0": "Advanced problem-solving techniques",
+            "1": "Past olympiad problems practice",
+            "2": "Mathematical proof writing",
+            "3": "Time management strategies"
+          }
+        },
+        "physics": {
+          "name": "National Physics Olympiad",
+          "description": "Premier physics competition combining theoretical knowledge with experimental skills for IPhO qualification.",
+          "eligibility": "Grades 10-11, Uzbek citizens",
+          "participants": "100 finalists",
+          "duration": "5 hours (3h theory + 2h experimental)",
+          "format": "Theoretical problems + Laboratory experiments",
+          "prizes": "Gold, Silver, Bronze medals + IPhO team selection",
+          "registrationDeadline": "September 20, 2024",
+          "competitionDate": "December 12, 2024",
+          "location": "Tashkent",
+          "requirements": {
+            "0": "Advanced physics knowledge (mechanics, thermodynamics, electromagnetism)",
+            "1": "Laboratory experience with measurement instruments",
+            "2": "Strong mathematical background (calculus, differential equations)",
+            "3": "Previous physics competition experience preferred"
+          },
+          "preparation": {
+            "0": "Advanced theoretical physics problems",
+            "1": "Experimental design and data analysis",
+            "2": "Scientific report writing",
+            "3": "Laboratory safety protocols"
+          }
+        },
+        "chemistry": {
+          "name": "National Chemistry Olympiad",
+          "description": "Comprehensive chemistry competition testing theoretical knowledge and practical laboratory skills for IChO.",
+          "eligibility": "Grades 10-11, Uzbek citizens",
+          "participants": "90 finalists",
+          "duration": "5 hours (3h theory + 2h practical)",
+          "format": "Theoretical problems + Laboratory synthesis",
+          "prizes": "Gold, Silver, Bronze medals + IChO team selection",
+          "registrationDeadline": "September 25, 2024",
+          "competitionDate": "December 14, 2024",
+          "location": "Tashkent",
+          "requirements": {
+            "0": "Mastery of organic, inorganic, and physical chemistry",
+            "1": "Laboratory synthesis and analysis experience",
+            "2": "Understanding of chemical safety procedures",
+            "3": "Strong analytical and problem-solving skills"
+          },
+          "preparation": {
+            "0": "Advanced chemical reactions and mechanisms",
+            "1": "Quantitative analysis techniques",
+            "2": "Spectroscopy and structure determination",
+            "3": "Laboratory technique refinement"
+          }
+        }
+      },
+      "internationalOlympiads": {
+        "imo": {
+          "name": "International Mathematical Olympiad (IMO)",
+          "location": "Australia",
+          "date": "10–20 July",
+          "teamSize": "6 students",
+          "format": "6 problems over 2 days",
+          "duration": "2 days, 4.5 hours each",
+          "eligibility": "Under 20 years, not enrolled in university"
+        },
+        "icho": {
+          "name": "International Chemistry Olympiad (IChO)",
+          "location": "United Arab Emirates",
+          "date": "5–14 July",
+          "teamSize": "4 students",
+          "format": "12 problems over 2 days",
+          "duration": "2 days, 5 hours each",
+          "eligibility": "Under 20 years, not enrolled in university"
+        },
+        "ipho": {
+          "name": "International Physics Olympiad (IPhO)",
+          "location": "France",
+          "date": "18–24 July",
+          "teamSize": "4 students",
+          "format": "6 problems over 2 days",
+          "duration": "2 days, 5 hours each",
+          "eligibility": "Under 20 years, not enrolled in university"
+        },
+        "ioi": {
+          "name": "International Olympiad in Informatics (IOI)",
+          "location": "Bolivia",
+          "date": "27 July – 3 August",
+          "teamSize": "4 students",
+          "format": "6 problems over 2 days",
+          "duration": "2 days, 5 hours each",
+          "eligibility": "Under 20 years, not enrolled in university"
+        }
+      },
+      "international": {
+        "title": "Prestigious International Olympiads",
+        "description": "International STEM olympiads where our best students compete for medals and global recognition.",
+        "cardDescription": "Elite international competition for the world's strongest high school students."
+      },
+      "applicationProcess": {
+        "title": "Application Process",
+        "description": "Follow these steps to participate in prestigious olympiad competitions.",
+        "steps": {
+          "step1": {
+            "title": "Online Registration",
+            "description": "Complete your application with academic transcripts and teacher recommendations."
+          },
+          "step2": {
+            "title": "Regional Qualifier",
+            "description": "Participate in regional competitions to qualify for national finals."
+          },
+          "step3": {
+            "title": "Training Camp",
+            "description": "Top qualifiers attend intensive training camps with expert coaches."
+          },
+          "step4": {
+            "title": "National Finals",
+            "description": "Compete in national finals for medals and international team selection."
+          }
+        }
+      },
+      "successStories": {
+        "title": "Success Stories",
+        "description": "Meet our prestigious olympiad winners who went on to achieve international recognition.",
+        "stories": {
+          "akmal": {
+            "name": "Akmal Karimov",
+            "title": "Mathematics Gold Medalist",
+            "quote": "Winning the National Mathematics Olympiad opened doors to IMO 2024 where I achieved a perfect score. Now studying at MIT with a full scholarship."
+          },
+          "nilufar": {
+            "name": "Nilufar Rashidova",
+            "title": "Physics Gold Medalist",
+            "quote": "The rigorous training for National Physics Olympiad prepared me for IPhO success. Currently pursuing PhD in Theoretical Physics at Cambridge."
+          },
+          "sardor": {
+            "name": "Sardor Abdullayev",
+            "title": "Chemistry Gold Medalist",
+            "quote": "National Chemistry Olympiad victory led to IChO gold medal and research opportunities. Now working on sustainable chemistry solutions at Stanford."
+          }
+        }
+      },
+      "cta": {
+        "title": "Ready to Join the Elite?",
+        "description": "Take the first step towards representing Uzbekistan in international competitions and securing your future in science.",
+        "startApplication": "Start Application",
+        "getGuidance": "Get Guidance"
+      }
+    },
+    "international": {
+      "hero": {
+        "badge": "Global Competitions",
+        "titleStart": "International",
+        "titleHighlight": "Olympiads",
+        "description": "Represent Uzbekistan on the world stage and compete with the brightest minds from over 100 countries in prestigious international science competitions.",
+        "qualificationButton": "Qualification Requirements",
+        "viewCompetitionsButton": "View Competitions"
+      },
+      "stats": {
+        "competitions": "International Competitions",
+        "teamMembers": "Team Members Annually",
+        "countries": "Participating Countries",
+        "medals": "Medals Won (2025)"
+      },
+      "labels": {
+        "international": "International",
+        "location": "Location",
+        "date": "Date",
+        "teamSize": "Team Size",
+        "students": "students",
+        "format": "Format",
+        "duration": "Duration",
+        "eligibility": "Eligibility",
+        "competitionSubjects": "Competition Subjects",
+        "preparationProgram": "Preparation Program",
+        "benefits": "Benefits",
+        "results": "Results",
+        "goldMedal": "🥇 Gold",
+        "silverMedal": "🥈 Silver",
+        "bronzeMedal": "🥉 Bronze",
+        "globalRanking": "Global Ranking",
+        "viewRequirements": "View Requirements",
+        "officialWebsite": "Official Website",
+        "medals": "medals",
+        "gold": "Gold",
+        "silver": "Silver",
+        "bronze": "Bronze",
+        "goldEmoji": "🥇",
+        "silverEmoji": "🥈",
+        "bronzeEmoji": "🥉"
+      },
+      "mainCompetitions": {
+        "title": "Major International Competitions",
+        "subtitle": "These world-renowned competitions bring together the most talented students from around the globe."
+      },
+      "competitions": {
+        "imo": {
+          "name": "International Mathematical Olympiad (IMO)",
+          "description": "World's most prestigious mathematics competition for high school students.",
+          "country": "Australia",
+          "city": "Australia",
+          "date": "10–20 July",
+          "participants": "6 students",
+          "duration": "2 days, 4.5 hours each",
+          "format": "6 problems over 2 days",
+          "subjects": {
+            "0": "Algebra",
+            "1": "Combinatorics",
+            "2": "Geometry",
+            "3": "Number Theory"
+          },
+          "eligibility": "Under 20 years, not enrolled in university",
+          "selectionProcess": "National Olympiad + training camp",
+          "preparation": {
+            "0": "Advanced problem solving",
+            "1": "Mock exams",
+            "2": "Time management",
+            "3": "Mental endurance"
+          },
+          "benefits": {
+            "0": "Global recognition",
+            "1": "Scholarship opportunities",
+            "2": "International experience",
+            "3": "Academic networking"
+          }
+        },
+        "icho": {
+          "name": "International Chemistry Olympiad (IChO)",
+          "description": "Global chemistry competition with theoretical and practical challenges.",
+          "country": "United Arab Emirates",
+          "city": "UAE",
+          "date": "5–14 July",
+          "participants": "4 students",
+          "duration": "2 days, 5 hours each",
+          "format": "12 problems over 2 days",
+          "subjects": {
+            "0": "Organic",
+            "1": "Inorganic",
+            "2": "Physical",
+            "3": "Analytical"
+          },
+          "eligibility": "Under 20 years, not enrolled in university",
+          "selectionProcess": "National Olympiad + selection exams",
+          "preparation": {
+            "0": "Advanced theory",
+            "1": "Lab simulations",
+            "2": "Past paper practice",
+            "3": "Safety training"
+          },
+          "benefits": {
+            "0": "International lab exposure",
+            "1": "University advantages",
+            "2": "Global science network",
+            "3": "Career opportunities"
+          }
+        },
+        "ipho": {
+          "name": "International Physics Olympiad (IPhO)",
+          "description": "Top-level international physics competition for secondary school students.",
+          "country": "France",
+          "city": "France",
+          "date": "18–24 July",
+          "participants": "4 students",
+          "duration": "2 days, 5 hours each",
+          "format": "6 problems over 2 days",
+          "subjects": {
+            "0": "Mechanics",
+            "1": "Thermodynamics",
+            "2": "Electromagnetism",
+            "3": "Modern Physics"
+          },
+          "eligibility": "Under 20 years, not enrolled in university",
+          "selectionProcess": "National Olympiad + intensive camps",
+          "preparation": {
+            "0": "Advanced physics problems",
+            "1": "Formula mastery",
+            "2": "Mock theoretical exams",
+            "3": "Time strategy"
+          },
+          "benefits": {
+            "0": "Global academic exposure",
+            "1": "Research opportunities",
+            "2": "Elite peer network",
+            "3": "Career growth"
+          }
+        },
+        "ioi": {
+          "name": "International Olympiad in Informatics (IOI)",
+          "description": "The most prestigious competitive programming contest for high school students.",
+          "country": "Bolivia",
+          "city": "Bolivia",
+          "date": "27 July – 3 August",
+          "participants": "4 students",
+          "duration": "2 days, 5 hours each",
+          "format": "6 problems over 2 days",
+          "subjects": {
+            "0": "Algorithms",
+            "1": "Data Structures",
+            "2": "Graphs",
+            "3": "Dynamic Programming"
+          },
+          "eligibility": "Under 20 years, not enrolled in university",
+          "selectionProcess": "National Olympiad + coding camps",
+          "preparation": {
+            "0": "Competitive programming",
+            "1": "Algorithm training",
+            "2": "Mock contests",
+            "3": "Optimization techniques"
+          },
+          "benefits": {
+            "0": "Top tech university visibility",
+            "1": "Global coding community",
+            "2": "Career opportunities",
+            "3": "Prestige awards"
+          }
+        }
+      },
+      "otherSection": {
+        "title": "Other International Olympiads",
+        "subtitle": "International olympiads in economics, geography and English that broaden academic excellence beyond STEM.",
+        "medalResults": "2025 Medal Results"
+      },
+      "otherCompetitions": {
+        "elo": {
+          "name": "English Language Olympiad (ELO)",
+          "description": "International English language olympiad assessing performance, language proficiency, research and social engagement.",
+          "location": "Amman, Jordan",
+          "date": "8–10 May",
+          "teamSize": "Senior: 5–7 members, Junior: 3–5 members",
+          "duration": "2 days",
+          "format": "Performance, test, project presentation, research paper, group work and volunteering",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Language"
+        },
+        "ieo": {
+          "name": "International Economics Olympiad (IEO)",
+          "description": "Global competition for high school students in economics, business case analysis and financial literacy.",
+          "location": "Baku, Azerbaijan",
+          "date": "20–29 July",
+          "teamSize": "5 students",
+          "duration": "3 days",
+          "format": "Economics test, business case preparation and business case presentation",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Economics"
+        },
+        "igeo": {
+          "name": "International Geography Olympiad (IGeO)",
+          "description": "International competition testing geographical knowledge, analytical thinking and fieldwork skills.",
+          "location": "Bangkok, Thailand",
+          "date": "26 July – 1 August 2025",
+          "teamSize": "4 students",
+          "duration": "3 days",
+          "format": "Multimedia test, theoretical tasks, practical fieldwork and case-solving",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Geography"
+        }
+      },
+      "selectionProcess": {
+        "title": "Team Selection Process",
+        "subtitle": "Our rigorous selection process ensures only the most prepared students represent Uzbekistan internationally.",
+        "steps": {
+          "nationalVictory": {
+            "title": "National Victory",
+            "description": "Win medals at National Olympiad competitions to qualify for international consideration."
+          },
+          "trainingCamp": {
+            "title": "Training Camp",
+            "description": "Attend intensive 3-week training camps with international-level problems and expert coaching."
+          },
+          "selectionTests": {
+            "title": "Selection Tests",
+            "description": "Complete multiple selection tests designed to mirror international competition conditions."
+          },
+          "teamFormation": {
+            "title": "Team Formation",
+            "description": "Final team selection based on performance, consistency, and readiness for international competition."
+          },
+          "internationalCompetition": {
+            "title": "International Competition",
+            "description": "Represent Uzbekistan with full government support and expert coaching at international venues."
+          }
+        }
+      },
+      "historicalPerformance": {
+        "title": "Historical Performance",
+        "subtitle": "Track record of Uzbekistan's achievements in international science olympiads over the past five years.",
+        "medalStatistics": "Medal Statistics (2025)",
+        "notableAchievements": "Notable Achievements",
+        "years": {
+          "0": {
+            "rank": "15th globally"
+          },
+          "1": {
+            "rank": "18th globally"
+          },
+          "2": {
+            "rank": "16th globally"
+          },
+          "3": {
+            "rank": "20th globally"
+          },
+          "4": {
+            "rank": "22nd globally"
+          }
+        },
+        "achievements": {
+          "imoPerfect": {
+            "title": "IMO 2025 - Perfect Score",
+            "description": "Akmal Karimov achieved a perfect score of 42/42 points, ranking 1st globally among 600+ participants."
+          },
+          "iphoBestExperimental": {
+            "title": "IPhO 2025 - Best Experimental",
+            "description": "Nilufar Rashidova won the special prize for best experimental solution in theoretical physics."
+          },
+          "ioiTeam": {
+            "title": "IOI 2025 - Team Performance",
+            "description": "Uzbekistan ranked 8th globally, our best team performance in IOI history with 3 medals."
+          },
+          "ichoRisingStar": {
+            "title": "IChO 2025 - Rising Star",
+            "description": "Youngest ever gold medalist from Uzbekistan at age 16, inspiring a new generation."
+          }
+        }
+      },
+      "cta": {
+        "title": "Dream of Global Recognition?",
+        "description": "Join the ranks of international olympiad champions and represent Uzbekistan on the world's biggest scientific stage.",
+        "checkQualification": "Check Qualification",
+        "meetChampions": "Meet Our Champions"
+      }
+    },
+    "regional": {
+      "hero": {
+        "badge": "Regional International Olympiads",
+        "titleStart": "Regional International",
+        "titleHighlight": "Olympiads",
+        "description": "Leading regional olympiads in Europe, Asia and the Asia–Pacific region that connect national success with world-level competition.",
+        "qualificationButton": "Qualification Requirements",
+        "viewCompetitionsButton": "View Competitions"
+      },
+      "stats": {
+        "regionalOlympiads": "Regional International Olympiads",
+        "hostCountries": "Host Countries",
+        "teamMembers": "Team Members",
+        "totalMedals": "Total Medals"
+      },
+      "competitionsSection": {
+        "title": "Regional International Olympiads",
+        "description": "Regional olympiads where Uzbekistan's students earn medals and gain experience before global competitions."
+      },
+      "labels": {
+        "shortName": "Short name",
+        "location": "Location",
+        "date": "Date",
+        "teamSize": "Team Size",
+        "duration": "Duration",
+        "eligibility": "Eligibility",
+        "format": "Format"
+      },
+      "medals": {
+        "title": "2025 Medal Results",
+        "gold": "🥇 Gold",
+        "silver": "🥈 Silver",
+        "bronze": "🥉 Bronze"
+      },
+      "viewWinners": "View Winners",
+      "competitions": {
+        "ijso": {
+          "name": "International Junior Science Olympiad (IJSO)",
+          "shortName": "IJSO",
+          "location": "Sirius Federal Territory, Russia",
+          "date": "23 November – 2 December 2025",
+          "teamSize": "6 students",
+          "format": "Multiple-choice questionnaire, theoretical round (6 problems, 4 hours), experimental round",
+          "duration": "3 days",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Junior Science"
+        },
+        "izho": {
+          "name": "22nd International Zhautykov Olympiad (IZhO)",
+          "shortName": "IZhO",
+          "location": "Almaty, Kazakhstan",
+          "date": "13–17 January 2025",
+          "teamSize": "4 teams, 7 members each",
+          "format": "Mathematics: 6 problems over 2 days; Physics: 6 problems over 2 days; Informatics: 3 problems over 1 day",
+          "duration": "2 days, 4.5 hours",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Mathematics, Physics, Informatics"
+        },
+        "cmo": {
+          "name": "Caucasus Mathematical Olympiad (CMO)",
+          "shortName": "CMO",
+          "location": "Maykop, Republic of Adygea",
+          "date": "14–19 March 2025",
+          "teamSize": "7 students",
+          "format": "8 problems over 2 days",
+          "duration": "2 days",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Mathematics"
+        },
+        "egmo": {
+          "name": "European Girls' Mathematical Olympiad (EGMO)",
+          "shortName": "EGMO",
+          "location": "Prishtina, Kosovo",
+          "date": "11–17 April 2025",
+          "teamSize": "4 students",
+          "format": "6 problems over 2 days",
+          "duration": "2 days",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Mathematics"
+        },
+        "egoi": {
+          "name": "European Girls' Olympiad in Informatics (EGOI)",
+          "shortName": "EGOI",
+          "location": "Bonn, Germany",
+          "date": "14–20 July 2025",
+          "teamSize": "4 students",
+          "format": "2 contests over 2 days",
+          "duration": "2 days",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Informatics"
+        },
+        "bmo": {
+          "name": "42nd Balkan Mathematical Olympiad (BMO)",
+          "shortName": "BMO",
+          "location": "Sarajevo, Bosnia and Herzegovina",
+          "date": "25–30 April 2025",
+          "teamSize": "6 students",
+          "format": "4 problems over 1 day",
+          "duration": "1 day, 4.5 hours",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Mathematics"
+        },
+        "apho": {
+          "name": "Asian Physics Olympiad (APhO)",
+          "shortName": "APhO",
+          "location": "Dhahran, Kingdom of Saudi Arabia",
+          "date": "4–12 May 2025",
+          "teamSize": "5 students",
+          "format": "Theoretical and experimental exams",
+          "duration": "2 days",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Physics"
+        },
+        "mmo": {
+          "name": "59th International Mendeleev Chemistry Olympiad (MMO)",
+          "shortName": "MMO",
+          "location": "Belo Horizonte, Brazil",
+          "date": "5–13 May 2025",
+          "teamSize": "7 students",
+          "format": "Practical exam and 2 theoretical exams",
+          "duration": "3 days",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Chemistry"
+        },
+        "khimioMath": {
+          "name": "3rd Al-Khwarizmi International Mathematics and Informatics Olympiad (KHIMIO)",
+          "shortName": "KHIMIO (Math & CS)",
+          "location": "Tashkent, Uzbekistan",
+          "date": "7–13 May 2025",
+          "teamSize": "19 teams, 6 members each",
+          "format": "Mathematics: 8 problems over 2 days; Informatics contest",
+          "duration": "2 days",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Mathematics, Informatics"
+        },
+        "apio": {
+          "name": "19th Asia–Pacific Informatics Olympiad (APIO, online)",
+          "shortName": "APIO",
+          "location": "Tashkent, Uzbekistan (online host)",
+          "date": "17–18 May 2025",
+          "teamSize": "6 students",
+          "format": "Programming contest",
+          "duration": "2 days",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Informatics"
+        },
+        "khimioChem": {
+          "name": "2nd Abu Rayhan Biruni International Chemistry Olympiad (KHIMIO)",
+          "shortName": "KHIMIO (Chemistry)",
+          "location": "Tashkent, Uzbekistan",
+          "date": "28 May – 4 June 2025",
+          "teamSize": "5 teams, 4 members each",
+          "format": "23 problems",
+          "duration": "2 days",
+          "eligibility": "Under 18 years",
+          "category": "Chemistry"
+        },
+        "jbmo": {
+          "name": "29th Junior Balkan Mathematical Olympiad (JBMO)",
+          "shortName": "JBMO",
+          "location": "Struga, North Macedonia",
+          "date": "24–29 July 2025",
+          "teamSize": "1 team, 6 members",
+          "format": "4 problems",
+          "duration": "1 day",
+          "eligibility": "Under 18 years",
+          "category": "Mathematics"
+        },
+        "apmo": {
+          "name": "Asian Pacific Mathematics Olympiad (APMO, online)",
+          "shortName": "APMO",
+          "location": "Online",
+          "date": "17–18 May 2025",
+          "teamSize": "6 students",
+          "format": "Contest (proof-based problems)",
+          "duration": "2 days",
+          "eligibility": "Under 20 years, not enrolled in university",
+          "category": "Mathematics"
+        }
+      }
+    }
   }
 }

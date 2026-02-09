@@ -1,3 +1,4 @@
+"use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -5,234 +6,237 @@ import { Badge } from "@/components/ui/badge"
 import { MapPin, Trophy, Users, Calendar, Clock, Star, CheckCircle, ArrowRight, GraduationCap, BookOpen, Award, Target } from "lucide-react"
 import { Link } from "@/i18n/routing"
 import { FadingBackground } from "@/components/fading-bg"
-
-const olympiadStages = [
-  {
-    stage: 1,
-    name: "School Stage",
-    uzbekName: "Maktab bosqichi",
-    description: "The first stage of the Main Olympiad, conducted among students of state and non-state general secondary education institutions, academic lyceums, and vocational schools across 17 subjects.",
-    eligibility: "Students in grades 9-11 of state and non-state general secondary education institutions, and students in stages 1-2 of academic lyceums and vocational education institutions.",
-    participants: "530,629 winners",
-    nextStageParticipants: "431,270 participants (81%)",
-    format: "Organized by educational institution pedagogical councils",
-    requirements: [
-      "Determining competition dates and ensuring student safety",
-      "Forming judging panels (3-7 members) for each subject",
-      "Creating appeal commission member lists",
-      "Preparing control materials and ensuring confidentiality",
-      "Submitting recommendations for winners to advance to the next stage"
-    ],
-    notification: "All students must be informed at least 3 days before the competition through notice boards, social media, Telegram groups, teacher announcements, and general assemblies.",
-    winners: "Up to 3 winners per subject and grade level (1st, 2nd, 3rd places) are determined based on scores and recommended by the school pedagogical council to participate in the next stage.",
-    subjects: [
-      "Mathematics", "Physics", "Chemistry", "Biology", "Informatics and Information Technologies",
-      "Native Language and Literature", "Uzbek Language", "Russian Language and Literature",
-      "Karakalpak Language and Literature", "Tajik Language", "Kazakh Language",
-      "English Language", "German Language", "French Language",
-      "History", "State and Law Fundamentals", "Geography"
-    ],
-    totalSubjects: 17
-  },
-  {
-    stage: 2,
-    name: "District/City Stage",
-    uzbekName: "Tuman (shahar) bosqichi",
-    description: "The second stage of the Main Olympiad, conducted among students of general secondary education institutions, non-state general secondary education institutions, and specialized schools under the Agency for Specialized Educational Institutions.",
-    eligibility: "Students in grades 9-11 of general secondary education institutions, non-state general secondary education institutions, and specialized schools (school-internats), as well as students in stages 1-2 of vocational education institutions.",
-    participants: "431,270 participants",
-    format: "Centralized test examinations in all subjects, conducted at locations determined by regional organizational committees",
-    testDetails: {
-      totalQuestions: 30,
-      group1: {
-        subjects: ["Mathematics", "Physics", "Chemistry", "Biology", "Informatics and Information Technologies"],
-        duration: "90 minutes"
-      },
-      group2: {
-        subjects: [
-          "Native Language and Literature", "Uzbek Language", "Russian Language and Literature",
-          "Karakalpak Language and Literature", "Tajik Language", "Kazakh Language",
-          "English Language", "German Language", "French Language",
-          "History", "State and Law Fundamentals", "Geography"
-        ],
-        duration: "60 minutes"
-      }
-    },
-    exceptions: "Academic lyceums under various ministries, specialized schools (Presidential and Creative Schools, Al-Beruniy International School-Internat, Abu Ali ibn Sino, Mirzo Ulug'bek, Muhammad al-Khwarizmi specialized schools) and their regional branches participate directly in the third (regional) stage, skipping this stage.",
-    specialRule: "Students who won 1st place in grades 9-10 in the third (regional) stage of the previous academic year participate directly in the third (regional) stage of the current academic year.",
-    winners: "3 winners per subject and grade level (1st, 2nd, 3rd places) are determined based on test results and recommended by the organizational committee to participate in the third stage.",
-    totalSubjects: 17
-  },
-  {
-    stage: 3,
-    name: "Regional Stage",
-    uzbekName: "Hududiy bosqichi",
-    description: "The third stage of the Main Olympiad, featuring more complex problem-solving and comprehensive evaluation across multiple subjects.",
-    eligibility: "Students who won 1st, 2nd, or 3rd place in the district/city stage in the relevant subject and grade, as well as up to 3 students recommended by specialized educational institutions, academic lyceums, and non-state educational institutions.",
-    participants: "28,000+ students",
-    format: "Two-part examinations for science subjects; single-part test examinations for humanities",
-    subjects: {
-      science: {
-        subjects: ["Mathematics", "Physics", "Chemistry", "Biology"],
-        part1: {
-          type: "Written Problems",
-          problems: 5,
-          points: 50,
-          duration: "180 minutes",
-          description: "Problems of varying difficulty levels, each evaluated according to specific criteria"
-        },
-        part2: {
-          type: "Test Questions",
-          questions: 30,
-          points: 50,
-          duration: "90 minutes",
-          breakdown: {
-            simple: "First 10 questions: Simple closed tests (A, B, C, D), 0.9 points each",
-            medium: "Next 10 questions: Medium difficulty closed tests (A, B, C, D), 1.5 points each",
-            complex: "Last 10 questions: Open tests (written answers), 2.6 points each"
-          },
-          total: "10×0.9 + 10×1.5 + 10×2.6 = 50 points"
-        },
-        total: "100 points maximum"
-      },
-      informatics: {
-        subject: "Informatics and Information Technologies",
-        format: "Single-part online competition",
-        problems: 5,
-        points: 50,
-        duration: "240 minutes",
-        languages: ["C++", "Python", "Java"],
-        description: "Problems of varying difficulty levels solved on an online portal. Points awarded for fully completed and system-accepted problems."
-      },
-      humanities: {
-        subjects: ["History", "State and Law Fundamentals", "Geography"],
-        format: "Single-part test examination",
-        questions: 40,
-        points: 100,
-        duration: "80 minutes",
-        breakdown: {
-          simple: "First 10 questions: Simple difficulty closed tests (A, B, C, D), 1.3 points each",
-          medium: "Next 15 questions: Medium difficulty closed tests (A, B, C, D), 2.4 points each",
-          complex: "Last 15 questions: High difficulty closed tests (A, B, C, D), 3.4 points each"
-        },
-        total: "10×1.3 + 15×2.4 + 15×3.4 = 100 points"
-      }
-    },
-    winners: "3 winners per subject and grade level (1st, 2nd, 3rd places) are determined based on total scores and recommended by the judging panel and organizational committee to participate in the next stage.",
-    statistics: {
-      group1: {
-        subjects: ["Mathematics", "Physics", "Chemistry", "Biology", "Informatics and Information Technologies"],
-        dates: "November 24-28",
-        grades: "9-10-11",
-        participants: "~9,500 students"
-      },
-      group2: {
-        subjects: [
-          "Native Language and Literature", "Uzbek Language", "Karakalpak Language and Literature",
-          "Russian Language and Literature", "Tajik Language", "Kazakh Language",
-          "English Language", "German Language", "French Language",
-          "History", "Geography", "State and Law Fundamentals"
-        ],
-        participants: "18,500+ students"
-      }
-    },
-    prizes: "Winners (1st, 2nd, 3rd places) in each subject are awarded one-time monetary prizes as specified in the Cabinet of Ministers Resolution No. 562 dated September 9, 2021.",
-    republicQualifiers: "11th grade students with the highest achievements in each subject receive invitations to participate in the Republic Stage of the Main Olympiad."
-  },
-  {
-    stage: 4,
-    name: "Republic Stage",
-    uzbekName: "Respublika bosqichi",
-    description: "The final and most prestigious stage of the Main Olympiad, bringing together the best students from across Uzbekistan to compete at the national level.",
-    eligibility: "Students who won 1st, 2nd, or 3rd place in the third (regional) stage - specifically 11th grade students from general secondary education institutions, vocational schools, and academic lyceums.",
-    prizes: {
-      monetary: {
-        first: "12 base calculation amounts",
-        second: "8 base calculation amounts",
-        third: "6 base calculation amounts"
-      },
-      certificates: "Diplomas and certificates",
-      benefits: "Winners receive certificates that grant the right to admission to state higher education institutions without exams or with maximum points"
-    },
-    format: {
-      humanities: {
-        subjects: ["History", "State and Law Fundamentals", "Geography"],
-        type: "Single round",
-        format: "Test questions"
-      },
-      foreignLanguages: {
-        subjects: ["English Language", "German Language", "French Language"],
-        type: "Single round with two parts",
-        part1: {
-          name: "Listening comprehension and reading skills",
-          points: 60,
-          description: "Assessment of listening and reading comprehension abilities"
-        },
-        part2: {
-          name: "Lexico-grammatical skills",
-          points: 40,
-          format: "Test questions",
-          description: "Assessment of vocabulary and grammar knowledge"
-        },
-        total: 100,
-        duration: "180 minutes"
-      },
-      informatics: {
-        subject: "Informatics and Information Technologies",
-        type: "Two days under same conditions",
-        format: "Placing program solutions in electronic system",
-        problemsPerDay: 5,
-        totalProblems: 10,
-        pointsPerProblem: 10,
-        totalPoints: 100,
-        durationPerDay: "240 minutes",
-        languages: ["C++", "Python", "Java"],
-        description: "Participants solve problems by placing program solutions in an electronic system. Points are awarded by the electronic system for fully completed and accepted problems."
-      },
-      science: {
-        subjects: ["Mathematics", "Physics", "Chemistry", "Biology"],
-        type: "Two rounds",
-        round1: {
-          name: "Written work",
-          problems: 5,
-          points: [7, 7, 10, 10, 16],
-          totalPoints: 50,
-          duration: "180 minutes",
-          description: "Problems of varying difficulty levels"
-        },
-        round2: {
-          name: "Test questions",
-          format: "Test examination"
-        }
-      },
-      languages: {
-        subjects: [
-          "Native Language and Literature",
-          "Uzbek Language",
-          "Russian Language and Literature",
-          "Kazakh Language",
-          "Tajik Language",
-          "Karakalpak Language and Literature"
-        ],
-        type: "Two rounds",
-        round1: {
-          name: "Written work (Essay)",
-          duration: "60 minutes",
-          points: 50
-        },
-        round2: {
-          name: "Test questions",
-          format: "Test examination"
-        }
-      },
-      other: {
-        description: "All other subjects are conducted in two rounds: written work and test questions"
-      }
-    }
-  }
-]
+import { useTranslations } from "next-intl"
 
 export default function LocalOlympiadsPage() {
+  const t = useTranslations('olympiads.local')
+
+  const olympiadStages = [
+    {
+      stage: 1,
+      name: t('stages.1.name'),
+      uzbekName: t('stages.1.uzbekName'),
+      description: t('stages.1.description'),
+      eligibility: t('stages.1.eligibility'),
+      participants: t('stages.1.participants'),
+      nextStageParticipants: t('stages.1.nextStageParticipants'),
+      format: t('stages.1.format'),
+      requirements: [
+        t('stages.1.requirements.0'),
+        t('stages.1.requirements.1'),
+        t('stages.1.requirements.2'),
+        t('stages.1.requirements.3'),
+        t('stages.1.requirements.4')
+      ],
+      notification: t('stages.1.notification'),
+      winners: t('stages.1.winners'),
+      subjects: [
+        t('subjects.mathematics'), t('subjects.physics'), t('subjects.chemistry'), t('subjects.biology'), t('subjects.informatics'),
+        t('subjects.nativeLanguage'), t('subjects.uzbekLanguage'), t('subjects.russianLanguage'),
+        t('subjects.karakalpakLanguage'), t('subjects.tajikLanguage'), t('subjects.kazakhLanguage'),
+        t('subjects.englishLanguage'), t('subjects.germanLanguage'), t('subjects.frenchLanguage'),
+        t('subjects.history'), t('subjects.stateLaw'), t('subjects.geography')
+      ],
+      totalSubjects: 17
+    },
+    {
+      stage: 2,
+      name: t('stages.2.name'),
+      uzbekName: t('stages.2.uzbekName'),
+      description: t('stages.2.description'),
+      eligibility: t('stages.2.eligibility'),
+      participants: t('stages.2.participants'),
+      format: t('stages.2.format'),
+      testDetails: {
+        totalQuestions: 30,
+        group1: {
+          subjects: [t('subjects.mathematics'), t('subjects.physics'), t('subjects.chemistry'), t('subjects.biology'), t('subjects.informatics')],
+          duration: t('stages.2.testDetails.group1.duration')
+        },
+        group2: {
+          subjects: [
+            t('subjects.nativeLanguage'), t('subjects.uzbekLanguage'), t('subjects.russianLanguage'),
+            t('subjects.karakalpakLanguage'), t('subjects.tajikLanguage'), t('subjects.kazakhLanguage'),
+            t('subjects.englishLanguage'), t('subjects.germanLanguage'), t('subjects.frenchLanguage'),
+            t('subjects.history'), t('subjects.stateLaw'), t('subjects.geography')
+          ],
+          duration: t('stages.2.testDetails.group2.duration')
+        }
+      },
+      exceptions: t('stages.2.exceptions'),
+      specialRule: t('stages.2.specialRule'),
+      winners: t('stages.2.winners'),
+      totalSubjects: 17
+    },
+    {
+      stage: 3,
+      name: t('stages.3.name'),
+      uzbekName: t('stages.3.uzbekName'),
+      description: t('stages.3.description'),
+      eligibility: t('stages.3.eligibility'),
+      participants: t('stages.3.participants'),
+      format: t('stages.3.format'),
+      subjects: {
+        science: {
+          subjects: [t('subjects.mathematics'), t('subjects.physics'), t('subjects.chemistry'), t('subjects.biology')],
+          part1: {
+            type: t('stages.3.science.part1.type'),
+            problems: 5,
+            points: 50,
+            duration: t('stages.3.science.part1.duration'),
+            description: t('stages.3.science.part1.description')
+          },
+          part2: {
+            type: t('stages.3.science.part2.type'),
+            questions: 30,
+            points: 50,
+            duration: t('stages.3.science.part2.duration'),
+            breakdown: {
+              simple: t('stages.3.science.part2.breakdown.simple'),
+              medium: t('stages.3.science.part2.breakdown.medium'),
+              complex: t('stages.3.science.part2.breakdown.complex')
+            },
+            total: t('stages.3.science.part2.total')
+          },
+          total: t('stages.3.science.total')
+        },
+        informatics: {
+          subject: t('subjects.informatics'),
+          format: t('stages.3.informatics.format'),
+          problems: 5,
+          points: 50,
+          duration: t('stages.3.informatics.duration'),
+          languages: ["C++", "Python", "Java"],
+          description: t('stages.3.informatics.description')
+        },
+        humanities: {
+          subjects: [t('subjects.history'), t('subjects.stateLaw'), t('subjects.geography')],
+          format: t('stages.3.humanities.format'),
+          questions: 40,
+          points: 100,
+          duration: t('stages.3.humanities.duration'),
+          breakdown: {
+            simple: t('stages.3.humanities.breakdown.simple'),
+            medium: t('stages.3.humanities.breakdown.medium'),
+            complex: t('stages.3.humanities.breakdown.complex')
+          },
+          total: t('stages.3.humanities.total')
+        }
+      },
+      winners: t('stages.3.winners'),
+      statistics: {
+        group1: {
+          subjects: [t('subjects.mathematics'), t('subjects.physics'), t('subjects.chemistry'), t('subjects.biology'), t('subjects.informatics')],
+          dates: t('stages.3.statistics.group1.dates'),
+          grades: t('stages.3.statistics.group1.grades'),
+          participants: t('stages.3.statistics.group1.participants')
+        },
+        group2: {
+          subjects: [
+            t('subjects.nativeLanguage'), t('subjects.uzbekLanguage'), t('subjects.karakalpakLanguage'),
+            t('subjects.russianLanguage'), t('subjects.tajikLanguage'), t('subjects.kazakhLanguage'),
+            t('subjects.englishLanguage'), t('subjects.germanLanguage'), t('subjects.frenchLanguage'),
+            t('subjects.history'), t('subjects.geography'), t('subjects.stateLaw')
+          ],
+          participants: t('stages.3.statistics.group2.participants')
+        }
+      },
+      prizes: t('stages.3.prizes'),
+      republicQualifiers: t('stages.3.republicQualifiers')
+    },
+    {
+      stage: 4,
+      name: t('stages.4.name'),
+      uzbekName: t('stages.4.uzbekName'),
+      description: t('stages.4.description'),
+      eligibility: t('stages.4.eligibility'),
+      prizes: {
+        monetary: {
+          first: t('stages.4.prizes.monetary.first'),
+          second: t('stages.4.prizes.monetary.second'),
+          third: t('stages.4.prizes.monetary.third')
+        },
+        certificates: t('stages.4.prizes.certificates'),
+        benefits: t('stages.4.prizes.benefits')
+      },
+      format: {
+        humanities: {
+          subjects: [t('subjects.history'), t('subjects.stateLaw'), t('subjects.geography')],
+          type: t('stages.4.format.humanities.type'),
+          format: t('stages.4.format.humanities.format')
+        },
+        foreignLanguages: {
+          subjects: [t('subjects.englishLanguage'), t('subjects.germanLanguage'), t('subjects.frenchLanguage')],
+          type: t('stages.4.format.foreignLanguages.type'),
+          part1: {
+            name: t('stages.4.format.foreignLanguages.part1.name'),
+            points: 60,
+            description: t('stages.4.format.foreignLanguages.part1.description')
+          },
+          part2: {
+            name: t('stages.4.format.foreignLanguages.part2.name'),
+            points: 40,
+            format: t('stages.4.format.foreignLanguages.part2.format'),
+            description: t('stages.4.format.foreignLanguages.part2.description')
+          },
+          total: 100,
+          duration: t('stages.4.format.foreignLanguages.duration')
+        },
+        informatics: {
+          subject: t('subjects.informatics'),
+          type: t('stages.4.format.informatics.type'),
+          format: t('stages.4.format.informatics.format'),
+          problemsPerDay: 5,
+          totalProblems: 10,
+          pointsPerProblem: 10,
+          totalPoints: 100,
+          durationPerDay: t('stages.4.format.informatics.durationPerDay'),
+          languages: ["C++", "Python", "Java"],
+          description: t('stages.4.format.informatics.description')
+        },
+        science: {
+          subjects: [t('subjects.mathematics'), t('subjects.physics'), t('subjects.chemistry'), t('subjects.biology')],
+          type: t('stages.4.format.science.type'),
+          round1: {
+            name: t('stages.4.format.science.round1.name'),
+            problems: 5,
+            points: [7, 7, 10, 10, 16],
+            totalPoints: 50,
+            duration: t('stages.4.format.science.round1.duration'),
+            description: t('stages.4.format.science.round1.description')
+          },
+          round2: {
+            name: t('stages.4.format.science.round2.name'),
+            format: t('stages.4.format.science.round2.format')
+          }
+        },
+        languages: {
+          subjects: [
+            t('subjects.nativeLanguage'),
+            t('subjects.uzbekLanguage'),
+            t('subjects.russianLanguage'),
+            t('subjects.kazakhLanguage'),
+            t('subjects.tajikLanguage'),
+            t('subjects.karakalpakLanguage')
+          ],
+          type: t('stages.4.format.languages.type'),
+          round1: {
+            name: t('stages.4.format.languages.round1.name'),
+            duration: t('stages.4.format.languages.round1.duration'),
+            points: 50
+          },
+          round2: {
+            name: t('stages.4.format.languages.round2.name'),
+            format: t('stages.4.format.languages.round2.format')
+          }
+        },
+        other: {
+          description: t('stages.4.format.other.description')
+        }
+      }
+    }
+  ]
+
   return (
     <div className="min-h-screen relative">
       <FadingBackground imageUrl="/icho-slider.jpg" height={400} />
@@ -245,21 +249,20 @@ export default function LocalOlympiadsPage() {
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 bg-green-500/10 px-4 py-2 rounded-full mb-6">
                 <Trophy className="h-5 w-5 text-green-600" />
-                <span className="text-green-700 font-medium">Main Olympiad Stages</span>
+                <span className="text-green-700 font-medium">{t('hero.badge')}</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance mb-6 font-[family-name:var(--font-playfair)]">
-                Local <span className="text-primary">Olympiads</span>
+                {t('hero.title')} <span className="text-primary">{t('hero.titleHighlight')}</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground text-balance mb-8 leading-relaxed">
-                The Main Olympiad is conducted across 17 subjects in four progressive stages, from school level to republic level, 
-                providing a comprehensive pathway for academic excellence.
+                {t('hero.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" asChild>
-                  <Link href="#stages">Explore Stages</Link>
+                  <Link href="#stages">{t('hero.exploreStages')}</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link href="/apply/criteria">View Requirements</Link>
+                  <Link href="/apply/criteria">{t('hero.viewRequirements')}</Link>
                 </Button>
               </div>
             </div>
@@ -272,19 +275,19 @@ export default function LocalOlympiadsPage() {
             <div className="grid md:grid-cols-4 gap-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">4</div>
-                <div className="text-muted-foreground">Competition Stages</div>
+                <div className="text-muted-foreground">{t('stats.competitionStages')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">17</div>
-                <div className="text-muted-foreground">Subjects</div>
+                <div className="text-muted-foreground">{t('stats.subjects')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">530K+</div>
-                <div className="text-muted-foreground">School Stage Winners</div>
+                <div className="text-muted-foreground">{t('stats.schoolStageWinners')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary mb-2">28K+</div>
-                <div className="text-muted-foreground">Regional Participants</div>
+                <div className="text-muted-foreground">{t('stats.regionalParticipants')}</div>
               </div>
             </div>
           </div>
@@ -295,10 +298,10 @@ export default function LocalOlympiadsPage() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 font-[family-name:var(--font-playfair)]">
-                Olympiad Stages
+                {t('stagesSection.title')}
               </h2>
               <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto">
-                Progress through four stages of competition, from school level to republic level, demonstrating your excellence in 17 subjects.
+                {t('stagesSection.description')}
               </p>
             </div>
 
@@ -310,7 +313,7 @@ export default function LocalOlympiadsPage() {
                       <div>
                         <div className="flex items-center gap-3 mb-2">
                           <Badge className="bg-primary text-white text-lg px-4 py-1">
-                            Stage {stage.stage}
+                            {t('stageLabel')} {stage.stage}
                           </Badge>
                           <h3 className="text-2xl md:text-3xl font-bold">{stage.name}</h3>
                         </div>
@@ -323,7 +326,7 @@ export default function LocalOlympiadsPage() {
                       )}
                     </div>
                   </CardHeader>
-                  
+
                   <CardContent className="p-8">
                     <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                       {stage.description}
@@ -333,7 +336,7 @@ export default function LocalOlympiadsPage() {
                     <div className="mb-6">
                       <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500" />
-                        Eligibility
+                        {t('labels.eligibility')}
                       </h4>
                       <p className="text-muted-foreground">{stage.eligibility || ('note' in stage && typeof stage.note === 'string' ? stage.note : '')}</p>
                     </div>
@@ -344,7 +347,7 @@ export default function LocalOlympiadsPage() {
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <BookOpen className="h-5 w-5 text-blue-500" />
-                            Organization Requirements
+                            {t('labels.organizationRequirements')}
                           </h4>
                           <ul className="space-y-2 text-muted-foreground">
                             {stage.requirements?.map((req, i) => (
@@ -358,29 +361,29 @@ export default function LocalOlympiadsPage() {
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <Calendar className="h-5 w-5 text-purple-500" />
-                            Notification Requirements
+                            {t('labels.notificationRequirements')}
                           </h4>
                           <p className="text-muted-foreground">{stage.notification}</p>
                         </div>
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <Award className="h-5 w-5 text-yellow-500" />
-                            Winners
+                            {t('labels.winners')}
                           </h4>
                           <p className="text-muted-foreground">{stage.winners}</p>
                         </div>
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <Users className="h-5 w-5 text-orange-500" />
-                            Participation Statistics
+                            {t('labels.participationStatistics')}
                           </h4>
                           <div className="grid md:grid-cols-2 gap-4">
                             <div className="p-4 bg-primary/5 rounded-lg">
-                              <div className="text-sm text-muted-foreground mb-1">School Stage Winners</div>
+                              <div className="text-sm text-muted-foreground mb-1">{t('labels.schoolStageWinners')}</div>
                               <div className="text-2xl font-bold text-primary">{stage.participants}</div>
                             </div>
                             <div className="p-4 bg-secondary/5 rounded-lg">
-                              <div className="text-sm text-muted-foreground mb-1">Advanced to District Stage</div>
+                              <div className="text-sm text-muted-foreground mb-1">{t('labels.advancedToDistrict')}</div>
                               <div className="text-2xl font-bold text-secondary">{stage.nextStageParticipants}</div>
                             </div>
                           </div>
@@ -388,7 +391,7 @@ export default function LocalOlympiadsPage() {
                         <div>
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <Target className="h-5 w-5 text-red-500" />
-                            Subjects ({stage.totalSubjects})
+                            {t('labels.subjects')} ({stage.totalSubjects})
                           </h4>
                           <div className="flex flex-wrap gap-2">
                             {Array.isArray(stage.subjects) && stage.subjects.map((subject: string, i: number) => (
@@ -407,25 +410,25 @@ export default function LocalOlympiadsPage() {
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <Clock className="h-5 w-5 text-blue-500" />
-                            Test Format
+                            {t('labels.testFormat')}
                           </h4>
                           <div className="space-y-4">
                             <div className="p-4 bg-blue-50 rounded-lg">
-                              <h5 className="font-semibold mb-2">Group 1 Subjects (90 minutes)</h5>
+                              <h5 className="font-semibold mb-2">{t('labels.group1Subjects')} ({stage.testDetails?.group1.duration})</h5>
                               <p className="text-sm text-muted-foreground mb-2">
                                 {stage.testDetails?.group1.subjects.join(", ")}
                               </p>
                               <p className="text-sm">
-                                <strong>30 test questions</strong> per subject
+                                <strong>{t('labels.testQuestionsPerSubject')}</strong>
                               </p>
                             </div>
                             <div className="p-4 bg-green-50 rounded-lg">
-                              <h5 className="font-semibold mb-2">Group 2 Subjects (60 minutes)</h5>
+                              <h5 className="font-semibold mb-2">{t('labels.group2Subjects')} ({stage.testDetails?.group2.duration})</h5>
                               <p className="text-sm text-muted-foreground mb-2">
                                 {stage.testDetails?.group2.subjects.join(", ")}
                               </p>
                               <p className="text-sm">
-                                <strong>30 test questions</strong> per subject
+                                <strong>{t('labels.testQuestionsPerSubject')}</strong>
                               </p>
                             </div>
                           </div>
@@ -433,16 +436,16 @@ export default function LocalOlympiadsPage() {
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <Users className="h-5 w-5 text-orange-500" />
-                            Participation
+                            {t('labels.participation')}
                           </h4>
                           <p className="text-muted-foreground mb-2">
-                            <strong>{stage.participants}</strong> students participated in this stage.
+                            <strong>{stage.participants}</strong> {t('labels.studentsParticipated')}
                           </p>
                         </div>
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <Star className="h-5 w-5 text-yellow-500" />
-                            Special Rules
+                            {t('labels.specialRules')}
                           </h4>
                           <div className="space-y-2 text-muted-foreground">
                             <p>{stage.exceptions}</p>
@@ -452,7 +455,7 @@ export default function LocalOlympiadsPage() {
                         <div>
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <Award className="h-5 w-5 text-green-500" />
-                            Winners
+                            {t('labels.winners')}
                           </h4>
                           <p className="text-muted-foreground">{stage.winners}</p>
                         </div>
@@ -465,94 +468,94 @@ export default function LocalOlympiadsPage() {
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <BookOpen className="h-5 w-5 text-blue-500" />
-                            Science Subjects Format
+                            {t('labels.scienceSubjectsFormat')}
                           </h4>
                           <div className="space-y-4">
                             <div className="p-4 bg-blue-50 rounded-lg">
-                              <h5 className="font-semibold mb-2">Part 1: Written Problems</h5>
+                              <h5 className="font-semibold mb-2">{t('labels.part1WrittenProblems')}</h5>
                               <ul className="text-sm text-muted-foreground space-y-1">
-                                <li>• {(stage.subjects as any).science?.part1.problems} problems of varying difficulty</li>
-                                <li>• {(stage.subjects as any).science?.part1.points} points maximum</li>
-                                <li>• Duration: {(stage.subjects as any).science?.part1.duration}</li>
-                                <li>• Each problem evaluated according to specific criteria</li>
+                                <li>• {(stage.subjects as any).science?.part1.problems} {t('labels.problemsOfVaryingDifficulty')}</li>
+                                <li>• {(stage.subjects as any).science?.part1.points} {t('labels.pointsMaximum')}</li>
+                                <li>• {t('labels.duration')}: {(stage.subjects as any).science?.part1.duration}</li>
+                                <li>• {t('labels.eachProblemEvaluated')}</li>
                               </ul>
                             </div>
                             <div className="p-4 bg-green-50 rounded-lg">
-                              <h5 className="font-semibold mb-2">Part 2: Test Questions</h5>
+                              <h5 className="font-semibold mb-2">{t('labels.part2TestQuestions')}</h5>
                               <ul className="text-sm text-muted-foreground space-y-1">
-                                <li>• {(stage.subjects as any).science?.part2.questions} test questions ({(stage.subjects as any).science?.part2.points} points)</li>
-                                <li>• Duration: {(stage.subjects as any).science?.part2.duration}</li>
+                                <li>• {(stage.subjects as any).science?.part2.questions} {t('labels.testQuestions')} ({(stage.subjects as any).science?.part2.points} {t('labels.points')})</li>
+                                <li>• {t('labels.duration')}: {(stage.subjects as any).science?.part2.duration}</li>
                                 <li>• {(stage.subjects as any).science?.part2.breakdown?.simple}</li>
                                 <li>• {(stage.subjects as any).science?.part2.breakdown?.medium}</li>
                                 <li>• {(stage.subjects as any).science?.part2.breakdown?.complex}</li>
-                                <li>• Total: {(stage.subjects as any).science?.part2.total}</li>
+                                <li>• {t('labels.total')}: {(stage.subjects as any).science?.part2.total}</li>
                               </ul>
                             </div>
                             <div className="p-3 bg-primary/10 rounded-lg text-center">
-                              <strong>Total: {(stage.subjects as any).science?.total}</strong>
+                              <strong>{t('labels.total')}: {(stage.subjects as any).science?.total}</strong>
                             </div>
                           </div>
                         </div>
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <GraduationCap className="h-5 w-5 text-purple-500" />
-                            Informatics Format
+                            {t('labels.informaticsFormat')}
                           </h4>
                           <div className="p-4 bg-purple-50 rounded-lg">
                             <p className="text-sm text-muted-foreground mb-2">
-                              <strong>{(stage.subjects as any).informatics?.problems} problems</strong> solved on an online portal
+                              <strong>{(stage.subjects as any).informatics?.problems} {t('labels.problemsSolvedOnline')}</strong>
                             </p>
                             <ul className="text-sm text-muted-foreground space-y-1">
-                              <li>• Duration: {(stage.subjects as any).informatics?.duration}</li>
-                              <li>• Maximum points: {(stage.subjects as any).informatics?.points}</li>
-                              <li>• Programming languages: {(stage.subjects as any).informatics?.languages?.join(", ")}</li>
-                              <li>• Points awarded for fully completed and system-accepted problems</li>
+                              <li>• {t('labels.duration')}: {(stage.subjects as any).informatics?.duration}</li>
+                              <li>• {t('labels.maximumPoints')}: {(stage.subjects as any).informatics?.points}</li>
+                              <li>• {t('labels.programmingLanguages')}: {(stage.subjects as any).informatics?.languages?.join(", ")}</li>
+                              <li>• {t('labels.pointsAwardedForCompleted')}</li>
                             </ul>
                           </div>
                         </div>
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <MapPin className="h-5 w-5 text-red-500" />
-                            Humanities Subjects Format
+                            {t('labels.humanitiesSubjectsFormat')}
                           </h4>
                           <div className="p-4 bg-red-50 rounded-lg">
                             <p className="text-sm text-muted-foreground mb-2">
-                              <strong>{(stage.subjects as any).humanities?.questions} test questions</strong> ({(stage.subjects as any).humanities?.points} points)
+                              <strong>{(stage.subjects as any).humanities?.questions} {t('labels.testQuestions')}</strong> ({(stage.subjects as any).humanities?.points} {t('labels.points')})
                             </p>
                             <ul className="text-sm text-muted-foreground space-y-1">
-                              <li>• Duration: {(stage.subjects as any).humanities?.duration}</li>
+                              <li>• {t('labels.duration')}: {(stage.subjects as any).humanities?.duration}</li>
                               <li>• {(stage.subjects as any).humanities?.breakdown?.simple}</li>
                               <li>• {(stage.subjects as any).humanities?.breakdown?.medium}</li>
                               <li>• {(stage.subjects as any).humanities?.breakdown?.complex}</li>
-                              <li>• Total: {(stage.subjects as any).humanities?.total}</li>
+                              <li>• {t('labels.total')}: {(stage.subjects as any).humanities?.total}</li>
                             </ul>
                           </div>
                         </div>
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <Users className="h-5 w-5 text-orange-500" />
-                            Competition Statistics
+                            {t('labels.competitionStatistics')}
                           </h4>
                           <div className="grid md:grid-cols-2 gap-4">
                             <div className="p-4 bg-blue-50 rounded-lg">
-                              <h5 className="font-semibold mb-2">Group 1 Subjects</h5>
+                              <h5 className="font-semibold mb-2">{t('labels.group1Subjects')}</h5>
                               <p className="text-sm text-muted-foreground mb-1">
                                 {stage.statistics?.group1.subjects.join(", ")}
                               </p>
                               <p className="text-sm mb-1">
-                                <strong>Dates:</strong> {stage.statistics?.group1.dates}
+                                <strong>{t('labels.dates')}:</strong> {stage.statistics?.group1.dates}
                               </p>
                               <p className="text-sm mb-1">
-                                <strong>Grades:</strong> {stage.statistics?.group1.grades}
+                                <strong>{t('labels.grades')}:</strong> {stage.statistics?.group1.grades}
                               </p>
                               <p className="text-lg font-bold text-primary">
                                 {stage.statistics?.group1.participants}
                               </p>
                             </div>
                             <div className="p-4 bg-green-50 rounded-lg">
-                              <h5 className="font-semibold mb-2">Group 2 Subjects</h5>
+                              <h5 className="font-semibold mb-2">{t('labels.group2Subjects')}</h5>
                               <p className="text-sm text-muted-foreground mb-2">
-                                Languages, History, Geography, State and Law Fundamentals
+                                {t('labels.group2Summary')}
                               </p>
                               <p className="text-lg font-bold text-secondary">
                                 {stage.statistics?.group2.participants}
@@ -563,14 +566,14 @@ export default function LocalOlympiadsPage() {
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <Trophy className="h-5 w-5 text-yellow-500" />
-                            Prizes
+                            {t('labels.prizes')}
                           </h4>
                           <p className="text-muted-foreground">{stage.prizes}</p>
                         </div>
                         <div>
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <Award className="h-5 w-5 text-green-500" />
-                            Republic Stage Qualification
+                            {t('labels.republicStageQualification')}
                           </h4>
                           <p className="text-muted-foreground">{stage.republicQualifiers}</p>
                         </div>
@@ -583,7 +586,7 @@ export default function LocalOlympiadsPage() {
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <CheckCircle className="h-5 w-5 text-green-500" />
-                            Eligibility
+                            {t('labels.eligibility')}
                           </h4>
                           <p className="text-muted-foreground">{stage.eligibility}</p>
                         </div>
@@ -592,19 +595,19 @@ export default function LocalOlympiadsPage() {
                           <div className="mb-6">
                             <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                               <Trophy className="h-5 w-5 text-yellow-500" />
-                              Prizes and Awards
+                              {t('labels.prizesAndAwards')}
                             </h4>
                             <div className="space-y-4">
                               <div className="p-4 bg-yellow-50 rounded-lg">
-                                <h5 className="font-semibold mb-2">Monetary Prizes</h5>
+                                <h5 className="font-semibold mb-2">{t('labels.monetaryPrizes')}</h5>
                                 <ul className="space-y-1 text-sm text-muted-foreground">
-                                  <li>• <strong>1st Place:</strong> {stage.prizes.monetary?.first}</li>
-                                  <li>• <strong>2nd Place:</strong> {stage.prizes.monetary?.second}</li>
-                                  <li>• <strong>3rd Place:</strong> {stage.prizes.monetary?.third}</li>
+                                  <li>• <strong>{t('labels.firstPlace')}:</strong> {stage.prizes.monetary?.first}</li>
+                                  <li>• <strong>{t('labels.secondPlace')}:</strong> {stage.prizes.monetary?.second}</li>
+                                  <li>• <strong>{t('labels.thirdPlace')}:</strong> {stage.prizes.monetary?.third}</li>
                                 </ul>
                               </div>
                               <div className="p-4 bg-blue-50 rounded-lg">
-                                <h5 className="font-semibold mb-2">Certificates and Diplomas</h5>
+                                <h5 className="font-semibold mb-2">{t('labels.certificatesAndDiplomas')}</h5>
                                 <p className="text-sm text-muted-foreground mb-2">{stage.prizes.certificates}</p>
                                 <p className="text-sm text-muted-foreground">{stage.prizes.benefits}</p>
                               </div>
@@ -615,25 +618,25 @@ export default function LocalOlympiadsPage() {
                         <div className="mb-6">
                           <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
                             <BookOpen className="h-5 w-5 text-blue-500" />
-                            Competition Format by Subject Groups
+                            {t('labels.competitionFormatBySubjectGroups')}
                           </h4>
-                          
+
                           {/* Science Subjects */}
                           {'format' in stage && stage.format && typeof stage.format === 'object' && 'science' in stage.format && (
                             <div className="mb-4">
-                              <h5 className="font-semibold mb-2 text-primary">Science Subjects (Mathematics, Physics, Chemistry, Biology)</h5>
+                              <h5 className="font-semibold mb-2 text-primary">{t('labels.scienceSubjectsDetailed')}</h5>
                               <div className="p-4 bg-blue-50 rounded-lg space-y-3">
                                 <div>
-                                  <h6 className="font-semibold text-sm mb-1">Round 1: Written Work</h6>
+                                  <h6 className="font-semibold text-sm mb-1">{t('labels.round1WrittenWork')}</h6>
                                   <ul className="text-sm text-muted-foreground space-y-1">
-                                    <li>• {stage.format.science.round1.problems} problems of varying difficulty ({stage.format.science.round1.points.join(", ")} points each)</li>
-                                    <li>• Total: {stage.format.science.round1.totalPoints} points</li>
-                                    <li>• Duration: {stage.format.science.round1.duration}</li>
+                                    <li>• {stage.format.science.round1.problems} {t('labels.problemsOfVaryingDifficultyPoints')} ({stage.format.science.round1.points.join(", ")} {t('labels.pointsEach')})</li>
+                                    <li>• {t('labels.total')}: {stage.format.science.round1.totalPoints} {t('labels.points')}</li>
+                                    <li>• {t('labels.duration')}: {stage.format.science.round1.duration}</li>
                                   </ul>
                                 </div>
                                 <div>
-                                  <h6 className="font-semibold text-sm mb-1">Round 2: Test Questions</h6>
-                                  <p className="text-sm text-muted-foreground">Test examination format</p>
+                                  <h6 className="font-semibold text-sm mb-1">{t('labels.round2TestQuestions')}</h6>
+                                  <p className="text-sm text-muted-foreground">{t('labels.testExaminationFormat')}</p>
                                 </div>
                               </div>
                             </div>
@@ -642,17 +645,17 @@ export default function LocalOlympiadsPage() {
                           {/* Informatics */}
                           {'format' in stage && stage.format && typeof stage.format === 'object' && 'informatics' in stage.format && (
                             <div className="mb-4">
-                              <h5 className="font-semibold mb-2 text-purple-500">Informatics and Information Technologies</h5>
+                              <h5 className="font-semibold mb-2 text-purple-500">{t('subjects.informatics')}</h5>
                               <div className="p-4 bg-purple-50 rounded-lg">
                                 <p className="text-sm text-muted-foreground mb-2">
-                                  <strong>Format:</strong> Two days under same conditions (placing program solutions in electronic system)
+                                  <strong>{t('labels.formatLabel')}:</strong> {t('labels.informaticsFormatDescription')}
                                 </p>
                                 <ul className="text-sm text-muted-foreground space-y-1">
-                                  <li>• {stage.format.informatics.problemsPerDay} problems per day ({stage.format.informatics.totalProblems} total)</li>
-                                  <li>• {stage.format.informatics.pointsPerProblem} points per problem = {stage.format.informatics.totalPoints} points total</li>
-                                  <li>• Duration: {stage.format.informatics.durationPerDay} per day</li>
-                                  <li>• Programming languages: {stage.format.informatics.languages?.join(", ")}</li>
-                                  <li>• Points awarded by electronic system for fully completed and accepted problems</li>
+                                  <li>• {stage.format.informatics.problemsPerDay} {t('labels.problemsPerDay')} ({stage.format.informatics.totalProblems} {t('labels.totalWord')})</li>
+                                  <li>• {stage.format.informatics.pointsPerProblem} {t('labels.pointsPerProblem')} = {stage.format.informatics.totalPoints} {t('labels.pointsTotal')}</li>
+                                  <li>• {t('labels.duration')}: {stage.format.informatics.durationPerDay} {t('labels.perDay')}</li>
+                                  <li>• {t('labels.programmingLanguages')}: {stage.format.informatics.languages?.join(", ")}</li>
+                                  <li>• {t('labels.pointsAwardedBySystem')}</li>
                                 </ul>
                               </div>
                             </div>
@@ -661,21 +664,21 @@ export default function LocalOlympiadsPage() {
                           {/* Language and Literature Subjects */}
                           {'format' in stage && stage.format && typeof stage.format === 'object' && 'languages' in stage.format && (
                             <div className="mb-4">
-                              <h5 className="font-semibold mb-2 text-green-500">Language and Literature Subjects</h5>
+                              <h5 className="font-semibold mb-2 text-green-500">{t('labels.languageLiteratureSubjects')}</h5>
                               <p className="text-sm text-muted-foreground mb-2">
-                                Native Language and Literature, Uzbek Language, Russian Language and Literature, Kazakh Language, Tajik Language, Karakalpak Language and Literature
+                                {t('labels.languageSubjectsList')}
                               </p>
                               <div className="p-4 bg-green-50 rounded-lg space-y-2">
                                 <div>
-                                  <h6 className="font-semibold text-sm mb-1">Round 1: Written Work (Essay)</h6>
+                                  <h6 className="font-semibold text-sm mb-1">{t('labels.round1WrittenWorkEssay')}</h6>
                                   <ul className="text-sm text-muted-foreground space-y-1">
-                                    <li>• Duration: {stage.format.languages.round1.duration}</li>
-                                    <li>• Total: {stage.format.languages.round1.points} points</li>
+                                    <li>• {t('labels.duration')}: {stage.format.languages.round1.duration}</li>
+                                    <li>• {t('labels.total')}: {stage.format.languages.round1.points} {t('labels.points')}</li>
                                   </ul>
                                 </div>
                                 <div>
-                                  <h6 className="font-semibold text-sm mb-1">Round 2: Test Questions</h6>
-                                  <p className="text-sm text-muted-foreground">Test examination format</p>
+                                  <h6 className="font-semibold text-sm mb-1">{t('labels.round2TestQuestions')}</h6>
+                                  <p className="text-sm text-muted-foreground">{t('labels.testExaminationFormat')}</p>
                                 </div>
                               </div>
                             </div>
@@ -684,27 +687,27 @@ export default function LocalOlympiadsPage() {
                           {/* Foreign Languages */}
                           {'format' in stage && stage.format && typeof stage.format === 'object' && 'foreignLanguages' in stage.format && (
                             <div className="mb-4">
-                              <h5 className="font-semibold mb-2 text-orange-500">Foreign Languages (English, German, French)</h5>
+                              <h5 className="font-semibold mb-2 text-orange-500">{t('labels.foreignLanguagesDetailed')}</h5>
                               <div className="p-4 bg-orange-50 rounded-lg">
                                 <p className="text-sm text-muted-foreground mb-2">
-                                  <strong>Format:</strong> Single round with two parts (listening comprehension, reading, and lexico-grammatical skills assessment)
+                                  <strong>{t('labels.formatLabel')}:</strong> {t('labels.foreignLanguagesFormatDescription')}
                                 </p>
                                 <div className="space-y-2">
                                   <div>
-                                    <h6 className="font-semibold text-sm mb-1">Part 1: Listening and Reading Skills</h6>
+                                    <h6 className="font-semibold text-sm mb-1">{t('labels.part1ListeningReading')}</h6>
                                     <p className="text-sm text-muted-foreground">
-                                      Maximum {stage.format.foreignLanguages.part1.points} points - Assessment of listening comprehension and reading abilities
+                                      {t('labels.maximum')} {stage.format.foreignLanguages.part1.points} {t('labels.points')} - {t('labels.listeningReadingAssessment')}
                                     </p>
                                   </div>
                                   <div>
-                                    <h6 className="font-semibold text-sm mb-1">Part 2: Lexico-Grammatical Skills</h6>
+                                    <h6 className="font-semibold text-sm mb-1">{t('labels.part2LexicoGrammatical')}</h6>
                                     <p className="text-sm text-muted-foreground">
-                                      Maximum {stage.format.foreignLanguages.part2.points} points - Test questions assessing vocabulary and grammar knowledge
+                                      {t('labels.maximum')} {stage.format.foreignLanguages.part2.points} {t('labels.points')} - {t('labels.vocabGrammarAssessment')}
                                     </p>
                                   </div>
                                   <div className="mt-2 p-2 bg-white rounded">
                                     <p className="text-sm font-semibold">
-                                      Total: {stage.format.foreignLanguages.total} points | Duration: {stage.format.foreignLanguages.duration}
+                                      {t('labels.total')}: {stage.format.foreignLanguages.total} {t('labels.points')} | {t('labels.duration')}: {stage.format.foreignLanguages.duration}
                                     </p>
                                   </div>
                                 </div>
@@ -715,13 +718,13 @@ export default function LocalOlympiadsPage() {
                           {/* Humanities */}
                           {'format' in stage && stage.format && typeof stage.format === 'object' && 'humanities' in stage.format && (
                             <div className="mb-4">
-                              <h5 className="font-semibold mb-2 text-red-500">Humanities Subjects</h5>
+                              <h5 className="font-semibold mb-2 text-red-500">{t('labels.humanitiesSubjects')}</h5>
                               <div className="p-4 bg-red-50 rounded-lg">
                                 <p className="text-sm text-muted-foreground mb-1">
-                                  <strong>Subjects:</strong> {stage.format.humanities.subjects.join(", ")}
+                                  <strong>{t('labels.subjectsLabel')}:</strong> {stage.format.humanities.subjects.join(", ")}
                                 </p>
                                 <p className="text-sm text-muted-foreground">
-                                  <strong>Format:</strong> Single round - Test questions
+                                  <strong>{t('labels.formatLabel')}:</strong> {t('labels.singleRoundTestQuestions')}
                                 </p>
                               </div>
                             </div>
@@ -729,10 +732,10 @@ export default function LocalOlympiadsPage() {
 
                           {/* Other Subjects */}
                           <div>
-                            <h5 className="font-semibold mb-2 text-gray-600">All Other Subjects</h5>
+                            <h5 className="font-semibold mb-2 text-gray-600">{t('labels.allOtherSubjects')}</h5>
                             <div className="p-4 bg-gray-50 rounded-lg">
                               <p className="text-sm text-muted-foreground">
-                                Two rounds: written work and test questions
+                                {t('labels.twoRoundsDescription')}
                               </p>
                             </div>
                           </div>
@@ -751,18 +754,17 @@ export default function LocalOlympiadsPage() {
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-balance mb-6 font-[family-name:var(--font-playfair)]">
-                Start Your Olympiad Journey
+                {t('cta.title')}
               </h2>
               <p className="text-xl text-muted-foreground text-balance mb-8 leading-relaxed">
-                Begin at the school stage and progress through district, regional, and republic levels. 
-                Each stage builds your skills and opens new opportunities for academic excellence.
+                {t('cta.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" asChild>
-                  <Link href="/apply/criteria">View Qualification Requirements</Link>
+                  <Link href="/apply/criteria">{t('cta.viewQualification')}</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link href="/contact">Contact Us</Link>
+                  <Link href="/contact">{t('cta.contactUs')}</Link>
                 </Button>
               </div>
             </div>
