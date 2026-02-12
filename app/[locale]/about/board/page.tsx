@@ -163,7 +163,7 @@ export default function BoardOfTrusteesPage() {
                   <div>
                     <div className="font-semibold text-gray-900">Email</div>
                     <div className="text-gray-600">
-                      board@scienceolympiad.uz
+                      info@olympcenter.uz
                     </div>
                   </div>
                 </div>

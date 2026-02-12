@@ -247,8 +247,8 @@ export default function OnlineApplicationPage() {
           <div className="text-center mt-8 text-gray-600">
             <p>
               Need help? Contact us at{" "}
-              <a href="mailto:admissions@scienceolympiad.uz" className="text-orange-500 hover:underline">
-                admissions@scienceolympiad.uz
+              <a href="mailto:info@olympcenter.uz" className="text-orange-500 hover:underline">
+                info@olympcenter.uz
               </a>
             </p>
           </div>

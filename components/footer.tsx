@@ -140,7 +140,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-muted-foreground">info@scienceolympiad.uz</span>
+                <span className="text-muted-foreground">info@olympcenter.uz</span>
               </div>
             </div>
 

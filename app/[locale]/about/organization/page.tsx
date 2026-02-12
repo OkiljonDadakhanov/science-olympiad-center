@@ -448,8 +448,8 @@ export default function OrganizationPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground mb-1">Email</p>
-                    <a href="mailto:info@olympiads.uz" className="text-sm text-primary hover:underline">
-                      info@olympiads.uz
+                    <a href="mailto:info@olympcenter.uz" className="text-sm text-primary hover:underline">
+                      info@olympcenter.uz
                     </a>
                   </div>
                 </div>

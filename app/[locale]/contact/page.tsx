@@ -250,11 +250,11 @@ ${formData.message}
                         <div>
                           <h3 className="font-semibold text-lg mb-2">{t('emailLabel')}</h3>
                           <p className="text-muted-foreground">
-                            {t('generalEmail')}: info@scienceolympiad.uz
+                            {t('generalEmail')}: info@olympcenter.uz
                             <br />
-                            {t('admissionsLabel')}: admissions@scienceolympiad.uz
+                            {t('admissionsLabel')}: info@olympcenter.uz
                             <br />
-                            {t('pressEmail')}: media@scienceolympiad.uz
+                            {t('pressEmail')}: info@olympcenter.uz
                           </p>
                         </div>
                       </div>
