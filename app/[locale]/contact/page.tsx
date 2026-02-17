@@ -458,16 +458,17 @@ ${formData.message}
 
             <div className="max-w-4xl mx-auto">
               <Card className="overflow-hidden">
-                <div className="aspect-video bg-muted flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">{t('interactiveMap')}</h3>
-                    <p className="text-muted-foreground">
-                      {t('addressLine1')}
-                      <br />
-                      {t('addressLine2')}, {t('addressCity')}
-                    </p>
-                  </div>
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1448.8376202447862!2d69.29925176280167!3d41.34856271989727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef35806832b09%3A0xe207efc2491ff8e2!2sDarvozakent%20St%2C%20Tashkent%2C%20Uzbekistan!5e1!3m2!1sen!2s!4v1771322958557!5m2!1sen!2s"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={t('interactiveMap')}
+                  />
                 </div>
               </Card>
             </div>
