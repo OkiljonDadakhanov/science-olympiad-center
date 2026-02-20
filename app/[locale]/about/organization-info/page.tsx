@@ -199,6 +199,7 @@ const orgData = {
           name: "Abdusattorova Charos Abdulaziz qizi",
           role: "Lead Specialist",
           work: "3 years",
+          image: "/team/charos.png",
           education: []
         }
       ]
