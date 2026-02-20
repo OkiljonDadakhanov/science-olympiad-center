@@ -193,6 +193,13 @@ const orgData = {
             "2010 – Tashkent State University of World Languages",
             "2025 – University of Digital Economy and Agrotechnologies"
           ]
+        },
+        {
+          id: "dept4_staff3",
+          name: "Abdusattorova Charos Abdulaziz qizi",
+          role: "Lead Specialist",
+          work: "3 years",
+          education: []
         }
       ]
     }

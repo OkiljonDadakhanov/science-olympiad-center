@@ -151,6 +151,12 @@ const orgData = {
           work: "18 years",
           image: "/tree/guljahon.jpg",
           education: ["2010 – Tashkent State University of World Languages"]
+        },
+        {
+          name: "Abdusattorova Charos Abdulaziz qizi",
+          role: "Lead Specialist",
+          work: "3 years",
+          education: []
         }
       ]
     }
