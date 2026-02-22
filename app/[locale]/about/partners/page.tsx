@@ -4,8 +4,43 @@ import Image from "next/image"
 import { ExternalLink } from "lucide-react"
 import { partners } from "@/data/partners"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useLocale } from "next-intl"
 
 export default function PartnersPage() {
+  const locale = useLocale() as "en" | "ru" | "uz"
+  const content = {
+    en: {
+      title: "Our Partners",
+      subtitle:
+        "We are proud to collaborate with leading universities and organizations that share our commitment to advancing science education and innovation.",
+      institutions: "Partner Institutions",
+      visit: "Visit Website",
+      footerText: "Interested in partnering with us? Let’s build the future of science education together.",
+      inquiry: "Partnership Inquiry",
+      guide: "Download Partnership Guide",
+    },
+    ru: {
+      title: "Наши партнёры",
+      subtitle:
+        "Мы сотрудничаем с ведущими университетами и организациями, которые разделяют нашу миссию развития научного образования и инноваций.",
+      institutions: "Партнёрские учреждения",
+      visit: "Открыть сайт",
+      footerText: "Хотите стать нашим партнёром? Давайте вместе развивать будущее научного образования.",
+      inquiry: "Партнёрский запрос",
+      guide: "Скачать партнёрский гид",
+    },
+    uz: {
+      title: "Hamkorlarimiz",
+      subtitle:
+        "Biz ilm-fan ta’limi va innovatsiyalarni rivojlantirish yo‘lidagi maqsadlarimizni qo‘llab-quvvatlaydigan yetakchi universitet va tashkilotlar bilan hamkorlik qilamiz.",
+      institutions: "Hamkor tashkilotlar",
+      visit: "Veb-saytga o‘tish",
+      footerText: "Biz bilan hamkorlik qilmoqchimisiz? Keling, fan ta’limi kelajagini birga quramiz.",
+      inquiry: "Hamkorlik so‘rovi",
+      guide: "Hamkorlik yo‘riqnomasini yuklab olish",
+    },
+  }[locale]
+
   return (
     <div className="min-h-screen relative">
       {/* Background Image */}
@@ -18,19 +53,17 @@ export default function PartnersPage() {
       <div className="absolute inset-0 bg-white/75 z-[1]" />
       <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Our Partners
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            {content.title}
           </h1>
-          <p className="text-lg text-gray-600 leading-relaxed mb-12">
-            We are proud to collaborate with leading universities and
-            organizations that share our commitment to advancing science
-            education and innovation.
+          <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-12">
+            {content.subtitle}
           </p>
         </div>
 
         <Card className="border-0 shadow-lg">
           <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-            <CardTitle className="text-2xl">Partner Institutions</CardTitle>
+            <CardTitle className="text-2xl">{content.institutions}</CardTitle>
           </CardHeader>
 
           <CardContent className="p-8">
@@ -70,7 +103,7 @@ export default function PartnersPage() {
                       className="text-blue-500 hover:text-blue-600 text-sm flex items-center gap-1 transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      Visit Website
+                      {content.visit}
                     </a>
                   )}
                 </div>
@@ -81,15 +114,14 @@ export default function PartnersPage() {
 
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-4">
-            Interested in partnering with us? Let’s build the future of science
-            education together.
+            {content.footerText}
           </p>
-          <div className="flex gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-              Partnership Inquiry
+              {content.inquiry}
             </button>
             <button className="px-6 py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition-colors">
-              Download Partnership Guide
+              {content.guide}
             </button>
           </div>
         </div>

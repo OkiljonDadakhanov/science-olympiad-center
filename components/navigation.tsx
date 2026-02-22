@@ -17,47 +17,156 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Navigation() {
   const t = useTranslations('nav')
+  const locale = useLocale() as "en" | "ru" | "uz"
   const [isOpen, setIsOpen] = useState(false)
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const pathname = usePathname()
 
+  const localized = {
+    en: {
+      logo: "Science Olympiad Center",
+      missionDescription: "Identifying talented students and fostering their interest in science through olympiads.",
+      joinPrograms: "Join Our Programs",
+      joinProgramsDescription: "Start your journey to international science olympiad success.",
+      about: {
+        organizationInfo: "Information about our educational organization",
+        generalInformation: "Overview of our center and activities",
+        winners: "Our successful olympiad champions",
+        boardOfTrustees: "Our governing board and leadership",
+        expertCouncil: "Academic experts and advisors",
+        documents: "Official documents and policies",
+        partners: "Our institutional partnerships",
+      },
+      apply: {
+        selectionCriteria: "Requirements and evaluation process",
+        onlineApplication: "Submit your application online",
+        requiredDocuments: "List of necessary documents",
+        rulesOfStay: "Program rules and regulations",
+        faq: "Frequently asked questions",
+      },
+      programs: {
+        mathematics: "Advanced mathematical problem solving and competition preparation",
+        physics: "Theoretical and experimental physics olympiad training",
+        chemistry: "Chemical analysis and laboratory skills development",
+        biology: "Life sciences and biological research methodologies",
+        computerScience: "Programming, algorithms, and computational thinking",
+      },
+      olympiads: {
+        prestigious: "National competitions and elite international qualifiers",
+        international: "Global science olympiad competitions worldwide",
+        local: "Regional and local science competitions",
+        regional: "Regional international olympiads across Europe, Asia and the Asia-Pacific",
+      },
+    },
+    ru: {
+      logo: "Центр научных олимпиад",
+      missionDescription: "Выявляем талантливых учеников и развиваем их интерес к науке через олимпиады.",
+      joinPrograms: "Присоединиться к программам",
+      joinProgramsDescription: "Начните путь к международному успеху в научных олимпиадах.",
+      about: {
+        organizationInfo: "Информация о нашей образовательной организации",
+        generalInformation: "Обзор центра и направлений деятельности",
+        winners: "Наши успешные победители олимпиад",
+        boardOfTrustees: "Руководящий попечительский совет",
+        expertCouncil: "Академические эксперты и советники",
+        documents: "Официальные документы и положения",
+        partners: "Наши институциональные партнёры",
+      },
+      apply: {
+        selectionCriteria: "Требования и порядок оценки",
+        onlineApplication: "Подайте заявку онлайн",
+        requiredDocuments: "Список необходимых документов",
+        rulesOfStay: "Правила программы и пребывания",
+        faq: "Часто задаваемые вопросы",
+      },
+      programs: {
+        mathematics: "Углублённая подготовка по математике и решению олимпиадных задач",
+        physics: "Теоретическая и экспериментальная подготовка по физике",
+        chemistry: "Развитие навыков химического анализа и лабораторной практики",
+        biology: "Науки о жизни и методологии биологических исследований",
+        computerScience: "Программирование, алгоритмы и вычислительное мышление",
+      },
+      olympiads: {
+        prestigious: "Национальные соревнования и отбор на элитные международные олимпиады",
+        international: "Международные научные олимпиады по всему миру",
+        local: "Региональные и местные научные соревнования",
+        regional: "Региональные международные олимпиады в Европе, Азии и АТР",
+      },
+    },
+    uz: {
+      logo: "Fan olimpiadalari markazi",
+      missionDescription: "Iqtidorli o‘quvchilarni aniqlab, olimpiadalar orqali ularning fanlarga qiziqishini rivojlantiramiz.",
+      joinPrograms: "Dasturlarga qo‘shiling",
+      joinProgramsDescription: "Xalqaro fan olimpiadalaridagi muvaffaqiyat sari yo‘lingizni boshlang.",
+      about: {
+        organizationInfo: "Ta’lim tashkilotimiz haqida ma’lumot",
+        generalInformation: "Markaz va faoliyatlarimiz haqida umumiy ko‘rinish",
+        winners: "Muvaffaqiyatli olimpiada g‘oliblarimiz",
+        boardOfTrustees: "Boshqaruv kuzatuv kengashi va rahbariyat",
+        expertCouncil: "Akademik ekspertlar va maslahatchilar",
+        documents: "Rasmiy hujjatlar va siyosatlar",
+        partners: "Institutsional hamkorlarimiz",
+      },
+      apply: {
+        selectionCriteria: "Talablar va baholash jarayoni",
+        onlineApplication: "Arizangizni onlayn yuboring",
+        requiredDocuments: "Kerakli hujjatlar ro‘yxati",
+        rulesOfStay: "Dastur qoidalari va tartiblar",
+        faq: "Ko‘p beriladigan savollar",
+      },
+      programs: {
+        mathematics: "Murakkab matematik masalalar yechish va musobaqa tayyorgarligi",
+        physics: "Nazariy va amaliy fizika olimpiadasi tayyorgarligi",
+        chemistry: "Kimyoviy tahlil va laboratoriya ko‘nikmalarini rivojlantirish",
+        biology: "Hayot fanlari va biologik tadqiqot metodologiyalari",
+        computerScience: "Dasturlash, algoritmlar va hisoblash tafakkuri",
+      },
+      olympiads: {
+        prestigious: "Milliy musobaqalar va nufuzli xalqaro saralash bosqichlari",
+        international: "Butun dunyo bo‘ylab xalqaro fan olimpiadalari",
+        local: "Hududiy va mahalliy fan musobaqalari",
+        regional: "Yevropa, Osiyo va Osiyo-Tinch okeani mintaqasidagi xalqaro olimpiadalar",
+      },
+    },
+  }[locale]
+
   const programs = [
-    { title: t('mathematics'), href: "/programs/mathematics", description: "Advanced mathematical problem solving and competition preparation" },
-    { title: t('physics'), href: "/programs/physics", description: "Theoretical and experimental physics olympiad training" },
-    { title: t('chemistry'), href: "/programs/chemistry", description: "Chemical analysis and laboratory skills development" },
-    { title: t('biology'), href: "/programs/biology", description: "Life sciences and biological research methodologies" },
-    { title: t('computerScience'), href: "/programs/computer-science", description: "Programming, algorithms, and computational thinking" },
+    { title: t('mathematics'), href: "/programs/mathematics", description: localized.programs.mathematics },
+    { title: t('physics'), href: "/programs/physics", description: localized.programs.physics },
+    { title: t('chemistry'), href: "/programs/chemistry", description: localized.programs.chemistry },
+    { title: t('biology'), href: "/programs/biology", description: localized.programs.biology },
+    { title: t('computerScience'), href: "/programs/computer-science", description: localized.programs.computerScience },
   ]
 
   const olympiads = [
-    { title: t('prestigiousOlympiads'), href: "/olympiads/prestigious", description: "National competitions and elite international qualifiers" },
-    { title: t('internationalOlympiads'), href: "/olympiads/international", description: "Global science olympiad competitions worldwide" },
-    { title: t('localOlympiads'), href: "/olympiads/local", description: "Regional and local science competitions" },
-    { title: t('regionalInternationalOlympiads'), href: "/olympiads/mintaqaviy", description: "Regional international olympiads across Europe, Asia and the Asia-Pacific" },
+    { title: t('prestigiousOlympiads'), href: "/olympiads/prestigious", description: localized.olympiads.prestigious },
+    { title: t('internationalOlympiads'), href: "/olympiads/international", description: localized.olympiads.international },
+    { title: t('localOlympiads'), href: "/olympiads/local", description: localized.olympiads.local },
+    { title: t('regionalInternationalOlympiads'), href: "/olympiads/mintaqaviy", description: localized.olympiads.regional },
   ]
 
   const aboutUsItems = [
-    { title: t('organizationInfo'), href: "/about/organization", description: "Information about our educational organization" },
-    { title: t('generalInformation'), href: "/about/general", description: "Overview of our center and activities" },
-    { title: t('winners'), href: "/about/winners", description: "Our successful olympiad champions" },
-    { title: t('boardOfTrustees'), href: "/about/board", description: "Our governing board and leadership" },
-    { title: t('expertCouncil'), href: "/about/expert-council", description: "Academic experts and advisors" },
-    { title: t('documents'), href: "/about/documents", description: "Official documents and policies" },
-    { title: t('partners'), href: "/about/partners", description: "Our institutional partnerships" },
+    { title: t('organizationInfo'), href: "/about/organization", description: localized.about.organizationInfo },
+    { title: t('generalInformation'), href: "/about/general", description: localized.about.generalInformation },
+    { title: t('winners'), href: "/about/winners", description: localized.about.winners },
+    { title: t('boardOfTrustees'), href: "/about/board", description: localized.about.boardOfTrustees },
+    { title: t('expertCouncil'), href: "/about/expert-council", description: localized.about.expertCouncil },
+    { title: t('documents'), href: "/about/documents", description: localized.about.documents },
+    { title: t('partners'), href: "/about/partners", description: localized.about.partners },
   ]
 
   const applyItems = [
-    { title: t('selectionCriteria'), href: "/apply/criteria", description: "Requirements and evaluation process" },
-    { title: t('onlineApplication'), href: "/apply/online", description: "Submit your application online" },
-    { title: t('requiredDocuments'), href: "/apply/documents", description: "List of necessary documents" },
-    { title: t('rulesOfStay'), href: "/apply/rules", description: "Program rules and regulations" },
-    { title: t('faq'), href: "/apply/faq", description: "Frequently asked questions" },
+    { title: t('selectionCriteria'), href: "/apply/criteria", description: localized.apply.selectionCriteria },
+    { title: t('onlineApplication'), href: "/apply/online", description: localized.apply.onlineApplication },
+    { title: t('requiredDocuments'), href: "/apply/documents", description: localized.apply.requiredDocuments },
+    { title: t('rulesOfStay'), href: "/apply/rules", description: localized.apply.rulesOfStay },
+    { title: t('faq'), href: "/apply/faq", description: localized.apply.faq },
   ]
 
   // Auto-expand submenu based on current route
@@ -79,10 +188,10 @@ export function Navigation() {
 
   return (
     <header className="sticky top-0 z-[60] w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between border-b">
-        <Link href="/" className="flex items-center space-x-3">
-          <Image src="/images/logo.png" alt="Science Olympiad Center" width={40} height={40} className="h-10 w-auto" />
-          <span className="font-bold text-xl text-primary">Science Olympiad Center</span>
+      <div className="container flex h-14 sm:h-16 items-center justify-between border-b">
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <Image src="/images/logo.png" alt={localized.logo} width={36} height={36} className="h-8 w-auto sm:h-10" />
+          <span className="hidden sm:block font-bold text-sm lg:text-xl text-primary truncate">{localized.logo}</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -100,7 +209,7 @@ export function Navigation() {
                       >
                         <div className="mb-2 mt-4 text-lg font-medium">{t('ourMission')}</div>
                         <p className="text-sm leading-tight text-muted-foreground">
-                          Identifying talented students and fostering their interest in science through olympiads.
+                          {localized.missionDescription}
                         </p>
                       </Link>
                     </NavigationMenuLink>
@@ -124,9 +233,9 @@ export function Navigation() {
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-orange-500/10 to-orange-500/20 p-6 no-underline outline-none focus:shadow-md"
                         href="/apply"
                       >
-                        <div className="mb-2 mt-4 text-lg font-medium">Join Our Programs</div>
+                        <div className="mb-2 mt-4 text-lg font-medium">{localized.joinPrograms}</div>
                         <p className="text-sm leading-tight text-muted-foreground">
-                          Start your journey to international science olympiad success.
+                          {localized.joinProgramsDescription}
                         </p>
                       </Link>
                     </NavigationMenuLink>
@@ -206,7 +315,7 @@ export function Navigation() {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden border-t bg-background">
-          <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3 max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3 max-h-[calc(100dvh-3.5rem)] overflow-y-auto">
             {/* About Us with submenu */}
             <div>
               <button

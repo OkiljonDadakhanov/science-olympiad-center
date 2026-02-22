@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { BookOpen, Users, Award, Target } from "lucide-react"
 import { FadingBackground } from "@/components/fading-bg" // import the fading bg
 import { getApiUrl } from "@/lib/config"
+import { useLocale } from "next-intl"
  
 export type Mentor = {
   id: number
@@ -29,9 +30,160 @@ export type FilterOption =
 --------------------------------------------------------*/
 
 export default function ExpertCouncilPage() {
+  const locale = useLocale() as "en" | "ru" | "uz"
   const [members, setMembers] = useState<Mentor[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
+
+  const content = {
+    en: {
+      title: "Expert Council",
+      subtitle:
+        "Our Expert Council consists of distinguished educators and subject experts who contribute to high-quality olympiad preparation and academic excellence.",
+      responsibilities: [
+        { icon: BookOpen, title: "Curriculum Development", description: "Design and review training curricula for each subject area" },
+        { icon: Users, title: "Student Assessment", description: "Evaluate student performance and provide feedback" },
+        { icon: Award, title: "Competition Preparation", description: "Prepare students for national and international competitions" },
+        { icon: Target, title: "Quality Assurance", description: "Ensure high standards in all educational programs" },
+      ],
+      filterMembers: "Filter Members",
+      clearAll: "Clear All",
+      labels: {
+        year: "Year",
+        subject: "Subject",
+        region: "Region",
+        district: "District",
+        position: "Position",
+        ordering: "Ordering",
+        search: "Search",
+      },
+      orderingOptions: [
+        { value: "", label: "Default" },
+        { value: "year", label: "Year ↑" },
+        { value: "-year", label: "Year ↓" },
+        { value: "full_name", label: "Name ↑" },
+        { value: "-full_name", label: "Name ↓" },
+      ],
+      searchPlaceholder: "Search by name, institution, or subject",
+      councilMembers: "Council Members",
+      loading: "Loading...",
+      failedLoad: "Failed to load council members",
+      regionLabel: "Region",
+      institutionLabel: "Institution",
+      yearLabel: "Year",
+      page: "Page",
+      of: "of",
+      membersCount: "members",
+      previous: "Previous",
+      next: "Next",
+      meetingSchedule: "Meeting Schedule",
+      monthly: "Monthly",
+      quarterly: "Quarterly",
+      annually: "Annually",
+      monthlyDesc: "Regular Council Meetings",
+      quarterlyDesc: "Strategic Planning Sessions",
+      annuallyDesc: "Comprehensive Program Review",
+      all: "All",
+    },
+    ru: {
+      title: "Экспертный совет",
+      subtitle:
+        "Экспертный совет объединяет опытных педагогов и предметных специалистов, обеспечивающих качество олимпиадной подготовки.",
+      responsibilities: [
+        { icon: BookOpen, title: "Разработка учебных программ", description: "Подготовка и обновление программ обучения по предметам" },
+        { icon: Users, title: "Оценка учащихся", description: "Анализ результатов учащихся и рекомендации по развитию" },
+        { icon: Award, title: "Подготовка к соревнованиям", description: "Подготовка команд к национальным и международным олимпиадам" },
+        { icon: Target, title: "Контроль качества", description: "Обеспечение высоких стандартов образовательных программ" },
+      ],
+      filterMembers: "Фильтры",
+      clearAll: "Сбросить",
+      labels: {
+        year: "Год",
+        subject: "Предмет",
+        region: "Регион",
+        district: "Район",
+        position: "Должность",
+        ordering: "Сортировка",
+        search: "Поиск",
+      },
+      orderingOptions: [
+        { value: "", label: "По умолчанию" },
+        { value: "year", label: "Год ↑" },
+        { value: "-year", label: "Год ↓" },
+        { value: "full_name", label: "Имя ↑" },
+        { value: "-full_name", label: "Имя ↓" },
+      ],
+      searchPlaceholder: "Поиск по имени, учреждению или предмету",
+      councilMembers: "Члены совета",
+      loading: "Загрузка...",
+      failedLoad: "Не удалось загрузить членов совета",
+      regionLabel: "Регион",
+      institutionLabel: "Учреждение",
+      yearLabel: "Год",
+      page: "Страница",
+      of: "из",
+      membersCount: "участников",
+      previous: "Назад",
+      next: "Вперёд",
+      meetingSchedule: "График заседаний",
+      monthly: "Ежемесячно",
+      quarterly: "Ежеквартально",
+      annually: "Ежегодно",
+      monthlyDesc: "Регулярные заседания совета",
+      quarterlyDesc: "Сессии стратегического планирования",
+      annuallyDesc: "Комплексный обзор программ",
+      all: "Все",
+    },
+    uz: {
+      title: "Ekspertlar kengashi",
+      subtitle:
+        "Ekspertlar kengashi tajribali pedagoglar va fan mutaxassislaridan iborat bo‘lib, olimpiadaga tayyorgarlik sifatini ta’minlaydi.",
+      responsibilities: [
+        { icon: BookOpen, title: "O‘quv dasturlarini ishlab chiqish", description: "Har bir fan yo‘nalishi bo‘yicha o‘quv dasturlarini tayyorlash va ko‘rib chiqish" },
+        { icon: Users, title: "O‘quvchilarni baholash", description: "Natijalarni tahlil qilish va rivojlanish bo‘yicha tavsiyalar berish" },
+        { icon: Award, title: "Musobaqaga tayyorlash", description: "Jamoalarni milliy va xalqaro olimpiadalarga tayyorlash" },
+        { icon: Target, title: "Sifat nazorati", description: "Barcha dasturlarda yuqori ta’lim standartlarini ta’minlash" },
+      ],
+      filterMembers: "Filtrlar",
+      clearAll: "Tozalash",
+      labels: {
+        year: "Yil",
+        subject: "Fan",
+        region: "Hudud",
+        district: "Tuman",
+        position: "Lavozim",
+        ordering: "Saralash",
+        search: "Qidiruv",
+      },
+      orderingOptions: [
+        { value: "", label: "Standart" },
+        { value: "year", label: "Yil ↑" },
+        { value: "-year", label: "Yil ↓" },
+        { value: "full_name", label: "Ism ↑" },
+        { value: "-full_name", label: "Ism ↓" },
+      ],
+      searchPlaceholder: "Ism, muassasa yoki fan bo‘yicha qidiring",
+      councilMembers: "Kengash a’zolari",
+      loading: "Yuklanmoqda...",
+      failedLoad: "Kengash a’zolarini yuklab bo‘lmadi",
+      regionLabel: "Hudud",
+      institutionLabel: "Muassasa",
+      yearLabel: "Yil",
+      page: "Sahifa",
+      of: "dan",
+      membersCount: "a’zo",
+      previous: "Oldingi",
+      next: "Keyingi",
+      meetingSchedule: "Yig‘ilishlar jadvali",
+      monthly: "Har oy",
+      quarterly: "Har chorak",
+      annually: "Har yili",
+      monthlyDesc: "Muntazam kengash yig‘ilishlari",
+      quarterlyDesc: "Strategik rejalashtirish sessiyalari",
+      annuallyDesc: "Dasturlar bo‘yicha yillik tahlil",
+      all: "Barchasi",
+    },
+  }[locale]
 
   // Pagination
   const [nextUrl, setNextUrl] = useState<string | null>(null)
@@ -116,7 +268,7 @@ export default function ExpertCouncilPage() {
       )
     } catch (err) {
       console.error(err)
-      setError("Failed to load council members")
+      setError(content.failedLoad)
       setMembers([])
     } finally {
       setLoading(false)
@@ -153,13 +305,8 @@ export default function ExpertCouncilPage() {
      RESPONSIBILITIES
   --------------------------------------------------------*/
   const responsibilities = useMemo(
-    () => [
-      { icon: BookOpen, title: "Curriculum Development", description: "Design and review training curricula for each subject area" },
-      { icon: Users, title: "Student Assessment", description: "Evaluate student performance and provide feedback" },
-      { icon: Award, title: "Competition Preparation", description: "Prepare students for national and international competitions" },
-      { icon: Target, title: "Quality Assurance", description: "Ensure high standards in all educational programs" },
-    ],
-    []
+    () => content.responsibilities,
+    [content]
   )
 
   /* -------------------------------------------------------
@@ -174,10 +321,9 @@ export default function ExpertCouncilPage() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Expert Council</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{content.title}</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Our Expert Council consists of distinguished educators and subject experts who
-              contribute to high-quality olympiad preparation and academic excellence.
+              {content.subtitle}
             </p>
           </div>
 
@@ -201,7 +347,7 @@ export default function ExpertCouncilPage() {
           <Card className="mb-8">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold">Filter Members</h3>
+                <h3 className="text-lg font-semibold">{content.filterMembers}</h3>
                 <button
                   onClick={() => {
                     setYear("ALL")
@@ -214,43 +360,38 @@ export default function ExpertCouncilPage() {
                   }}
                   className="text-sm text-primary hover:text-primary/80"
                 >
-                  Clear All
+                  {content.clearAll}
                 </button>
               </div>
 
               {/* Row 1 */}
               <div className="grid md:grid-cols-3 gap-4">
-                <FilterSelect label="Year" value={year} setValue={setYear} options={availableYears} />
-                <FilterSelect label="Subject" value={subject} setValue={setSubject} options={availableSubjects} />
-                <FilterSelect label="Region" value={region} setValue={setRegion} options={availableRegions} />
+                <FilterSelect allLabel={content.all} label={content.labels.year} value={year} setValue={setYear} options={availableYears} />
+                <FilterSelect allLabel={content.all} label={content.labels.subject} value={subject} setValue={setSubject} options={availableSubjects} />
+                <FilterSelect allLabel={content.all} label={content.labels.region} value={region} setValue={setRegion} options={availableRegions} />
               </div>
 
               {/* Row 2 */}
               <div className="grid md:grid-cols-3 gap-4 mt-4">
-                <FilterSelect label="District" value={district} setValue={setDistrict} options={availableDistricts} />
-                <FilterSelect label="Position" value={position} setValue={setPosition} options={availablePositions} />
+                <FilterSelect allLabel={content.all} label={content.labels.district} value={district} setValue={setDistrict} options={availableDistricts} />
+                <FilterSelect allLabel={content.all} label={content.labels.position} value={position} setValue={setPosition} options={availablePositions} />
                 <FilterSelect
-                  label="Ordering"
+                  allLabel={content.all}
+                  label={content.labels.ordering}
                   value={ordering}
                   setValue={setOrdering}
                   isCustom
-                  options={[
-                    { value: "", label: "Default" },
-                    { value: "year", label: "Year ↑" },
-                    { value: "-year", label: "Year ↓" },
-                    { value: "full_name", label: "Name ↑" },
-                    { value: "-full_name", label: "Name ↓" },
-                  ]}
+                  options={content.orderingOptions}
                 />
               </div>
 
               {/* Search */}
               <div className="mt-4">
-                <label className="text-sm font-medium mb-2 block">Search</label>
+                <label className="text-sm font-medium mb-2 block">{content.labels.search}</label>
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search by name, institution, or subject"
+                  placeholder={content.searchPlaceholder}
                   className="w-full px-3 py-2 border rounded"
                 />
               </div>
@@ -259,9 +400,9 @@ export default function ExpertCouncilPage() {
 
           {/* Members */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">Council Members</h2>
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">{content.councilMembers}</h2>
 
-            {loading && <p className="text-center text-gray-600">Loading...</p>}
+            {loading && <p className="text-center text-gray-600">{content.loading}</p>}
             {error && <p className="text-center text-red-500">{error}</p>}
 
             {!loading && !error && (
@@ -283,17 +424,17 @@ export default function ExpertCouncilPage() {
                           </div>
                           <div className="mt-4 text-gray-600 text-sm space-y-1">
                             <p>
-                              <span className="font-semibold text-gray-800">Region:</span> {member.region}
+                              <span className="font-semibold text-gray-800">{content.regionLabel}:</span> {member.region}
                             </p>
                             {member.institution && (
                               <p>
-                                <span className="font-semibold text-gray-800">Institution:</span>{" "}
+                                <span className="font-semibold text-gray-800">{content.institutionLabel}:</span>{" "}
                                 {member.institution}
                               </p>
                             )}
                             {member.year && (
                               <p>
-                                <span className="font-semibold text-gray-800">Year:</span> {member.year}
+                                <span className="font-semibold text-gray-800">{content.yearLabel}:</span> {member.year}
                               </p>
                             )}
                           </div>
@@ -306,8 +447,8 @@ export default function ExpertCouncilPage() {
                 {totalPages > 1 && (
                   <div className="mt-10 flex flex-col items-center gap-3">
                     <div className="text-sm text-gray-600">
-                      Page <span className="font-semibold">{currentPage}</span> of{" "}
-                      <span className="font-semibold">{totalPages}</span> ({totalCount} members)
+                      {content.page} <span className="font-semibold">{currentPage}</span> {content.of}{" "}
+                      <span className="font-semibold">{totalPages}</span> ({totalCount} {content.membersCount})
                     </div>
                     <div className="flex gap-3">
                       <button
@@ -315,14 +456,14 @@ export default function ExpertCouncilPage() {
                         disabled={!prevUrl}
                         className="px-4 py-2 rounded-lg border bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-40"
                       >
-                        ← Previous
+                        ← {content.previous}
                       </button>
                       <button
                         onClick={() => handlePageChange(nextUrl)}
                         disabled={!nextUrl}
                         className="px-4 py-2 rounded-lg border bg-primary text-white hover:bg-primary/90 disabled:opacity-40"
                       >
-                        Next →
+                        {content.next} →
                       </button>
                     </div>
                   </div>
@@ -334,13 +475,13 @@ export default function ExpertCouncilPage() {
           {/* Schedule */}
           <Card className="border-0 shadow-lg mt-8">
             <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-              <CardTitle className="text-2xl">Meeting Schedule</CardTitle>
+              <CardTitle className="text-2xl">{content.meetingSchedule}</CardTitle>
             </CardHeader>
             <CardContent className="p-8">
               <div className="grid md:grid-cols-3 gap-6 text-center">
-                <ScheduleItem label="Monthly" desc="Regular Council Meetings" />
-                <ScheduleItem label="Quarterly" desc="Strategic Planning Sessions" />
-                <ScheduleItem label="Annually" desc="Comprehensive Program Review" />
+                <ScheduleItem label={content.monthly} desc={content.monthlyDesc} />
+                <ScheduleItem label={content.quarterly} desc={content.quarterlyDesc} />
+                <ScheduleItem label={content.annually} desc={content.annuallyDesc} />
               </div>
             </CardContent>
           </Card>
@@ -356,12 +497,14 @@ export default function ExpertCouncilPage() {
 
 function FilterSelect({
   label,
+  allLabel,
   value,
   setValue,
   options,
   isCustom = false,
 }: {
   label: string
+  allLabel: string
   value: string
   setValue: (v: string) => void
   options: (string | number | { value: string; label: string })[]
@@ -375,7 +518,7 @@ function FilterSelect({
         onChange={(e) => setValue(e.target.value)}
         className="w-full px-3 py-2 border rounded"
       >
-        {!isCustom && <option value="ALL">All {label}s</option>}
+        {!isCustom && <option value="ALL">{allLabel} {label}</option>}
         {isCustom
           ? options.map((o) => {
               const opt = o as { value: string; label: string }
