@@ -6,8 +6,55 @@ import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { boardMembers } from "@/data/board-members";
 import { FadingBackground } from "@/components/fading-bg";
+import { useLocale } from "next-intl";
 
 export default function BoardOfTrusteesPage() {
+  const locale = useLocale() as "en" | "ru" | "uz";
+  const content = {
+    en: {
+      title: "Board of Trustees",
+      description:
+        "Our Board of Trustees comprises distinguished professionals who lead key departments and support the quality of our educational initiatives.",
+      background: "Background:",
+      expertise: "Expertise:",
+      experience: "Work Experience:",
+      education: "Education:",
+      contactTitle: "Contact the Board",
+      email: "Email",
+      phone: "Phone",
+      address: "Address",
+      city: "Tashkent, Uzbekistan",
+    },
+    ru: {
+      title: "Попечительский совет",
+      description:
+        "Попечительский совет объединяет опытных специалистов, которые курируют ключевые направления и поддерживают высокие стандарты образовательных инициатив.",
+      background: "Профиль:",
+      expertise: "Компетенции:",
+      experience: "Стаж работы:",
+      education: "Образование:",
+      contactTitle: "Связаться с советом",
+      email: "Email",
+      phone: "Телефон",
+      address: "Адрес",
+      city: "Ташкент, Узбекистан",
+    },
+    uz: {
+      title: "Kuzatuv kengashi",
+      description:
+        "Kuzatuv kengashi markazning asosiy yo‘nalishlarini boshqarishda tajribali mutaxassislar ishtirokini ta’minlaydi va ta’lim sifatini qo‘llab-quvvatlaydi.",
+      background: "Faoliyat yo‘nalishi:",
+      expertise: "Mutaxassisligi:",
+      experience: "Ish tajribasi:",
+      education: "Ta’lim:",
+      contactTitle: "Kengash bilan aloqa",
+      email: "Email",
+      phone: "Telefon",
+      address: "Manzil",
+      city: "Toshkent, O‘zbekiston",
+    },
+  }[locale];
+
   return (
     <div className="min-h-screen relative">
       <FadingBackground imageUrl="/main-bg.jpg" height={400} />
@@ -15,7 +62,7 @@ export default function BoardOfTrusteesPage() {
         {/* Gerb Background Images - 3 duplicates */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
           {/* Top Left */}
-          <div className="absolute top-10 left-10">
+          <div className="absolute top-10 left-10 hidden lg:block">
             <Image
               src="/gerb.png"
               alt="Coat of Arms"
@@ -37,7 +84,7 @@ export default function BoardOfTrusteesPage() {
             />
           </div>
           {/* Bottom Right */}
-          <div className="absolute bottom-10 right-10">
+          <div className="absolute bottom-10 right-10 hidden lg:block">
             <Image
               src="/gerb.png"
               alt="Coat of Arms"
@@ -52,13 +99,11 @@ export default function BoardOfTrusteesPage() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Board of Trustees
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {content.title}
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Our Board of Trustees comprises distinguished professionals who
-              lead various departments and ensure the excellence of our
-              educational initiatives.
+            <p className="text-base md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              {content.description}
             </p>
           </div>
 
@@ -69,11 +114,11 @@ export default function BoardOfTrusteesPage() {
                 key={index}
                 className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden bg-white/95 backdrop-blur-sm border border-gray-100"
               >
-                <CardContent className="p-8">
+                <CardContent className="p-5 md:p-8">
                   <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                     <div className="md:w-1/3 flex justify-center">
                       {member.image ? (
-                        <div className="w-56 h-64 rounded-xl overflow-hidden border-[6px] border-white shadow-2xl bg-gray-100 hover:scale-[1.02] transition-transform duration-300">
+                        <div className="w-44 h-52 md:w-56 md:h-64 rounded-xl overflow-hidden border-[6px] border-white shadow-2xl bg-gray-100 hover:scale-[1.02] transition-transform duration-300">
                           <Image
                             src={member.image}
                             alt={member.name}
@@ -84,7 +129,7 @@ export default function BoardOfTrusteesPage() {
                           />
                         </div>
                       ) : (
-                        <div className="w-56 h-64 bg-gradient-to-br from-orange-400 to-blue-500 rounded-xl flex items-center justify-center text-white text-4xl font-bold shadow-2xl">
+                        <div className="w-44 h-52 md:w-56 md:h-64 bg-gradient-to-br from-orange-400 to-blue-500 rounded-xl flex items-center justify-center text-white text-4xl font-bold shadow-2xl">
                           {member.name
                             .split(" ")
                             .map((n) => n[0])
@@ -96,7 +141,7 @@ export default function BoardOfTrusteesPage() {
                     <div className="md:w-2/3">
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                         <div>
-                          <h3 className="text-3xl font-semibold text-gray-900 mb-2">
+                          <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-2">
                             {member.name}
                           </h3>
                           <Badge
@@ -111,26 +156,26 @@ export default function BoardOfTrusteesPage() {
                       <div className="space-y-4 text-gray-700">
                         <div>
                           <span className="font-semibold text-gray-900">
-                            Background:
+                            {content.background}
                           </span>{" "}
                           {member.background}
                         </div>
                         <div>
                           <span className="font-semibold text-gray-900">
-                            Expertise:
+                            {content.expertise}
                           </span>{" "}
                           {member.expertise}
                         </div>
                         <div>
                           <span className="font-semibold text-gray-900">
-                            Work Experience:
+                            {content.experience}
                           </span>{" "}
                           {member.experience}
                         </div>
                         {member.education && member.education.length > 0 && (
                           <div>
                             <span className="font-semibold text-gray-900">
-                              Education:
+                              {content.education}
                             </span>
                             <ul className="mt-2 space-y-1 ml-4">
                               {member.education.map((edu, idx) => (
@@ -153,7 +198,7 @@ export default function BoardOfTrusteesPage() {
           <Card className="border-0 shadow-lg mt-12 rounded-2xl overflow-hidden">
             <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6">
               <CardTitle className="text-2xl font-semibold">
-                Contact the Board
+                {content.contactTitle}
               </CardTitle>
             </CardHeader>
             <CardContent className="p-8 bg-white">
@@ -161,7 +206,7 @@ export default function BoardOfTrusteesPage() {
                 <div className="flex items-center gap-4">
                   <Mail className="w-7 h-7 text-orange-500" />
                   <div>
-                    <div className="font-semibold text-gray-900">Email</div>
+                    <div className="font-semibold text-gray-900">{content.email}</div>
                     <div className="text-gray-600">
                       info@olympcenter.uz
                     </div>
@@ -170,15 +215,15 @@ export default function BoardOfTrusteesPage() {
                 <div className="flex items-center gap-4">
                   <Phone className="w-7 h-7 text-orange-500" />
                   <div>
-                    <div className="font-semibold text-gray-900">Phone</div>
+                    <div className="font-semibold text-gray-900">{content.phone}</div>
                     <div className="text-gray-600">+998 77 550 33 66</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <MapPin className="w-7 h-7 text-orange-500" />
                   <div>
-                    <div className="font-semibold text-gray-900">Address</div>
-                    <div className="text-gray-600">Tashkent, Uzbekistan</div>
+                    <div className="font-semibold text-gray-900">{content.address}</div>
+                    <div className="text-gray-600">{content.city}</div>
                   </div>
                 </div>
               </div>

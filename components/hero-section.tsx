@@ -20,7 +20,7 @@ import {
   Clock,
 } from "lucide-react"
 import { Link } from "@/i18n/routing"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import Image from "next/image"
 import { getApiUrl } from "@/lib/config"
 
@@ -43,63 +43,134 @@ const heroBackgrounds = [
   { src: "/expert-bg.jpg", alt: "Mentors guiding students through challenges" },
 ]
 
-const upcomingOlympiads = [
-  {
-    id: 1,
-    title: "58th International Chemistry Olympiad (IChO 2026)",
-    date: "2026-07-10",
-    location: "Tashkent, Uzbekistan",
-    category: "International",
-    participants: "90+ countries expected",
-    tagline: "A global celebration of science",
-    description: "The world's most prestigious annual competition for high school chemistry students, featuring challenging theoretical and practical exams. Hosted by Uzbekistan for the first time in history.",
-    image: "/icho-slider.jpg",
-    registrationDeadline: "2026-03-01",
-    categoryLink: "/olympiads/international",
-  },
-  {
-    id: 2,
-    title: "67th International Mathematical Olympiad (IMO 2026)",
-    date: "2026-07-10",
-    location: "Shanghai, China",
-    category: "International",
-    participants: "100+ countries",
-    tagline: "The world championship of mathematics for high school students",
-    description: "The IMO is the oldest and most prestigious global mathematics competition, bringing together talented students from over 100 countries.",
-    image: "/imo-slider.jpg",
-    registrationDeadline: "2026-03-15",
-    categoryLink: "/olympiads/international",
-  },
-  {
-    id: 3,
-    title: "56th International Physics Olympiad (IPhO 2026)",
-    date: "2026-07-04",
-    location: "Bucaramanga, Colombia",
-    category: "International",
-    participants: "Worldwide participants",
-    tagline: "Celebrating physics, culture, and global friendship",
-    description: "The IPhO 2026 unites the brightest young physicists from around the world for challenging exams and cultural exchange in Colombia.",
-    image: "/ipho-slider.jpg",
-    registrationDeadline: "2026-03-01",
-    categoryLink: "/olympiads/international",
-  },
-  {
-    id: 4,
-    title: "37th International Biology Olympiad (IBO 2026)",
-    date: "2026-07-20",
-    location: "Vilnius, Lithuania",
-    category: "International",
-    participants: "Global biology finalists",
-    tagline: "Advancing excellence in life sciences",
-    description: "The IBO 2026 in Lithuania continues the tradition of inspiring young talents in biological sciences through rigorous exams and international collaboration.",
-    image: "/ibo-slider.jpg",
-    registrationDeadline: "2026-04-01",
-    categoryLink: "/olympiads/international",
-  },
-]
+function getUpcomingOlympiads(locale: "en" | "ru" | "uz") {
+  const common = [
+    {
+      id: 1,
+      title: "58th International Chemistry Olympiad (IChO 2026)",
+      date: "2026-07-10",
+      location: {
+        en: "Tashkent, Uzbekistan",
+        ru: "Ташкент, Узбекистан",
+        uz: "Toshkent, O‘zbekiston",
+      },
+      participants: {
+        en: "90+ countries expected",
+        ru: "Ожидается 90+ стран",
+        uz: "90+ davlat ishtiroki kutilmoqda",
+      },
+      tagline: {
+        en: "A global celebration of science",
+        ru: "Глобальное торжество науки",
+        uz: "Ilm-fanning global bayrami",
+      },
+      description: {
+        en: "The world's most prestigious annual competition for high school chemistry students, featuring challenging theoretical and practical exams. Hosted by Uzbekistan for the first time in history.",
+        ru: "Самое престижное ежегодное соревнование по химии для школьников старших классов с теоретическими и практическими турами. Впервые в истории проходит в Узбекистане.",
+        uz: "Yuqori sinf o‘quvchilari uchun kimyo bo‘yicha dunyodagi eng nufuzli yillik musobaqa bo‘lib, murakkab nazariy va amaliy sinovlarni o‘z ichiga oladi. Tarixda ilk bor O‘zbekistonda o‘tkaziladi.",
+      },
+      image: "/icho-slider.jpg",
+      registrationDeadline: "2026-03-01",
+      categoryLink: "/olympiads/international",
+    },
+    {
+      id: 2,
+      title: "67th International Mathematical Olympiad (IMO 2026)",
+      date: "2026-07-10",
+      location: {
+        en: "Shanghai, China",
+        ru: "Шанхай, Китай",
+        uz: "Shanxay, Xitoy",
+      },
+      participants: {
+        en: "100+ countries",
+        ru: "100+ стран",
+        uz: "100+ davlat",
+      },
+      tagline: {
+        en: "The world championship of mathematics for high school students",
+        ru: "Мировое первенство по математике среди школьников",
+        uz: "Maktab o‘quvchilari uchun matematika bo‘yicha jahon chempionati",
+      },
+      description: {
+        en: "The IMO is the oldest and most prestigious global mathematics competition, bringing together talented students from over 100 countries.",
+        ru: "IMO — старейшая и наиболее престижная международная математическая олимпиада, объединяющая талантливых школьников более чем из 100 стран.",
+        uz: "IMO dunyodagi eng qadimiy va nufuzli xalqaro matematika olimpiadasi bo‘lib, 100 dan ortiq davlatdan iqtidorli o‘quvchilarni birlashtiradi.",
+      },
+      image: "/imo-slider.jpg",
+      registrationDeadline: "2026-03-15",
+      categoryLink: "/olympiads/international",
+    },
+    {
+      id: 3,
+      title: "56th International Physics Olympiad (IPhO 2026)",
+      date: "2026-07-04",
+      location: {
+        en: "Bucaramanga, Colombia",
+        ru: "Букараманга, Колумбия",
+        uz: "Bukaramanga, Kolumbiya",
+      },
+      participants: {
+        en: "Worldwide participants",
+        ru: "Участники со всего мира",
+        uz: "Butun dunyodan ishtirokchilar",
+      },
+      tagline: {
+        en: "Celebrating physics, culture, and global friendship",
+        ru: "Праздник физики, культуры и международной дружбы",
+        uz: "Fizika, madaniyat va global do‘stlik bayrami",
+      },
+      description: {
+        en: "The IPhO 2026 unites the brightest young physicists from around the world for challenging exams and cultural exchange in Colombia.",
+        ru: "IPhO 2026 объединяет сильнейших юных физиков мира для прохождения сложных туров и культурного обмена в Колумбии.",
+        uz: "IPhO 2026 Kolumbiyada dunyoning eng iqtidorli yosh fiziklarini murakkab sinovlar va madaniy almashinuv uchun birlashtiradi.",
+      },
+      image: "/ipho-slider.jpg",
+      registrationDeadline: "2026-03-01",
+      categoryLink: "/olympiads/international",
+    },
+    {
+      id: 4,
+      title: "37th International Biology Olympiad (IBO 2026)",
+      date: "2026-07-20",
+      location: {
+        en: "Vilnius, Lithuania",
+        ru: "Вильнюс, Литва",
+        uz: "Vilnyus, Litva",
+      },
+      participants: {
+        en: "Global biology finalists",
+        ru: "Финалисты по биологии со всего мира",
+        uz: "Biologiya bo‘yicha global finalchilar",
+      },
+      tagline: {
+        en: "Advancing excellence in life sciences",
+        ru: "Продвигая совершенство в науках о жизни",
+        uz: "Hayot fanlarida yuksak natijalarni rivojlantirish",
+      },
+      description: {
+        en: "The IBO 2026 in Lithuania continues the tradition of inspiring young talents in biological sciences through rigorous exams and international collaboration.",
+        ru: "IBO 2026 в Литве продолжает традицию поддержки молодых талантов в биологических науках через сложные испытания и международное сотрудничество.",
+        uz: "Litvadagi IBO 2026 biologiya fanidagi yosh iste’dodlarni murakkab sinovlar va xalqaro hamkorlik orqali qo‘llab-quvvatlash an’anasini davom ettiradi.",
+      },
+      image: "/ibo-slider.jpg",
+      registrationDeadline: "2026-04-01",
+      categoryLink: "/olympiads/international",
+    },
+  ]
 
-function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString("en-US", {
+  return common.map((item) => ({
+    ...item,
+    category: locale === "ru" ? "Международная" : locale === "uz" ? "Xalqaro" : "International",
+    location: item.location[locale],
+    participants: item.participants[locale],
+    tagline: item.tagline[locale],
+    description: item.description[locale],
+  }))
+}
+
+function formatDate(dateString: string, locale: string): string {
+  return new Date(dateString).toLocaleDateString(locale, {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -108,6 +179,9 @@ function formatDate(dateString: string): string {
 
 export function HeroSection() {
   const t = useTranslations('hero')
+  const locale = useLocale() as "en" | "ru" | "uz"
+  const upcomingOlympiads = getUpcomingOlympiads(locale)
+  const intlLocale = locale === "ru" ? "ru-RU" : locale === "uz" ? "uz-UZ" : "en-US"
   const [currentSlide, setCurrentSlide] = useState(0)
   const [currentBackground, setCurrentBackground] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -166,7 +240,7 @@ export function HeroSection() {
   const currentOlympiad = upcomingOlympiads[currentSlide]
 
   return (
-    <section className="relative pt-20 lg:pt-32 pb-10 lg:pb-16 overflow-hidden">
+    <section className="relative pt-16 lg:pt-32 pb-10 lg:pb-16 overflow-hidden">
       {/* Full-bleed scrolling background carousel */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden>
         {heroBackgrounds.map((bg, index) => (
@@ -198,13 +272,13 @@ export function HeroSection() {
       <div className="container relative">
         {/* Hero Text */}
         <div className={`max-w-5xl mx-auto text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
             <span className="text-white drop-shadow-lg">{t('title')}</span>
             <br />
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{t('subtitle')}</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-white/80 mb-10 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-lg md:text-2xl text-white/80 mb-10 leading-relaxed max-w-3xl mx-auto">
             {t('description')}
           </p>
 
@@ -274,7 +348,7 @@ export function HeroSection() {
                     <CardContent className="p-5">
                       <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
                         <Calendar className="h-3 w-3" />
-                        {formatDate(article.published_at)}
+                        {formatDate(article.published_at, intlLocale)}
                       </div>
                       <h3 className="font-bold text-lg line-clamp-2 group-hover:text-primary transition-colors mb-2">
                         {article.title}
@@ -313,18 +387,18 @@ export function HeroSection() {
                 <div className="lg:col-span-2 aspect-video lg:aspect-auto relative overflow-hidden">
                   <img src={currentOlympiad.image || "/placeholder.svg"} alt={currentOlympiad.title} className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                  <Badge className="absolute top-6 left-6 bg-white/90 text-primary px-4 py-2 text-sm font-bold shadow-lg backdrop-blur-sm border border-primary/20">
+                  <Badge className="absolute top-4 left-4 md:top-6 md:left-6 bg-white/90 text-primary px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-bold shadow-lg backdrop-blur-sm border border-primary/20">
                     {currentOlympiad.category}
                   </Badge>
-                  <div className="absolute bottom-6 left-6 right-6">
+                  <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
                     <div className="text-white/90 text-sm font-medium mb-1">{t('registrationDeadline')}</div>
-                    <div className="text-white font-bold text-lg">
-                      {new Date(currentOlympiad.registrationDeadline).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+                    <div className="text-white font-bold text-base md:text-lg">
+                      {new Date(currentOlympiad.registrationDeadline).toLocaleDateString(intlLocale, { month: "long", day: "numeric", year: "numeric" })}
                     </div>
                   </div>
                 </div>
 
-                <CardContent className="lg:col-span-3 p-8 lg:p-12 flex flex-col justify-center">
+                <CardContent className="lg:col-span-3 p-6 lg:p-12 flex flex-col justify-center">
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-2xl lg:text-3xl font-bold mb-3 leading-tight text-foreground">{currentOlympiad.title}</h3>
@@ -342,7 +416,7 @@ export function HeroSection() {
                         <div>
                           <div className="text-xs text-muted-foreground font-medium">{t('eventDate')}</div>
                           <div className="text-sm font-semibold text-foreground">
-                            {new Date(currentOlympiad.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                            {new Date(currentOlympiad.date).toLocaleDateString(intlLocale, { month: "short", day: "numeric", year: "numeric" })}
                           </div>
                         </div>
                       </div>
@@ -380,10 +454,10 @@ export function HeroSection() {
               </div>
             </Card>
 
-            <Button variant="outline" size="icon" className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm shadow-xl h-12 w-12 border-2 border-border hover:border-primary hover:bg-background transition-all duration-300 opacity-0 group-hover:opacity-100" onClick={prevSlide}>
+            <Button variant="outline" size="icon" className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm shadow-xl h-10 w-10 md:h-12 md:w-12 border-2 border-border hover:border-primary hover:bg-background transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100" onClick={prevSlide}>
               <ChevronLeft className="h-6 w-6" />
             </Button>
-            <Button variant="outline" size="icon" className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm shadow-xl h-12 w-12 border-2 border-border hover:border-primary hover:bg-background transition-all duration-300 opacity-0 group-hover:opacity-100" onClick={nextSlide}>
+            <Button variant="outline" size="icon" className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm shadow-xl h-10 w-10 md:h-12 md:w-12 border-2 border-border hover:border-primary hover:bg-background transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100" onClick={nextSlide}>
               <ChevronRight className="h-6 w-6" />
             </Button>
 

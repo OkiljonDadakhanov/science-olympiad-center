@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useState } from "react"
 import Image from "next/image"
 import { Users, Building2, Briefcase, GraduationCap, Mail, Phone, MapPin, Clock, ChevronDown, ChevronUp } from "lucide-react"
+import { useLocale } from "next-intl"
 
 // --- DATA ---
 const orgData = {
@@ -219,33 +220,41 @@ interface PersonProps {
   }
   size?: "lg" | "md" | "sm"
   showEducation?: boolean
+  educationLabel?: string
+  experienceSuffix?: string
 }
 
-function PersonCard({ person, size = "md", showEducation = true }: PersonProps) {
+function PersonCard({
+  person,
+  size = "md",
+  showEducation = true,
+  educationLabel = "Education",
+  experienceSuffix = "experience",
+}: PersonProps) {
   const [isExpanded, setIsExpanded] = useState(false)
   const hasEducation = person.education && person.education.length > 0
 
   const sizeClasses = {
     lg: {
-      card: "p-6 min-w-[280px]",
-      avatar: "w-32 h-32",
-      name: "text-xl",
+      card: "p-5 md:p-6 w-full",
+      avatar: "w-24 h-24 md:w-32 md:h-32",
+      name: "text-lg md:text-xl",
       role: "text-sm",
       wrapper: "w-full max-w-sm"
     },
     md: {
-      card: "p-5 min-w-[220px]",
+      card: "p-4 md:p-5 w-full",
       avatar: "w-24 h-24",
       name: "text-base",
       role: "text-xs",
       wrapper: "w-full max-w-xs"
     },
     sm: {
-      card: "p-4 min-w-[180px]",
+      card: "p-4 w-full",
       avatar: "w-20 h-20",
       name: "text-sm",
       role: "text-xs",
-      wrapper: "w-full max-w-[200px]"
+      wrapper: "w-full max-w-[240px]"
     }
   }
 
@@ -274,7 +283,7 @@ function PersonCard({ person, size = "md", showEducation = true }: PersonProps) 
           <p className={`${s.role} text-muted-foreground`}>{person.role}</p>
           {person.work && (
             <span className="inline-flex items-center mt-2 px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
-              {person.work} experience
+              {person.work} {experienceSuffix}
             </span>
           )}
 
@@ -286,7 +295,7 @@ function PersonCard({ person, size = "md", showEducation = true }: PersonProps) 
                 className="flex items-center justify-center gap-1 w-full text-xs text-muted-foreground hover:text-primary transition-colors py-1"
               >
                 <GraduationCap className="h-3.5 w-3.5" />
-                <span>Education</span>
+                <span>{educationLabel}</span>
                 {isExpanded ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
               </button>
 
@@ -320,36 +329,161 @@ function Connector({ direction = "vertical", className = "" }: { direction?: "ve
 
 // Main Page Component
 export default function OrganizationPage() {
+  const locale = useLocale() as "en" | "ru" | "uz"
+
+  const labels = {
+    en: {
+      title: "Organizational Structure",
+      subtitle: "Science Olympiad Center under the Agency for Specialized Educational Institutions",
+      departments: "Departments",
+      support: "Support Staff",
+      contact: "Contact Information",
+      address: "Address",
+      workingHours: "Working Hours",
+      phone: "Phone",
+      email: "Email",
+      education: "Education",
+      experience: "experience",
+      roleMap: {
+        Director: "Director",
+        "Deputy Director": "Deputy Director",
+        "Head of Department": "Head of Department",
+        "Chief Specialist": "Chief Specialist",
+        "Leading Specialist": "Leading Specialist",
+        "Lead Specialist": "Lead Specialist",
+        "Chief HR Specialist": "Chief HR Specialist",
+        "Head of Accounting Department": "Head of Accounting Department",
+        "Public Procurement Specialist": "Public Procurement Specialist",
+        "Head of Digital Media Department": "Head of Digital Media Department",
+        Specialist: "Specialist",
+        "Software Engineer": "Software Engineer",
+      },
+      departmentMap: {
+        "Department for Organizing Local Subject Olympiads": "Department for Organizing Local Subject Olympiads",
+        "Department for International Science Olympiads": "Department for International Science Olympiads",
+        "Department for Olympiad Materials & Online Olympiads": "Department for Olympiad Materials & Online Olympiads",
+        "Department for Methodological Guidelines": "Department for Methodological Guidelines",
+      },
+    },
+    ru: {
+      title: "Организационная структура",
+      subtitle: "Центр научных олимпиад при Агентстве специализированных образовательных учреждений",
+      departments: "Отделы",
+      support: "Вспомогательный персонал",
+      contact: "Контактная информация",
+      address: "Адрес",
+      workingHours: "Часы работы",
+      phone: "Телефон",
+      email: "Email",
+      education: "Образование",
+      experience: "стажа",
+      roleMap: {
+        Director: "Директор",
+        "Deputy Director": "Заместитель директора",
+        "Head of Department": "Начальник отдела",
+        "Chief Specialist": "Главный специалист",
+        "Leading Specialist": "Ведущий специалист",
+        "Lead Specialist": "Ведущий специалист",
+        "Chief HR Specialist": "Главный HR-специалист",
+        "Head of Accounting Department": "Начальник бухгалтерии",
+        "Public Procurement Specialist": "Специалист по госзакупкам",
+        "Head of Digital Media Department": "Начальник отдела цифровых медиа",
+        Specialist: "Специалист",
+        "Software Engineer": "Инженер-программист",
+      },
+      departmentMap: {
+        "Department for Organizing Local Subject Olympiads": "Отдел организации местных предметных олимпиад",
+        "Department for International Science Olympiads": "Отдел международных научных олимпиад",
+        "Department for Olympiad Materials & Online Olympiads": "Отдел олимпиадных материалов и онлайн-олимпиад",
+        "Department for Methodological Guidelines": "Отдел методических разработок",
+      },
+    },
+    uz: {
+      title: "Tashkiliy tuzilma",
+      subtitle: "Ixtisoslashtirilgan ta’lim muassasalari agentligi huzuridagi Fan olimpiadalari markazi",
+      departments: "Bo‘limlar",
+      support: "Yordamchi xodimlar",
+      contact: "Aloqa ma’lumotlari",
+      address: "Manzil",
+      workingHours: "Ish vaqti",
+      phone: "Telefon",
+      email: "Email",
+      education: "Ta’lim",
+      experience: "tajriba",
+      roleMap: {
+        Director: "Direktor",
+        "Deputy Director": "Direktor o‘rinbosari",
+        "Head of Department": "Bo‘lim boshlig‘i",
+        "Chief Specialist": "Bosh mutaxassis",
+        "Leading Specialist": "Yetakchi mutaxassis",
+        "Lead Specialist": "Yetakchi mutaxassis",
+        "Chief HR Specialist": "Bosh HR mutaxassisi",
+        "Head of Accounting Department": "Buxgalteriya bo‘limi boshlig‘i",
+        "Public Procurement Specialist": "Davlat xaridlari bo‘yicha mutaxassis",
+        "Head of Digital Media Department": "Raqamli media bo‘limi boshlig‘i",
+        Specialist: "Mutaxassis",
+        "Software Engineer": "Dasturiy ta’minot muhandisi",
+      },
+      departmentMap: {
+        "Department for Organizing Local Subject Olympiads": "Mahalliy fan olimpiadalarini tashkil etish bo‘limi",
+        "Department for International Science Olympiads": "Xalqaro fan olimpiadalari bo‘limi",
+        "Department for Olympiad Materials & Online Olympiads": "Olimpiada materiallari va onlayn olimpiadalar bo‘limi",
+        "Department for Methodological Guidelines": "Metodik ko‘rsatmalar bo‘limi",
+      },
+    },
+  }[locale]
+
+  const translateRole = (role: string) => labels.roleMap[role as keyof typeof labels.roleMap] ?? role
+  const translateDept = (name: string) => labels.departmentMap[name as keyof typeof labels.departmentMap] ?? name
+
+  const localizePerson = (person: { name: string; role: string; work?: string; image?: string; education?: string[] }) => ({
+    ...person,
+    role: translateRole(person.role),
+  })
+
+  const localizedData = {
+    ...orgData,
+    director: localizePerson(orgData.director),
+    deputy: localizePerson(orgData.deputy),
+    departments: orgData.departments.map((dept) => ({
+      ...dept,
+      name: translateDept(dept.name),
+      head: localizePerson(dept.head),
+      staff: dept.staff.map(localizePerson),
+    })),
+    support: orgData.support.map(localizePerson),
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
-      <div className="container py-16 px-4 sm:px-6 lg:px-8">
+      <div className="container py-12 md:py-16 px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-2xl mb-6">
             <Building2 className="h-10 w-10 text-primary" />
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
-            Organizational Structure
+          <h1 className="text-3xl sm:text-5xl font-bold text-foreground mb-4">
+            {labels.title}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Science Olympiad Center under the Agency for Specialized Educational Institutions
+            {labels.subtitle}
           </p>
         </div>
 
         {/* Leadership Section */}
         <section className="mb-20">
           <div className="flex flex-col items-center">
-            <PersonCard person={orgData.director} size="lg" />
+            <PersonCard person={localizedData.director} size="lg" educationLabel={labels.education} experienceSuffix={labels.experience} />
             <Connector className="my-4" />
-            <PersonCard person={orgData.deputy} size="md" />
+            <PersonCard person={localizedData.deputy} size="md" educationLabel={labels.education} experienceSuffix={labels.experience} />
           </div>
         </section>
 
         {/* Departments Section */}
         <section className="mb-20">
-          <h2 className="text-2xl font-bold text-center mb-10 text-foreground">Departments</h2>
+          <h2 className="text-2xl font-bold text-center mb-10 text-foreground">{labels.departments}</h2>
           <div className="grid lg:grid-cols-2 gap-8">
-            {orgData.departments.map((dept, idx) => (
+            {localizedData.departments.map((dept, idx) => (
               <Card key={idx} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <CardHeader className={`bg-gradient-to-r ${dept.color} text-white py-5`}>
                   <CardTitle className="text-lg font-semibold flex items-center gap-3">
@@ -362,7 +496,7 @@ export default function OrganizationPage() {
                 <CardContent className="p-8">
                   {/* Department Head */}
                   <div className="flex flex-col items-center mb-8">
-                    <PersonCard person={dept.head} size="md" />
+                    <PersonCard person={dept.head} size="md" educationLabel={labels.education} experienceSuffix={labels.experience} />
                   </div>
 
                   {/* Connector */}
@@ -378,7 +512,7 @@ export default function OrganizationPage() {
                   {/* Staff Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6 justify-items-center">
                     {dept.staff.map((member, i) => (
-                      <PersonCard key={i} person={member} size="sm" />
+                      <PersonCard key={i} person={member} size="sm" educationLabel={labels.education} experienceSuffix={labels.experience} />
                     ))}
                   </div>
                 </CardContent>
@@ -395,13 +529,13 @@ export default function OrganizationPage() {
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <Users className="h-5 w-5 text-primary" />
                 </div>
-                Support Staff
+                {labels.support}
               </CardTitle>
             </CardHeader>
             <CardContent className="p-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-                {orgData.support.map((person, idx) => (
-                  <PersonCard key={idx} person={person} size="sm" showEducation={false} />
+                {localizedData.support.map((person, idx) => (
+                  <PersonCard key={idx} person={person} size="sm" showEducation={false} educationLabel={labels.education} experienceSuffix={labels.experience} />
                 ))}
               </div>
             </CardContent>
@@ -416,7 +550,7 @@ export default function OrganizationPage() {
                 <div className="p-2 bg-white/20 rounded-lg">
                   <Mail className="h-5 w-5" />
                 </div>
-                Contact Information
+                {labels.contact}
               </CardTitle>
             </CardHeader>
             <CardContent className="p-8">
@@ -426,7 +560,7 @@ export default function OrganizationPage() {
                     <MapPin className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground mb-1">Address</p>
+                    <p className="font-semibold text-foreground mb-1">{labels.address}</p>
                     <p className="text-sm text-muted-foreground">52/1 Darvozakent Street, Yunusabad District, Tashkent</p>
                   </div>
                 </div>
@@ -435,7 +569,7 @@ export default function OrganizationPage() {
                     <Clock className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground mb-1">Working Hours</p>
+                    <p className="font-semibold text-foreground mb-1">{labels.workingHours}</p>
                     <p className="text-sm text-muted-foreground">Mon – Fri, 09:00 – 18:00</p>
                   </div>
                 </div>
@@ -444,7 +578,7 @@ export default function OrganizationPage() {
                     <Phone className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground mb-1">Phone</p>
+                    <p className="font-semibold text-foreground mb-1">{labels.phone}</p>
                     <p className="text-sm text-muted-foreground">(+998) 77 550 33 66</p>
                   </div>
                 </div>
@@ -453,7 +587,7 @@ export default function OrganizationPage() {
                     <Mail className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground mb-1">Email</p>
+                    <p className="font-semibold text-foreground mb-1">{labels.email}</p>
                     <a href="mailto:info@olympcenter.uz" className="text-sm text-primary hover:underline">
                       info@olympcenter.uz
                     </a>

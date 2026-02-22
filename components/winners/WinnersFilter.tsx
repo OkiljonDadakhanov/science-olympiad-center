@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 import { X } from "lucide-react"
+import { useLocale } from "next-intl"
 
 interface WinnersFilterProps {
   year: string
@@ -24,21 +25,6 @@ interface WinnersFilterProps {
   availableSubjects: string[]
 }
 
-const MEDAL_OPTIONS = [
-  // Values are what the API expects; labels are localized
-  { value: "Gold", label: "Gold 🥇", color: "bg-yellow-100 text-yellow-800 border-yellow-300" },
-  { value: "Silver", label: "Silver 🥈", color: "bg-gray-100 text-gray-800 border-gray-300" },
-  { value: "Bronze", label: "Bronze 🥉", color: "bg-orange-100 text-orange-800 border-orange-300" },
-]
-
-const OLYMPIAD_TYPES = [
-  { value: "ALL", label: "All Types" },
-  // Values match backend enum (e.g. MINTAQAVIY, RESPUBLIKA, XALQARO)
-  { value: "MINTAQAVIY", label: "Regional" },
-  { value: "RESPUBLIKA", label: "National" },
-  { value: "XALQARO", label: "International" },
-]
-
 export default function WinnersFilter({
   year,
   onYearChange,
@@ -51,6 +37,83 @@ export default function WinnersFilter({
   onOlympiadTypeChange,
   availableSubjects,
 }: WinnersFilterProps) {
+  const locale = useLocale() as "en" | "ru" | "uz"
+
+  const content = {
+    en: {
+      filters: "Filters",
+      clearAll: "Clear All",
+      olympiadType: "Olympiad Type",
+      year: "Year",
+      allYears: "All Years",
+      medals: "Medals",
+      subjects: "Subjects",
+      noSubjects: "No subjects available",
+      allTypes: "All Types",
+      regional: "Regional",
+      national: "National",
+      international: "International",
+      yearPrefix: "Year",
+      medalsMap: {
+        Gold: "Gold",
+        Silver: "Silver",
+        Bronze: "Bronze",
+      },
+    },
+    ru: {
+      filters: "Фильтры",
+      clearAll: "Сбросить",
+      olympiadType: "Тип олимпиады",
+      year: "Год",
+      allYears: "Все годы",
+      medals: "Медали",
+      subjects: "Предметы",
+      noSubjects: "Нет доступных предметов",
+      allTypes: "Все типы",
+      regional: "Региональная",
+      national: "Республиканская",
+      international: "Международная",
+      yearPrefix: "Год",
+      medalsMap: {
+        Gold: "Золото",
+        Silver: "Серебро",
+        Bronze: "Бронза",
+      },
+    },
+    uz: {
+      filters: "Filtrlar",
+      clearAll: "Tozalash",
+      olympiadType: "Olimpiada turi",
+      year: "Yil",
+      allYears: "Barcha yillar",
+      medals: "Medallar",
+      subjects: "Fanlar",
+      noSubjects: "Fanlar mavjud emas",
+      allTypes: "Barcha turlar",
+      regional: "Mintaqaviy",
+      national: "Respublika",
+      international: "Xalqaro",
+      yearPrefix: "Yil",
+      medalsMap: {
+        Gold: "Oltin",
+        Silver: "Kumush",
+        Bronze: "Bronza",
+      },
+    },
+  }[locale]
+
+  const MEDAL_OPTIONS = [
+    { value: "Gold", label: `${content.medalsMap.Gold} 🥇`, color: "bg-yellow-100 text-yellow-800 border-yellow-300" },
+    { value: "Silver", label: `${content.medalsMap.Silver} 🥈`, color: "bg-gray-100 text-gray-800 border-gray-300" },
+    { value: "Bronze", label: `${content.medalsMap.Bronze} 🥉`, color: "bg-orange-100 text-orange-800 border-orange-300" },
+  ]
+
+  const OLYMPIAD_TYPES = [
+    { value: "ALL", label: content.allTypes },
+    { value: "MINTAQAVIY", label: content.regional },
+    { value: "RESPUBLIKA", label: content.national },
+    { value: "XALQARO", label: content.international },
+  ]
   
   const toggleMedal = (medal: string) => {
     if (selectedMedals.includes(medal)) {
@@ -82,14 +145,14 @@ export default function WinnersFilter({
     <Card className="mb-8 shadow-sm">
       <CardContent className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-lg font-semibold">Filters</h2>
+          <h2 className="text-lg font-semibold">{content.filters}</h2>
           {hasActiveFilters && (
             <button
               onClick={clearAllFilters}
               className="text-sm text-primary hover:text-primary/80 flex items-center gap-1"
             >
               <X className="h-4 w-4" />
-              Clear All
+              {content.clearAll}
             </button>
           )}
         </div>
@@ -98,7 +161,7 @@ export default function WinnersFilter({
           
           {/* Olympiad Type */}
           <div>
-            <Label className="text-sm font-medium mb-3 block">Olympiad Type</Label>
+            <Label className="text-sm font-medium mb-3 block">{content.olympiadType}</Label>
             <select
               value={olympiadType}
               onChange={(e) => onOlympiadTypeChange(e.target.value)}
@@ -114,13 +177,13 @@ export default function WinnersFilter({
 
           {/* Year */}
           <div>
-            <Label className="text-sm font-medium mb-3 block">Year</Label>
+            <Label className="text-sm font-medium mb-3 block">{content.year}</Label>
             <select
               value={year}
               onChange={(e) => onYearChange(e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
             >
-              <option value="ALL">All Years</option>
+              <option value="ALL">{content.allYears}</option>
               {availableYears.map((y) => (
                 <option key={y} value={y}>
                   {y}
@@ -131,7 +194,7 @@ export default function WinnersFilter({
 
           {/* Medals */}
           <div>
-            <Label className="text-sm font-medium mb-3 block">Medals</Label>
+            <Label className="text-sm font-medium mb-3 block">{content.medals}</Label>
             <div className="flex flex-wrap gap-2">
               {MEDAL_OPTIONS.map((medal) => (
                 <button
@@ -151,7 +214,7 @@ export default function WinnersFilter({
 
           {/* Subjects */}
           <div>
-            <Label className="text-sm font-medium mb-3 block">Subjects</Label>
+            <Label className="text-sm font-medium mb-3 block">{content.subjects}</Label>
             <div className="max-h-24 overflow-y-auto border border-gray-200 rounded-lg p-2 space-y-1">
               {availableSubjects.length > 0 ? (
                 availableSubjects.map((subject) => (
@@ -169,7 +232,7 @@ export default function WinnersFilter({
                   </label>
                 ))
               ) : (
-                <p className="text-sm text-gray-500 px-2">No subjects available</p>
+                <p className="text-sm text-gray-500 px-2">{content.noSubjects}</p>
               )}
             </div>
           </div>
@@ -190,7 +253,7 @@ export default function WinnersFilter({
               )}
               {year !== "ALL" && (
                 <Badge variant="secondary" className="gap-1">
-                  Year: {year}
+                  {content.yearPrefix}: {year}
                   <X
                     className="h-3 w-3 cursor-pointer"
                     onClick={() => onYearChange("ALL")}

@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, School } from "lucide-react"
+import { useLocale } from "next-intl"
 
 interface WinnerProps {
   winner: {
@@ -31,12 +32,22 @@ const placeEmojis: Record<string, string> = {
 }
 
 export default function WinnerCard({ winner }: WinnerProps) {
+  const locale = useLocale() as "en" | "ru" | "uz"
+  const content = {
+    en: { grade: "Grade", notAvailable: "—", medalMap: { Gold: "Gold", Silver: "Silver", Bronze: "Bronze" } },
+    ru: { grade: "Класс", notAvailable: "—", medalMap: { Gold: "Золото", Silver: "Серебро", Bronze: "Бронза" } },
+    uz: { grade: "Sinf", notAvailable: "—", medalMap: { Gold: "Oltin", Silver: "Kumush", Bronze: "Bronza" } },
+  }[locale]
+
   const normalizePlace = (p?: string) => {
     if (!p) return ""
     const map: Record<string, string> = {
       Oltin: "Gold",
       Kumush: "Silver",
       Bronza: "Bronze",
+      Золото: "Gold",
+      Серебро: "Silver",
+      Бронза: "Bronze",
       Gold: "Gold",
       Silver: "Silver",
       Bronze: "Bronze",
@@ -64,7 +75,7 @@ export default function WinnerCard({ winner }: WinnerProps) {
           <Badge
             className={`absolute bottom-3 left-3 px-3 py-1.5 text-sm font-semibold rounded-full flex items-center gap-2 shadow-lg ${placeStyle}`}
           >
-            {medalIcon} {winner.place}
+            {medalIcon} {content.medalMap[norm as keyof typeof content.medalMap] || winner.place}
           </Badge>
 
           {/* Subtle top gradient */}
@@ -78,7 +89,7 @@ export default function WinnerCard({ winner }: WinnerProps) {
           </h3>
 
           <p className="text-sm text-gray-500">
-            Grade: <span className="font-medium text-gray-700">{winner.grade ?? "—"}</span>
+            {content.grade}: <span className="font-medium text-gray-700">{winner.grade ?? content.notAvailable}</span>
           </p>
 
           {winner.olympiadName && (
@@ -97,12 +108,12 @@ export default function WinnerCard({ winner }: WinnerProps) {
 
             <div className="flex items-center">
               <School className="h-4 w-4 mr-2 text-primary/80" />
-              {winner.school ?? "—"}
+              {winner.school ?? content.notAvailable}
             </div>
 
             <div className="flex items-center">
               <MapPin className="h-4 w-4 mr-2 text-primary/80" />
-              {winner.region ?? "—"}
+              {winner.region ?? content.notAvailable}
             </div>
           </div>
         </CardContent>
