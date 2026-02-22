@@ -55,6 +55,112 @@ export default function BoardOfTrusteesPage() {
     },
   }[locale];
 
+  const localizedMemberFields = {
+    en: {},
+    ru: {
+      "Shermatov Turaboy Yusupboevich": {
+        position: "Директор",
+        background: "Опытный руководитель в сфере образовательного менеджмента и международных академических программ.",
+        expertise: "Образовательное лидерство, международные программы, стратегическое планирование",
+      },
+      "Tuxtayev Davron Dilmurot ugli": {
+        position: "Заместитель директора",
+        background: "Педагог и администратор, специализирующийся на академическом управлении и развитии учащихся.",
+        expertise: "Академическое администрирование, развитие учащихся, образовательные программы",
+      },
+      "Aripov Jahongir Alimovich": {
+        position: "Главный HR-специалист",
+        background: "Специалист по управлению персоналом с большим опытом работы в образовательных учреждениях.",
+        expertise: "HR-менеджмент, организационное развитие, обучение персонала",
+      },
+      "Ishmuradov Shovhiddin Ilhomovich": {
+        position: "Руководитель отдела организации национальных научных олимпиад и конкурсов",
+        background: "Координатор академических соревнований с опытом организации мероприятий и работы с учащимися.",
+        expertise: "Управление олимпиадами, академические соревнования, организация мероприятий",
+      },
+      "Jumaev Tursunboy Khusen ogli": {
+        position: "Руководитель отдела подготовки материалов, мониторинга и онлайн-олимпиад",
+        background: "Эксперт по системам оценивания и цифровым платформам олимпиад.",
+        expertise: "E-learning платформы, онлайн-олимпиады, разработка учебного контента",
+      },
+      "Tuychiev Fayyoz Farhod ugli": {
+        position: "Руководитель отдела отбора и подготовки к международным олимпиадам",
+        background: "Педагог, специализирующийся на подготовке учащихся к международным STEM-соревнованиям.",
+        expertise: "STEM-образование, олимпиадная подготовка, международный академический коучинг",
+      },
+      "Tadjieva Nargiza Rustamovna": {
+        position: "Руководитель отдела методических разработок и учебных материалов",
+        background: "Специалист в области подготовки преподавателей и разработки учебных программ STEM.",
+        expertise: "Педагогические инновации, дизайн учебных программ, развитие компетенций учителей",
+      },
+      "Turaeva Tamanno Ochilovna": {
+        position: "Руководитель отдела цифровых медиа",
+        background: "Эксперт в сфере медиакоммуникаций, PR и управления цифровыми образовательными ресурсами.",
+        expertise: "Цифровые медиастратегии, общественные коммуникации, образовательные медиа",
+      },
+      "Choliev Abduvali Abdulasam ugli": {
+        position: "Руководитель бухгалтерии",
+        background: "Квалифицированный бухгалтер с опытом финансовой отчётности и бюджетирования.",
+        expertise: "Бухгалтерский учёт, финансовый менеджмент, аудит и комплаенс",
+      },
+    },
+    uz: {
+      "Shermatov Turaboy Yusupboevich": {
+        position: "Direktor",
+        background: "Ta’lim boshqaruvi va xalqaro akademik dasturlar bo‘yicha tajribali rahbar.",
+        expertise: "Ta’lim liderligi, xalqaro dasturlar, strategik rejalashtirish",
+      },
+      "Tuxtayev Davron Dilmurot ugli": {
+        position: "Direktor o‘rinbosari",
+        background: "Akademik boshqaruv va o‘quvchilar rivoji yo‘nalishida tajribaga ega pedagog.",
+        expertise: "Akademik boshqaruv, o‘quvchilar rivoji, ta’lim dasturlari",
+      },
+      "Aripov Jahongir Alimovich": {
+        position: "Bosh HR mutaxassisi",
+        background: "Ta’lim muassasalarida ko‘p yillik tajribaga ega inson resurslari mutaxassisi.",
+        expertise: "HR boshqaruvi, tashkilot rivoji, xodimlarni tayyorlash",
+      },
+      "Ishmuradov Shovhiddin Ilhomovich": {
+        position: "Milliy fan olimpiadalari va tanlovlarini tashkil etish bo‘limi boshlig‘i",
+        background: "Akademik tanlovlarni muvofiqlashtirish va tadbir logistikasida tajribali mutaxassis.",
+        expertise: "Olimpiada boshqaruvi, akademik musobaqalar, tadbirlarni tashkil etish",
+      },
+      "Jumaev Tursunboy Khusen ogli": {
+        position: "Olimpiada materiallari, monitoring va onlayn olimpiadalar bo‘limi boshlig‘i",
+        background: "Baholash tizimlari va raqamli olimpiada platformalari bo‘yicha ekspert.",
+        expertise: "E-learning platformalari, onlayn olimpiadalar, o‘quv kontenti ishlab chiqish",
+      },
+      "Tuychiev Fayyoz Farhod ugli": {
+        position: "Xalqaro fan olimpiadalariga saralash va tayyorlash bo‘limi boshlig‘i",
+        background: "O‘quvchilarni xalqaro STEM musobaqalariga tayyorlashda ixtisoslashgan pedagog.",
+        expertise: "STEM ta’limi, olimpiada tayyorgarligi, xalqaro akademik murabbiylik",
+      },
+      "Tadjieva Nargiza Rustamovna": {
+        position: "Metodik qo‘llanmalar va o‘quv materiallari bo‘limi boshlig‘i",
+        background: "O‘qituvchilarni tayyorlash va STEM o‘quv dasturlarini rivojlantirish bo‘yicha mutaxassis.",
+        expertise: "Pedagogik innovatsiyalar, o‘quv dasturi dizayni, o‘qituvchi salohiyatini oshirish",
+      },
+      "Turaeva Tamanno Ochilovna": {
+        position: "Raqamli media bo‘limi boshlig‘i",
+        background: "Media kommunikatsiya, PR va raqamli ta’lim resurslari boshqaruvida tajribali mutaxassis.",
+        expertise: "Raqamli media strategiyasi, jamoatchilik bilan aloqalar, ta’lim media kontenti",
+      },
+      "Choliev Abduvali Abdulasam ugli": {
+        position: "Buxgalteriya bo‘limi boshlig‘i",
+        background: "Moliyaviy hisobot va byudjetlashtirish bo‘yicha tajribali sertifikatlangan buxgalter.",
+        expertise: "Buxgalteriya hisobi, moliyaviy boshqaruv, audit va muvofiqlik",
+      },
+    },
+  }[locale] as Record<string, { position?: string; background?: string; expertise?: string }>;
+
+  const localizedMembers = boardMembers.map((member) => {
+    const translated = localizedMemberFields[member.name] || {};
+    return {
+      ...member,
+      ...translated,
+    };
+  });
+
   return (
     <div className="min-h-screen relative">
       <FadingBackground imageUrl="/main-bg.jpg" height={400} />
@@ -109,7 +215,7 @@ export default function BoardOfTrusteesPage() {
 
           {/* Board Members */}
           <div className="space-y-10">
-            {boardMembers.map((member, index) => (
+            {localizedMembers.map((member, index) => (
               <Card
                 key={index}
                 className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden bg-white/95 backdrop-blur-sm border border-gray-100"

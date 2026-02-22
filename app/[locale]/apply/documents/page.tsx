@@ -147,42 +147,166 @@ export default function RequiredDocumentsPage() {
     },
   ]
 
-  const documentChecklist = [
-    "All documents must be in English or Uzbek",
-    "Scans must be clear, legible, and complete",
-    "File size must not exceed 5MB per document",
-    "Preferably in PDF format",
-    "Multi-page files must include all pages",
-    "Documents must be issued within the past 12 months (unless otherwise specified)",
-  ]
+  const localizedDocumentMap = {
+    ru: {
+      "Academic Transcripts": {
+        title: "Табели / транскрипт",
+        description: "Официальные академические выписки за последние два учебных года",
+        format: "PDF или качественный скан",
+        notes: "Должно быть заверено администрацией школы",
+      },
+      "Birth Certificate / Passport Copy": {
+        title: "Свидетельство о рождении / копия паспорта",
+        description: "Документ, подтверждающий дату рождения кандидата",
+        format: "PDF или скан-копия",
+        notes: "Используется для проверки возраста",
+      },
+      "Recommendation Letters": {
+        title: "Рекомендательные письма",
+        description: "Два рекомендательных письма от учителей математики или естественных наук",
+        format: "PDF на официальном бланке школы",
+        notes: "Должны быть подписаны и датированы",
+      },
+      "Personal Statement": {
+        title: "Мотивационное письмо",
+        description: "Эссе (500–1000 слов) о целях, мотивации и интересе к олимпиадам",
+        format: "PDF или Word-документ",
+        notes: "Должно отражать мотивацию и вовлечённость",
+      },
+      "Competition Certificates": {
+        title: "Сертификаты соревнований",
+        description: "Сертификаты с предыдущих олимпиад и конкурсов",
+        format: "PDF или скан-копии",
+        notes: "Желательно приложить национальные и международные достижения",
+      },
+      "Medical Certificate": {
+        title: "Медицинская справка",
+        description: "Справка о состоянии здоровья для интенсивного обучения и поездок",
+        format: "PDF, выданный лицензированным врачом",
+        notes: "Срок выдачи — не более 6 месяцев",
+      },
+      "Parent/Guardian Consent Form": {
+        title: "Согласие родителя/опекуна",
+        description: "Подписанное согласие на участие в программах Центра",
+        format: "PDF подписанной формы",
+        notes: "Используйте официальную форму с сайта Центра",
+      },
+      Portfolio: {
+        title: "Портфолио",
+        description: "Подборка академических проектов, исследований или задач",
+        format: "PDF-файл",
+        notes: "Может усилить заявку",
+      },
+    },
+    uz: {
+      "Academic Transcripts": {
+        title: "Akademik baholar varaqasi",
+        description: "So‘nggi ikki o‘quv yili uchun rasmiy akademik transcript",
+        format: "PDF yoki sifatli skan nusxa",
+        notes: "Maktab ma’muriyati tomonidan tasdiqlangan bo‘lishi kerak",
+      },
+      "Birth Certificate / Passport Copy": {
+        title: "Tug‘ilganlik guvohnomasi / pasport nusxasi",
+        description: "Nomzodning tug‘ilgan sanasini tasdiqlovchi rasmiy hujjat",
+        format: "PDF yoki skan nusxa",
+        notes: "Yoshni tasdiqlash uchun ishlatiladi",
+      },
+      "Recommendation Letters": {
+        title: "Tavsiyanomalar",
+        description: "Matematika yoki tabiiy fan o‘qituvchilaridan 2 ta tavsiyanoma",
+        format: "Maktab blankasidagi PDF",
+        notes: "Imzolangan va sana qo‘yilgan bo‘lishi kerak",
+      },
+      "Personal Statement": {
+        title: "Shaxsiy bayonot",
+        description: "500–1000 so‘zli motivatsiya va maqsadlarni yorituvchi esse",
+        format: "PDF yoki Word hujjat",
+        notes: "Fan o‘rganishga bo‘lgan qiziqishni aniq ko‘rsatishi kerak",
+      },
+      "Competition Certificates": {
+        title: "Musobaqa sertifikatlari",
+        description: "Oldingi olimpiada va tanlovlardan olingan sertifikatlar",
+        format: "PDF yoki skan nusxa",
+        notes: "Milliy va xalqaro yutuqlarni ilova qilish tavsiya etiladi",
+      },
+      "Medical Certificate": {
+        title: "Tibbiy ma’lumotnoma",
+        description: "Intensiv o‘qish va safar uchun sog‘liq holatini tasdiqlovchi hujjat",
+        format: "Litsenziyaga ega shifokor bergan PDF",
+        notes: "So‘nggi 6 oy ichida berilgan bo‘lishi kerak",
+      },
+      "Parent/Guardian Consent Form": {
+        title: "Ota-ona/vasiy rozilik shakli",
+        description: "Markaz dasturlarida ishtirok etish uchun imzolangan rozilik",
+        format: "Imzolangan forma PDF nusxasi",
+        notes: "Markaz saytida berilgan rasmiy formadan foydalaning",
+      },
+      Portfolio: {
+        title: "Portfolio",
+        description: "Akademik loyihalar, tadqiqot ishlari va masala yechimlari to‘plami",
+        format: "PDF to‘plam",
+        notes: "Ariza kuchini oshirishi mumkin",
+      },
+    },
+  }[locale as "ru" | "uz"] as Record<string, { title: string; description: string; format: string; notes: string }> | undefined
 
-  const submissionSteps = [
-    {
-      step: 1,
-      title: "Prepare Documents",
-      description: "Gather and scan all required documents in high resolution",
-    },
-    {
-      step: 2,
-      title: "Complete Online Form",
-      description: "Fill in your personal and academic details on the application page",
-    },
-    {
-      step: 3,
-      title: "Upload Documents",
-      description: "Submit all required files through our secure upload portal",
-    },
-    {
-      step: 4,
-      title: "Review & Submit",
-      description: "Verify all information before final submission",
-    },
-    {
-      step: 5,
-      title: "Confirmation",
-      description: "Receive a confirmation email with your application reference number",
-    },
-  ]
+  const localizedDocuments = requiredDocuments.map((doc) => ({
+    ...doc,
+    ...(localizedDocumentMap?.[doc.title] || {}),
+  }))
+
+  const documentChecklist =
+    locale === "ru"
+      ? [
+          "Документы должны быть на русском, узбекском или с официальным переводом",
+          "Сканы должны быть чёткими и читаемыми",
+          "Размер файла не должен превышать 5MB",
+          "Предпочтительный формат — PDF",
+          "Многостраничные файлы должны содержать все страницы",
+          "Документы должны быть актуальными (если не указано иное)",
+        ]
+      : locale === "uz"
+        ? [
+            "Hujjatlar o‘zbek, rus yoki rasmiy tarjima bilan bo‘lishi kerak",
+            "Skan nusxalar aniq va to‘liq ko‘rinadigan bo‘lishi kerak",
+            "Har bir fayl hajmi 5MB dan oshmasin",
+            "Afzal format — PDF",
+            "Ko‘p sahifali fayllarda barcha sahifalar bo‘lishi shart",
+            "Hujjatlar dolzarb bo‘lishi kerak (alohida ko‘rsatilmagan bo‘lsa)",
+          ]
+        : [
+            "All documents must be in English or Uzbek",
+            "Scans must be clear, legible, and complete",
+            "File size must not exceed 5MB per document",
+            "Preferably in PDF format",
+            "Multi-page files must include all pages",
+            "Documents must be issued within the past 12 months (unless otherwise specified)",
+          ]
+
+  const submissionSteps =
+    locale === "ru"
+      ? [
+          { step: 1, title: "Подготовьте документы", description: "Соберите и отсканируйте все документы в хорошем качестве" },
+          { step: 2, title: "Заполните онлайн-форму", description: "Введите личные и академические данные в форме заявки" },
+          { step: 3, title: "Загрузите документы", description: "Отправьте файлы через защищённый портал загрузки" },
+          { step: 4, title: "Проверьте и отправьте", description: "Проверьте корректность данных перед финальной отправкой" },
+          { step: 5, title: "Подтверждение", description: "Получите email с подтверждением и номером заявки" },
+        ]
+      : locale === "uz"
+        ? [
+            { step: 1, title: "Hujjatlarni tayyorlang", description: "Kerakli hujjatlarni yig‘ing va sifatli skan qiling" },
+            { step: 2, title: "Onlayn formani to‘ldiring", description: "Shaxsiy va akademik ma’lumotlarni kiriting" },
+            { step: 3, title: "Hujjatlarni yuklang", description: "Fayllarni xavfsiz yuklash portali orqali yuboring" },
+            { step: 4, title: "Tekshiring va yuboring", description: "Yuborishdan oldin barcha ma’lumotlarni tekshiring" },
+            { step: 5, title: "Tasdiq", description: "Ariza raqami ko‘rsatilgan tasdiqlovchi emailni oling" },
+          ]
+        : [
+            { step: 1, title: "Prepare Documents", description: "Gather and scan all required documents in high resolution" },
+            { step: 2, title: "Complete Online Form", description: "Fill in your personal and academic details on the application page" },
+            { step: 3, title: "Upload Documents", description: "Submit all required files through our secure upload portal" },
+            { step: 4, title: "Review & Submit", description: "Verify all information before final submission" },
+            { step: 5, title: "Confirmation", description: "Receive a confirmation email with your application reference number" },
+          ]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50">
@@ -220,7 +344,7 @@ export default function RequiredDocumentsPage() {
                   <CardTitle className="text-2xl">{content.requirements}</CardTitle>
                 </CardHeader>
                 <CardContent className="p-8 space-y-8">
-                  {requiredDocuments.map((doc, index) => (
+                  {localizedDocuments.map((doc, index) => (
                     <div key={index} className="border-l-4 border-orange-500 pl-6">
                       <div className="flex items-start justify-between mb-2">
                         <h4 className="font-semibold text-xl text-gray-900">{doc.title}</h4>
