@@ -96,21 +96,7 @@ export const boardMembers: BoardMember[] = [
     image: "/team/fayyoz.jpg",
   },
   
-  {
-    name: "Tadjieva Nargiza Rustamovna",
-    position:
-      "Head of the Department for Developing Methodological Guidelines and Educational Materials, and Training of Instructors",
-    background:
-      "Specialist in teacher training and curriculum development for STEM education",
-    expertise:
-      "Pedagogical Innovation, Curriculum Design, Teacher Capacity Building",
-    experience: "21 years",
-    education: [
-      "2005 - Mukimiy Kokand State Pedagogical Institute (Bachelor's degree)",
-      "2023 - Al-Bukhari Oriental University (Master's degree)",
-    ],
-    image: "/team/nargiza.jpg",
-  },
+ 
   
   {
     name: "Turaeva Tamanno Ochilovna",

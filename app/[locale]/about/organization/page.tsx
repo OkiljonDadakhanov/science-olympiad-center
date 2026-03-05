@@ -113,7 +113,7 @@ const orgData = {
       },
       staff: [
         {
-          name: "Shamsiyev Davron Asliddinovich",
+          name: "Shamshiyev Davron Asliddinovich",
           role: "Chief Specialist",
           work: "5 years",
           image: "/tree/davron.jpg",
@@ -264,14 +264,14 @@ function PersonCard({
     <div className={s.wrapper}>
       <Card className={`${s.card} bg-card hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/30`}>
         <div className="flex flex-col items-center text-center">
-          <div className={`${s.avatar} rounded-full overflow-hidden border-3 border-primary/20 mb-4 ring-2 ring-offset-2 ring-offset-background ring-primary/10`}>
+          <div className={`${s.avatar} relative rounded-full overflow-hidden border-3 border-primary/20 mb-4 ring-2 ring-offset-2 ring-offset-background ring-primary/10`}>
             {person.image ? (
               <Image
                 src={person.image}
                 alt={person.name}
-                width={128}
-                height={128}
-                className="w-full h-full object-cover"
+                fill
+                sizes="128px"
+                className="object-cover"
               />
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-white font-bold text-2xl">

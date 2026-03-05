@@ -138,7 +138,7 @@ const orgData = {
       staff: [
         {
           id: "dept3_staff1",
-          name: "Shamsiyev Davron Asliddinovich",
+          name: "Shamshiyev Davron Asliddinovich",
           role: "Chief Specialist",
           work: "5 years",
           image: "/tree/davron.jpg",
@@ -199,7 +199,7 @@ const orgData = {
           name: "Abdusattorova Charos Abdulaziz qizi",
           role: "Lead Specialist",
           work: "3 years",
-          image: "/team/charos.png",
+          image: "/tree/charos.png",
           education: []
         }
       ]
