@@ -1,8 +1,16 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './i18n/routing';
 
-export function middleware(_request: NextRequest) {
-  const html = `<!DOCTYPE html>
+const intlMiddleware = createMiddleware(routing);
+
+export function middleware(request: NextRequest) {
+  const hostname = request.nextUrl.hostname;
+
+  // Show "under construction" page only on the production domain
+  if (hostname === 'olympcenter.uz' || hostname === 'www.olympcenter.uz') {
+    const html = `<!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charSet="utf-8" />
@@ -91,16 +99,20 @@ export function middleware(_request: NextRequest) {
     </body>
   </html>`;
 
-  return new NextResponse(html, {
-    status: 200,
-    headers: {
-      'content-type': 'text/html; charset=utf-8',
-      'cache-control': 'no-store'
-    }
-  });
+    return new NextResponse(html, {
+      status: 200,
+      headers: {
+        'content-type': 'text/html; charset=utf-8',
+        'cache-control': 'no-store'
+      }
+    });
+  }
+
+  // For all other hosts (e.g. Vercel preview/production URLs), run the normal i18n middleware
+  return intlMiddleware(request);
 }
 
 export const config = {
-  // Apply to all routes except Next.js internals and static files
-  matcher: ['/((?!_next|.*\\..*).*)']
+  // Match only internationalized pathnames and general app routes
+  matcher: ['/', '/(uz|en|ru)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)']
 };
